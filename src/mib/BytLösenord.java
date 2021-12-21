@@ -26,17 +26,64 @@ public class BytLösenord extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        lblÄndraLösenordRubrik = new javax.swing.JLabel();
+        btnÄndra = new javax.swing.JButton();
+        lblBefintligtLösenord = new javax.swing.JLabel();
+        tfBefintligaLösenordet = new javax.swing.JTextField();
+        lblNyttLösenord = new javax.swing.JLabel();
+        tfNyaLösenordet = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblÄndraLösenordRubrik.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        lblÄndraLösenordRubrik.setText("Ändra lösenord");
+
+        btnÄndra.setText("Ändra");
+
+        lblBefintligtLösenord.setText("Ange befintligt lösenord:");
+
+        tfBefintligaLösenordet.setColumns(10);
+
+        lblNyttLösenord.setText("Ange nytt lösenord:");
+
+        tfNyaLösenordet.setColumns(10);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNyttLösenord)
+                            .addComponent(tfBefintligaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblBefintligtLösenord)
+                            .addComponent(lblÄndraLösenordRubrik))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnÄndra)
+                        .addGap(122, 299, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(lblÄndraLösenordRubrik)
+                .addGap(29, 29, 29)
+                .addComponent(lblBefintligtLösenord)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tfBefintligaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblNyttLösenord)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(tfNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnÄndra)
+                .addGap(52, 52, 52))
         );
 
         pack();
@@ -78,5 +125,12 @@ public class BytLösenord extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnÄndra;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel lblBefintligtLösenord;
+    private javax.swing.JLabel lblNyttLösenord;
+    private javax.swing.JLabel lblÄndraLösenordRubrik;
+    private javax.swing.JTextField tfBefintligaLösenordet;
+    private javax.swing.JTextField tfNyaLösenordet;
     // End of variables declaration//GEN-END:variables
 }
