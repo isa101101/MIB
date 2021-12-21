@@ -25,17 +25,60 @@ public class SökOmråden extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblRubrikSökOmråde = new javax.swing.JLabel();
+        lblAngeOmråde = new javax.swing.JLabel();
+        tfSökOmråde = new javax.swing.JTextField();
+        lblResultat = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        taSökResultat = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblRubrikSökOmråde.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        lblRubrikSökOmråde.setText("Sök efter Aliens i ett område");
+
+        lblAngeOmråde.setText("Ange område:");
+
+        tfSökOmråde.setColumns(10);
+
+        lblResultat.setText("Resultat:");
+
+        taSökResultat.setColumns(20);
+        taSökResultat.setRows(5);
+        jScrollPane2.setViewportView(taSökResultat);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblRubrikSökOmråde))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfSökOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAngeOmråde)
+                            .addComponent(lblResultat)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(lblRubrikSökOmråde)
+                .addGap(18, 18, 18)
+                .addComponent(lblAngeOmråde)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfSökOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(lblResultat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
         );
 
         pack();
@@ -77,6 +120,12 @@ public class SökOmråden extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblAngeOmråde;
+    private javax.swing.JLabel lblResultat;
+    private javax.swing.JLabel lblRubrikSökOmråde;
+    private javax.swing.JTextArea taSökResultat;
+    private javax.swing.JTextField tfSökOmråde;
     // End of variables declaration//GEN-END:variables
 
 }
