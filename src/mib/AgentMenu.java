@@ -4,6 +4,8 @@
  */
 package mib;
 
+import oru.inf.InfDB;
+
 /**
  *
  * @author isabellefredriksson
@@ -15,6 +17,10 @@ public class AgentMenu extends javax.swing.JFrame {
      */
     public AgentMenu() {
         initComponents();
+    }
+
+    AgentMenu(InfDB idb) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
