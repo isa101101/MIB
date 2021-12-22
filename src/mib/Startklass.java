@@ -26,7 +26,7 @@ public class Startklass {
 
         }
         
-        new AgentMenu(idb).setVisible(true);
+        new Inloggning(idb).setVisible(true);
 
     }
 
