@@ -42,31 +42,30 @@ public class AgentMenu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         buttonGroup3 = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblVälkommenRubrik = new javax.swing.JLabel();
+        lblÄndraLösenordLänk = new javax.swing.JLabel();
+        lblNyregAlienLänk = new javax.swing.JLabel();
+        lblÄndraInfoAlienLänk = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lblAlienOlikaPlatser = new javax.swing.JLabel();
+        lblListaRasAlien = new javax.swing.JLabel();
+        lblAlienRegTvåDatum = new javax.swing.JLabel();
+        lblNyregUtrustning = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        lblOmrådeschefer = new javax.swing.JLabel();
+        lblTopplista = new javax.swing.JLabel();
+        LblUtrustning = new javax.swing.JLabel();
+        btnKlickaHärÄndraLösenord = new javax.swing.JButton();
+        btnKlickaHärNyregAlien = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        btnKlickaHärÄndraInfoAlien = new javax.swing.JButton();
+        btnKlickaHärListaRas = new javax.swing.JButton();
+        btnKlickaHärAlienRegDatum = new javax.swing.JButton();
+        btnKlickaHärAlienPlatser = new javax.swing.JButton();
+        btnKlickaHärUtrustning = new javax.swing.JButton();
+        btnNyregUtrustning = new javax.swing.JButton();
+        btnKlickaHärOmrådeschefer = new javax.swing.JButton();
+        btnTopplista = new javax.swing.JButton();
 
         popupMenu1.setLabel("popupMenu1");
 
@@ -85,64 +84,57 @@ public class AgentMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel1.setText("Välkommen!");
+        lblVälkommenRubrik.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        lblVälkommenRubrik.setText("Välkommen Angentensnamn!");
 
-        jLabel2.setText("Ändra lösenord");
+        lblÄndraLösenordLänk.setText("Ändra lösenord");
 
-        jLabel3.setText("Nyregistrera aliens");
+        lblNyregAlienLänk.setText("Nyregistrera aliens");
 
-        jLabel4.setText("Ändra information om alien");
+        lblÄndraInfoAlienLänk.setText("Ändra information om alien");
 
-        jLabel6.setText("Alien på olika platser");
+        lblAlienOlikaPlatser.setText("Alien på olika platser");
 
-        jLabel7.setText("Lista av ras på alien");
+        lblListaRasAlien.setText("Lista av ras på alien");
 
-        jLabel8.setText("Alien registrerade mellan två datum");
+        lblAlienRegTvåDatum.setText("Alien registrerade mellan två datum");
 
-        jLabel9.setText("Registrera ny utrustning");
+        lblNyregUtrustning.setText("Registrera ny utrustning");
 
         jLabel10.setText("Sök information om alien");
 
-        jLabel11.setText("Områdeschefer");
+        lblOmrådeschefer.setText("Områdeschefer");
 
-        jLabel12.setText("Topplista (topp 3) agenter med flest aliens");
+        lblTopplista.setText("Topplista (topp 3) agenter med flest aliens");
 
-        jLabel13.setText("Min utrustning");
+        LblUtrustning.setText("Min utrustning");
 
-        jTextField1.setText("Få agentens namn här?");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+        btnKlickaHärÄndraLösenord.setText("Klicka här");
 
-        jButton1.setText("Klicka här");
-
-        jButton2.setText("Klicka här");
+        btnKlickaHärNyregAlien.setText("Klicka här");
 
         jButton3.setText("Klicka här");
 
-        jButton4.setText("Klicka här");
+        btnKlickaHärÄndraInfoAlien.setText("Klicka här");
 
-        jButton5.setText("Klicka här");
+        btnKlickaHärListaRas.setText("Klicka här");
 
-        jButton6.setText("Klicka här");
+        btnKlickaHärAlienRegDatum.setText("Klicka här");
 
-        jButton7.setText("Klicka här");
+        btnKlickaHärAlienPlatser.setText("Klicka här");
 
-        jButton8.setText("Klicka här");
+        btnKlickaHärUtrustning.setText("Klicka här");
 
-        jButton9.setText("Klicka här");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btnNyregUtrustning.setText("Klicka här");
+        btnNyregUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btnNyregUtrustningActionPerformed(evt);
             }
         });
 
-        jButton10.setText("Klicka här");
+        btnKlickaHärOmrådeschefer.setText("Klicka här");
 
-        jButton11.setText("Klicka här");
+        btnTopplista.setText("Klicka här");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -152,124 +144,117 @@ public class AgentMenu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel13)
+                        .addComponent(LblUtrustning)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8))
+                        .addComponent(btnKlickaHärUtrustning))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton11))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addComponent(lblTopplista)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4))
+                        .addComponent(btnTopplista))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblÄndraInfoAlienLänk)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnKlickaHärÄndraInfoAlien))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(lblNyregAlienLänk)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
+                        .addComponent(btnKlickaHärNyregAlien))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(lblÄndraLösenordLänk)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(btnKlickaHärÄndraLösenord))
                     .addComponent(jLabel5)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                        .addComponent(lblListaRasAlien)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnKlickaHärListaRas))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(lblAlienRegTvåDatum)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnKlickaHärAlienRegDatum))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel8)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblVälkommenRubrik)
+                            .addGap(166, 166, 166)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel9)
+                            .addComponent(lblNyregUtrustning)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton9))
+                            .addComponent(btnNyregUtrustning))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel6)
+                            .addComponent(lblAlienOlikaPlatser)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton7))
+                            .addComponent(btnKlickaHärAlienPlatser))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel11)
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton10))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblOmrådeschefer)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnKlickaHärOmrådeschefer))))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lblVälkommenRubrik)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jButton1))
+                    .addComponent(lblÄndraLösenordLänk)
+                    .addComponent(btnKlickaHärÄndraLösenord))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jButton2))
+                    .addComponent(lblNyregAlienLänk)
+                    .addComponent(btnKlickaHärNyregAlien))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jButton4))
+                    .addComponent(lblÄndraInfoAlienLänk)
+                    .addComponent(btnKlickaHärÄndraInfoAlien))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jButton5))
+                    .addComponent(lblListaRasAlien)
+                    .addComponent(btnKlickaHärListaRas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jButton6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(lblAlienRegTvåDatum)
+                    .addComponent(btnKlickaHärAlienRegDatum))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jButton7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(lblAlienOlikaPlatser)
+                    .addComponent(btnKlickaHärAlienPlatser))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jButton8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(LblUtrustning)
+                    .addComponent(btnKlickaHärUtrustning))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jButton9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(lblNyregUtrustning)
+                    .addComponent(btnNyregUtrustning))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jButton10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(lblOmrådeschefer)
+                    .addComponent(btnKlickaHärOmrådeschefer))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jButton11))
+                    .addComponent(lblTopplista)
+                    .addComponent(btnTopplista))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void btnNyregUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyregUtrustningActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_btnNyregUtrustningActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,39 +292,38 @@ public class AgentMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LblUtrustning;
+    private javax.swing.JButton btnKlickaHärAlienPlatser;
+    private javax.swing.JButton btnKlickaHärAlienRegDatum;
+    private javax.swing.JButton btnKlickaHärListaRas;
+    private javax.swing.JButton btnKlickaHärNyregAlien;
+    private javax.swing.JButton btnKlickaHärOmrådeschefer;
+    private javax.swing.JButton btnKlickaHärUtrustning;
+    private javax.swing.JButton btnKlickaHärÄndraInfoAlien;
+    private javax.swing.JButton btnKlickaHärÄndraLösenord;
+    private javax.swing.JButton btnNyregUtrustning;
+    private javax.swing.JButton btnTopplista;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblAlienOlikaPlatser;
+    private javax.swing.JLabel lblAlienRegTvåDatum;
+    private javax.swing.JLabel lblListaRasAlien;
+    private javax.swing.JLabel lblNyregAlienLänk;
+    private javax.swing.JLabel lblNyregUtrustning;
+    private javax.swing.JLabel lblOmrådeschefer;
+    private javax.swing.JLabel lblTopplista;
+    private javax.swing.JLabel lblVälkommenRubrik;
+    private javax.swing.JLabel lblÄndraInfoAlienLänk;
+    private javax.swing.JLabel lblÄndraLösenordLänk;
     private java.awt.PopupMenu popupMenu1;
     private java.awt.PopupMenu popupMenu2;
     // End of variables declaration//GEN-END:variables
