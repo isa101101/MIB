@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
+
 /**
  *
  * @author jackmacbook
@@ -18,7 +19,7 @@ public class Startklass {
 
     public static void main(String[] args) {
         try {
-            idb = new InfDB("MIBDB", "3306", "MIBDB", "mibkey");
+            idb = new InfDB("mibdb", "3306", "root", "McCarthy2018");
             System.out.println("funka");
         } catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog(null, "Något gick fel!");
