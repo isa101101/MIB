@@ -26,17 +26,38 @@ public class AliensIMittOmråde extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblRubrikAliensIOmråde = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        taListaAliensOmråde = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblRubrikAliensIOmråde.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        lblRubrikAliensIOmråde.setText("Aliens i mitt område");
+
+        taListaAliensOmråde.setColumns(20);
+        taListaAliensOmråde.setRows(5);
+        jScrollPane1.setViewportView(taListaAliensOmråde);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRubrikAliensIOmråde))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(lblRubrikAliensIOmråde)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         pack();
@@ -78,5 +99,8 @@ public class AliensIMittOmråde extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblRubrikAliensIOmråde;
+    private javax.swing.JTextArea taListaAliensOmråde;
     // End of variables declaration//GEN-END:variables
 }
