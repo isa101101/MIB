@@ -55,6 +55,11 @@ public class Inloggning extends javax.swing.JFrame {
         pfLösenord.setText("jPasswordField1");
 
         cbValdBefattning.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agent", "Alien", "Admin" }));
+        cbValdBefattning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbValdBefattningActionPerformed(evt);
+            }
+        });
 
         lblAngeBefattning.setText("Ange din befattning:");
 
@@ -123,6 +128,10 @@ public class Inloggning extends javax.swing.JFrame {
     private void btnLoggaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInActionPerformed
        lblRubrikLoggaIn.setText("Hej");
     }//GEN-LAST:event_btnLoggaInActionPerformed
+
+    private void cbValdBefattningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbValdBefattningActionPerformed
+        cbValdBefattning.getActionCommand();
+    }//GEN-LAST:event_cbValdBefattningActionPerformed
 
     /**
      * @param args the command line arguments
