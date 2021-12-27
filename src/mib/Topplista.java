@@ -25,105 +25,105 @@ public class Topplista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblRubrikTopplista = new javax.swing.JLabel();
+        lblNorrland = new javax.swing.JLabel();
+        lblSvealand = new javax.swing.JLabel();
         lblGötaland = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
+        tfPlats1Norrland = new javax.swing.JTextField();
+        tfPlats1Svealand = new javax.swing.JTextField();
+        tfPlats1Götaland = new javax.swing.JTextField();
+        tfPlats2Norrland = new javax.swing.JTextField();
+        tfPlats2Svealand = new javax.swing.JTextField();
+        tfPlats2Götaland = new javax.swing.JTextField();
+        tfPlats3Norrland = new javax.swing.JTextField();
+        tfPlats3Svealand = new javax.swing.JTextField();
+        tfPlats3Götaland = new javax.swing.JTextField();
+        lblPlats1 = new javax.swing.JLabel();
+        lblPlats2 = new javax.swing.JLabel();
+        lblPlats3 = new javax.swing.JLabel();
+        lblAntalNorrland = new javax.swing.JLabel();
+        tfPlats1AntalNorrland = new javax.swing.JTextField();
+        tfPlats2AntalNorrland = new javax.swing.JTextField();
+        tfPlats3AntalNorrland = new javax.swing.JTextField();
+        lblAntalSvealand = new javax.swing.JLabel();
+        tfPlats3AntalSvealand = new javax.swing.JTextField();
+        tfPlats2AntalSvealand = new javax.swing.JTextField();
+        tfPlats3AntSvealand = new javax.swing.JTextField();
+        lblAntalGötaland = new javax.swing.JLabel();
+        tfPlats1AntalGötaland = new javax.swing.JTextField();
+        tfPlats2AntalGötaland = new javax.swing.JTextField();
+        tfPlats3AntalGötaland = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel1.setText("Topp 3 agenter med flest aliens");
+        lblRubrikTopplista.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        lblRubrikTopplista.setText("Topp 3 agenter med flest aliens");
 
-        jLabel2.setText("Norrland");
+        lblNorrland.setText("Norrland");
 
-        jLabel3.setText("Svealand");
+        lblSvealand.setText("Svealand");
 
         lblGötaland.setText("Götaland");
 
-        jTextField1.setColumns(6);
+        tfPlats1Norrland.setColumns(6);
 
-        jTextField2.setColumns(6);
+        tfPlats1Svealand.setColumns(6);
 
-        jTextField3.setColumns(6);
+        tfPlats1Götaland.setColumns(6);
 
-        jTextField4.setColumns(6);
+        tfPlats2Norrland.setColumns(6);
 
-        jTextField5.setColumns(6);
+        tfPlats2Svealand.setColumns(6);
 
-        jTextField6.setColumns(6);
+        tfPlats2Götaland.setColumns(6);
 
-        jTextField7.setColumns(6);
+        tfPlats3Norrland.setColumns(6);
 
-        jTextField8.setColumns(6);
+        tfPlats3Svealand.setColumns(6);
 
-        jTextField9.setColumns(6);
+        tfPlats3Götaland.setColumns(6);
 
-        jLabel5.setText("Plats 1");
+        lblPlats1.setText("Plats 1");
 
-        jLabel6.setText("Plats 2");
+        lblPlats2.setText("Plats 2");
 
-        jLabel7.setText("Plats 3");
+        lblPlats3.setText("Plats 3");
 
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
-        jLabel4.setText("Antal:");
+        lblAntalNorrland.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
+        lblAntalNorrland.setText("Antal:");
 
-        jTextField10.setColumns(4);
-        jTextField10.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        tfPlats1AntalNorrland.setColumns(4);
+        tfPlats1AntalNorrland.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
 
-        jTextField11.setColumns(4);
-        jTextField11.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        tfPlats2AntalNorrland.setColumns(4);
+        tfPlats2AntalNorrland.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
 
-        jTextField12.setColumns(4);
-        jTextField12.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        tfPlats3AntalNorrland.setColumns(4);
+        tfPlats3AntalNorrland.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
-        jLabel8.setText("Antal:");
+        lblAntalSvealand.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
+        lblAntalSvealand.setText("Antal:");
 
-        jTextField13.setColumns(4);
-        jTextField13.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        tfPlats3AntalSvealand.setColumns(4);
+        tfPlats3AntalSvealand.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
 
-        jTextField14.setColumns(4);
-        jTextField14.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        tfPlats2AntalSvealand.setColumns(4);
+        tfPlats2AntalSvealand.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
 
-        jTextField15.setColumns(4);
-        jTextField15.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        tfPlats3AntSvealand.setColumns(4);
+        tfPlats3AntSvealand.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
-        jLabel9.setText("Antal:");
+        lblAntalGötaland.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
+        lblAntalGötaland.setText("Antal:");
 
-        jTextField16.setColumns(4);
-        jTextField16.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        tfPlats1AntalGötaland.setColumns(4);
+        tfPlats1AntalGötaland.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
 
-        jTextField17.setColumns(4);
-        jTextField17.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        tfPlats2AntalGötaland.setColumns(4);
+        tfPlats2AntalGötaland.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
 
-        jTextField18.setColumns(4);
-        jTextField18.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        tfPlats3AntalGötaland.setColumns(4);
+        tfPlats3AntalGötaland.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,107 +132,107 @@ public class Topplista extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1)
+                    .addComponent(lblSvealand)
+                    .addComponent(lblRubrikTopplista)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4))
+                            .addComponent(lblNorrland)
+                            .addComponent(lblAntalNorrland))
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblPlats1)
+                            .addComponent(tfPlats1Norrland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfPlats1AntalNorrland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfPlats2Norrland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPlats2)
+                            .addComponent(tfPlats2AntalNorrland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)))
+                            .addComponent(tfPlats3AntalNorrland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfPlats3Norrland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPlats3)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
+                            .addComponent(lblAntalSvealand)
                             .addComponent(lblGötaland)
-                            .addComponent(jLabel9))
+                            .addComponent(lblAntalGötaland))
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfPlats1Svealand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfPlats3AntalSvealand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfPlats2Svealand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfPlats2AntalSvealand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tfPlats3AntSvealand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfPlats3Svealand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfPlats1Götaland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfPlats1AntalGötaland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfPlats2Götaland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfPlats2AntalGötaland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(tfPlats3AntalGötaland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfPlats3Götaland, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel1)
+                .addComponent(lblRubrikTopplista)
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                    .addComponent(lblPlats1)
+                    .addComponent(lblPlats2)
+                    .addComponent(lblPlats3))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(tfPlats1Norrland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPlats2Norrland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPlats3Norrland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNorrland))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAntalNorrland)
+                    .addComponent(tfPlats1AntalNorrland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPlats2AntalNorrland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPlats3AntalNorrland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(tfPlats1Svealand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPlats2Svealand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPlats3Svealand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSvealand))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAntalSvealand)
+                    .addComponent(tfPlats3AntalSvealand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPlats2AntalSvealand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPlats3AntSvealand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblGötaland)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfPlats1Götaland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPlats2Götaland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPlats3Götaland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addComponent(lblAntalGötaland)
+                    .addComponent(tfPlats1AntalGötaland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPlats2AntalGötaland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPlats3AntalGötaland, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -274,34 +274,34 @@ public class Topplista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lblAntalGötaland;
+    private javax.swing.JLabel lblAntalNorrland;
+    private javax.swing.JLabel lblAntalSvealand;
     private javax.swing.JLabel lblGötaland;
+    private javax.swing.JLabel lblNorrland;
+    private javax.swing.JLabel lblPlats1;
+    private javax.swing.JLabel lblPlats2;
+    private javax.swing.JLabel lblPlats3;
+    private javax.swing.JLabel lblRubrikTopplista;
+    private javax.swing.JLabel lblSvealand;
+    private javax.swing.JTextField tfPlats1AntalGötaland;
+    private javax.swing.JTextField tfPlats1AntalNorrland;
+    private javax.swing.JTextField tfPlats1Götaland;
+    private javax.swing.JTextField tfPlats1Norrland;
+    private javax.swing.JTextField tfPlats1Svealand;
+    private javax.swing.JTextField tfPlats2AntalGötaland;
+    private javax.swing.JTextField tfPlats2AntalNorrland;
+    private javax.swing.JTextField tfPlats2AntalSvealand;
+    private javax.swing.JTextField tfPlats2Götaland;
+    private javax.swing.JTextField tfPlats2Norrland;
+    private javax.swing.JTextField tfPlats2Svealand;
+    private javax.swing.JTextField tfPlats3AntSvealand;
+    private javax.swing.JTextField tfPlats3AntalGötaland;
+    private javax.swing.JTextField tfPlats3AntalNorrland;
+    private javax.swing.JTextField tfPlats3AntalSvealand;
+    private javax.swing.JTextField tfPlats3Götaland;
+    private javax.swing.JTextField tfPlats3Norrland;
+    private javax.swing.JTextField tfPlats3Svealand;
     // End of variables declaration//GEN-END:variables
 
 }
