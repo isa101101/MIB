@@ -26,7 +26,7 @@ public class SökPåAlien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblSökAlienRubrik = new javax.swing.JLabel();
+        lblSökEfterAlien = new javax.swing.JLabel();
         tfSökNamn = new javax.swing.JTextField();
         lblAngeAliensNamn = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -43,12 +43,12 @@ public class SökPåAlien extends javax.swing.JFrame {
         tfResultatTelefon = new javax.swing.JTextField();
         tfResultatNuvarandePlats = new javax.swing.JTextField();
         tfResultatAnsvarigAgent = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnSök = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblSökAlienRubrik.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        lblSökAlienRubrik.setText("Sök efter aliens");
+        lblSökEfterAlien.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        lblSökEfterAlien.setText("Sök efter aliens");
 
         tfSökNamn.setColumns(10);
 
@@ -81,10 +81,10 @@ public class SökPåAlien extends javax.swing.JFrame {
 
         tfResultatAnsvarigAgent.setColumns(10);
 
-        jButton1.setText("Sök");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSök.setText("Sök");
+        btnSök.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSökActionPerformed(evt);
             }
         });
 
@@ -99,8 +99,8 @@ public class SökPåAlien extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(tfSökNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1))
-                    .addComponent(lblSökAlienRubrik)
+                        .addComponent(btnSök))
+                    .addComponent(lblSökEfterAlien)
                     .addComponent(lblAngeAliensNamn)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
@@ -134,13 +134,13 @@ public class SökPåAlien extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(lblSökAlienRubrik)
+                .addComponent(lblSökEfterAlien)
                 .addGap(18, 18, 18)
                 .addComponent(lblAngeAliensNamn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfSökNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btnSök))
                 .addGap(18, 18, 18)
                 .addComponent(lblResultat)
                 .addGap(4, 4, 4)
@@ -175,9 +175,9 @@ public class SökPåAlien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSökActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,7 +215,7 @@ public class SökPåAlien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSök;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblAliensID;
     private javax.swing.JLabel lblAngeAliensNamn;
@@ -224,7 +224,7 @@ public class SökPåAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblNuvarandePlats;
     private javax.swing.JLabel lblRegDatum;
     private javax.swing.JLabel lblResultat;
-    private javax.swing.JLabel lblSökAlienRubrik;
+    private javax.swing.JLabel lblSökEfterAlien;
     private javax.swing.JLabel lblTelefon;
     private javax.swing.JTextField tfResultatAliensID;
     private javax.swing.JTextField tfResultatAnsvarigAgent;
