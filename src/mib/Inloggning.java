@@ -121,7 +121,7 @@ public class Inloggning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoggaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInActionPerformed
-        // TODO add your handling code here:
+       lblRubrikLoggaIn.setText("Hej");
     }//GEN-LAST:event_btnLoggaInActionPerformed
 
     /**
