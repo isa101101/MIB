@@ -4,14 +4,19 @@
  */
 package mib;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oru.inf.InfDB;
+import javax.swing.JOptionPane;
+
+import oru.inf.InfException;
 
 /**
  *
  * @author isabellefredriksson
  */
 public class Inloggning extends javax.swing.JFrame {
-
+ private static InfDB idb;
     /**
      * Creates new form Inloggning
      */
@@ -126,7 +131,26 @@ public class Inloggning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoggaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInActionPerformed
-       lblRubrikLoggaIn.setText("Hej");
+       //lblRubrikLoggaIn.setText("Hej");
+       
+         try {
+            idb = new InfDB("mibdb", "3306", "root", "McCarthy2018");
+            System.out.println("funka");
+        } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
+
+        }
+         String fraga = "Select namn from mibdb.agent where Agent_ID = 4";
+         String svar;
+     try {
+         svar = idb.fetchSingle(fraga);
+     } catch (InfException ex) {
+         Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
+     }
+         
+         lblRubrikLoggaIn.setText(svar);
+       
     }//GEN-LAST:event_btnLoggaInActionPerformed
 
     private void cbValdBefattningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbValdBefattningActionPerformed
