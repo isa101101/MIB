@@ -26,70 +26,70 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSvealand" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRubrikTopplista" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNorrland" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAntalNorrland" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField10" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPlats1" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfPlats1Norrland" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfPlats1AntalNorrland" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField11" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfPlats2Norrland" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPlats2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfPlats2AntalNorrland" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField12" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField7" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfPlats3AntalNorrland" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfPlats3Norrland" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPlats3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAntalSvealand" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblGötaland" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAntalGötaland" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfPlats1Svealand" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfPlats3AntalSvealand" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfPlats2Svealand" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfPlats2AntalSvealand" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField15" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField8" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfPlats3AntSvealand" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfPlats3Svealand" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfPlats1Götaland" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfPlats1AntalGötaland" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfPlats2Götaland" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfPlats2AntalGötaland" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField18" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField9" min="-2" pref="89" max="-2" attributes="0"/>
+                                  <Component id="tfPlats3AntalGötaland" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfPlats3Götaland" min="-2" pref="89" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -103,62 +103,62 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Component id="lblRubrikTopplista" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPlats1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPlats2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPlats3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats1Norrland" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats2Norrland" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats3Norrland" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNorrland" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAntalNorrland" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats1AntalNorrland" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats2AntalNorrland" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats3AntalNorrland" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats1Svealand" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats2Svealand" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats3Svealand" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSvealand" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField14" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField15" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAntalSvealand" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats3AntalSvealand" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats2AntalSvealand" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats3AntSvealand" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblGötaland" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats1Götaland" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats2Götaland" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats3Götaland" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField16" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField17" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField18" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAntalGötaland" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats1AntalGötaland" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats2AntalGötaland" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPlats3AntalGötaland" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblRubrikTopplista">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="24" style="0"/>
@@ -166,12 +166,12 @@
         <Property name="text" type="java.lang.String" value="Topp 3 agenter med flest aliens"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="lblNorrland">
       <Properties>
         <Property name="text" type="java.lang.String" value="Norrland"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="lblSvealand">
       <Properties>
         <Property name="text" type="java.lang.String" value="Svealand"/>
       </Properties>
@@ -181,67 +181,67 @@
         <Property name="text" type="java.lang.String" value="G&#xf6;taland"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="tfPlats1Norrland">
       <Properties>
         <Property name="columns" type="int" value="6"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="tfPlats1Svealand">
       <Properties>
         <Property name="columns" type="int" value="6"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="tfPlats1G&#xf6;taland">
       <Properties>
         <Property name="columns" type="int" value="6"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="tfPlats2Norrland">
       <Properties>
         <Property name="columns" type="int" value="6"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="tfPlats2Svealand">
       <Properties>
         <Property name="columns" type="int" value="6"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField6">
+    <Component class="javax.swing.JTextField" name="tfPlats2G&#xf6;taland">
       <Properties>
         <Property name="columns" type="int" value="6"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField7">
+    <Component class="javax.swing.JTextField" name="tfPlats3Norrland">
       <Properties>
         <Property name="columns" type="int" value="6"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField8">
+    <Component class="javax.swing.JTextField" name="tfPlats3Svealand">
       <Properties>
         <Property name="columns" type="int" value="6"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField9">
+    <Component class="javax.swing.JTextField" name="tfPlats3G&#xf6;taland">
       <Properties>
         <Property name="columns" type="int" value="6"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="lblPlats1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Plats 1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="lblPlats2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Plats 2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
+    <Component class="javax.swing.JLabel" name="lblPlats3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Plats 3"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="lblAntalNorrland">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="11" style="0"/>
@@ -249,7 +249,7 @@
         <Property name="text" type="java.lang.String" value="Antal:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField10">
+    <Component class="javax.swing.JTextField" name="tfPlats1AntalNorrland">
       <Properties>
         <Property name="columns" type="int" value="4"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -257,7 +257,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField11">
+    <Component class="javax.swing.JTextField" name="tfPlats2AntalNorrland">
       <Properties>
         <Property name="columns" type="int" value="4"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -265,7 +265,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField12">
+    <Component class="javax.swing.JTextField" name="tfPlats3AntalNorrland">
       <Properties>
         <Property name="columns" type="int" value="4"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -273,7 +273,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JLabel" name="lblAntalSvealand">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="11" style="0"/>
@@ -281,7 +281,7 @@
         <Property name="text" type="java.lang.String" value="Antal:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField13">
+    <Component class="javax.swing.JTextField" name="tfPlats3AntalSvealand">
       <Properties>
         <Property name="columns" type="int" value="4"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -289,7 +289,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField14">
+    <Component class="javax.swing.JTextField" name="tfPlats2AntalSvealand">
       <Properties>
         <Property name="columns" type="int" value="4"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -297,7 +297,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField15">
+    <Component class="javax.swing.JTextField" name="tfPlats3AntSvealand">
       <Properties>
         <Property name="columns" type="int" value="4"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -305,7 +305,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
+    <Component class="javax.swing.JLabel" name="lblAntalG&#xf6;taland">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="11" style="0"/>
@@ -313,7 +313,7 @@
         <Property name="text" type="java.lang.String" value="Antal:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField16">
+    <Component class="javax.swing.JTextField" name="tfPlats1AntalG&#xf6;taland">
       <Properties>
         <Property name="columns" type="int" value="4"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -321,7 +321,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField17">
+    <Component class="javax.swing.JTextField" name="tfPlats2AntalG&#xf6;taland">
       <Properties>
         <Property name="columns" type="int" value="4"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -329,7 +329,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField18">
+    <Component class="javax.swing.JTextField" name="tfPlats3AntalG&#xf6;taland">
       <Properties>
         <Property name="columns" type="int" value="4"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
