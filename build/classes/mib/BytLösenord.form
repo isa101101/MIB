@@ -30,21 +30,14 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tfNyaLösenordet" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblNyttLösenord" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblBefintligtLösenord" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblÄndraLösenordRubrik" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnÄndra" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="tfBefintligaLösenordet" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="71" pref="250" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="tfNyaLösenordet" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNyttLösenord" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblBefintligtLösenord" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRubrikÄndraLösenord" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnÄndra" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfBefintligaLösenordet" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,7 +45,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="lblÄndraLösenordRubrik" min="-2" max="-2" attributes="0"/>
+              <Component id="lblRubrikÄndraLösenord" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="lblBefintligtLösenord" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -69,7 +62,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lbl&#xc4;ndraL&#xf6;senordRubrik">
+    <Component class="javax.swing.JLabel" name="lblRubrik&#xc4;ndraL&#xf6;senord">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="24" style="0"/>
