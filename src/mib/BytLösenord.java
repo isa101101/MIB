@@ -27,7 +27,7 @@ public class BytLösenord extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        lblÄndraLösenordRubrik = new javax.swing.JLabel();
+        lblRubrikÄndraLösenord = new javax.swing.JLabel();
         btnÄndra = new javax.swing.JButton();
         lblBefintligtLösenord = new javax.swing.JLabel();
         tfBefintligaLösenordet = new javax.swing.JTextField();
@@ -36,8 +36,8 @@ public class BytLösenord extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblÄndraLösenordRubrik.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        lblÄndraLösenordRubrik.setText("Ändra lösenord");
+        lblRubrikÄndraLösenord.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        lblRubrikÄndraLösenord.setText("Ändra lösenord");
 
         btnÄndra.setText("Ändra");
 
@@ -56,23 +56,19 @@ public class BytLösenord extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNyttLösenord)
-                            .addComponent(lblBefintligtLösenord)
-                            .addComponent(lblÄndraLösenordRubrik)
-                            .addComponent(btnÄndra))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tfBefintligaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(71, 250, Short.MAX_VALUE))))
+                    .addComponent(tfNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNyttLösenord)
+                    .addComponent(lblBefintligtLösenord)
+                    .addComponent(lblRubrikÄndraLösenord)
+                    .addComponent(btnÄndra)
+                    .addComponent(tfBefintligaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(lblÄndraLösenordRubrik)
+                .addComponent(lblRubrikÄndraLösenord)
                 .addGap(29, 29, 29)
                 .addComponent(lblBefintligtLösenord)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -129,7 +125,7 @@ public class BytLösenord extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel lblBefintligtLösenord;
     private javax.swing.JLabel lblNyttLösenord;
-    private javax.swing.JLabel lblÄndraLösenordRubrik;
+    private javax.swing.JLabel lblRubrikÄndraLösenord;
     private javax.swing.JTextField tfBefintligaLösenordet;
     private javax.swing.JTextField tfNyaLösenordet;
     // End of variables declaration//GEN-END:variables
