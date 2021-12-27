@@ -32,7 +32,7 @@ public class Inloggning extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblLoggaInRubrik = new javax.swing.JLabel();
+        lblRubrikLoggaIn = new javax.swing.JLabel();
         lblAnvändarnamn = new javax.swing.JLabel();
         lblLösenord = new javax.swing.JLabel();
         tfAngivetAnvändarnamn = new javax.swing.JTextField();
@@ -43,8 +43,8 @@ public class Inloggning extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblLoggaInRubrik.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        lblLoggaInRubrik.setText("Logga in");
+        lblRubrikLoggaIn.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        lblRubrikLoggaIn.setText("Logga in");
 
         lblAnvändarnamn.setText("Användarnamn:");
 
@@ -73,7 +73,7 @@ public class Inloggning extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblLoggaInRubrik)
+                        .addComponent(lblRubrikLoggaIn)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,7 +99,7 @@ public class Inloggning extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(lblLoggaInRubrik)
+                .addComponent(lblRubrikLoggaIn)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAnvändarnamn)
@@ -164,8 +164,8 @@ public class Inloggning extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbValdBefattning;
     private javax.swing.JLabel lblAngeBefattning;
     private javax.swing.JLabel lblAnvändarnamn;
-    private javax.swing.JLabel lblLoggaInRubrik;
     private javax.swing.JLabel lblLösenord;
+    private javax.swing.JLabel lblRubrikLoggaIn;
     private javax.swing.JPasswordField pfLösenord;
     private javax.swing.JTextField tfAngivetAnvändarnamn;
     // End of variables declaration//GEN-END:variables
