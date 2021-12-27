@@ -26,21 +26,62 @@ public class RaderaAlien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblRubrikRaderaAlien = new javax.swing.JLabel();
+        lblAngeAlienNamn = new javax.swing.JLabel();
+        tfAlienNamn = new javax.swing.JTextField();
+        btnRadera = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblRubrikRaderaAlien.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        lblRubrikRaderaAlien.setText("Radera alien från systemet");
+
+        lblAngeAlienNamn.setText("Ange aliens namn:");
+
+        tfAlienNamn.setColumns(8);
+        tfAlienNamn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfAlienNamnActionPerformed(evt);
+            }
+        });
+
+        btnRadera.setText("Radera");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRadera)
+                    .addComponent(lblRubrikRaderaAlien)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblAngeAlienNamn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfAlienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(lblRubrikRaderaAlien)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAngeAlienNamn)
+                    .addComponent(tfAlienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnRadera)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tfAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfAlienNamnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfAlienNamnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +119,9 @@ public class RaderaAlien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRadera;
+    private javax.swing.JLabel lblAngeAlienNamn;
+    private javax.swing.JLabel lblRubrikRaderaAlien;
+    private javax.swing.JTextField tfAlienNamn;
     // End of variables declaration//GEN-END:variables
 }
