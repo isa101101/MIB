@@ -4,17 +4,23 @@
  */
 package mib;
 
+import oru.inf.InfDB;
+import oru.inf.InfException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jackmacbook
  */
 public class AlienMenu extends javax.swing.JFrame {
 
+    private InfDB idb;
     /**
      * Creates new form AlienMenu
      */
-    public AlienMenu() {
+    public AlienMenu(InfDB idb) {
         initComponents();
+        this.idb = idb;
     }
 
     /**
@@ -124,7 +130,7 @@ public class AlienMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AlienMenu().setVisible(true);
+                
             }
         });
     }

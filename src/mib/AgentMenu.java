@@ -11,17 +11,20 @@ import oru.inf.InfDB;
  * @author isabellefredriksson
  */
 public class AgentMenu extends javax.swing.JFrame {
+    
+    private InfDB idb;
 
     /**
      * Creates new form AgentMenu
      */
-    public AgentMenu() {
+    public AgentMenu(InfDB idb) {
         initComponents();
+        this.idb = idb;
     }
 
-    AgentMenu(InfDB idb) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+  
+       
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

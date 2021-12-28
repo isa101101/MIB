@@ -3,18 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
+import oru.inf.InfDB;
 
 /**
  *
  * @author jackmacbook
  */
 public class AdminMenu extends javax.swing.JFrame {
+    private InfDB idb;
 
     /**
      * Creates new form AdminMenu
      */
-    public AdminMenu() {
+    public AdminMenu(InfDB idb) {
         initComponents();
+        this.idb = idb;
     }
 
     /**
@@ -211,7 +214,7 @@ public class AdminMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminMenu().setVisible(true);
+                
             }
         });
     }

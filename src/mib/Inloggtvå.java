@@ -19,17 +19,10 @@ public class Inloggtvå extends javax.swing.JFrame {
     /**
      * Creates new form Inloggtvå
      */
-    public Inloggtvå() {
+    public Inloggtvå(InfDB idb) {
         initComponents();
-        
-        try {
-            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
-            
-        }catch (InfException ettUndantag) {
-            JOptionPane.showMessageDialog(null, "Något gick fel");
-            System.out.println("internt felmeddelande " + ettUndantag.getMessage());
-            
-        }
+        this.idb = idb;
+       
     }
 
     /**
@@ -132,6 +125,11 @@ public class Inloggtvå extends javax.swing.JFrame {
 
     private void btnLoggainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggainActionPerformed
         // TODO add your handling code here:
+        
+         if(Validering.textFaltVarde(txtAnvändarnamn) && Validering.textFaltVarde(txtLösenord) ) {
+             
+         
+             
          try {
         String användarnamn = txtAnvändarnamn.getText();
         String lösenord = txtLösenord.getText();
@@ -140,29 +138,46 @@ public class Inloggtvå extends javax.swing.JFrame {
         String fråga2 = "SELECT Losenord FROM mibdb.Agent WHERE Losenord = '" +lösenord+ "'";
         String fråga3 = "SELECT Namn FROM mibdb.Alien WHERE Namn = '" +användarnamn+ "'";
         String fråga4 = "SELECT Losenord FROM mibdb.Alien WHERE Losenord = '" +lösenord+ "'";
+        String fråga5 = "SELECT Namn FROM mibdb.Agent WHERE administrator = 'j' ";
                
         String svar1 = idb.fetchSingle(fråga1);
         String svar2 = idb.fetchSingle(fråga2);
         String svar3 = idb.fetchSingle(fråga3);
         String svar4 = idb.fetchSingle(fråga4);
+        String svar5 = idb.fetchSingle(fråga5);
         
         String Resultat1 = svar1;
         String Resultat2 = svar2;
         String Resultat3 = svar3;
         String Resultat4 = svar4;
+        String Resultat5 = svar5;
         
         String Agent = "Agent";
         String Alien = "Alien";
+        String Admin = "Admin";
         
+       
+        
+       
         if(cmbBefattning.getSelectedItem().equals(Agent) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat1) && txtLösenord.getText().equals(Resultat2)){
-            new AgentMenu().setVisible(true);
+            new AgentMenu(idb).setVisible(true);
             dispose();
         }    
         else if (cmbBefattning.getSelectedItem().equals(Alien) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat3) && txtLösenord.getText().equals(Resultat4)) {
-            new AlienMenu().setVisible(true);
+            new AlienMenu(idb).setVisible(true);
             dispose();   
          }
+        else if (cmbBefattning.getSelectedItem().equals(Admin) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat1) && txtLösenord.getText().equals(Resultat2) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat5)) {
+            new AdminMenu(idb).setVisible(true);
+            dispose(); 
+        } 
         
+        else if (cmbBefattning.getSelectedItem().equals(Admin) && txtAnvändarnamn.getText() != (Resultat5)) {
+            JOptionPane.showMessageDialog(null, "Agenten är ej behörig ");
+            
+        }
+            
+         
 
         else {
             
@@ -176,10 +191,14 @@ public class Inloggtvå extends javax.swing.JFrame {
            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_btnLoggainActionPerformed
-
+    }     
     private void txtLösenordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLösenordKeyPressed
         // TODO add your handling code here:
+        
         if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
+        if (Validering.textFaltVarde(txtAnvändarnamn) && Validering.textFaltVarde(txtLösenord)) {   
+            
+        }
             try {
         String användarnamn = txtAnvändarnamn.getText();
         String lösenord = txtLösenord.getText();
@@ -188,28 +207,41 @@ public class Inloggtvå extends javax.swing.JFrame {
         String fråga2 = "SELECT Losenord FROM mibdb.Agent WHERE Losenord = '" +lösenord+ "'";
         String fråga3 = "SELECT Namn FROM mibdb.Alien WHERE Namn = '" +användarnamn+ "'";
         String fråga4 = "SELECT Losenord FROM mibdb.Alien WHERE Losenord = '" +lösenord+ "'";
-               
+        String fråga5 = "SELECT Namn FROM mibdb.Agent WHERE administrator = 'j' ";
+        
         String svar1 = idb.fetchSingle(fråga1);
         String svar2 = idb.fetchSingle(fråga2);
         String svar3 = idb.fetchSingle(fråga3);
         String svar4 = idb.fetchSingle(fråga4);
+        String svar5 = idb.fetchSingle(fråga5);
         
         String Resultat1 = svar1;
         String Resultat2 = svar2;
         String Resultat3 = svar3;
         String Resultat4 = svar4;
-        
+        String Resultat5 = svar5;
+         
         String Agent = "Agent";
         String Alien = "Alien";
+        String Admin = "Admin";
         
         if(cmbBefattning.getSelectedItem().equals(Agent) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat1) && txtLösenord.getText().equals(Resultat2)){
-            new AgentMenu().setVisible(true);
+            new AgentMenu(idb).setVisible(true);
             dispose();
         }    
         else if (cmbBefattning.getSelectedItem().equals(Alien) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat3) && txtLösenord.getText().equals(Resultat4)) {
-            new AlienMenu().setVisible(true);
+            new AlienMenu(idb).setVisible(true);
             dispose();   
          }
+        else if (cmbBefattning.getSelectedItem().equals(Admin) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat1) && txtLösenord.getText().equals(Resultat2) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat5)) {
+            new AdminMenu(idb).setVisible(true);
+            dispose(); 
+        } 
+        
+        else if (cmbBefattning.getSelectedItem().equals(Admin) && txtAnvändarnamn.getText() != (Resultat5)) {
+            JOptionPane.showMessageDialog(null, "Agenten är ej behörig ");
+            
+        }
         
 
         else {

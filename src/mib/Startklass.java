@@ -16,6 +16,7 @@ import oru.inf.InfException;
 public class Startklass {
 
     private static InfDB idb;
+    
 
     public static void main(String[] args) {
         try {
@@ -30,7 +31,7 @@ public class Startklass {
 
         
         
-        new Inloggtvå().setVisible(true);
+        new Inloggtvå(idb).setVisible(true);
 
     }
 
