@@ -142,14 +142,14 @@ public class Inloggning extends javax.swing.JFrame {
 
         }
          String fraga = "Select namn from mibdb.agent where Agent_ID = 4";
-         String svar;
+        
      try {
-         svar = idb.fetchSingle(fraga);
+         String svar = idb.fetchSingle(fraga);
      } catch (InfException ex) {
          Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
      }
          
-         lblRubrikLoggaIn.setText(svar);
+         lblRubrikLoggaIn.setText("Netbeans suger");
        
     }//GEN-LAST:event_btnLoggaInActionPerformed
 

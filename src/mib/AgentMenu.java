@@ -286,7 +286,7 @@ public class AgentMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AgentMenu().setVisible(true);
+                
             }
         });
     }
