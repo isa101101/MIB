@@ -22,7 +22,7 @@ public class Inloggtvå extends javax.swing.JFrame {
         initComponents();
         
         try {
-            idb = new InfDB("mibdb", "3306", "root", "853NFT30m");
+            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
             
         }catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog(null, "Något gick fel");
@@ -124,7 +124,7 @@ public class Inloggtvå extends javax.swing.JFrame {
          try {
         String agent = txtAnvändarnamn.getText();
         String lösenord = txtLösenord.getText();
-        String fråga1 = "SELECT Agent_ID FROM mibdb.Agent WHERE Agent_ID = " + agent;
+        String fråga1 = "SELECT Namn FROM mibdb.Agent WHERE Namn = '" +agent+ "'";
         String fråga2 = "SELECT Losenord FROM mibdb.Agent WHERE Losenord = '" +lösenord+ "'";
         String svar1 = idb.fetchSingle(fråga1);
         String svar2 = idb.fetchSingle(fråga2);
@@ -135,13 +135,10 @@ public class Inloggtvå extends javax.swing.JFrame {
             new AgentMenu().setVisible(true);
             dispose();
         
-        if (!txtAnvändarnamn.getText().equalsIgnoreCase(Resultat1)) {
-           JOptionPane.showMessageDialog(null, "Agent finns ej");
-            
-        }
+
         }else {
             
-        JOptionPane.showMessageDialog(null, "Medlemen finns ej");
+        JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenordet ");
             
         }
     
