@@ -26,17 +26,156 @@ public class AdminMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblNyalien = new javax.swing.JLabel();
+        btnNyalien = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnÄndraalien = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        btnTabortalien = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        btnTabortutrustning = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        btnNyagent = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        btnSökagent = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        btnÄndrabefattning = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        btnÄndraagent = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        btnTabortagent = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        btnÄndraochef = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        btnÄndrakchef = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblNyalien.setText("Nyregistrera alien");
+
+        btnNyalien.setText("Tryck här");
+
+        jLabel1.setText("Ändra alien information");
+
+        btnÄndraalien.setText("Tryck här");
+
+        jLabel2.setText("Ta bort alien");
+
+        btnTabortalien.setText("Tryck här");
+
+        jLabel3.setText("Ta bort utrustning");
+
+        btnTabortutrustning.setText("Tryck här");
+
+        jLabel4.setText("Nyregistrera agent");
+
+        btnNyagent.setText("Tryck här");
+
+        jLabel5.setText("Sök agent information");
+
+        btnSökagent.setText("Tryck här");
+
+        jLabel6.setText("Ändra agent befattning");
+
+        btnÄndrabefattning.setText("Tryck här");
+
+        jLabel7.setText("Ändra agent information");
+
+        btnÄndraagent.setText("Tryck här");
+
+        jLabel8.setText("Ta bort agent");
+
+        btnTabortagent.setText("Tryck här");
+
+        jLabel9.setText("Ändra områdeschef");
+
+        btnÄndraochef.setText("Tryck här");
+
+        jLabel10.setText("Ändra kontorschef");
+
+        btnÄndrakchef.setText("Tryck här");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNyalien)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnÄndrakchef)
+                    .addComponent(btnÄndraochef)
+                    .addComponent(btnÄndraagent)
+                    .addComponent(btnÄndrabefattning)
+                    .addComponent(btnSökagent)
+                    .addComponent(btnNyagent)
+                    .addComponent(btnTabortutrustning)
+                    .addComponent(btnTabortalien)
+                    .addComponent(btnÄndraalien)
+                    .addComponent(btnNyalien)
+                    .addComponent(btnTabortagent))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNyalien)
+                    .addComponent(btnNyalien))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(btnÄndraalien))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(btnTabortalien))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(btnTabortutrustning))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(btnNyagent))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(btnSökagent))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(btnÄndrabefattning))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(btnÄndraagent))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(btnTabortagent))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnÄndraochef)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(btnÄndrakchef))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -78,5 +217,27 @@ public class AdminMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnNyagent;
+    private javax.swing.JButton btnNyalien;
+    private javax.swing.JButton btnSökagent;
+    private javax.swing.JButton btnTabortagent;
+    private javax.swing.JButton btnTabortalien;
+    private javax.swing.JButton btnTabortutrustning;
+    private javax.swing.JButton btnÄndraagent;
+    private javax.swing.JButton btnÄndraalien;
+    private javax.swing.JButton btnÄndrabefattning;
+    private javax.swing.JButton btnÄndrakchef;
+    private javax.swing.JButton btnÄndraochef;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblNyalien;
     // End of variables declaration//GEN-END:variables
 }
