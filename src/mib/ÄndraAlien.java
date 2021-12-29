@@ -47,11 +47,13 @@ public class ÄndraAlien extends javax.swing.JFrame {
         lblNamn = new javax.swing.JLabel();
         txtlösenord = new javax.swing.JTextField();
         lblRas = new javax.swing.JLabel();
-        btnRegistrera = new javax.swing.JButton();
+        btnUppdatera = new javax.swing.JButton();
         lblAnsvarigAgent = new javax.swing.JLabel();
         lblObligatoriskaFält = new javax.swing.JLabel();
         lblAktuellPlats = new javax.swing.JLabel();
         lblAlienID = new javax.swing.JLabel();
+        lblTillbaka = new javax.swing.JLabel();
+        btnTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,10 +99,10 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
         lblRas.setText("Ras:");
 
-        btnRegistrera.setText("Uppdatera");
-        btnRegistrera.addActionListener(new java.awt.event.ActionListener() {
+        btnUppdatera.setText("Uppdatera");
+        btnUppdatera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistreraActionPerformed(evt);
+                btnUppdateraActionPerformed(evt);
             }
         });
 
@@ -113,14 +115,19 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
         lblAlienID.setText("Alien ID");
 
+        lblTillbaka.setText("Tillbaka till menyn");
+
+        btnTillbaka.setText("Tryck här");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnRegistrera)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,6 +164,15 @@ public class ÄndraAlien extends javax.swing.JFrame {
                                     .addComponent(lblFyllRutor)
                                     .addComponent(RubrikNyAlien))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnUppdatera)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTillbaka)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnTillbaka)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,13 +215,17 @@ public class ÄndraAlien extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtAnsvarigagent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAnsvarigAgent))
-                .addGap(100, 100, 100)
+                .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRas)
                     .addComponent(cbAliensRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(66, 66, 66)
-                .addComponent(btnRegistrera)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addComponent(btnUppdatera)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTillbaka)
+                    .addComponent(btnTillbaka))
+                .addGap(14, 14, 14))
         );
 
         pack();
@@ -219,7 +239,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtlösenordActionPerformed
 
-    private void btnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraActionPerformed
+    private void btnUppdateraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUppdateraActionPerformed
         // TODO add your handling code here:
 
         try {
@@ -238,7 +258,13 @@ public class ÄndraAlien extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }//GEN-LAST:event_btnRegistreraActionPerformed
+    }//GEN-LAST:event_btnUppdateraActionPerformed
+
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        // TODO add your handling code here:
+        new AgentMenu(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,7 +303,8 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel RubrikNyAlien;
-    private javax.swing.JButton btnRegistrera;
+    private javax.swing.JButton btnTillbaka;
+    private javax.swing.JButton btnUppdatera;
     private javax.swing.JComboBox<String> cbAliensRas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAktuellPlats;
@@ -289,6 +316,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblObligatoriskaFält;
     private javax.swing.JLabel lblRas;
     private javax.swing.JLabel lblTelefon;
+    private javax.swing.JLabel lblTillbaka;
     private javax.swing.JTextField txtAlienID;
     private javax.swing.JTextField txtAnsvarigagent;
     private javax.swing.JTextField txtNamn;

@@ -291,6 +291,7 @@ public class AgentMenu extends javax.swing.JFrame {
     private void btnKlickaHärÄndraInfoAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärÄndraInfoAlienActionPerformed
         // TODO add your handling code here:
          new ÄndraAlien(idb).setVisible(true);
+         dispose();
     }//GEN-LAST:event_btnKlickaHärÄndraInfoAlienActionPerformed
 
     /**
