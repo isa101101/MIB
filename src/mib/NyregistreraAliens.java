@@ -247,6 +247,8 @@ public class NyregistreraAliens extends javax.swing.JFrame {
     private void btnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraActionPerformed
         // TODO add your handling code here:
         
+         if (Validering.textFaltVarde(txtAlienID) && Validering.textFaltVarde(txtRegistreringsdatum) && Validering.textFaltVarde(txtlösenord) && Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtTelefon) && Validering.textFaltVarde(txtPlats) && Validering.textFaltVarde(txtAnsvarigagent)){   
+        
         try {
             String ID = txtAlienID.getText();
             String Datum = txtRegistreringsdatum.getText();
@@ -269,7 +271,8 @@ public class NyregistreraAliens extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnRegistreraActionPerformed
-
+    }
+    
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
         // TODO add your handling code here:
         new AgentMenu(idb).setVisible(true);

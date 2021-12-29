@@ -60,7 +60,7 @@ public class AgentMenu extends javax.swing.JFrame {
         LblUtrustning = new javax.swing.JLabel();
         btnKlickaHärÄndraLösenord = new javax.swing.JButton();
         btnKlickaHärNyregAlien = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnInfo = new javax.swing.JButton();
         btnKlickaHärÄndraInfoAlien = new javax.swing.JButton();
         btnKlickaHärListaRas = new javax.swing.JButton();
         btnKlickaHärAlienRegDatum = new javax.swing.JButton();
@@ -126,7 +126,12 @@ public class AgentMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Klicka här");
+        btnInfo.setText("Klicka här");
+        btnInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInfoActionPerformed(evt);
+            }
+        });
 
         btnKlickaHärÄndraInfoAlien.setText("Klicka här");
         btnKlickaHärÄndraInfoAlien.addActionListener(new java.awt.event.ActionListener() {
@@ -176,7 +181,7 @@ public class AgentMenu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3))
+                        .addComponent(btnInfo))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblNyregAlienLänk)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -229,7 +234,7 @@ public class AgentMenu extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jButton3))
+                    .addComponent(btnInfo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblÄndraInfoAlienLänk)
@@ -294,6 +299,12 @@ public class AgentMenu extends javax.swing.JFrame {
          dispose();
     }//GEN-LAST:event_btnKlickaHärÄndraInfoAlienActionPerformed
 
+    private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
+        // TODO add your handling code here:
+        new SökPåAlien(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnInfoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -331,6 +342,7 @@ public class AgentMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LblUtrustning;
+    private javax.swing.JButton btnInfo;
     private javax.swing.JButton btnKlickaHärAlienPlatser;
     private javax.swing.JButton btnKlickaHärAlienRegDatum;
     private javax.swing.JButton btnKlickaHärListaRas;
@@ -344,7 +356,6 @@ public class AgentMenu extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;

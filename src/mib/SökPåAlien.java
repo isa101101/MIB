@@ -3,17 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
+import oru.inf.InfDB;
 
 /**
  *
  * @author isabellefredriksson
  */
 public class SökPåAlien extends javax.swing.JFrame {
+    
+    private InfDB idb;
 
     /**
      * Creates new form SökPåAlien
      */
-    public SökPåAlien() {
+    public SökPåAlien(InfDB idb) {
+        this.idb = idb;
         initComponents();
     }
 
@@ -27,7 +31,7 @@ public class SökPåAlien extends javax.swing.JFrame {
     private void initComponents() {
 
         lblSökEfterAlien = new javax.swing.JLabel();
-        tfSökNamn = new javax.swing.JTextField();
+        txtNamn = new javax.swing.JTextField();
         lblAngeAliensNamn = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblAliensID = new javax.swing.JLabel();
@@ -50,7 +54,7 @@ public class SökPåAlien extends javax.swing.JFrame {
         lblSökEfterAlien.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         lblSökEfterAlien.setText("Sök efter aliens");
 
-        tfSökNamn.setColumns(10);
+        txtNamn.setColumns(10);
 
         lblAngeAliensNamn.setText("Ange aliens namn:");
 
@@ -97,7 +101,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblResultat)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(tfSökNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSök))
                     .addComponent(lblSökEfterAlien)
@@ -139,7 +143,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                 .addComponent(lblAngeAliensNamn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfSökNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSök))
                 .addGap(18, 18, 18)
                 .addComponent(lblResultat)
@@ -177,6 +181,14 @@ public class SökPåAlien extends javax.swing.JFrame {
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
+        
+        String Namn = txtNamn.getText();
+        
+        String hämta = "SELECT * FROM mibdb.Alien where Namn = '"+Namn+"'";
+        
+        if (txtNamn.equals(hämta)) {
+           
+        }
     }//GEN-LAST:event_btnSökActionPerformed
 
     /**
@@ -209,7 +221,7 @@ public class SökPåAlien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SökPåAlien().setVisible(true);
+                
             }
         });
     }
@@ -232,6 +244,6 @@ public class SökPåAlien extends javax.swing.JFrame {
     private javax.swing.JTextField tfResultatNuvarandePlats;
     private javax.swing.JTextField tfResultatRegDatum;
     private javax.swing.JTextField tfResultatTelefon;
-    private javax.swing.JTextField tfSökNamn;
+    private javax.swing.JTextField txtNamn;
     // End of variables declaration//GEN-END:variables
 }
