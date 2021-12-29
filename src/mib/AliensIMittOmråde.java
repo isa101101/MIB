@@ -3,17 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
-
+import oru.inf.InfDB;
 /**
  *
  * @author isabellefredriksson
  */
 public class AliensIMittOmråde extends javax.swing.JFrame {
+    
+    private InfDB idb;
 
     /**
      * Creates new form AliensIMittOmråde
      */
     public AliensIMittOmråde() {
+        this.idb = idb;
         initComponents();
     }
 
@@ -93,7 +96,8 @@ public class AliensIMittOmråde extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AliensIMittOmråde().setVisible(true);
+        new AliensIMittOmråde().setVisible(true);        
+                
             }
         });
     }

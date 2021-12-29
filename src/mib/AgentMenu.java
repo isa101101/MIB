@@ -96,7 +96,7 @@ public class AgentMenu extends javax.swing.JFrame {
 
         lblÄndraInfoAlienLänk.setText("Ändra information om alien");
 
-        lblAlienOlikaPlatser.setText("Alien på olika platser");
+        lblAlienOlikaPlatser.setText("Visa Aliens på viss plats");
 
         lblListaRasAlien.setText("Lista av ras på alien");
 
@@ -143,8 +143,18 @@ public class AgentMenu extends javax.swing.JFrame {
         btnKlickaHärListaRas.setText("Klicka här");
 
         btnKlickaHärAlienRegDatum.setText("Klicka här");
+        btnKlickaHärAlienRegDatum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKlickaHärAlienRegDatumActionPerformed(evt);
+            }
+        });
 
         btnKlickaHärAlienPlatser.setText("Klicka här");
+        btnKlickaHärAlienPlatser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKlickaHärAlienPlatserActionPerformed(evt);
+            }
+        });
 
         btnKlickaHärUtrustning.setText("Klicka här");
 
@@ -304,6 +314,19 @@ public class AgentMenu extends javax.swing.JFrame {
         new SökPåAlien(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnInfoActionPerformed
+
+    private void btnKlickaHärAlienPlatserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärAlienPlatserActionPerformed
+        // TODO add your handling code here:
+        new SökOmråden(idb).setVisible(true);
+        
+        dispose();
+    }//GEN-LAST:event_btnKlickaHärAlienPlatserActionPerformed
+
+    private void btnKlickaHärAlienRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärAlienRegDatumActionPerformed
+        // TODO add your handling code here:
+        new AlienRegMellanDatum(idb).setVisible(true);
+        
+    }//GEN-LAST:event_btnKlickaHärAlienRegDatumActionPerformed
 
     /**
      * @param args the command line arguments

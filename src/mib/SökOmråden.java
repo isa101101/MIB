@@ -4,15 +4,21 @@
  */
 
 package mib;
+import java.util.ArrayList;
+import java.util.HashMap;
+import oru.inf.InfDB;
 
 /**
  *
  * @author isabellefredriksson
  */
 public class SökOmråden extends javax.swing.JFrame {
+    
+    private InfDB idb;
 
     /** Creates new form SökOmråden */
-    public SökOmråden() {
+    public SökOmråden(InfDB idb) {
+        this.idb = idb;
         initComponents();
     }
 
@@ -27,10 +33,10 @@ public class SökOmråden extends javax.swing.JFrame {
 
         lblRubrikSökOmråde = new javax.swing.JLabel();
         lblAngeOmråde = new javax.swing.JLabel();
-        tfSökOmråde = new javax.swing.JTextField();
+        txtSök = new javax.swing.JTextField();
         lblResultat = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        taSökResultat = new javax.swing.JTextArea();
+        txtResultat = new javax.swing.JTextArea();
         btnSök = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,13 +46,13 @@ public class SökOmråden extends javax.swing.JFrame {
 
         lblAngeOmråde.setText("Ange område:");
 
-        tfSökOmråde.setColumns(10);
+        txtSök.setColumns(10);
 
         lblResultat.setText("Resultat:");
 
-        taSökResultat.setColumns(20);
-        taSökResultat.setRows(5);
-        jScrollPane2.setViewportView(taSökResultat);
+        txtResultat.setColumns(20);
+        txtResultat.setRows(5);
+        jScrollPane2.setViewportView(txtResultat);
 
         btnSök.setText("Sök");
         btnSök.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +74,7 @@ public class SökOmråden extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(tfSökOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSök, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSök))
                             .addComponent(lblAngeOmråde)
@@ -85,7 +91,7 @@ public class SökOmråden extends javax.swing.JFrame {
                 .addComponent(lblAngeOmråde)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfSökOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSök, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSök))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(lblResultat)
@@ -99,6 +105,24 @@ public class SökOmråden extends javax.swing.JFrame {
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
+        
+        if (Validering.textFaltVarde(txtSök)) {
+        
+        String plats = txtSök.getText();
+        
+        try {
+            String fråga = "SELECT Namn FROM mibdb.Alien WHERE Plats = '"+plats+"'";
+            ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
+            
+            String svar2 = svar.toString();
+            
+            txtResultat.setText(svar2);
+            
+        }catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+        
+        }
     }//GEN-LAST:event_btnSökActionPerformed
 
     /**
@@ -131,7 +155,7 @@ public class SökOmråden extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SökOmråden().setVisible(true);
+                
             }
         });
     }
@@ -142,8 +166,8 @@ public class SökOmråden extends javax.swing.JFrame {
     private javax.swing.JLabel lblAngeOmråde;
     private javax.swing.JLabel lblResultat;
     private javax.swing.JLabel lblRubrikSökOmråde;
-    private javax.swing.JTextArea taSökResultat;
-    private javax.swing.JTextField tfSökOmråde;
+    private javax.swing.JTextArea txtResultat;
+    private javax.swing.JTextField txtSök;
     // End of variables declaration//GEN-END:variables
 
 }
