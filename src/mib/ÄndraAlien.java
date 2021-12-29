@@ -251,9 +251,9 @@ public class ÄndraAlien extends javax.swing.JFrame {
             String Plats = txtPlats.getText();
             String AnsvarigAgent = txtAnsvarigagent.getText();
 
-            String ändra2 = "update mibdb.Alien set Alien_ID= '"+ID+"', Registreringsdatum='"+Datum+"', Losenord= '"+lösenord+"', Namn='"+Namn+"', Telefon='"+Telefon+"', Plats='"+Plats+"', Ansvarig_Agent='"+AnsvarigAgent+"' where Alien_ID='"+ID+"'";
+            String ändra = "update mibdb.Alien set Alien_ID= '"+ID+"', Registreringsdatum='"+Datum+"', Losenord= '"+lösenord+"', Namn='"+Namn+"', Telefon='"+Telefon+"', Plats='"+Plats+"', Ansvarig_Agent='"+AnsvarigAgent+"' where Alien_ID='"+ID+"'";
 
-            idb.update(ändra2);
+            idb.update(ändra);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

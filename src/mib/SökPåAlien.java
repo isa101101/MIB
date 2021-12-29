@@ -5,6 +5,8 @@
 package mib;
 import oru.inf.InfDB;
 
+
+
 /**
  *
  * @author isabellefredriksson
@@ -30,6 +32,8 @@ public class SökPåAlien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
         lblSökEfterAlien = new javax.swing.JLabel();
         txtNamn = new javax.swing.JTextField();
         lblAngeAliensNamn = new javax.swing.JLabel();
@@ -41,13 +45,15 @@ public class SökPåAlien extends javax.swing.JFrame {
         lblTelefon = new javax.swing.JLabel();
         lblNuvarandePlats = new javax.swing.JLabel();
         lblAnsvarigAgent = new javax.swing.JLabel();
-        tfResultatAliensID = new javax.swing.JTextField();
-        tfResultatRegDatum = new javax.swing.JTextField();
-        tfResultatNamn = new javax.swing.JTextField();
-        tfResultatTelefon = new javax.swing.JTextField();
-        tfResultatNuvarandePlats = new javax.swing.JTextField();
-        tfResultatAnsvarigAgent = new javax.swing.JTextField();
+        txtAID = new javax.swing.JTextField();
+        txtRegdatum = new javax.swing.JTextField();
+        txtalienNamn = new javax.swing.JTextField();
+        txtTelefon = new javax.swing.JTextField();
+        txtPlats = new javax.swing.JTextField();
+        txtAnsvarig = new javax.swing.JTextField();
         btnSök = new javax.swing.JButton();
+
+        jScrollPane1.setViewportView(jTextPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,17 +79,17 @@ public class SökPåAlien extends javax.swing.JFrame {
 
         lblAnsvarigAgent.setText("Ansvarig agent:");
 
-        tfResultatAliensID.setColumns(10);
+        txtAID.setColumns(10);
 
-        tfResultatRegDatum.setColumns(10);
+        txtRegdatum.setColumns(10);
 
-        tfResultatNamn.setColumns(10);
+        txtalienNamn.setColumns(10);
 
-        tfResultatTelefon.setColumns(10);
+        txtTelefon.setColumns(10);
 
-        tfResultatNuvarandePlats.setColumns(10);
+        txtPlats.setColumns(10);
 
-        tfResultatAnsvarigAgent.setColumns(10);
+        txtAnsvarig.setColumns(10);
 
         btnSök.setText("Sök");
         btnSök.addActionListener(new java.awt.event.ActionListener() {
@@ -99,40 +105,47 @@ public class SökPåAlien extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblResultat)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSök))
-                    .addComponent(lblSökEfterAlien)
-                    .addComponent(lblAngeAliensNamn)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblRegDatum)
-                                .addComponent(lblNamn)
-                                .addComponent(lblTelefon)
-                                .addComponent(lblNuvarandePlats)
-                                .addComponent(lblAnsvarigAgent))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3)
-                                    .addGap(63, 63, 63))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(42, 42, 42)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tfResultatNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfResultatRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfResultatTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfResultatNuvarandePlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfResultatAnsvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(0, 0, Short.MAX_VALUE))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblRegDatum)
+                                    .addComponent(lblNamn)
+                                    .addComponent(lblTelefon)
+                                    .addComponent(lblNuvarandePlats)
+                                    .addComponent(lblAnsvarigAgent))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel3)
+                                        .addGap(63, 63, 63))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(42, 42, 42)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtalienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtAnsvarig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(0, 205, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(txtRegdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblSökEfterAlien)
+                                    .addComponent(lblAngeAliensNamn))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSök)))
+                        .addContainerGap(12, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAliensID)
-                            .addGap(111, 111, 111)
-                            .addComponent(tfResultatAliensID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(79, Short.MAX_VALUE))
+                            .addComponent(lblResultat))
+                        .addGap(101, 101, 101)
+                        .addComponent(txtAID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,35 +158,35 @@ public class SökPåAlien extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSök))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(lblResultat)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAliensID)
-                    .addComponent(tfResultatAliensID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRegDatum)
-                    .addComponent(tfResultatRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRegdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNamn)
-                    .addComponent(tfResultatNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtalienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTelefon)
-                    .addComponent(tfResultatTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNuvarandePlats)
-                    .addComponent(tfResultatNuvarandePlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAnsvarigAgent)
-                    .addComponent(tfResultatAnsvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAnsvarig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,11 +197,35 @@ public class SökPåAlien extends javax.swing.JFrame {
         
         String Namn = txtNamn.getText();
         
-        String hämta = "SELECT * FROM mibdb.Alien where Namn = '"+Namn+"'";
+        try {
         
-        if (txtNamn.equals(hämta)) {
+        String fråga1 = "SELECT Alien_ID FROM mibdb.Alien where Namn = '"+Namn+"'";
+        String fråga2 = "SELECT Registreringsdatum FROM mibdb.Alien where Namn = '"+Namn+"'";
+        String fråga3 = "SELECT Namn FROM mibdb.Alien where Namn = '"+Namn+"'";
+        String fråga4 = "SELECT Telefon FROM mibdb.Alien where Namn = '"+Namn+"'";
+        String fråga5 = "SELECT Plats FROM mibdb.Alien where Namn = '"+Namn+"'";
+        String fråga6 = "SELECT Ansvarig_Agent FROM mibdb.Alien where Namn = '"+Namn+"'";        
+        
+        String svar1 = idb.fetchSingle(fråga1);
+        String svar2 = idb.fetchSingle(fråga2);
+        String svar3 = idb.fetchSingle(fråga3);
+        String svar4 = idb.fetchSingle(fråga4);
+        String svar5 = idb.fetchSingle(fråga5);
+        String svar6 = idb.fetchSingle(fråga6);
+        
+        txtAID.setText(svar1);
+        txtRegdatum.setText(svar2);
+        txtalienNamn.setText(svar3);
+        txtTelefon.setText(svar4);
+        txtPlats.setText(svar5);
+        txtAnsvarig.setText(svar6);
+        
            
+        } catch (Exception e) {
+           System.out.println(e.getMessage());
         }
+                
+                
     }//GEN-LAST:event_btnSökActionPerformed
 
     /**
@@ -229,6 +266,8 @@ public class SökPåAlien extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSök;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel lblAliensID;
     private javax.swing.JLabel lblAngeAliensNamn;
     private javax.swing.JLabel lblAnsvarigAgent;
@@ -238,12 +277,12 @@ public class SökPåAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblResultat;
     private javax.swing.JLabel lblSökEfterAlien;
     private javax.swing.JLabel lblTelefon;
-    private javax.swing.JTextField tfResultatAliensID;
-    private javax.swing.JTextField tfResultatAnsvarigAgent;
-    private javax.swing.JTextField tfResultatNamn;
-    private javax.swing.JTextField tfResultatNuvarandePlats;
-    private javax.swing.JTextField tfResultatRegDatum;
-    private javax.swing.JTextField tfResultatTelefon;
+    private javax.swing.JTextField txtAID;
+    private javax.swing.JTextField txtAnsvarig;
     private javax.swing.JTextField txtNamn;
+    private javax.swing.JTextField txtPlats;
+    private javax.swing.JTextField txtRegdatum;
+    private javax.swing.JTextField txtTelefon;
+    private javax.swing.JTextField txtalienNamn;
     // End of variables declaration//GEN-END:variables
 }
