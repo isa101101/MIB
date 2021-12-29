@@ -129,6 +129,11 @@ public class AgentMenu extends javax.swing.JFrame {
         jButton3.setText("Klicka här");
 
         btnKlickaHärÄndraInfoAlien.setText("Klicka här");
+        btnKlickaHärÄndraInfoAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKlickaHärÄndraInfoAlienActionPerformed(evt);
+            }
+        });
 
         btnKlickaHärListaRas.setText("Klicka här");
 
@@ -282,6 +287,11 @@ public class AgentMenu extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnKlickaHärNyregAlienActionPerformed
+
+    private void btnKlickaHärÄndraInfoAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärÄndraInfoAlienActionPerformed
+        // TODO add your handling code here:
+         new ÄndraAlien(idb).setVisible(true);
+    }//GEN-LAST:event_btnKlickaHärÄndraInfoAlienActionPerformed
 
     /**
      * @param args the command line arguments

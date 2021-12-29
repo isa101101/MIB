@@ -310,6 +310,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Klicka h&#xe4;r"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKlickaH&#xe4;r&#xc4;ndraInfoAlienActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnKlickaH&#xe4;rListaRas">
       <Properties>
