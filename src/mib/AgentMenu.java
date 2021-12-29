@@ -120,6 +120,11 @@ public class AgentMenu extends javax.swing.JFrame {
         });
 
         btnKlickaHärNyregAlien.setText("Klicka här");
+        btnKlickaHärNyregAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKlickaHärNyregAlienActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Klicka här");
 
@@ -269,6 +274,14 @@ public class AgentMenu extends javax.swing.JFrame {
         new BytLösenord().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnKlickaHärÄndraLösenordActionPerformed
+
+    private void btnKlickaHärNyregAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärNyregAlienActionPerformed
+        // TODO add your handling code here:
+        new NyregistreraAliens(idb).setVisible(true);
+        dispose();
+        
+        
+    }//GEN-LAST:event_btnKlickaHärNyregAlienActionPerformed
 
     /**
      * @param args the command line arguments
