@@ -68,28 +68,32 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblKategori" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblBenämning" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tfVapnetsBenämning" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cbValdKategori" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Component id="lblFyllIInfo" min="-2" max="-2" attributes="0"/>
                           <Component id="lblRubrikNyUtrustning" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblUtrustningID" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lblHämtadID" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lblUtrustningID" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="lblHämtadID" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="btnHämtaID" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblKategori" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblBenämning" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tfVapnetsBenämning" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cbValdKategori" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -104,6 +108,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblUtrustningID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblHämtadID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnHämtaID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -183,8 +188,16 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblH&#xe4;mtadID">
       <Properties>
-        <Property name="text" type="java.lang.String" value="H&#xe4;mtat_ID"/>
+        <Property name="text" type="java.lang.String" value="             "/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnH&#xe4;mtaID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="H&#xe4;mta ID"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnH&#xe4;mtaIDActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
