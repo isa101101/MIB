@@ -296,7 +296,7 @@ public class AgentMenu extends javax.swing.JFrame {
 
     private void btnKlickaHärÄndraLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärÄndraLösenordActionPerformed
         // TODO add your handling code here:
-        new BytLösenord().setVisible(true);
+        new BytAgentlösen(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnKlickaHärÄndraLösenordActionPerformed
 
@@ -330,6 +330,7 @@ public class AgentMenu extends javax.swing.JFrame {
     private void btnKlickaHärAlienRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärAlienRegDatumActionPerformed
         // TODO add your handling code here:
         new AlienRegMellanDatum(idb).setVisible(true);
+        dispose();
         
     }//GEN-LAST:event_btnKlickaHärAlienRegDatumActionPerformed
 

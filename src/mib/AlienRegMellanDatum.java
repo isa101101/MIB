@@ -124,6 +124,7 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
          if(Validering.textFaltVarde(txtStart) &&  Validering.textFaltVarde(txtSlut)) {
+           
              
              try {
              
@@ -132,11 +133,27 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
              
              String fråga = "SELECT Namn FROM mibdb.Alien WHERE Registreringsdatum BETWEEN '"+start+"' AND '"+slut+"'";
 
-             ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
+                 ArrayList<String> svar = idb.fetchColumn(fråga);
+                 
              String svar2 = svar.toString();
              
              taListaResultat.setText(svar2);
              
+             
+             
+         //for (String Alien : svar){
+            // String lager = Alien ;
+            
+             
+            
+             
+            
+         
+             
+            
+             
+             
+           
              
              }catch (Exception e) {
            System.out.println(e.getMessage());

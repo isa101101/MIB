@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 public class Inloggtvå extends javax.swing.JFrame {
     
     private InfDB idb;
+    
 
     /**
      * Creates new form Inloggtvå
@@ -121,6 +122,16 @@ public class Inloggtvå extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    public String getAnvändare() {
+        
+    String Användare = txtAnvändarnamn.getText();
+    Användare.toString();
+    
+    return Användare;
+    
+    }
+    
     private void btnLoggainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggainActionPerformed
         // TODO add your handling code here:
         
@@ -185,7 +196,7 @@ public class Inloggtvå extends javax.swing.JFrame {
     
      
             //if (txtMedlem.equals(svar)){
-        }catch (Exception e) {
+        }catch (InfException e) {
            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_btnLoggainActionPerformed

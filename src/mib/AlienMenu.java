@@ -96,7 +96,7 @@ public class AlienMenu extends javax.swing.JFrame {
 
     private void btnÄndraLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraLösenordActionPerformed
         // TODO add your handling code here:
-        new BytLösenord().setVisible(true);
+        new BytAlienLösenord(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnÄndraLösenordActionPerformed
 
