@@ -62,29 +62,34 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblFyllIInfo" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblRubrikNyUtrustning" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblBenämning" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblKategori" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="cbValdKategori" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfVapnetsBenämning" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnNästa" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblKategori" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblBenämning" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="tfVapnetsBenämning" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbValdKategori" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="lblFyllIInfo" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRubrikNyUtrustning" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblUtrustningID" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblHämtadID" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,9 +98,14 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Component id="lblRubrikNyUtrustning" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="lblFyllIInfo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblUtrustningID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblHämtadID" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblBenämning" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfVapnetsBenämning" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -105,9 +115,9 @@
                   <Component id="lblKategori" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cbValdKategori" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Component id="btnNästa" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -123,6 +133,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblFyllIInfo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="13" style="2"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Fyll i f&#xf6;ljande information:"/>
       </Properties>
     </Component>
@@ -162,6 +175,16 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnN&#xe4;staActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblUtrustningID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Utrustnings_ID:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblH&#xe4;mtadID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="H&#xe4;mtat_ID"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
