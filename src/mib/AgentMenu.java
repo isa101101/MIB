@@ -157,6 +157,11 @@ public class AgentMenu extends javax.swing.JFrame {
         });
 
         btnKlickaHärUtrustning.setText("Klicka här");
+        btnKlickaHärUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKlickaHärUtrustningActionPerformed(evt);
+            }
+        });
 
         btnNyregUtrustning.setText("Klicka här");
         btnNyregUtrustning.addActionListener(new java.awt.event.ActionListener() {
@@ -327,6 +332,11 @@ public class AgentMenu extends javax.swing.JFrame {
         new AlienRegMellanDatum(idb).setVisible(true);
         
     }//GEN-LAST:event_btnKlickaHärAlienRegDatumActionPerformed
+
+    private void btnKlickaHärUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärUtrustningActionPerformed
+       // TODO add your handling code here:
+       new MinUtrustning(idb).setVisible(true);
+    }//GEN-LAST:event_btnKlickaHärUtrustningActionPerformed
 
     /**
      * @param args the command line arguments
