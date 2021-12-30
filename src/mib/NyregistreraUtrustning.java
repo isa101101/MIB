@@ -38,6 +38,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         btnNästa = new javax.swing.JButton();
         lblUtrustningID = new javax.swing.JLabel();
         lblHämtadID = new javax.swing.JLabel();
+        btnHämtaID = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -86,7 +87,14 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
         lblUtrustningID.setText("Utrustnings_ID:");
 
-        lblHämtadID.setText("Hämtat_ID");
+        lblHämtadID.setText("             ");
+
+        btnHämtaID.setText("Hämta ID");
+        btnHämtaID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHämtaIDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,21 +108,24 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblKategori)
-                                    .addComponent(lblBenämning))
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfVapnetsBenämning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbValdKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(lblFyllIInfo)
                             .addComponent(lblRubrikNyUtrustning)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblUtrustningID)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblHämtadID)))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblUtrustningID)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lblHämtadID)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnHämtaID))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblKategori)
+                                        .addComponent(lblBenämning))
+                                    .addGap(38, 38, 38)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tfVapnetsBenämning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbValdKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +137,8 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUtrustningID)
-                    .addComponent(lblHämtadID))
+                    .addComponent(lblHämtadID)
+                    .addComponent(btnHämtaID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBenämning)
@@ -145,10 +157,22 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
     private void btnNästaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNästaActionPerformed
         // TODO add your handling code here:
-        //try {
-            //String fraga = 
-        
     }//GEN-LAST:event_btnNästaActionPerformed
+
+    private void btnHämtaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaIDActionPerformed
+        // TODO add your handling code here:
+        try {
+            String fråga1 = "SELECT max(Utrustnings_ID) FROM mibdb.Utrustning";
+            
+            String svar1 = fråga1 +1; 
+            
+           lblHämtadID.setText(svar1);
+            
+            
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+            }
+    }//GEN-LAST:event_btnHämtaIDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,6 +210,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHämtaID;
     private javax.swing.JButton btnNästa;
     private javax.swing.JComboBox<String> cbValdKategori;
     private javax.swing.JPanel jPanel1;
