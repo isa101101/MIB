@@ -37,6 +37,8 @@ public class AlienMenu extends javax.swing.JFrame {
         lblområdeschef = new javax.swing.JLabel();
         btnOmrådeschef = new javax.swing.JButton();
         btnÄndraLösenord = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnAliensOmråde = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +57,15 @@ public class AlienMenu extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Andra aliens i mitt område");
+
+        btnAliensOmråde.setText("Tryck här");
+        btnAliensOmråde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAliensOmrådeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -65,15 +76,17 @@ public class AlienMenu extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblområdeschef)
-                            .addComponent(lblÄndraLösenord))
+                            .addComponent(lblÄndraLösenord)
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnOmrådeschef)
-                            .addComponent(btnÄndraLösenord)))
+                            .addComponent(btnÄndraLösenord)
+                            .addComponent(btnAliensOmråde, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addComponent(lblVälkommen)))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,11 +97,15 @@ public class AlienMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblÄndraLösenord)
                     .addComponent(btnÄndraLösenord))
-                .addGap(47, 47, 47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(btnAliensOmråde))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblområdeschef)
                     .addComponent(btnOmrådeschef))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         pack();
@@ -96,9 +113,15 @@ public class AlienMenu extends javax.swing.JFrame {
 
     private void btnÄndraLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraLösenordActionPerformed
         // TODO add your handling code here:
-        new BytAlienLösenord(idb).setVisible(true);
+        //new BytAlienLösenord(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnÄndraLösenordActionPerformed
+
+    private void btnAliensOmrådeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAliensOmrådeActionPerformed
+        // TODO add your handling code here:
+        //new AliensIMittOmråde(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnAliensOmrådeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,8 +159,10 @@ public class AlienMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAliensOmråde;
     private javax.swing.JButton btnOmrådeschef;
     private javax.swing.JButton btnÄndraLösenord;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblVälkommen;
     private javax.swing.JLabel lblområdeschef;
     private javax.swing.JLabel lblÄndraLösenord;
