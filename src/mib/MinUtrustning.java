@@ -4,17 +4,20 @@
  */
 package mib;
 
+import oru.inf.InfDB;
 /**
  *
  * @author isabellefredriksson
  */
 public class MinUtrustning extends javax.swing.JFrame {
 
+    private InfDB idb;
     /**
      * Creates new form MinUtrustning
      */
-    public MinUtrustning() {
+    public MinUtrustning(InfDB idb) {
         initComponents();
+        this.idb = idb;
     }
 
     /**
@@ -98,6 +101,16 @@ public class MinUtrustning extends javax.swing.JFrame {
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
+        try{
+        String fraga ="Select * from mibdb.Innehar_Utrustning;";
+        
+        String svar = idb.fetchSingle(fraga);
+        
+        } catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+
+        
     }//GEN-LAST:event_btnSökActionPerformed
 
     /**
@@ -130,7 +143,7 @@ public class MinUtrustning extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MinUtrustning().setVisible(true);
+                
             }
         });
     }
