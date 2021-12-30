@@ -203,8 +203,12 @@ public class SökPåAlien extends javax.swing.JFrame {
         String fråga2 = "SELECT Registreringsdatum FROM mibdb.Alien where Namn = '"+Namn+"'";
         String fråga3 = "SELECT Namn FROM mibdb.Alien where Namn = '"+Namn+"'";
         String fråga4 = "SELECT Telefon FROM mibdb.Alien where Namn = '"+Namn+"'";
-        String fråga5 = "SELECT Plats FROM mibdb.Alien where Namn = '"+Namn+"'";
-        String fråga6 = "SELECT Ansvarig_Agent FROM mibdb.Alien where Namn = '"+Namn+"'";        
+        String fråga5 = "SELECT mibdb.Omrade.Benamning FROM mibdb.Omrade "
+                + "JOIN mibdb.Alien ON mibdb.Omrade.Omrades_ID = mibdb.Alien.Plats "
+                + "WHERE mibdb.Alien.Namn = '"+Namn+"'";  
+        String fråga6 = "SELECT mibdb.Agent.namn FROM mibdb.Agent "
+                + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
+                + "WHERE mibdb.Alien.Namn = '"+Namn+"'";        
         
         String svar1 = idb.fetchSingle(fråga1);
         String svar2 = idb.fetchSingle(fråga2);
