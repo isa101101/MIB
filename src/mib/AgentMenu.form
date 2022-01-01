@@ -321,6 +321,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Klicka h&#xe4;r"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKlickaH&#xe4;rListaRasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnKlickaH&#xe4;rAlienRegDatum">
       <Properties>
@@ -358,11 +361,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Klicka h&#xe4;r"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKlickaH&#xe4;rOmr&#xe5;descheferActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnTopplista">
       <Properties>
         <Property name="text" type="java.lang.String" value="Klicka h&#xe4;r"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTopplistaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
