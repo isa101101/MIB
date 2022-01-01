@@ -85,7 +85,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tfVapnetsBenämning" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtUtrustningBenämning" min="-2" max="-2" attributes="0"/>
                                       <Component id="cbValdKategori" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -113,7 +113,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblBenämning" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfVapnetsBenämning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtUtrustningBenämning" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -154,7 +154,7 @@
         <Property name="text" type="java.lang.String" value="Kategori:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfVapnetsBen&#xe4;mning">
+    <Component class="javax.swing.JTextField" name="txtUtrustningBen&#xe4;mning">
       <Properties>
         <Property name="columns" type="int" value="10"/>
       </Properties>
