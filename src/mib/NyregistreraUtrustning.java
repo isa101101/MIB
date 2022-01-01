@@ -5,6 +5,7 @@
 package mib;
 
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
@@ -12,16 +13,18 @@ import oru.inf.InfDB;
  */
 public class NyregistreraUtrustning extends javax.swing.JFrame {
 
+    private InfDB idb;
     /**
      * Creates new form NyregistreraUtrustning
      */
-    public NyregistreraUtrustning() {
+    public NyregistreraUtrustning(InfDB idb) {
+        this.idb = idb;
         initComponents();
     }
 
-    NyregistreraUtrustning(InfDB idb) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    //NyregistreraUtrustning(InfDB idb) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    //}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -181,9 +184,9 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         try {
             String fråga1 = "SELECT max(Utrustnings_ID) FROM mibdb.Utrustning";
             
-            String svar1 = fråga1 +1; 
+            String svar1 = idb.fetchSingle(fråga1); 
             
-           lblHämtadID.setText(svar1);
+           lblHämtadID.setText(svar1 +1);
             
             
         }catch (Exception e) {
