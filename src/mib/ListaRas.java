@@ -4,16 +4,21 @@
  */
 package mib;
 
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author isabellefredriksson
  */
 public class ListaRas extends javax.swing.JFrame {
 
+    private InfDB idb;
     /**
      * Creates new form ListaRas
      */
-    public ListaRas() {
+    public ListaRas(InfDB idb) {
+        this.idb = idb;
         initComponents();
     }
 
@@ -152,7 +157,7 @@ public class ListaRas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListaRas().setVisible(true);
+                
             }
         });
     }
