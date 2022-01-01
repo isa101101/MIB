@@ -58,6 +58,7 @@ public class NyregistreraAliens extends javax.swing.JFrame {
         txtRegistreringsdatum = new javax.swing.JTextField();
         lblTillbaka = new javax.swing.JLabel();
         btnTillbaka = new javax.swing.JButton();
+        btnHämtaId = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,6 +129,13 @@ public class NyregistreraAliens extends javax.swing.JFrame {
             }
         });
 
+        btnHämtaId.setText("Hämta ID");
+        btnHämtaId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHämtaIdActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -160,7 +168,9 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                                 .addComponent(lblTillbaka)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnTillbaka)))
-                        .addGap(0, 236, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnHämtaId)
+                        .addGap(0, 121, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAktuellPlats)
@@ -191,7 +201,9 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblAlienID)
-                    .addComponent(txtAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnHämtaId)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -230,7 +242,7 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTillbaka)
                     .addComponent(btnTillbaka))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         pack();
@@ -279,6 +291,21 @@ public class NyregistreraAliens extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
+    private void btnHämtaIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaIdActionPerformed
+        // TODO add your handling code here:
+        try {
+            String fråga = "SELECT max(Alien_ID) FROM mibdb.Alien";
+            
+            String svar1 = idb.fetchSingle(fråga); 
+            
+           txtAlienID.setText(svar1 +1);
+            
+            
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+            }
+    }//GEN-LAST:event_btnHämtaIdActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -316,6 +343,7 @@ public class NyregistreraAliens extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel RubrikNyAlien;
+    private javax.swing.JButton btnHämtaId;
     private javax.swing.JButton btnRegistrera;
     private javax.swing.JButton btnTillbaka;
     private javax.swing.JComboBox<String> cbAliensRas;
