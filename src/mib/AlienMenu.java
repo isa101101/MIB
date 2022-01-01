@@ -113,13 +113,13 @@ public class AlienMenu extends javax.swing.JFrame {
 
     private void btnÄndraLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraLösenordActionPerformed
         // TODO add your handling code here:
-        //new BytAlienLösenord(idb).setVisible(true);
+        new BytAlienLösenord(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnÄndraLösenordActionPerformed
 
     private void btnAliensOmrådeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAliensOmrådeActionPerformed
         // TODO add your handling code here:
-        //new AliensIMittOmråde(idb).setVisible(true);
+        new AliensIMittOmråde(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAliensOmrådeActionPerformed
 
