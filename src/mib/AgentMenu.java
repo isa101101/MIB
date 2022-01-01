@@ -141,6 +141,11 @@ public class AgentMenu extends javax.swing.JFrame {
         });
 
         btnKlickaHärListaRas.setText("Klicka här");
+        btnKlickaHärListaRas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKlickaHärListaRasActionPerformed(evt);
+            }
+        });
 
         btnKlickaHärAlienRegDatum.setText("Klicka här");
         btnKlickaHärAlienRegDatum.addActionListener(new java.awt.event.ActionListener() {
@@ -171,8 +176,18 @@ public class AgentMenu extends javax.swing.JFrame {
         });
 
         btnKlickaHärOmrådeschefer.setText("Klicka här");
+        btnKlickaHärOmrådeschefer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKlickaHärOmrådescheferActionPerformed(evt);
+            }
+        });
 
         btnTopplista.setText("Klicka här");
+        btnTopplista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTopplistaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -338,6 +353,25 @@ public class AgentMenu extends javax.swing.JFrame {
        new MinUtrustning(idb).setVisible(true);
        dispose();
     }//GEN-LAST:event_btnKlickaHärUtrustningActionPerformed
+
+    private void btnTopplistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTopplistaActionPerformed
+        // TODO add your handling code here:
+         new Topplista(idb).setVisible(true);
+         dispose();
+    }//GEN-LAST:event_btnTopplistaActionPerformed
+
+    private void btnKlickaHärOmrådescheferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärOmrådescheferActionPerformed
+        // TODO add your handling code here:
+        new Områdeschefer(idb).setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_btnKlickaHärOmrådescheferActionPerformed
+
+    private void btnKlickaHärListaRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärListaRasActionPerformed
+        // TODO add your handling code here:
+        new ListaRas(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnKlickaHärListaRasActionPerformed
 
     /**
      * @param args the command line arguments
