@@ -292,11 +292,13 @@ public class AgentMenu extends javax.swing.JFrame {
 
     private void btnNyregUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyregUtrustningActionPerformed
         // TODO add your handling code here:
+        new NyregistreraUtrustning(idb).setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnNyregUtrustningActionPerformed
 
     private void btnKlickaHärÄndraLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärÄndraLösenordActionPerformed
         // TODO add your handling code here:
-        //new BytAgentlösen(idb).setVisible(true);
+        new BytAgentlösen(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnKlickaHärÄndraLösenordActionPerformed
 
@@ -304,8 +306,6 @@ public class AgentMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         new NyregistreraAliens(idb).setVisible(true);
         dispose();
-        
-        
     }//GEN-LAST:event_btnKlickaHärNyregAlienActionPerformed
 
     private void btnKlickaHärÄndraInfoAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärÄndraInfoAlienActionPerformed
@@ -323,7 +323,6 @@ public class AgentMenu extends javax.swing.JFrame {
     private void btnKlickaHärAlienPlatserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärAlienPlatserActionPerformed
         // TODO add your handling code here:
         new SökOmråden(idb).setVisible(true);
-        
         dispose();
     }//GEN-LAST:event_btnKlickaHärAlienPlatserActionPerformed
 
@@ -337,6 +336,7 @@ public class AgentMenu extends javax.swing.JFrame {
     private void btnKlickaHärUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärUtrustningActionPerformed
        // TODO add your handling code here:
        new MinUtrustning(idb).setVisible(true);
+       dispose();
     }//GEN-LAST:event_btnKlickaHärUtrustningActionPerformed
 
     /**
