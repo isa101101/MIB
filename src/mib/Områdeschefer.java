@@ -4,16 +4,21 @@
  */
 package mib;
 
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author isabellefredriksson
  */
 public class Områdeschefer extends javax.swing.JFrame {
 
+    private InfDB idb;
     /**
      * Creates new form Områdeschefer
      */
-    public Områdeschefer() {
+    public Områdeschefer(InfDB idb) {
+        this.idb = idb;
         initComponents();
     }
 
@@ -130,7 +135,7 @@ public class Områdeschefer extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Områdeschefer().setVisible(true);
+              
             }
         });
     }
