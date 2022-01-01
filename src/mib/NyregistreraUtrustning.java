@@ -4,6 +4,8 @@
  */
 package mib;
 
+import oru.inf.InfDB;
+
 /**
  *
  * @author isabellefredriksson
@@ -15,6 +17,10 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
      */
     public NyregistreraUtrustning() {
         initComponents();
+    }
+
+    NyregistreraUtrustning(InfDB idb) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -33,7 +39,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         lblFyllIInfo = new javax.swing.JLabel();
         lblBenämning = new javax.swing.JLabel();
         lblKategori = new javax.swing.JLabel();
-        tfVapnetsBenämning = new javax.swing.JTextField();
+        txtUtrustningBenämning = new javax.swing.JTextField();
         cbValdKategori = new javax.swing.JComboBox<>();
         btnNästa = new javax.swing.JButton();
         lblUtrustningID = new javax.swing.JLabel();
@@ -74,7 +80,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
         lblKategori.setText("Kategori:");
 
-        tfVapnetsBenämning.setColumns(10);
+        txtUtrustningBenämning.setColumns(10);
 
         cbValdKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kommunikation", "Vapen", "Fordon" }));
 
@@ -123,7 +129,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                                         .addComponent(lblBenämning))
                                     .addGap(38, 38, 38)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tfVapnetsBenämning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtUtrustningBenämning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(cbValdKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
@@ -142,7 +148,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBenämning)
-                    .addComponent(tfVapnetsBenämning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUtrustningBenämning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblKategori)
@@ -157,6 +163,17 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
     private void btnNästaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNästaActionPerformed
         // TODO add your handling code here:
+        try {
+            String ID = lblHämtadID.getText();
+            String Benämning = txtUtrustningBenämning.getText();
+            
+            String NyUtrustning = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('"+ID+"', '"+Benämning+"')";
+            
+            //idb.insert(NyUtrustning);
+            
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+            }
     }//GEN-LAST:event_btnNästaActionPerformed
 
     private void btnHämtaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaIDActionPerformed
@@ -204,7 +221,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NyregistreraUtrustning().setVisible(true);
+                
             }
         });
     }
@@ -222,6 +239,6 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     private javax.swing.JLabel lblKategori;
     private javax.swing.JLabel lblRubrikNyUtrustning;
     private javax.swing.JLabel lblUtrustningID;
-    private javax.swing.JTextField tfVapnetsBenämning;
+    private javax.swing.JTextField txtUtrustningBenämning;
     // End of variables declaration//GEN-END:variables
 }
