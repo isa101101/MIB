@@ -83,6 +83,11 @@ public class AdminMenu extends javax.swing.JFrame {
         jLabel4.setText("Nyregistrera agent");
 
         btnNyagent.setText("Tryck här");
+        btnNyagent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNyagentActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Sök agent information");
 
@@ -205,6 +210,12 @@ public class AdminMenu extends javax.swing.JFrame {
         new ÄndraAlien(idb).setVisible(true);
          dispose();
     }//GEN-LAST:event_btnÄndraalienActionPerformed
+
+    private void btnNyagentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyagentActionPerformed
+        // TODO add your handling code here:
+        new NyregistreraAgent(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnNyagentActionPerformed
 
     /**
      * @param args the command line arguments

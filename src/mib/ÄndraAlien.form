@@ -29,39 +29,51 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblObligatoriskaFält" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblNamn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblAnsvarigAgent" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAnsvarigAgent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtRegistreringsdatum" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtlösenord" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtAlienID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPlats" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtAnsvarigagent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtNamn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtRegistreringsdatum" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtlösenord" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtAlienID" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPlats" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtAnsvarigagent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblAntaBoogies" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtAntaBoogies" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblAngeArmar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                      <Component id="txtAntalArmar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="lblAntaBoogies" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtAntaBoogies" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="lblAngeArmar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Component id="txtAntalArmar" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="btnÄndraID" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      <Component id="btnÄndraNamn" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="132" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -109,13 +121,19 @@
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="lblAlienID" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAlienID" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                      <Component id="txtAlienID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnÄndraID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnÄndraNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtTelefon" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -160,7 +178,7 @@
                   <Component id="lblAntaBoogies" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAntaBoogies" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
               <Component id="btnUppdatera" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -336,6 +354,22 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ange Antal boogies"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn&#xc4;ndraID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra ID"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraIDActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn&#xc4;ndraNamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra Namn"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraNamnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
