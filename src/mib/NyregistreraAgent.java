@@ -238,6 +238,8 @@ public class NyregistreraAgent extends javax.swing.JFrame {
 
     private void btnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraActionPerformed
         // TODO add your handling code here:
+        
+        try{
         String ID = lblHämtatID.getText();
         String Namn = txtNamn.getText();
         String Telefon = txtTelefon.getText();
@@ -246,10 +248,20 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         String Lösenord = txtLösenord.getText();
         String Område = cmbOmråde.getSelectedItem().toString();
         
+        String Fråga = "SELECT Omrades_ID FROM mibdb.Omrade where Benamning= '"+Område+"'";
+        
+        String svar = idb.fetchSingle(Fråga);
+        
+        
+        
         String nyAgent = "INSERT INTO mibdb.Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Losenord, Omrade) VALUES"
                 + "('"+ID+"', '"+Namn+"', '"+Telefon+"', '"+AnstDatum+"', '"+Admin+"', '"+Lösenord+"', '"+Område+"')";
        
+        idb.insert(nyAgent);
         
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+            }
     }//GEN-LAST:event_btnRegistreraActionPerformed
 
     /**
