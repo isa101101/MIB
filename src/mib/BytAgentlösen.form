@@ -26,19 +26,19 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextField1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfNyaLösenordet" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAnvändarnamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNyaLösenordet" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNyttLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lblBefintligtLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lblRubrikÄndraLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="btnÄndra" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfBefintligaLösenordet" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtBefintligaLösenordet" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="200" max="32767" attributes="0"/>
+              <EmptySpace pref="67" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,23 +47,21 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="lblRubrikÄndraLösenord" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="txtAnvändarnamn" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblBefintligtLösenord" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="tfBefintligaLösenordet" min="-2" max="-2" attributes="0"/>
+              <Component id="txtBefintligaLösenordet" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblNyttLösenord" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="tfNyaLösenordet" min="-2" max="-2" attributes="0"/>
+              <Component id="txtNyaLösenordet" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnÄndra" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -95,7 +93,7 @@
         <Property name="text" type="java.lang.String" value="Ange befintligt l&#xf6;senord:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfBefintligaL&#xf6;senordet">
+    <Component class="javax.swing.JTextField" name="txtBefintligaL&#xf6;senordet">
       <Properties>
         <Property name="columns" type="int" value="10"/>
       </Properties>
@@ -105,26 +103,12 @@
         <Property name="text" type="java.lang.String" value="Ange nytt l&#xf6;senord:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfNyaL&#xf6;senordet">
+    <Component class="javax.swing.JTextField" name="txtNyaL&#xf6;senordet">
       <Properties>
         <Property name="columns" type="int" value="10"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Agent"/>
-            <StringItem index="1" value="Alien"/>
-            <StringItem index="2" value="Admin"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="txtAnv&#xe4;ndarnamn">
       <Properties>
         <Property name="columns" type="int" value="10"/>
       </Properties>

@@ -34,11 +34,10 @@ public class BytAgentlösen extends javax.swing.JFrame {
         lblRubrikÄndraLösenord = new javax.swing.JLabel();
         btnÄndra = new javax.swing.JButton();
         lblBefintligtLösenord = new javax.swing.JLabel();
-        tfBefintligaLösenordet = new javax.swing.JTextField();
+        txtBefintligaLösenordet = new javax.swing.JTextField();
         lblNyttLösenord = new javax.swing.JLabel();
-        tfNyaLösenordet = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        txtNyaLösenordet = new javax.swing.JTextField();
+        txtAnvändarnamn = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,15 +55,13 @@ public class BytAgentlösen extends javax.swing.JFrame {
 
         lblBefintligtLösenord.setText("Ange befintligt lösenord:");
 
-        tfBefintligaLösenordet.setColumns(10);
+        txtBefintligaLösenordet.setColumns(10);
 
         lblNyttLösenord.setText("Ange nytt lösenord:");
 
-        tfNyaLösenordet.setColumns(10);
+        txtNyaLösenordet.setColumns(10);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agent", "Alien", "Admin" }));
-
-        jTextField1.setColumns(10);
+        txtAnvändarnamn.setColumns(10);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,40 +70,38 @@ public class BytAgentlösen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAnvändarnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNyttLösenord)
                     .addComponent(lblBefintligtLösenord)
                     .addComponent(lblRubrikÄndraLösenord)
                     .addComponent(btnÄndra)
-                    .addComponent(tfBefintligaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel1)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(200, Short.MAX_VALUE))
+                    .addComponent(txtBefintligaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel1)))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(lblRubrikÄndraLösenord)
-                .addGap(35, 35, 35)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtAnvändarnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblBefintligtLösenord)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfBefintligaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBefintligaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNyttLösenord)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnÄndra)
-                .addGap(16, 16, 16))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -114,6 +109,26 @@ public class BytAgentlösen extends javax.swing.JFrame {
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
+        try{
+            String agent = txtAnvändarnamn.getText();
+            String befintligtLösenord = txtBefintligaLösenordet.getText();
+            String nyttLösenord = txtNyaLösenordet.getText();
+            
+            String fråga1 = "SELECT losenord FROM mibdb.Agent where namn = '"+agent+"'";
+            
+            String svar1 = idb.fetchSingle(fråga1);
+            
+            if(svar1 == befintligtLösenord)
+            {
+                String ändra = "UPPDATE mibdb.Alien SET losenord = '"+nyttLösenord+"'";
+                
+                idb.update(ändra);
+                
+            }
+        
+        } catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**
@@ -153,13 +168,12 @@ public class BytAgentlösen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnÄndra;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblBefintligtLösenord;
     private javax.swing.JLabel lblNyttLösenord;
     private javax.swing.JLabel lblRubrikÄndraLösenord;
-    private javax.swing.JTextField tfBefintligaLösenordet;
-    private javax.swing.JTextField tfNyaLösenordet;
+    private javax.swing.JTextField txtAnvändarnamn;
+    private javax.swing.JTextField txtBefintligaLösenordet;
+    private javax.swing.JTextField txtNyaLösenordet;
     // End of variables declaration//GEN-END:variables
 }
