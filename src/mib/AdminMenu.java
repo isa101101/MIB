@@ -57,10 +57,20 @@ public class AdminMenu extends javax.swing.JFrame {
         lblNyalien.setText("Nyregistrera alien");
 
         btnNyalien.setText("Tryck här");
+        btnNyalien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNyalienActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Ändra alien information");
 
         btnÄndraalien.setText("Tryck här");
+        btnÄndraalien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraalienActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Ta bort alien");
 
@@ -183,6 +193,18 @@ public class AdminMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNyalienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyalienActionPerformed
+        // TODO add your handling code here:
+        new NyregistreraAliens(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnNyalienActionPerformed
+
+    private void btnÄndraalienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraalienActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAlien(idb).setVisible(true);
+         dispose();
+    }//GEN-LAST:event_btnÄndraalienActionPerformed
 
     /**
      * @param args the command line arguments

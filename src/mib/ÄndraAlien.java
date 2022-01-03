@@ -21,6 +21,11 @@ public class ÄndraAlien extends javax.swing.JFrame {
     public ÄndraAlien(InfDB idb) {
          this.idb = idb;
         initComponents();
+        
+         txtAntalArmar.setVisible(false);
+        txtAntaBoogies.setVisible(false);
+        lblAntaBoogies.setVisible(false);
+        lblAngeArmar.setVisible(false);
     }
 
     /**
@@ -38,7 +43,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtNamn = new javax.swing.JTextField();
         txtRegistreringsdatum = new javax.swing.JTextField();
-        cbAliensRas = new javax.swing.JComboBox<>();
+        cmbRas = new javax.swing.JComboBox<>();
         txtTelefon = new javax.swing.JTextField();
         RubrikNyAlien = new javax.swing.JLabel();
         txtAnsvarigagent = new javax.swing.JTextField();
@@ -54,6 +59,10 @@ public class ÄndraAlien extends javax.swing.JFrame {
         lblAlienID = new javax.swing.JLabel();
         lblTillbaka = new javax.swing.JLabel();
         btnTillbaka = new javax.swing.JButton();
+        txtAntalArmar = new javax.swing.JTextField();
+        txtAntaBoogies = new javax.swing.JTextField();
+        lblAngeArmar = new javax.swing.JLabel();
+        lblAntaBoogies = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,7 +78,12 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
         txtRegistreringsdatum.setColumns(8);
 
-        cbAliensRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Squid", "Boglodite", "Worm", "-Tomt-" }));
+        cmbRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Tomt-", "Squid", "Boglodite", "Worm" }));
+        cmbRas.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbRasItemStateChanged(evt);
+            }
+        });
 
         txtTelefon.setColumns(8);
 
@@ -124,6 +138,14 @@ public class ÄndraAlien extends javax.swing.JFrame {
             }
         });
 
+        txtAntalArmar.setColumns(8);
+
+        txtAntaBoogies.setColumns(8);
+
+        lblAngeArmar.setText("Ange antal armar");
+
+        lblAntaBoogies.setText("Ange Antal boogies");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,35 +156,44 @@ public class ÄndraAlien extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblObligatoriskaFält)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(lblLösenord)
-                                    .addComponent(lblNamn)
-                                    .addComponent(lblTelefon)
-                                    .addComponent(lblAnsvarigAgent))
-                                .addGap(21, 21, 21)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtRegistreringsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtlösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAnsvarigagent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(lblLösenord)
+                                        .addComponent(lblNamn)
+                                        .addComponent(lblTelefon)
+                                        .addComponent(lblAnsvarigAgent))
+                                    .addGap(21, 21, 21)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtRegistreringsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtlösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtAnsvarigagent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblAntaBoogies)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtAntaBoogies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblAngeArmar)
+                                    .addGap(22, 22, 22)
+                                    .addComponent(txtAntalArmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 132, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAktuellPlats)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblRas)
-                                .addGap(18, 18, 18)
-                                .addComponent(cbAliensRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(lblAlienID, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblFyllRutor)
-                                    .addComponent(RubrikNyAlien))))
+                                    .addComponent(RubrikNyAlien)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblRas)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -218,10 +249,18 @@ public class ÄndraAlien extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRas)
-                    .addComponent(cbAliensRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                    .addComponent(cmbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAngeArmar)
+                    .addComponent(txtAntalArmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAntaBoogies)
+                    .addComponent(txtAntaBoogies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(btnUppdatera)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTillbaka)
                     .addComponent(btnTillbaka))
@@ -239,9 +278,16 @@ public class ÄndraAlien extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtlösenordActionPerformed
 
+
+    
     private void btnUppdateraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUppdateraActionPerformed
         // TODO add your handling code here:
 
+        if(Validering.textFaltVarde(txtAlienID) && Validering.textFaltVarde(txtRegistreringsdatum) 
+                && Validering.textFaltVarde(txtlösenord) && Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtTelefon) 
+                && Validering.textFaltVarde(txtPlats) && Validering.textFaltVarde(txtAnsvarigagent)){
+            
+        
         try {
             String ID = txtAlienID.getText();
             String Datum = txtRegistreringsdatum.getText();
@@ -250,13 +296,37 @@ public class ÄndraAlien extends javax.swing.JFrame {
             String Telefon = txtTelefon.getText();
             String Plats = txtPlats.getText();
             String AnsvarigAgent = txtAnsvarigagent.getText();
-
-            String ändra = "update mibdb.Alien set Alien_ID= '"+ID+"', Registreringsdatum='"+Datum+"', Losenord= '"+lösenord+"', Namn='"+Namn+"', Telefon='"+Telefon+"', Plats='"+Plats+"', Ansvarig_Agent='"+AnsvarigAgent+"' where Alien_ID='"+ID+"'";
-
+            String antalArmar = txtAntalArmar.getText();
+            String antalBoogies = txtAntaBoogies.getText();
+            String worm = cmbRas.getSelectedItem().toString();
+            
+            
+            
+            String ändra = "update mibdb.Alien set Alien_ID= '"+ID+"', Registreringsdatum='"+Datum+"', Losenord= '"+lösenord+"', "
+                    + "Namn='"+Namn+"', Telefon='"+Telefon+"', Plats='"+Plats+"', Ansvarig_Agent='"+AnsvarigAgent+"' where Alien_ID='"+ID+"'";
+            
+            if(cmbRas.equals("Worm")) {
+            String ras1 = "INSERT INTO mibdb.Worm (Alien_ID) VALUES ('"+ID+"')";
+            idb.insert(ras1);
+            }
+            
+            if(cmbRas.equals("Squid")) {
+            String ras2 = "INSERT INTO mibdb.Squid (Alien_ID, Antal_Armar) VALUES ('"+ID+"', '"+antalArmar+"')";
+            idb.insert(ras2);
+            }
+            
+            if(cmbRas.equals("Boglodite")) {
+            String ras3 = "INSERT INTO mibdb.Boglodite (Alien_ID, Antal_Boogies) VALUES ('"+ID+"', '"+antalBoogies+"')"; 
+            idb.insert(ras3);
+            }
+            
+            
             idb.update(ändra);
+            
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }
         }
     }//GEN-LAST:event_btnUppdateraActionPerformed
 
@@ -266,6 +336,41 @@ public class ÄndraAlien extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
+    private void cmbRasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbRasItemStateChanged
+        // TODO add your handling code here:
+
+        String vald = cmbRas.getSelectedItem().toString();
+
+        txtAntalArmar.setVisible(false);
+        txtAntaBoogies.setVisible(false);
+        lblAntaBoogies.setVisible(false);
+        lblAngeArmar.setVisible(false);
+
+        if(vald.equals("Squid")) {
+            
+            try {
+                txtAntalArmar.setVisible(true);
+                lblAngeArmar.setVisible(true);
+     
+                
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        }
+     
+        if(vald.equals("Boglodite")) {
+            
+            try {
+                txtAntaBoogies.setVisible(true);
+                lblAntaBoogies.setVisible(true);
+     
+                
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        }
+    }//GEN-LAST:event_cmbRasItemStateChanged
+    
     /**
      * @param args the command line arguments
      */
@@ -305,11 +410,13 @@ public class ÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel RubrikNyAlien;
     private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnUppdatera;
-    private javax.swing.JComboBox<String> cbAliensRas;
+    private javax.swing.JComboBox<String> cmbRas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAktuellPlats;
     private javax.swing.JLabel lblAlienID;
+    private javax.swing.JLabel lblAngeArmar;
     private javax.swing.JLabel lblAnsvarigAgent;
+    private javax.swing.JLabel lblAntaBoogies;
     private javax.swing.JLabel lblFyllRutor;
     private javax.swing.JLabel lblLösenord;
     private javax.swing.JLabel lblNamn;
@@ -319,6 +426,8 @@ public class ÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblTillbaka;
     private javax.swing.JTextField txtAlienID;
     private javax.swing.JTextField txtAnsvarigagent;
+    private javax.swing.JTextField txtAntaBoogies;
+    private javax.swing.JTextField txtAntalArmar;
     private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtPlats;
     private javax.swing.JTextField txtRegistreringsdatum;

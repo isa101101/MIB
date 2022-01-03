@@ -29,23 +29,35 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblObligatoriskaFält" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNamn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblAnsvarigAgent" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblAnsvarigAgent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtRegistreringsdatum" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtlösenord" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtAlienID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtPlats" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtAnsvarigagent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNamn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtRegistreringsdatum" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtlösenord" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtAlienID" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPlats" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtAnsvarigagent" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="lblAntaBoogies" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtAntaBoogies" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="lblAngeArmar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="txtAntalArmar" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -54,17 +66,17 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblAktuellPlats" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblRas" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="cbAliensRas" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                               <Component id="lblAlienID" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                   <Component id="lblFyllRutor" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="RubrikNyAlien" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblRas" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="cmbRas" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -136,11 +148,21 @@
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblRas" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cbAliensRas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbRas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAngeArmar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAntalArmar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAntaBoogies" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAntaBoogies" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
               <Component id="btnUppdatera" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblTillbaka" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnTillbaka" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -181,17 +203,20 @@
         <Property name="columns" type="int" value="8"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbAliensRas">
+    <Component class="javax.swing.JComboBox" name="cmbRas">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="Squid"/>
-            <StringItem index="1" value="Boglodite"/>
-            <StringItem index="2" value="Worm"/>
-            <StringItem index="3" value="-Tomt-"/>
+            <StringItem index="0" value="-Tomt-"/>
+            <StringItem index="1" value="Squid"/>
+            <StringItem index="2" value="Boglodite"/>
+            <StringItem index="3" value="Worm"/>
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cmbRasItemStateChanged"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -291,6 +316,26 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTillbakaActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtAntalArmar">
+      <Properties>
+        <Property name="columns" type="int" value="8"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtAntaBoogies">
+      <Properties>
+        <Property name="columns" type="int" value="8"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAngeArmar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ange antal armar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAntaBoogies">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ange Antal boogies"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

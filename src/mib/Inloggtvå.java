@@ -136,10 +136,7 @@ public class Inloggtvå extends javax.swing.JFrame {
         // TODO add your handling code here:
         
          if(Validering.textFaltVarde(txtAnvändarnamn) && Validering.textFaltVarde(txtLösenord) ) {
-             
-         
-             
-         try {
+             try {
         String användarnamn = txtAnvändarnamn.getText();
         String lösenord = txtLösenord.getText();
         
@@ -185,12 +182,9 @@ public class Inloggtvå extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Agenten är ej behörig ");
             
         }
+         else {
             
-         
-
-        else {
-            
-        JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenordet ");
+        JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenord");
             
         }
     

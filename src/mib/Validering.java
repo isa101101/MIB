@@ -4,25 +4,48 @@
  */
 package mib;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
  * @author jackmacbook
  */
-public class Validering {
-    
-public static boolean textFaltVarde(JTextField ruta) {
-    
-    boolean resultat = true;
-    
-    if (ruta.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Rutan är tom");
-        resultat = false;
+public class Validering extends javax.swing.JFrame {
+
+    private InfDB idb;
+
+    public Validering(InfDB idb) {
+     
+        this.idb = idb;
     }
     
-       
-    return resultat;        
-}
-}
+    
+
+    public static boolean textFaltVarde(JTextField ruta) {
+
+        boolean resultat = true;
+
+        if (ruta.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ett eller flera fält är tomt");
+            resultat = false;
+        }
+
+        return resultat;
+    }
+}    
+    
+  
+    
+    
+    
+    
+
+   
+    
+
+
+

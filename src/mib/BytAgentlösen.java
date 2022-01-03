@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 
 /**
@@ -127,6 +128,8 @@ public class BytAgentlösen extends javax.swing.JFrame {
                 
                 idb.update(ändra);
                 
+            } else {
+                JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenord");
             }
         
         } catch (Exception e) {
