@@ -118,9 +118,10 @@ public class BytAgentlösen extends javax.swing.JFrame {
             
             String svar1 = idb.fetchSingle(fråga1);
             
-            if(svar1 == befintligtLösenord)
+            if(svar1.equals(befintligtLösenord))
+                //com.mysql.cj.jdbc.exceptions
             {
-                String ändra = "UPPDATE mibdb.Alien SET losenord = '"+nyttLösenord+"'";
+                String ändra = "UPDATE mibdb.Agent SET losenord = '"+nyttLösenord+"' WHERE Namn = '"+agent+"'";
                 
                 idb.update(ändra);
                 
