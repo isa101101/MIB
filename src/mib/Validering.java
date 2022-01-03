@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
+
 /**
  *
  * @author jackmacbook
@@ -36,13 +37,8 @@ public class Validering extends javax.swing.JFrame {
 
         return resultat;
     }
-}    
-    
   
-    
-    
-    
-    
+}
 
    
     

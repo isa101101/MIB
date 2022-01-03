@@ -111,11 +111,13 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
                 .addComponent(btnSök)
                 .addGap(9, 9, 9)
                 .addComponent(lblResultat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();
@@ -123,7 +125,9 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
-         if(Validering.textFaltVarde(txtStart) &&  Validering.textFaltVarde(txtSlut)) {
+         
+        taListaResultat.setText("");
+        if(Validering.textFaltVarde(txtStart) &&  Validering.textFaltVarde(txtSlut)) {
            
              
              try {
@@ -133,28 +137,13 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
              
              String fråga = "SELECT Namn FROM mibdb.Alien WHERE Registreringsdatum BETWEEN '"+start+"' AND '"+slut+"'";
 
-                 ArrayList<String> svar = idb.fetchColumn(fråga);
+                 ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
                  
-             String svar2 = svar.toString();
-             
-             taListaResultat.setText(svar2);
-             
-             
-             
-         //for (String Alien : svar){
-            // String lager = Alien ;
-            
-             
-            
-             
-            
-         
-             
-            
-             
-             
-           
-             
+                 for(HashMap<String, String> Namn : svar) {
+                     
+                      taListaResultat.append(Namn.get("Namn")+"\n");
+                 }
+
              }catch (Exception e) {
            System.out.println(e.getMessage());
         }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import oru.inf.InfDB;
 
+
 /**
  *
  * @author isabellefredriksson
@@ -106,6 +107,7 @@ public class SökOmråden extends javax.swing.JFrame {
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
         
+        txtResultat.setText("");
         if (Validering.textFaltVarde(txtSök)) {
         
         String plats = txtSök.getText();
@@ -114,9 +116,16 @@ public class SökOmråden extends javax.swing.JFrame {
             String fråga = "SELECT Namn FROM mibdb.Alien WHERE Plats = '"+plats+"'";
             ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
             
-            String svar2 = svar.toString();
             
-            txtResultat.setText(svar2);
+            
+            for (HashMap<String, String> Namn : svar) {
+                
+                txtResultat.append(Namn.get("Namn") + "\n");
+                        
+                      
+            }
+            
+            
             
         }catch (Exception e) {
            System.out.println(e.getMessage());
