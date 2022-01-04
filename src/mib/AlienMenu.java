@@ -130,7 +130,7 @@ public class AlienMenu extends javax.swing.JFrame {
 
     private void btnOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmrådeschefActionPerformed
         // TODO add your handling code here:
-        new Områdeschefer(idb).setVisible(true);
+        new OmrådesChefAlien(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnOmrådeschefActionPerformed
 

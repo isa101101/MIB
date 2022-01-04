@@ -55,6 +55,11 @@ public class ÄndraAliensID extends javax.swing.JFrame {
         lblNyttID.setText("Ange nytt ID:");
 
         btnÄndraID.setText("Ändra");
+        btnÄndraID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraIDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,6 +106,17 @@ public class ÄndraAliensID extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnÄndraIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraIDActionPerformed
+        // TODO add your handling code here:
+        
+        String ID = txtBefintligtID.getText();
+        String nyttID = txtNyttID.getText();
+        
+        
+        
+        
+    }//GEN-LAST:event_btnÄndraIDActionPerformed
 
     /**
      * @param args the command line arguments

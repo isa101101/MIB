@@ -43,7 +43,7 @@ public class SökPåAlien extends javax.swing.JFrame {
         lblRegDatum = new javax.swing.JLabel();
         lblNamn = new javax.swing.JLabel();
         lblTelefon = new javax.swing.JLabel();
-        lblNuvarandePlats = new javax.swing.JLabel();
+        lblPlats = new javax.swing.JLabel();
         lblAnsvarigAgent = new javax.swing.JLabel();
         txtAID = new javax.swing.JTextField();
         txtRegdatum = new javax.swing.JTextField();
@@ -75,7 +75,7 @@ public class SökPåAlien extends javax.swing.JFrame {
 
         lblTelefon.setText("Telefon:");
 
-        lblNuvarandePlats.setText("Nuvarande plats:");
+        lblPlats.setText("Plats:");
 
         lblAnsvarigAgent.setText("Ansvarig agent:");
 
@@ -112,7 +112,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                                     .addComponent(lblRegDatum)
                                     .addComponent(lblNamn)
                                     .addComponent(lblTelefon)
-                                    .addComponent(lblNuvarandePlats)
+                                    .addComponent(lblPlats)
                                     .addComponent(lblAnsvarigAgent))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -122,16 +122,12 @@ public class SökPåAlien extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(42, 42, 42)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(txtalienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txtAnsvarig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(0, 205, Short.MAX_VALUE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(txtRegdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                            .addComponent(txtalienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtAnsvarig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtRegdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 205, Short.MAX_VALUE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,7 +174,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                     .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNuvarandePlats)
+                    .addComponent(lblPlats)
                     .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -203,8 +199,8 @@ public class SökPåAlien extends javax.swing.JFrame {
         String fråga2 = "SELECT Registreringsdatum FROM mibdb.Alien where Namn = '"+Namn+"'";
         String fråga3 = "SELECT Namn FROM mibdb.Alien where Namn = '"+Namn+"'";
         String fråga4 = "SELECT Telefon FROM mibdb.Alien where Namn = '"+Namn+"'";
-        String fråga5 = "SELECT mibdb.Omrade.Benamning FROM mibdb.Omrade "
-                + "JOIN mibdb.Alien ON mibdb.Omrade.Omrades_ID = mibdb.Alien.Plats "
+        String fråga5 = "SELECT mibdb.Plats.Benamning FROM mibdb.Plats "
+                + "JOIN mibdb.Alien ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats "
                 + "WHERE mibdb.Alien.Namn = '"+Namn+"'";  
         String fråga6 = "SELECT mibdb.Agent.namn FROM mibdb.Agent "
                 + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
@@ -276,7 +272,7 @@ public class SökPåAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblAngeAliensNamn;
     private javax.swing.JLabel lblAnsvarigAgent;
     private javax.swing.JLabel lblNamn;
-    private javax.swing.JLabel lblNuvarandePlats;
+    private javax.swing.JLabel lblPlats;
     private javax.swing.JLabel lblRegDatum;
     private javax.swing.JLabel lblResultat;
     private javax.swing.JLabel lblSökEfterAlien;

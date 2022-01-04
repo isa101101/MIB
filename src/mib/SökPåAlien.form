@@ -46,7 +46,7 @@
                                   <Component id="lblRegDatum" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblNamn" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblTelefon" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNuvarandePlats" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPlats" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblAnsvarigAgent" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -58,17 +58,13 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="txtalienNamn" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtPlats" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtAnsvarig" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="0" pref="205" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="txtalienNamn" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPlats" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtAnsvarig" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtRegdatum" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="0" pref="205" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -132,7 +128,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblNuvarandePlats" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPlats" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtPlats" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -196,9 +192,9 @@
         <Property name="text" type="java.lang.String" value="Telefon:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblNuvarandePlats">
+    <Component class="javax.swing.JLabel" name="lblPlats">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nuvarande plats:"/>
+        <Property name="text" type="java.lang.String" value="Plats:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAnsvarigAgent">

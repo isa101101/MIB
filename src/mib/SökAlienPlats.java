@@ -13,12 +13,12 @@ import oru.inf.InfDB;
  *
  * @author isabellefredriksson
  */
-public class SökOmråden extends javax.swing.JFrame {
+public class SökAlienPlats extends javax.swing.JFrame {
     
     private InfDB idb;
 
     /** Creates new form SökOmråden */
-    public SökOmråden(InfDB idb) {
+    public SökAlienPlats(InfDB idb) {
         this.idb = idb;
         initComponents();
     }
@@ -43,9 +43,9 @@ public class SökOmråden extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblRubrikSökOmråde.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        lblRubrikSökOmråde.setText("Sök efter Aliens i ett område");
+        lblRubrikSökOmråde.setText("Sök efter Aliens i ett plats");
 
-        lblAngeOmråde.setText("Ange område:");
+        lblAngeOmråde.setText("Ange plats:");
 
         txtSök.setColumns(10);
 
@@ -81,7 +81,7 @@ public class SökOmråden extends javax.swing.JFrame {
                             .addComponent(lblAngeOmråde)
                             .addComponent(lblResultat)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,16 +113,21 @@ public class SökOmråden extends javax.swing.JFrame {
         String plats = txtSök.getText();
         
         try {
-            String fråga = "SELECT Namn FROM mibdb.Alien WHERE Plats = '"+plats+"'";
-            ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
+            String fråga = "SELECT Namn FROM mibdb.Alien "
+                    + "JOIN mibdb.Plats ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats "
+                    + "WHERE mibdb.Plats.Benamning = '"+plats+"'";
             
+            ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
             
             
             for (HashMap<String, String> Namn : svar) {
                 
                 txtResultat.append(Namn.get("Namn") + "\n");
-                        
-                      
+            
+                if(svar.isEmpty())
+                {
+                    txtResultat.setText("Finns ingen alien på denna plats just nu!");
+                }
             }
             
             
@@ -151,14 +156,15 @@ public class SökOmråden extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SökOmråden.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SökAlienPlats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SökOmråden.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SökAlienPlats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SökOmråden.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SökAlienPlats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SökOmråden.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SökAlienPlats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

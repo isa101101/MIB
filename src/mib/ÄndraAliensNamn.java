@@ -4,6 +4,9 @@
  */
 package mib;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
@@ -44,6 +47,11 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnÄndraNamn.setText("Ändra");
+        btnÄndraNamn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraNamnActionPerformed(evt);
+            }
+        });
 
         lblNyttNamn.setText("Ange nytt namn:");
 
@@ -101,6 +109,36 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnÄndraNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraNamnActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+        String BefintligtNamn = txtBefintligtNamn.getText();
+        String NyttNamn = txtNyttNamn.getText();
+        
+        String fråga = "SELECT mibdb.Alien.Namn FROM mibdb.Alien";
+        
+        ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
+                 
+                 for(HashMap<String, String> Namn : svar) {
+                     
+                   if(!NyttNamn.equals(Namn)) {
+            
+                   String ändra = "UPDATE mibdb.Alien SET Namn = '"+NyttNamn+"' WHERE Namn = '"+BefintligtNamn+"'";
+                   
+                   } else 
+                       JOptionPane.showMessageDialog(null, "Det finns redan en alien med detta namn!");
+                   {
+                       
+                   }
+                   }
+
+        }catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+        
+    }//GEN-LAST:event_btnÄndraNamnActionPerformed
 
     /**
      * @param args the command line arguments

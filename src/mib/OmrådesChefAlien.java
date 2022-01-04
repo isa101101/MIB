@@ -11,13 +11,13 @@ import oru.inf.InfException;
  *
  * @author isabellefredriksson
  */
-public class Områdeschefer extends javax.swing.JFrame {
+public class OmrådesChefAlien extends javax.swing.JFrame {
 
     private InfDB idb;
     /**
      * Creates new form Områdeschefer
      */
-    public Områdeschefer(InfDB idb) {
+    public OmrådesChefAlien(InfDB idb) {
         this.idb = idb;
         initComponents();
     }
@@ -199,14 +199,15 @@ public class Områdeschefer extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Områdeschefer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OmrådesChefAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Områdeschefer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OmrådesChefAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Områdeschefer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OmrådesChefAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Områdeschefer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OmrådesChefAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

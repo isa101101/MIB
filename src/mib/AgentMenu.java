@@ -335,7 +335,7 @@ public class AgentMenu extends javax.swing.JFrame {
 
     private void btnKlickaHärAlienPlatserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärAlienPlatserActionPerformed
         // TODO add your handling code here:
-        new SökOmråden(idb).setVisible(true);
+        new SökAlienPlats(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnKlickaHärAlienPlatserActionPerformed
 
@@ -360,7 +360,7 @@ public class AgentMenu extends javax.swing.JFrame {
 
     private void btnKlickaHärOmrådescheferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärOmrådescheferActionPerformed
         // TODO add your handling code here:
-        new Områdeschefer(idb).setVisible(true);
+        new OmrådeschefAgent(idb).setVisible(true);
         dispose();
         
     }//GEN-LAST:event_btnKlickaHärOmrådescheferActionPerformed
