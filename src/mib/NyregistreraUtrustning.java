@@ -4,6 +4,7 @@
  */
 package mib;
 
+import java.awt.desktop.QuitEvent;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -221,66 +222,70 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
     private void btnNästaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNästaActionPerformed
         // TODO add your handling code here:
-        
-        String kategori = cbValdKategori.getSelectedItem().toString();
-        String HID = lblHämtadID.getText();
-        
-        if (Validering.textFaltVarde(txtUtrustningBenämning)) {
             
-        if(kategori.equals("Kommunikation")) {
-            Validering.textFaltVarde(txtKommunikation);
-        }   
-        if(kategori.equals("Vapen")){
-            Validering.textFaltVarde(txtVapen);
-        }
-        
-        if(kategori.equals("Teknik")) {
-            Validering.textFaltVarde(txtTeknik);
-        }
-        if(kategori.equals("-Välj-")) {
-            JOptionPane.showMessageDialog(null, "Välj Kategori");
-        } 
-        
-       if(HID.isBlank()){
-           JOptionPane.showMessageDialog(null, "Hämta ID");
-        }
-            
-        }
-        
-        try {
+            String kategori = cbValdKategori.getSelectedItem().toString();
+            String HID = lblHämtadID.getText();
             String ID = lblHämtadID.getText();
             String Benämning = txtUtrustningBenämning.getText();
-            
+            String överföring = txtKommunikation.getText();
+            String kaliber = txtVapen.getText();
+            String kraft = txtTeknik.getText();
             String kommunikation = "Kommunikation";
             String vapen = "Vapen";
             String teknik = "Teknik";
-            String överföring = txtKommunikation.getText();
+            String välj = "-Välj";
             
-            
-            String NyUtrustning = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('"+ID+"', '"+Benämning+"')";
-            
-            idb.insert(NyUtrustning);
-            
-            if(kategori.equals("Kommunikation")) {
-            String k = "INSERT INTO mibdb.Kommunikation (Utrustnings_ID, overforingsteknik) VALUES ('"+ID+"', '"+överföring+"')";
-            idb.insert(k);
-            }
+          if (Validering.textFaltVarde(txtUtrustningBenämning)) {
+          }
+          else if(kategori.equals(kommunikation)) {
+                Validering.textFaltVarde(txtKommunikation); 
+          }
+          else if (kategori.equals(vapen)) {
+                Validering.textFaltVarde(txtVapen); 
+          }
+          else if (kategori.equals(teknik)) {
+                Validering.textFaltVarde(txtTeknik); 
+                     }
+          
+          else if (kategori.equals(välj)) {
+                JOptionPane.showMessageDialog(null, "Välj Kategori"); 
+          }
+          else if (HID.isBlank()) {
+                JOptionPane.showMessageDialog(null, "Hämta ID"); 
+          }
+          
+        try {
+
            
-        if(kategori.equals("Vapen")){
-            Validering.textFaltVarde(txtVapen);
-        }
-        
-        if(kategori.equals("Teknik")) {
-            Validering.textFaltVarde(txtTeknik);
-        }    
+
+            if (kategori.equals("Kommunikation")) {
+                String kom = "INSERT INTO mibdb.Kommunikation (Utrustnings_ID, overforingsteknik) VALUES ('" + ID + "', '" + överföring + "')";
+                idb.insert(kom);
+            }
+
+            else if (kategori.equals(vapen)) {
+                String vap = "INSERT INTO mibdb.Vapen (Utrustnings_ID, kaliber) VALUES ('" + ID + "', '" + kaliber + "')";
+                idb.insert(vap);
+            }
+
+            else if (kategori.equals(teknik)) {
+                String tek = "INSERT INTO mibdb.Teknik (Utrustnings_ID, Kraftkalla) VALUES ('" + ID + "', '" + kraft + "')";
+                idb.insert(tek);
+                JOptionPane.showMessageDialog(null, "Ny utrustning tillagd");
+            }
             
-            
-            
-            //idb.insert(NyUtrustning);
+             String NyUtrustning = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
+
+            idb.insert(NyUtrustning);
+
+
+          
             
         }catch (Exception e) {
             System.out.println(e.getMessage());
             }
+ 
+     
     }//GEN-LAST:event_btnNästaActionPerformed
 
     private void btnHämtaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaIDActionPerformed
