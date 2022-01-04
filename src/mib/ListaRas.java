@@ -33,7 +33,7 @@ public class ListaRas extends javax.swing.JFrame {
 
         lblRubrikListaRas = new javax.swing.JLabel();
         lblAngeRas = new javax.swing.JLabel();
-        cbValdRas = new javax.swing.JComboBox<>();
+        cmbValdRas = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         taVisaResultat = new javax.swing.JTextArea();
         jScrollBar1 = new javax.swing.JScrollBar();
@@ -47,10 +47,10 @@ public class ListaRas extends javax.swing.JFrame {
 
         lblAngeRas.setText("Ange ras:");
 
-        cbValdRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Squid", "Boglodite", "Worm" }));
-        cbValdRas.addActionListener(new java.awt.event.ActionListener() {
+        cmbValdRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Squid", "Boglodite", "Worm" }));
+        cmbValdRas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbValdRasActionPerformed(evt);
+                cmbValdRasActionPerformed(evt);
             }
         });
 
@@ -80,7 +80,7 @@ public class ListaRas extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblAngeRas)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbValdRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbValdRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSök))
                             .addComponent(lblResultat)))
@@ -104,7 +104,7 @@ public class ListaRas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblAngeRas)
-                            .addComponent(cbValdRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbValdRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSök))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                         .addComponent(lblResultat)
@@ -119,12 +119,23 @@ public class ListaRas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbValdRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbValdRasActionPerformed
+    private void cmbValdRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbValdRasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbValdRasActionPerformed
+    }//GEN-LAST:event_cmbValdRasActionPerformed
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
+        
+        taVisaResultat.setText("");
+        String Ras = cmbValdRas.getSelectedItem().toString();
+        
+        try{
+            
+            
+        }catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+        
     }//GEN-LAST:event_btnSökActionPerformed
 
     /**
@@ -164,7 +175,7 @@ public class ListaRas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSök;
-    private javax.swing.JComboBox<String> cbValdRas;
+    private javax.swing.JComboBox<String> cmbValdRas;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAngeRas;

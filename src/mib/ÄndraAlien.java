@@ -65,6 +65,11 @@ public class ÄndraAlien extends javax.swing.JFrame {
         lblAntaBoogies = new javax.swing.JLabel();
         btnÄndraID = new javax.swing.JButton();
         btnÄndraNamn = new javax.swing.JButton();
+        btnÄndraRegDatum = new javax.swing.JButton();
+        btnÄndraLösenord = new javax.swing.JButton();
+        btnÄndraTelefon = new javax.swing.JButton();
+        btnÄndraPlats = new javax.swing.JButton();
+        btnÄndraAgent = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -155,10 +160,40 @@ public class ÄndraAlien extends javax.swing.JFrame {
             }
         });
 
-        btnÄndraNamn.setText("Ändra Namn");
+        btnÄndraNamn.setText("Ändra namn");
         btnÄndraNamn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnÄndraNamnActionPerformed(evt);
+            }
+        });
+
+        btnÄndraRegDatum.setText("Ändra Reg.Datum");
+        btnÄndraRegDatum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraRegDatumActionPerformed(evt);
+            }
+        });
+
+        btnÄndraLösenord.setText("Ändra lösenord");
+
+        btnÄndraTelefon.setText("Ändra telefon");
+        btnÄndraTelefon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraTelefonActionPerformed(evt);
+            }
+        });
+
+        btnÄndraPlats.setText("Ändra plats");
+        btnÄndraPlats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraPlatsActionPerformed(evt);
+            }
+        });
+
+        btnÄndraAgent.setText("Ändra agent");
+        btnÄndraAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraAgentActionPerformed(evt);
             }
         });
 
@@ -198,14 +233,16 @@ public class ÄndraAlien extends javax.swing.JFrame {
                                         .addComponent(lblAngeArmar)
                                         .addGap(22, 22, 22)
                                         .addComponent(txtAntalArmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnÄndraID))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(btnÄndraNamn)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(btnÄndraNamn)
+                                    .addComponent(btnÄndraTelefon)
+                                    .addComponent(btnÄndraPlats)
+                                    .addComponent(btnÄndraAgent)
+                                    .addComponent(btnÄndraID)
+                                    .addComponent(btnÄndraRegDatum)
+                                    .addComponent(btnÄndraLösenord))))
+                        .addGap(0, 6, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAktuellPlats)
@@ -247,19 +284,25 @@ public class ÄndraAlien extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addComponent(btnÄndraLösenord)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnÄndraNamn))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnÄndraTelefon))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnÄndraPlats))
+                        .addGap(11, 11, 11))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(txtRegistreringsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtRegistreringsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnÄndraRegDatum))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblLösenord)
@@ -272,9 +315,11 @@ public class ÄndraAlien extends javax.swing.JFrame {
                         .addComponent(lblAktuellPlats)
                         .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAnsvarigagent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtAnsvarigagent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnÄndraAgent))
                     .addComponent(lblAnsvarigAgent))
-                .addGap(65, 65, 65)
+                .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRas)
                     .addComponent(cmbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -286,7 +331,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAntaBoogies)
                     .addComponent(txtAntaBoogies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(btnUppdatera)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -410,6 +455,30 @@ public class ÄndraAlien extends javax.swing.JFrame {
         new ÄndraAliensNamn(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnÄndraNamnActionPerformed
+
+    private void btnÄndraRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraRegDatumActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAliensRegDatum(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnÄndraRegDatumActionPerformed
+
+    private void btnÄndraTelefonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraTelefonActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAliensTelefon(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnÄndraTelefonActionPerformed
+
+    private void btnÄndraPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraPlatsActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAliensPlats(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnÄndraPlatsActionPerformed
+
+    private void btnÄndraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAgentActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAliensAsvarigaAgent(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnÄndraAgentActionPerformed
     
     /**
      * @param args the command line arguments
@@ -450,8 +519,13 @@ public class ÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel RubrikNyAlien;
     private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnUppdatera;
+    private javax.swing.JButton btnÄndraAgent;
     private javax.swing.JButton btnÄndraID;
+    private javax.swing.JButton btnÄndraLösenord;
     private javax.swing.JButton btnÄndraNamn;
+    private javax.swing.JButton btnÄndraPlats;
+    private javax.swing.JButton btnÄndraRegDatum;
+    private javax.swing.JButton btnÄndraTelefon;
     private javax.swing.JComboBox<String> cmbRas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAktuellPlats;

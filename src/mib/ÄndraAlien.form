@@ -61,19 +61,19 @@
                                       <Component id="txtAntalArmar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btnÄndraID" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Component id="btnÄndraNamn" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="btnÄndraNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnÄndraTelefon" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnÄndraPlats" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnÄndraAgent" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnÄndraID" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnÄndraRegDatum" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnÄndraLösenord" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -129,21 +129,29 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnÄndraLösenord" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtNamn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnÄndraNamn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtTelefon" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnÄndraTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txtPlats" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtPlats" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnÄndraPlats" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtRegistreringsdatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnÄndraRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -160,10 +168,13 @@
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAnsvarigagent" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="txtAnsvarigagent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnÄndraAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Component id="lblAnsvarigAgent" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblRas" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cmbRas" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -178,7 +189,7 @@
                   <Component id="lblAntaBoogies" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAntaBoogies" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
               <Component id="btnUppdatera" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -365,10 +376,47 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn&#xc4;ndraNamn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra Namn"/>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra namn"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraNamnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn&#xc4;ndraRegDatum">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra Reg.Datum"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraRegDatumActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn&#xc4;ndraL&#xf6;senord">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra l&#xf6;senord"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn&#xc4;ndraTelefon">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra telefon"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraTelefonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn&#xc4;ndraPlats">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra plats"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraPlatsActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn&#xc4;ndraAgent">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra agent"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraAgentActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

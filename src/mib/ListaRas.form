@@ -31,7 +31,7 @@
                           <Group type="102" attributes="0">
                               <Component id="lblAngeRas" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="cbValdRas" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmbValdRas" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btnSök" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -64,7 +64,7 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblAngeRas" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbValdRas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbValdRas" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnSök" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="23" max="32767" attributes="0"/>
@@ -96,7 +96,7 @@
         <Property name="text" type="java.lang.String" value="Ange ras:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbValdRas">
+    <Component class="javax.swing.JComboBox" name="cmbValdRas">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
@@ -107,7 +107,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbValdRasActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbValdRasActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
