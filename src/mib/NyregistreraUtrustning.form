@@ -67,33 +67,51 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="lblRubrikNyUtrustning" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblFyllIInfo" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblRubrikNyUtrustning" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <Component id="lblUtrustningID" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="lblHämtadID" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="btnHämtaID" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblKategori" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblBenämning" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblKategori" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblBenämning" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblöverföring" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="lblKaliber" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblKtaftkälla" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="txtUtrustningBenämning" min="-2" max="-2" attributes="0"/>
                                       <Component id="cbValdKategori" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtKommunikation" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtVapen" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtTeknik" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,7 +120,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Component id="lblRubrikNyUtrustning" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="lblFyllIInfo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -120,7 +138,22 @@
                   <Component id="lblKategori" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cbValdKategori" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtKommunikation" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblöverföring" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtVapen" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblKaliber" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtTeknik" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblKtaftkälla" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="46" max="32767" attributes="0"/>
               <Component id="btnNästa" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -162,13 +195,17 @@
     <Component class="javax.swing.JComboBox" name="cbValdKategori">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Kommunikation"/>
-            <StringItem index="1" value="Vapen"/>
-            <StringItem index="2" value="Fordon"/>
+          <StringArray count="4">
+            <StringItem index="0" value="-V&#xe4;lj-"/>
+            <StringItem index="1" value="Kommunikation"/>
+            <StringItem index="2" value="Vapen"/>
+            <StringItem index="3" value="Teknik"/>
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbValdKategoriItemStateChanged"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -187,9 +224,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblH&#xe4;mtadID">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="             "/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnH&#xe4;mtaID">
       <Properties>
@@ -198,6 +232,36 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnH&#xe4;mtaIDActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtKommunikation">
+      <Properties>
+        <Property name="columns" type="int" value="10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtVapen">
+      <Properties>
+        <Property name="columns" type="int" value="10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtTeknik">
+      <Properties>
+        <Property name="columns" type="int" value="10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl&#xf6;verf&#xf6;ring">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xd6;verf&#xf6;ringsteknik"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblKaliber">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kaliber"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblKtaftk&#xe4;lla">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kraftk&#xe4;lla"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

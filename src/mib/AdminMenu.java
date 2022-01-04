@@ -75,6 +75,11 @@ public class AdminMenu extends javax.swing.JFrame {
         jLabel2.setText("Ta bort alien");
 
         btnTabortalien.setText("Tryck här");
+        btnTabortalien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTabortalienActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Ta bort utrustning");
 
@@ -216,6 +221,11 @@ public class AdminMenu extends javax.swing.JFrame {
         new NyregistreraAgent(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnNyagentActionPerformed
+
+    private void btnTabortalienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortalienActionPerformed
+        // TODO add your handling code here:
+         new RaderaAlien(idb).setVisible(true);
+    }//GEN-LAST:event_btnTabortalienActionPerformed
 
     /**
      * @param args the command line arguments

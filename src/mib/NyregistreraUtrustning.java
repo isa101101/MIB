@@ -4,6 +4,7 @@
  */
 package mib;
 
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -20,6 +21,14 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     public NyregistreraUtrustning(InfDB idb) {
         this.idb = idb;
         initComponents();
+        
+        txtKommunikation.setVisible(false);
+        txtTeknik.setVisible(false);
+        txtVapen.setVisible(false);
+        lblKaliber.setVisible(false);
+        lblKtaftkälla.setVisible(false);
+        lblöverföring.setVisible(false);
+        
     }
 
     //NyregistreraUtrustning(InfDB idb) {
@@ -48,6 +57,12 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         lblUtrustningID = new javax.swing.JLabel();
         lblHämtadID = new javax.swing.JLabel();
         btnHämtaID = new javax.swing.JButton();
+        txtKommunikation = new javax.swing.JTextField();
+        txtVapen = new javax.swing.JTextField();
+        txtTeknik = new javax.swing.JTextField();
+        lblöverföring = new javax.swing.JLabel();
+        lblKaliber = new javax.swing.JLabel();
+        lblKtaftkälla = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,7 +100,12 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
         txtUtrustningBenämning.setColumns(10);
 
-        cbValdKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kommunikation", "Vapen", "Fordon" }));
+        cbValdKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Välj-", "Kommunikation", "Vapen", "Teknik" }));
+        cbValdKategori.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbValdKategoriItemStateChanged(evt);
+            }
+        });
 
         btnNästa.setText("Nästa");
         btnNästa.addActionListener(new java.awt.event.ActionListener() {
@@ -96,14 +116,24 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
         lblUtrustningID.setText("Utrustnings_ID:");
 
-        lblHämtadID.setText("             ");
-
         btnHämtaID.setText("Hämta ID");
         btnHämtaID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHämtaIDActionPerformed(evt);
             }
         });
+
+        txtKommunikation.setColumns(10);
+
+        txtVapen.setColumns(10);
+
+        txtTeknik.setColumns(10);
+
+        lblöverföring.setText("Överföringsteknik");
+
+        lblKaliber.setText("Kaliber");
+
+        lblKtaftkälla.setText("Kraftkälla");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,9 +146,11 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                         .addComponent(btnNästa))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
+                        .addComponent(lblRubrikNyUtrustning))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblFyllIInfo)
-                            .addComponent(lblRubrikNyUtrustning)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(lblUtrustningID)
@@ -127,21 +159,32 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnHämtaID))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblKategori)
-                                        .addComponent(lblBenämning))
-                                    .addGap(38, 38, 38)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblKategori)
+                                                .addComponent(lblBenämning)
+                                                .addComponent(lblöverföring))
+                                            .addGap(38, 38, 38))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(lblKaliber, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblKtaftkälla, javax.swing.GroupLayout.Alignment.LEADING))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtUtrustningBenämning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cbValdKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                                        .addComponent(cbValdKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtKommunikation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtVapen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtTeknik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(lblRubrikNyUtrustning)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addComponent(lblFyllIInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -156,7 +199,19 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblKategori)
                     .addComponent(cbValdKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtKommunikation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblöverföring))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtVapen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblKaliber))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTeknik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblKtaftkälla))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(btnNästa)
                 .addContainerGap())
         );
@@ -166,11 +221,60 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
     private void btnNästaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNästaActionPerformed
         // TODO add your handling code here:
+        
+        String kategori = cbValdKategori.getSelectedItem().toString();
+        String HID = lblHämtadID.getText();
+        
+        if (Validering.textFaltVarde(txtUtrustningBenämning)) {
+            
+        if(kategori.equals("Kommunikation")) {
+            Validering.textFaltVarde(txtKommunikation);
+        }   
+        if(kategori.equals("Vapen")){
+            Validering.textFaltVarde(txtVapen);
+        }
+        
+        if(kategori.equals("Teknik")) {
+            Validering.textFaltVarde(txtTeknik);
+        }
+        if(kategori.equals("-Välj-")) {
+            JOptionPane.showMessageDialog(null, "Välj Kategori");
+        } 
+        
+       if(HID.isBlank()){
+           JOptionPane.showMessageDialog(null, "Hämta ID");
+        }
+            
+        }
+        
         try {
             String ID = lblHämtadID.getText();
             String Benämning = txtUtrustningBenämning.getText();
             
+            String kommunikation = "Kommunikation";
+            String vapen = "Vapen";
+            String teknik = "Teknik";
+            String överföring = txtKommunikation.getText();
+            
+            
             String NyUtrustning = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('"+ID+"', '"+Benämning+"')";
+            
+            idb.insert(NyUtrustning);
+            
+            if(kategori.equals("Kommunikation")) {
+            String k = "INSERT INTO mibdb.Kommunikation (Utrustnings_ID, overforingsteknik) VALUES ('"+ID+"', '"+överföring+"')";
+            idb.insert(k);
+            }
+           
+        if(kategori.equals("Vapen")){
+            Validering.textFaltVarde(txtVapen);
+        }
+        
+        if(kategori.equals("Teknik")) {
+            Validering.textFaltVarde(txtTeknik);
+        }    
+            
+            
             
             //idb.insert(NyUtrustning);
             
@@ -181,18 +285,56 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
     private void btnHämtaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaIDActionPerformed
         // TODO add your handling code here:
-        try {
-            String fråga1 = "SELECT max(Utrustnings_ID) FROM mibdb.Utrustning";
+        
+            //String fråga1 = "SELECT max(Utrustnings_ID) FROM mibdb.Utrustning";
             
-            String svar1 = idb.fetchSingle(fråga1); 
+          try {
+            String fråga = "SELECT max(Utrustnings_ID) FROM mibdb.Utrustning";
             
-           lblHämtadID.setText(svar1 +1);
+            String svar1 = idb.fetchSingle(fråga); 
+            
+            int svaret = Integer.parseInt(svar1);
+            int resultat = svaret +1;
+            
+            String slutResultat = Integer.toString(resultat);
+            
+           lblHämtadID.setText(slutResultat);
             
             
         }catch (Exception e) {
             System.out.println(e.getMessage());
             }
     }//GEN-LAST:event_btnHämtaIDActionPerformed
+
+    private void cbValdKategoriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbValdKategoriItemStateChanged
+        // TODO add your handling code here:
+        
+        String vald = cbValdKategori.getSelectedItem().toString();
+        
+        txtKommunikation.setVisible(false);
+        txtTeknik.setVisible(false);
+        txtVapen.setVisible(false);
+        lblKaliber.setVisible(false);
+        lblKtaftkälla.setVisible(false);
+        lblöverföring.setVisible(false);
+        
+       
+        
+        if(vald.equals("Kommunikation")) {
+             txtKommunikation.setVisible(true);
+             lblöverföring.setVisible(true);
+        }
+        
+        if(vald.equals("Vapen")){
+            txtVapen.setVisible(true);
+            lblKaliber.setVisible(true);
+        }
+        
+        if(vald.equals("Teknik")) {
+             txtTeknik.setVisible(true);
+             lblKtaftkälla.setVisible(true);
+        }
+    }//GEN-LAST:event_cbValdKategoriItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -239,9 +381,15 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     private javax.swing.JLabel lblBenämning;
     private javax.swing.JLabel lblFyllIInfo;
     private javax.swing.JLabel lblHämtadID;
+    private javax.swing.JLabel lblKaliber;
     private javax.swing.JLabel lblKategori;
+    private javax.swing.JLabel lblKtaftkälla;
     private javax.swing.JLabel lblRubrikNyUtrustning;
     private javax.swing.JLabel lblUtrustningID;
+    private javax.swing.JLabel lblöverföring;
+    private javax.swing.JTextField txtKommunikation;
+    private javax.swing.JTextField txtTeknik;
     private javax.swing.JTextField txtUtrustningBenämning;
+    private javax.swing.JTextField txtVapen;
     // End of variables declaration//GEN-END:variables
 }

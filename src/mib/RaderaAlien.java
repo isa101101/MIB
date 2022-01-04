@@ -4,16 +4,21 @@
  */
 package mib;
 
+import oru.inf.InfDB;
+import oru.inf.InfException;
 /**
  *
  * @author isabellefredriksson
  */
 public class RaderaAlien extends javax.swing.JFrame {
 
+    
+    private InfDB idb;
     /**
      * Creates new form RaderaAlien
      */
-    public RaderaAlien() {
+    public RaderaAlien(InfDB idb) {
+         this.idb = idb;
         initComponents();
     }
 
@@ -113,7 +118,7 @@ public class RaderaAlien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RaderaAlien().setVisible(true);
+               
             }
         });
     }

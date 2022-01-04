@@ -30,6 +30,7 @@ public class NyregistreraAliens extends javax.swing.JFrame {
         txtAntaBoogies.setVisible(false);
         lblAntaBoogies.setVisible(false);
         lblAngeArmar.setVisible(false);
+        
     }
 
     /**
@@ -58,7 +59,6 @@ public class NyregistreraAliens extends javax.swing.JFrame {
         btnRegistrera = new javax.swing.JButton();
         lblObligatoriskaFält = new javax.swing.JLabel();
         lblAlienID = new javax.swing.JLabel();
-        txtAlienID = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtRegistreringsdatum = new javax.swing.JTextField();
         lblTillbaka = new javax.swing.JLabel();
@@ -68,6 +68,7 @@ public class NyregistreraAliens extends javax.swing.JFrame {
         txtAntalArmar = new javax.swing.JTextField();
         lblAngeArmar = new javax.swing.JLabel();
         lblAntaBoogies = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,8 +129,6 @@ public class NyregistreraAliens extends javax.swing.JFrame {
 
         lblAlienID.setText("Alien ID");
 
-        txtAlienID.setColumns(8);
-
         jLabel1.setText("Registreringsdatum");
 
         txtRegistreringsdatum.setColumns(8);
@@ -157,6 +156,8 @@ public class NyregistreraAliens extends javax.swing.JFrame {
         lblAngeArmar.setText("Ange antal armar");
 
         lblAntaBoogies.setText("Ange Antal boogies");
+
+        lblID.setText("          ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -191,7 +192,6 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                                             .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtRegistreringsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtlösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtAnsvarigagent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
@@ -210,7 +210,10 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(cmbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblAlienID, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(lblAlienID)
+                                    .addGap(121, 121, 121)
+                                    .addComponent(lblID))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblFyllRutor)
                                     .addComponent(RubrikNyAlien))))
@@ -233,8 +236,8 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblAlienID)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnHämtaId)))
+                        .addComponent(btnHämtaId)
+                        .addComponent(lblID)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -298,20 +301,22 @@ public class NyregistreraAliens extends javax.swing.JFrame {
     private void btnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraActionPerformed
         // TODO add your handling code here:
         
-         if (Validering.textFaltVarde(txtAlienID) && Validering.textFaltVarde(txtRegistreringsdatum) && Validering.textFaltVarde(txtlösenord) && 
+         if (Validering.textFaltVarde(txtRegistreringsdatum) && Validering.textFaltVarde(txtlösenord) && 
                  Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtTelefon) && Validering.textFaltVarde(txtPlats) && Validering.textFaltVarde(txtAnsvarigagent)){   
         
         try {
-            String ID = txtAlienID.getText();
+            String ID = lblID.getText();
             String Datum = txtRegistreringsdatum.getText();
             String lösenord = txtlösenord.getText();
             String Namn = txtNamn.getText();
             String Telefon = txtTelefon.getText();
             String Plats = txtPlats.getText();
             String AnsvarigAgent = txtAnsvarigagent.getText();
-             String antalArmar = txtAntalArmar.getText();
+            String antalArmar = txtAntalArmar.getText();
             String antalBoogies = txtAntaBoogies.getText();
-            String worm = cmbRas.getSelectedItem().toString();
+            String worm2 = cmbRas.getSelectedItem().toString();
+            
+            
             
            
             String Nyalien = "INSERT INTO mibdb.Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES "
@@ -320,19 +325,22 @@ public class NyregistreraAliens extends javax.swing.JFrame {
           
             idb.insert(Nyalien);
             
+            String worm = "Worm";
+            String squid = "Squid";
+            String boglodite = "Boglodite";
+         
             
-            
-            if(cmbRas.equals(worm)) {
+            if(cmbRas.getSelectedItem().equals(worm)) {
             String ras1 = "INSERT INTO mibdb.Worm (Alien_ID) VALUES ('"+ID+"')";
             idb.insert(ras1);
             }
             
-            if(cmbRas.equals("Squid")) {
+            if(cmbRas.getSelectedItem().equals(squid)) {
             String ras2 = "INSERT INTO mibdb.Squid (Alien_ID, Antal_Armar) VALUES ('"+ID+"', '"+antalArmar+"')";
             idb.insert(ras2);
             }
             
-            if(cmbRas.equals("Boglodite")) {
+            if(cmbRas.getSelectedItem().equals(boglodite)) {
             String ras3 = "INSERT INTO mibdb.Boglodite (Alien_ID, Antal_Boogies) VALUES ('"+ID+"', '"+antalBoogies+"')"; 
             idb.insert(ras3);
             }
@@ -341,7 +349,8 @@ public class NyregistreraAliens extends javax.swing.JFrame {
            
             
             
-        } catch (Exception e) {
+        } catch (Exception e)  {
+            
            System.out.println(e.getMessage());
         }
 
@@ -361,7 +370,11 @@ public class NyregistreraAliens extends javax.swing.JFrame {
             
             String svar1 = idb.fetchSingle(fråga); 
             
-           txtAlienID.setText(svar1 +1);
+            int svaret = Integer.parseInt(svar1);
+            int resultat = svaret +1;
+            String slutResultat = Integer.toString(resultat);
+            
+           lblID.setText(slutResultat);
             
             
         }catch (Exception e) {
@@ -451,13 +464,13 @@ public class NyregistreraAliens extends javax.swing.JFrame {
     private javax.swing.JLabel lblAnsvarigAgent;
     private javax.swing.JLabel lblAntaBoogies;
     private javax.swing.JLabel lblFyllRutor;
+    private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblLösenord;
     private javax.swing.JLabel lblNamn;
     private javax.swing.JLabel lblObligatoriskaFält;
     private javax.swing.JLabel lblRas;
     private javax.swing.JLabel lblTelefon;
     private javax.swing.JLabel lblTillbaka;
-    private javax.swing.JTextField txtAlienID;
     private javax.swing.JTextField txtAnsvarigagent;
     private javax.swing.JTextField txtAntaBoogies;
     private javax.swing.JTextField txtAntalArmar;

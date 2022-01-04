@@ -55,7 +55,6 @@
                                           <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtRegistreringsdatum" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtlösenord" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtAlienID" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtPlats" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtAnsvarigagent" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -82,7 +81,11 @@
                               <Component id="cmbRas" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="lblAlienID" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblAlienID" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                                  <Component id="lblID" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblFyllRutor" min="-2" max="-2" attributes="0"/>
                                   <Component id="RubrikNyAlien" min="-2" max="-2" attributes="0"/>
@@ -113,8 +116,8 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="lblAlienID" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtAlienID" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnHämtaId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblID" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -295,11 +298,6 @@
         <Property name="text" type="java.lang.String" value="Alien ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAlienID">
-      <Properties>
-        <Property name="columns" type="int" value="8"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registreringsdatum"/>
@@ -349,6 +347,11 @@
     <Component class="javax.swing.JLabel" name="lblAntaBoogies">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ange Antal boogies"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="          "/>
       </Properties>
     </Component>
   </SubComponents>

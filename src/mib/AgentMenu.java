@@ -20,11 +20,9 @@ public class AgentMenu extends javax.swing.JFrame {
     public AgentMenu(InfDB idb) {
         initComponents();
         this.idb = idb;
+        
     }
-
-  
-       
-    
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
