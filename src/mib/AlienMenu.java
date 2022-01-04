@@ -49,6 +49,11 @@ public class AlienMenu extends javax.swing.JFrame {
         lblområdeschef.setText("Visa min områdeschef");
 
         btnOmrådeschef.setText("Tryck här");
+        btnOmrådeschef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOmrådeschefActionPerformed(evt);
+            }
+        });
 
         btnÄndraLösenord.setText("Tryck här");
         btnÄndraLösenord.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +127,12 @@ public class AlienMenu extends javax.swing.JFrame {
         new AliensIMittOmråde(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAliensOmrådeActionPerformed
+
+    private void btnOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmrådeschefActionPerformed
+        // TODO add your handling code here:
+        new Områdeschefer(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnOmrådeschefActionPerformed
 
     /**
      * @param args the command line arguments

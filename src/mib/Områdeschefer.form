@@ -32,16 +32,31 @@
                           <Group type="102" attributes="0">
                               <Component id="lblAngeOmråde" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="cbOmråde" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmbOmråde" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="lblSökOmrådeschef" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblResultatOmrådeschef" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblResultatOmrådeschef" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblAnstDatum" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblTelefon" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblID" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtTelefon" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtAnstDatum" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtID" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="tfResultatOmrådeschef" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -56,16 +71,31 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAngeOmråde" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cbOmråde" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbOmråde" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnSök" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblResultatOmrådeschef" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfResultatOmrådeschef" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNamn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAnstDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAnstDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtID" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,7 +114,7 @@
         <Property name="text" type="java.lang.String" value="Ange omr&#xe5;de:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbOmr&#xe5;de">
+    <Component class="javax.swing.JComboBox" name="cmbOmr&#xe5;de">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
@@ -111,7 +141,37 @@
         <Property name="text" type="java.lang.String" value="Omr&#xe5;deschef f&#xf6;r det angivna omr&#xe5;det &#xe4;r:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfResultatOmr&#xe5;deschef">
+    <Component class="javax.swing.JTextField" name="txtNamn">
+      <Properties>
+        <Property name="columns" type="int" value="8"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTelefon">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Telefonnummer:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Agent ID:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAnstDatum">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Anst&#xe4;llningsdatum:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtAnstDatum">
+      <Properties>
+        <Property name="columns" type="int" value="8"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtTelefon">
+      <Properties>
+        <Property name="columns" type="int" value="8"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtID">
       <Properties>
         <Property name="columns" type="int" value="8"/>
       </Properties>

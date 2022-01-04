@@ -33,10 +33,16 @@ public class Områdeschefer extends javax.swing.JFrame {
 
         lblSökOmrådeschef = new javax.swing.JLabel();
         lblAngeOmråde = new javax.swing.JLabel();
-        cbOmråde = new javax.swing.JComboBox<>();
+        cmbOmråde = new javax.swing.JComboBox<>();
         btnSök = new javax.swing.JButton();
         lblResultatOmrådeschef = new javax.swing.JLabel();
-        tfResultatOmrådeschef = new javax.swing.JTextField();
+        txtNamn = new javax.swing.JTextField();
+        lblTelefon = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
+        lblAnstDatum = new javax.swing.JLabel();
+        txtAnstDatum = new javax.swing.JTextField();
+        txtTelefon = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,7 +51,7 @@ public class Områdeschefer extends javax.swing.JFrame {
 
         lblAngeOmråde.setText("Ange område:");
 
-        cbOmråde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Norrland", "Svealand", "Götaland" }));
+        cmbOmråde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Norrland", "Svealand", "Götaland" }));
 
         btnSök.setText("Sök");
         btnSök.addActionListener(new java.awt.event.ActionListener() {
@@ -56,7 +62,19 @@ public class Områdeschefer extends javax.swing.JFrame {
 
         lblResultatOmrådeschef.setText("Områdeschef för det angivna området är:");
 
-        tfResultatOmrådeschef.setColumns(8);
+        txtNamn.setColumns(8);
+
+        lblTelefon.setText("Telefonnummer:");
+
+        lblID.setText("Agent ID:");
+
+        lblAnstDatum.setText("Anställningsdatum:");
+
+        txtAnstDatum.setColumns(8);
+
+        txtTelefon.setColumns(8);
+
+        txtID.setColumns(8);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,13 +89,24 @@ public class Områdeschefer extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblAngeOmråde)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmbOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblSökOmrådeschef))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblResultatOmrådeschef)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblResultatOmrådeschef)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAnstDatum)
+                                    .addComponent(lblTelefon)
+                                    .addComponent(lblID))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAnstDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tfResultatOmrådeschef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(45, 45, 45))))
         );
         layout.setVerticalGroup(
@@ -88,14 +117,26 @@ public class Områdeschefer extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAngeOmråde)
-                    .addComponent(cbOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSök)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblResultatOmrådeschef)
-                    .addComponent(tfResultatOmrådeschef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAnstDatum)
+                    .addComponent(txtAnstDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefon)
+                    .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblID)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -103,6 +144,42 @@ public class Områdeschefer extends javax.swing.JFrame {
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
+        
+        String område = cmbOmråde.getSelectedItem().toString();
+        
+        try{
+        
+        String fråga1 = "SELECT mibdb.Agent.Namn FROM mibdb.Agent "
+                + "join mibdb.Omrade ON mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade "
+                + "where mibdb.Omrade.Benamning = '"+område+"'";
+        
+        String fråga2 = "SELECT mibdb.Agent.Anstallningsdatum FROM mibdb.Agent "
+                + "join mibdb.Omrade ON mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade "
+                + "where mibdb.Omrade.Benamning = '"+område+"'";
+        
+        String fråga3 = "SELECT mibdb.Agent.Telefon FROM mibdb.Agent "
+                + "join mibdb.Omrade ON mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade "
+                + "where mibdb.Omrade.Benamning = '"+område+"'";
+        
+        
+        String fråga4 = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent "
+                + "JOIN mibdb.Omrade ON mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade "
+                + "where mibdb.Omrade.Benamning = '"+område+"'";
+        
+        String svar1 = idb.fetchSingle(fråga1);
+        String svar2 = idb.fetchSingle(fråga2);
+        String svar3 = idb.fetchSingle(fråga3);
+        String svar4 = idb.fetchSingle(fråga4);
+        
+        txtNamn.setText(svar1);
+        txtAnstDatum.setText(svar2);
+        txtTelefon.setText(svar3);
+        txtID.setText(svar4);
+        
+        } catch (Exception e)  {
+            
+           System.out.println(e.getMessage());
+        }     
     }//GEN-LAST:event_btnSökActionPerformed
 
     /**
@@ -142,10 +219,16 @@ public class Områdeschefer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSök;
-    private javax.swing.JComboBox<String> cbOmråde;
+    private javax.swing.JComboBox<String> cmbOmråde;
     private javax.swing.JLabel lblAngeOmråde;
+    private javax.swing.JLabel lblAnstDatum;
+    private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblResultatOmrådeschef;
     private javax.swing.JLabel lblSökOmrådeschef;
-    private javax.swing.JTextField tfResultatOmrådeschef;
+    private javax.swing.JLabel lblTelefon;
+    private javax.swing.JTextField txtAnstDatum;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtNamn;
+    private javax.swing.JTextField txtTelefon;
     // End of variables declaration//GEN-END:variables
 }

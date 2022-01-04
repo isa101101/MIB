@@ -37,6 +37,29 @@ public class Validering extends javax.swing.JFrame {
 
         return resultat;
     }
+    
+    public static boolean textFaltNummer (JTextField ruta) {
+        
+        boolean resultat = true;
+        
+        if (ruta.getText().matches("[0-9]{3} [-]{1} [0-9]")) {
+           JOptionPane.showMessageDialog(null, "Det får endast vara siffror i textrutan");
+           resultat = false;
+        }
+        
+        return resultat;
+    }
+    
+    public static boolean textFaltBokstaver (JTextField ruta) {
+        
+        boolean resultat = true;
+        
+        if (ruta.getText().matches("[a-z A-Z]+")){
+            JOptionPane.showMessageDialog(null, "Det får endast vara bokstäver i textrutan");
+        }
+        
+        return resultat;
+    }
   
 }
 

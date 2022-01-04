@@ -93,6 +93,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Tryck h&#xe4;r"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOmr&#xe5;deschefActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn&#xc4;ndraL&#xf6;senord">
       <Properties>
