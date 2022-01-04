@@ -252,31 +252,42 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
            
            if (kategori.equals(kommunikation)) {
-          String kom = "INSERT INTO mibdb.Kommunikation (Utrustnings_ID, overforingsteknik) VALUES ('" + ID + "', '" + överföring + "')";
+               if(överföring.isBlank()){
+                   JOptionPane.showMessageDialog(null, "Välj överföringsteknik"); 
+                }else {
+                String kom = "INSERT INTO mibdb.Kommunikation (Utrustnings_ID, overforingsteknik) VALUES ('" + ID + "', '" + överföring + "')";
                 idb.insert(kom);
                 String NyUtrustning1 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
                 idb.insert(NyUtrustning1);
+               
             }
-            
+           }
            // if (kategori.equals(vapen)) {
              //   Validering.textFaltVarde(txtVapen);
             
            if (kategori.equals(vapen)) {
+               if(kaliber.isBlank()){
+                   JOptionPane.showMessageDialog(null, "Välj kaliber"); 
+               }else{
                 String vap = "INSERT INTO mibdb.Vapen (Utrustnings_ID, kaliber) VALUES ('" + ID + "', '" + kaliber + "')";
                 idb.insert(vap);
                 String NyUtrustning2 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
                 idb.insert(NyUtrustning2);
             }
-           
+           }
            // if (kategori.equals(teknik)) {
              //   Validering.textFaltVarde(txtTeknik);
             
             if (kategori.equals(teknik)) {
+                if(kraft.isBlank()){
+                  JOptionPane.showMessageDialog(null, "Välj kraftkälla");   
+                }else{
                 String tek = "INSERT INTO mibdb.Teknik (Utrustnings_ID, Kraftkalla) VALUES ('" + ID + "', '" + kraft + "')";
                 idb.insert(tek);
                 String NyUtrustning3 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
                  idb.insert(NyUtrustning3);
                 //JOptionPane.showMessageDialog(null, "Ny utrustning tillagd");
+            }
             }
 
             
