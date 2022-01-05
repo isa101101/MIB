@@ -127,6 +127,8 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
             
                    String ändra = "UPDATE mibdb.Alien SET Namn = '"+NyttNamn+"' WHERE Namn = '"+BefintligtNamn+"'";
                    
+                   idb.update(ändra);
+                   
                    } else 
                        JOptionPane.showMessageDialog(null, "Det finns redan en alien med detta namn!");
                    {

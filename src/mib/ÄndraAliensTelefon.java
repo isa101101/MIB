@@ -38,6 +38,8 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
         txtBefintligtTelefon = new javax.swing.JTextField();
         txtNyttTelefon = new javax.swing.JTextField();
         btnÄndra = new javax.swing.JButton();
+        lblAliensNamn = new javax.swing.JLabel();
+        txtNamn = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +55,15 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
         txtNyttTelefon.setColumns(8);
 
         btnÄndra.setText("Ändra");
+        btnÄndra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraActionPerformed(evt);
+            }
+        });
+
+        lblAliensNamn.setText("Aliens namn:");
+
+        txtNamn.setColumns(8);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,19 +73,22 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblBefintligtTelefon)
-                                    .addComponent(lblNyttTelefon))
+                                    .addComponent(lblNyttTelefon)
+                                    .addComponent(lblAliensNamn))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNyttTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtBefintligtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnÄndra)))
+                                    .addComponent(txtBefintligtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnÄndra))))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -82,7 +96,11 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAliensNamn)
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBefintligtTelefon)
                     .addComponent(txtBefintligtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -92,11 +110,39 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
                     .addComponent(txtNyttTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnÄndra)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
+        // TODO add your handling code here:
+        
+        String namn = txtNamn.getText();
+        String nuvarandeTelefon = txtBefintligtTelefon.getText();
+        String nyTelefon = txtNyttTelefon.getText();
+        
+        try{
+        
+        String fråga = "SELECT mibdb.Alien.Telefon FROM mibdb.Alien"
+                + "WHERE mibdb.Alien.Namn = '"+namn+"'";
+        
+        String svar = idb.fetchSingle(fråga);
+        
+        if(svar.equals(nuvarandeTelefon))
+        {
+            String ändra = "UPDATE mibdb.Alien SET Telefon = '"+nyTelefon+"' "
+                    + "WHERE mibdb.Alien.Namn = '"+namn+"'";
+            
+            idb.update(ändra);
+        }
+        
+        }catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+        
+    }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,9 +182,11 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnÄndra;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblAliensNamn;
     private javax.swing.JLabel lblBefintligtTelefon;
     private javax.swing.JLabel lblNyttTelefon;
     private javax.swing.JTextField txtBefintligtTelefon;
+    private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtNyttTelefon;
     // End of variables declaration//GEN-END:variables
 }
