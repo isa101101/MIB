@@ -36,6 +36,9 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
         lblNyPlats = new javax.swing.JLabel();
         lblBefintligtPlats = new javax.swing.JLabel();
         lblRubrikÄndraAliensPlats = new javax.swing.JLabel();
+        lblAliensNamn = new javax.swing.JLabel();
+        txtNamn = new javax.swing.JTextField();
+        btnHämtaPlats = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +55,17 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
         lblRubrikÄndraAliensPlats.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         lblRubrikÄndraAliensPlats.setText("Ändra aliens plats");
 
+        lblAliensNamn.setText("Aliens namn:");
+
+        txtNamn.setColumns(8);
+
+        btnHämtaPlats.setText("Hämta plats");
+        btnHämtaPlats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHämtaPlatsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,17 +73,22 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnÄndra)
+                    .addComponent(lblRubrikÄndraAliensPlats)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNyPlats)
                             .addComponent(lblBefintligtPlats)
-                            .addComponent(lblNyPlats))
+                            .addComponent(lblAliensNamn))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtBefintligPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNyPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnÄndra)
-                    .addComponent(lblRubrikÄndraAliensPlats))
-                .addContainerGap(145, Short.MAX_VALUE))
+                            .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtBefintligPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnHämtaPlats))
+                            .addComponent(txtNyPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,19 +97,44 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
                 .addComponent(lblRubrikÄndraAliensPlats)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAliensNamn)
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBefintligPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblBefintligtPlats)
-                    .addComponent(txtBefintligPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnHämtaPlats))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNyPlats)
                     .addComponent(txtNyPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnÄndra)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnHämtaPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaPlatsActionPerformed
+        // TODO add your handling code here:
+        String namn = txtNamn.getText();
+        
+        try{
+            
+            String fråga = "SELECT mibdb.Plats.Benamning FROM mibdb.Plats "
+                    + "JOIN mibdb.Alien ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats"
+                    + "WHERE mibdb.Alien.Namn = '"+namn+"'";
+            
+            String svar = idb.fetchSingle(fråga);
+            
+            txtBefintligPlats.setText(svar);
+            
+        }catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+        
+    }//GEN-LAST:event_btnHämtaPlatsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,11 +172,14 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHämtaPlats;
     private javax.swing.JButton btnÄndra;
+    private javax.swing.JLabel lblAliensNamn;
     private javax.swing.JLabel lblBefintligtPlats;
     private javax.swing.JLabel lblNyPlats;
     private javax.swing.JLabel lblRubrikÄndraAliensPlats;
     private javax.swing.JTextField txtBefintligPlats;
+    private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtNyPlats;
     // End of variables declaration//GEN-END:variables
 }

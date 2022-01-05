@@ -26,21 +26,27 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Component id="btnÄndra" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRubrikÄndraAliensPlats" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblNyPlats" min="-2" max="-2" attributes="0"/>
                           <Component id="lblBefintligtPlats" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblNyPlats" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAliensNamn" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtBefintligPlats" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="txtBefintligPlats" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnHämtaPlats" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="txtNyPlats" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="btnÄndra" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblRubrikÄndraAliensPlats" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="145" max="32767" attributes="0"/>
+              <EmptySpace pref="7" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,8 +57,14 @@
               <Component id="lblRubrikÄndraAliensPlats" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblBefintligtPlats" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAliensNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtBefintligPlats" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblBefintligtPlats" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnHämtaPlats" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -61,7 +73,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnÄndra" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="121" max="32767" attributes="0"/>
+              <EmptySpace pref="80" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -99,6 +111,24 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra aliens plats"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAliensNamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Aliens namn:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNamn">
+      <Properties>
+        <Property name="columns" type="int" value="8"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnH&#xe4;mtaPlats">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="H&#xe4;mta plats"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnH&#xe4;mtaPlatsActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

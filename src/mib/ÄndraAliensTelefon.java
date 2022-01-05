@@ -6,6 +6,7 @@ package mib;
 
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -136,22 +137,17 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
         
         try{
         
-            String fråga1 = "SELECT mibdb.Alien.AlienID FROM mibdb.Alien"
-                    + "WHERE mibdb.Alien.Namn = '"+namn+"'";
+            String fråga1 = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
             
             
             String svar1 = idb.fetchSingle(fråga1);
-            
-            //String fråga2 = "SELECT mibdb.Alien.Telefon FROM mibdb.Alien"
-                //+ "WHERE mibdb.Alien.Namn = '"+svar1+"'";
-        
-            //String svar2 = idb.fetchSingle(fråga2);
         
             String ändra = "UPDATE mibdb.Alien SET Telefon = '"+nyTelefon+"' WHERE mibdb.Alien.Alien_ID = '"+svar1+"'";
             
             idb.update(ändra);
         
-        
+            JOptionPane.showMessageDialog(null, "Aliens telefonnummer har ändras!");
+            
         }catch (Exception e) {
            System.out.println(e.getMessage());
         }
@@ -169,6 +165,7 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
             String svar = idb.fetchSingle(fråga);
             
             txtBefintligtTelefon.setText(svar);
+            
             
         }catch (Exception e) {
            System.out.println(e.getMessage());
