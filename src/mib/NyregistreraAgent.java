@@ -259,7 +259,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         
         
         String nyAgent = "INSERT INTO mibdb.Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Losenord, Omrade) VALUES"
-                + "('"+ID+"', '"+Namn+"', '"+Telefon+"', '"+AnstDatum+"', '"+Admin+"', '"+Lösenord+"', '"+Område+"')";
+                + "('"+ID+"', '"+Namn+"', '"+Telefon+"', '"+AnstDatum+"', '"+Admin+"', '"+Lösenord+"', '"+svar+"')";
        
         idb.insert(nyAgent);
         

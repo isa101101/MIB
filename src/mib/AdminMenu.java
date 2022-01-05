@@ -102,6 +102,11 @@ public class AdminMenu extends javax.swing.JFrame {
         jLabel5.setText("Sök agent information");
 
         btnSökagent.setText("Tryck här");
+        btnSökagent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSökagentActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Ändra agent befattning");
 
@@ -236,6 +241,11 @@ public class AdminMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         new RaderaUtrustning(idb).setVisible(true);
     }//GEN-LAST:event_btnTabortutrustningActionPerformed
+
+    private void btnSökagentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökagentActionPerformed
+        // TODO add your handling code here:
+        new SökPåAgent(idb).setVisible(true);
+    }//GEN-LAST:event_btnSökagentActionPerformed
 
     /**
      * @param args the command line arguments
