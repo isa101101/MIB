@@ -142,21 +142,21 @@ public class RaderaAlien extends javax.swing.JFrame {
         
         if (Validering.textFaltVarde(txtNamn)) {
             try {
-                String Namn = txtNamn.getText();
-                String fråga1 = "SELECT Namn FROM mibdb.Alien WHERE Namn = '" +Namn+ "'";
+                String ID = txtID.getText();
+                String fråga1 = "SELECT Namn FROM mibdb.Alien WHERE Namn = '" +ID+ "'";
                 
                  String svar1 = idb.fetchSingle(fråga1);
                  
                  String Resultat1 = svar1;
  
-                 if(Namn.equalsIgnoreCase(Resultat1)){
-                 String radera = "DELETE FROM mibdb.Alien where Namn = '"+Namn+"'";
-                 JOptionPane.showMessageDialog(null, "'"+Namn+"' borttagen");
+                 if(ID.equalsIgnoreCase(Resultat1)){
+                 String radera = "DELETE FROM mibdb.Alien where Namn = '"+ID+"'";
+                 JOptionPane.showMessageDialog(null, "'"+ID+"' borttagen");
  
                  idb.delete(radera);
 
                  }else{
-                      JOptionPane.showMessageDialog(null, "En Alien med namnet '"+Namn+"' finns inte");
+                      JOptionPane.showMessageDialog(null, "En Alien med ID '"+ID+"' finns inte");
                  }
                 
             }catch(InfException e) {
@@ -168,12 +168,14 @@ public class RaderaAlien extends javax.swing.JFrame {
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
+        
+        txtVisaResultat.setText("");
+        
         String namn = txtNamn.getText();
         
         try{
-            String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien"
-                    + "WHERE mibdb.Alien.Namn = '"+namn+"'";
-            
+            String fråga = "SELECT mibdb.Alien.Telefon FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
+           
             ArrayList <HashMap <String,String>> svar = idb.fetchRows(fråga);
             
             for(HashMap <String,String> ID : svar){
