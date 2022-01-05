@@ -119,9 +119,9 @@ public class RaderaAlien extends javax.swing.JFrame {
                 .addComponent(btnSök)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblMiniRubrikResultat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAngeID)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -142,25 +142,27 @@ public class RaderaAlien extends javax.swing.JFrame {
         
         if (Validering.textFaltVarde(txtNamn)) {
             try {
+                String Namn = txtNamn.getText();
                 String ID = txtID.getText();
-                String fråga1 = "SELECT Namn FROM mibdb.Alien WHERE Namn = '" +ID+ "'";
-                
-                 String svar1 = idb.fetchSingle(fråga1);
-                 
-                 String Resultat1 = svar1;
- 
-                 if(ID.equalsIgnoreCase(Resultat1)){
-                 String radera = "DELETE FROM mibdb.Alien where Namn = '"+ID+"'";
-                 JOptionPane.showMessageDialog(null, "'"+ID+"' borttagen");
- 
-                 idb.delete(radera);
 
-                 }else{
-                      JOptionPane.showMessageDialog(null, "En Alien med ID '"+ID+"' finns inte");
-                 }
-                
-            }catch(InfException e) {
-           System.out.println(e.getMessage());
+                String fråga1 = "SELECT Alien_ID FROM mibdb.Alien WHERE Alien_ID = '" + ID + "'";
+
+                String svar1 = idb.fetchSingle(fråga1);
+
+                String Resultat1 = svar1;
+
+                if (ID.equals(Resultat1)) {
+                    String radera = "DELETE FROM mibdb.Alien where Alien_ID = '" + ID + "'";
+                    JOptionPane.showMessageDialog(null, "Alien med '" + ID + "' borttagen");
+
+                    idb.delete(radera);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "En Alien med ID '" + ID + "' finns inte");
+                }
+
+            } catch (InfException e) {
+                System.out.println(e.getMessage());
         
         }
         }
@@ -170,25 +172,29 @@ public class RaderaAlien extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         txtVisaResultat.setText("");
-        
+
         String namn = txtNamn.getText();
-        
-        try{
-            String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
-            
-            ArrayList <HashMap <String,String>> svar = idb.fetchRows(fråga.toString());
-            
-            for(HashMap <String,String> ID : svar){
-                
-                txtVisaResultat.append(ID.get("ID") + "\n");
-                
+
+        if (Validering.textFaltVarde(txtNamn)) {
+
+            try {
+                String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '" + namn + "'";
+
+                ArrayList<String> svar = idb.fetchColumn(fråga);
+
+                //ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
+                // int abc = Integer.toString(svar);
+                for (String ID : svar) {
+
+                    txtVisaResultat.append(svar + "\n");
+
+                }
+
+            } catch (InfException e) {
+                System.out.println(e.getMessage());
+
             }
-            
-            
-        }catch(InfException e) {
-           System.out.println(e.getMessage());
-        
-        }
+         }
     }//GEN-LAST:event_btnSökActionPerformed
 
     /**
