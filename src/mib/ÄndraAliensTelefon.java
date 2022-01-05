@@ -40,6 +40,7 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
         btnÄndra = new javax.swing.JButton();
         lblAliensNamn = new javax.swing.JLabel();
         txtNamn = new javax.swing.JTextField();
+        btnHämtaTelnr = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,6 +66,13 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
 
         txtNamn.setColumns(8);
 
+        btnHämtaTelnr.setText("Hämta Telnr");
+        btnHämtaTelnr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHämtaTelnrActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,24 +94,28 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNyttTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtBefintligtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtBefintligtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnHämtaTelnr))
                                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(btnÄndra))))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAliensNamn)
                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBefintligtTelefon)
-                    .addComponent(txtBefintligtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBefintligtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHämtaTelnr))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNyttTelefon)
@@ -120,29 +132,48 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         String namn = txtNamn.getText();
-        String nuvarandeTelefon = txtBefintligtTelefon.getText();
         String nyTelefon = txtNyttTelefon.getText();
         
         try{
         
-        String fråga = "SELECT mibdb.Alien.Telefon FROM mibdb.Alien"
-                + "WHERE mibdb.Alien.Namn = '"+namn+"'";
-        
-        String svar = idb.fetchSingle(fråga);
-        
-        if(svar.equals(nuvarandeTelefon))
-        {
-            String ändra = "UPDATE mibdb.Alien SET Telefon = '"+nyTelefon+"' "
+            String fråga1 = "SELECT mibdb.Alien.AlienID FROM mibdb.Alien"
                     + "WHERE mibdb.Alien.Namn = '"+namn+"'";
             
+            
+            String svar1 = idb.fetchSingle(fråga1);
+            
+            //String fråga2 = "SELECT mibdb.Alien.Telefon FROM mibdb.Alien"
+                //+ "WHERE mibdb.Alien.Namn = '"+svar1+"'";
+        
+            //String svar2 = idb.fetchSingle(fråga2);
+        
+            String ändra = "UPDATE mibdb.Alien SET Telefon = '"+nyTelefon+"' WHERE mibdb.Alien.Alien_ID = '"+svar1+"'";
+            
             idb.update(ändra);
-        }
+        
         
         }catch (Exception e) {
            System.out.println(e.getMessage());
         }
         
     }//GEN-LAST:event_btnÄndraActionPerformed
+
+    private void btnHämtaTelnrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaTelnrActionPerformed
+        // TODO add your handling code here:
+        String alien = txtNamn.getText();
+        
+        try{
+            
+            String fråga = "SELECT mibdb.Alien.Telefon FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+alien+"'";
+            
+            String svar = idb.fetchSingle(fråga);
+            
+            txtBefintligtTelefon.setText(svar);
+            
+        }catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnHämtaTelnrActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,6 +211,7 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHämtaTelnr;
     private javax.swing.JButton btnÄndra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAliensNamn;
