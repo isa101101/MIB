@@ -186,7 +186,7 @@ public class RaderaAlien extends javax.swing.JFrame {
                 // int abc = Integer.toString(svar);
                 for (String ID : svar) {
 
-                    txtVisaResultat.append(svar + "\n");
+                    txtVisaResultat.append(ID + "\n");
 
                 }
 

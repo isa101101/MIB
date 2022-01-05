@@ -4,6 +4,7 @@
  */
 package mib;
 
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -32,147 +33,147 @@ public class SökPåAgent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtAnstDatum = new javax.swing.JTextField();
-        lblAngeAliensNamn = new javax.swing.JLabel();
-        txtalienNamn = new javax.swing.JTextField();
-        txtTelefon = new javax.swing.JTextField();
-        lblAliensID = new javax.swing.JLabel();
-        txtPlats = new javax.swing.JTextField();
-        lblResultat = new javax.swing.JLabel();
-        txtAnsvarig = new javax.swing.JTextField();
-        lblAnstDatum = new javax.swing.JLabel();
-        btnSök = new javax.swing.JButton();
-        lblNamn = new javax.swing.JLabel();
-        lblTelefon = new javax.swing.JLabel();
-        lblPlats = new javax.swing.JLabel();
-        lblAnsvarigAgent = new javax.swing.JLabel();
         lblRubrik = new javax.swing.JLabel();
-        txtAID = new javax.swing.JTextField();
+        lblNamn = new javax.swing.JLabel();
         txtNamn = new javax.swing.JTextField();
+        btnSök = new javax.swing.JButton();
+        lblResultat = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
+        lblTelefon = new javax.swing.JLabel();
+        txtTelefon = new javax.swing.JTextField();
+        lblDatum = new javax.swing.JLabel();
+        lblAdmin = new javax.swing.JLabel();
+        lblLösenord = new javax.swing.JLabel();
+        lblOmråde = new javax.swing.JLabel();
+        txtDatum = new javax.swing.JTextField();
+        txtAdmin = new javax.swing.JTextField();
+        txtLösenord = new javax.swing.JTextField();
+        txtOmråde = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtAnstDatum.setColumns(10);
+        lblRubrik.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        lblRubrik.setText("Sök efter agent");
 
-        lblAngeAliensNamn.setText("Ange agentens namn");
+        lblNamn.setText("Ange agentens namn");
 
-        txtalienNamn.setColumns(10);
+        txtNamn.setColumns(10);
 
-        txtTelefon.setColumns(10);
-
-        lblAliensID.setText("Agent ID");
-
-        txtPlats.setColumns(10);
-
-        lblResultat.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
-        lblResultat.setText("Resultat:");
-
-        txtAnsvarig.setColumns(10);
-
-        lblAnstDatum.setText("Anställningsdatum");
-
-        btnSök.setText("Sök");
+        btnSök.setText("sök");
         btnSök.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSökActionPerformed(evt);
             }
         });
 
-        lblNamn.setText("Namn:");
+        lblResultat.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        lblResultat.setText("Resultat");
 
-        lblTelefon.setText("Telefon:");
+        lblID.setText("Agent ID");
 
-        lblPlats.setText("Plats:");
+        txtID.setColumns(10);
 
-        lblAnsvarigAgent.setText("Ansvarig agent:");
+        lblTelefon.setText("Telefonnummer");
 
-        lblRubrik.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        lblRubrik.setText("Sök efter agent");
+        txtTelefon.setColumns(10);
 
-        txtAID.setColumns(10);
+        lblDatum.setText("Anställningsdatum");
 
-        txtNamn.setColumns(10);
+        lblAdmin.setText("Administratör");
+
+        lblLösenord.setText("Lösenord");
+
+        lblOmråde.setText("Område");
+
+        txtDatum.setColumns(10);
+
+        txtAdmin.setColumns(10);
+
+        txtLösenord.setColumns(10);
+
+        txtOmråde.setColumns(10);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(168, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSök)
-                        .addGap(56, 56, 56))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtAID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblRubrik)
-                        .addComponent(lblAngeAliensNamn)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblAnstDatum)
-                                .addComponent(lblNamn)
-                                .addComponent(lblTelefon)
-                                .addComponent(lblPlats)
-                                .addComponent(lblAnsvarigAgent))
-                            .addGap(42, 42, 42)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtalienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtAnsvarig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtAnstDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblRubrik))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAliensID)
-                            .addComponent(lblResultat)))
-                    .addContainerGap(65, Short.MAX_VALUE)))
+                            .addComponent(lblNamn)
+                            .addComponent(lblResultat)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(btnSök))
+                            .addComponent(lblID)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTelefon)
+                                    .addComponent(lblLösenord)
+                                    .addComponent(lblOmråde))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTelefon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtLösenord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtOmråde, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(11, 11, 11))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(lblAdmin)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(lblDatum)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(btnSök)
-                .addGap(73, 73, 73)
-                .addComponent(txtAID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lblRubrik)
-                    .addGap(18, 18, 18)
-                    .addComponent(lblAngeAliensNamn)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(lblRubrik)
+                .addGap(18, 18, 18)
+                .addComponent(lblNamn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(27, 27, 27)
-                    .addComponent(lblResultat)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                    .addComponent(lblAliensID)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblAnstDatum)
-                        .addComponent(txtAnstDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblNamn)
-                        .addComponent(txtalienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblTelefon)
-                        .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblPlats)
-                        .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblAnsvarigAgent)
-                        .addComponent(txtAnsvarig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap()))
+                    .addComponent(btnSök))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblResultat)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblID)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefon)
+                    .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDatum)
+                    .addComponent(txtDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAdmin)
+                    .addComponent(txtAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLösenord)
+                    .addComponent(txtLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblOmråde)
+                    .addComponent(txtOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -180,40 +181,62 @@ public class SökPåAgent extends javax.swing.JFrame {
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
-
+        
         String Namn = txtNamn.getText();
+        
+       
+        
+        if (Validering.textFaltVarde(txtNamn)) {
+            try{
+                String fråga1 = "SELECT Namn FROM mibdb.Agent where Namn = '"+Namn+"'";
+                String fråga2 = "SELECT Agent_ID FROM mibdb.Agent where Namn = '"+Namn+"'";
+                String fråga3 = "SELECT Telefon FROM mibdb.Agent where Namn = '"+Namn+"'";
+                String fråga4 = "SELECT Anstallningsdatum FROM mibdb.Agent where Namn = '"+Namn+"'";
+                String fråga5 = "SELECT Administrator FROM mibdb.Agent where Namn = '"+Namn+"'";
+                String fråga6 = "SELECT Losenord FROM mibdb.Agent where Namn = '"+Namn+"'";
+                String fråga7 = "SELECT mibdb.Omrade.Benamning FROM mibdb.Omrade join mibdb.Agent on "
+                                + "mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade where mibdb.Agent.Namn ='"+Namn+"'";
+                
+                String Resultat1 = idb.fetchSingle(fråga1);
+                String Resultat2 = idb.fetchSingle(fråga2);
+                String Resultat3 = idb.fetchSingle(fråga3);
+                String Resultat4 = idb.fetchSingle(fråga4);
+                String Resultat5 = idb.fetchSingle(fråga5);
+                String Resultat6 = idb.fetchSingle(fråga6);
+                String Resultat7 = idb.fetchSingle(fråga7);
+                
+                
+                if(!Namn.equalsIgnoreCase(Resultat1)){
+                    JOptionPane.showMessageDialog(null, "Det finns ingen agent med namnet '"+ Namn + "'");
+                }
+                
+                
+                String Ja = "Ja";
+                String Nej = "Nej";
+                
 
-        try {
-
-            String fråga1 = "SELECT Agent_ID FROM mibdb.Agent where Namn = '"+Namn+"'";
-            String fråga2 = "SELECT Registreringsdatum FROM mibdb.Alien where Namn = '"+Namn+"'";
-            String fråga3 = "SELECT Namn FROM mibdb.Alien where Namn = '"+Namn+"'";
-            String fråga4 = "SELECT Telefon FROM mibdb.Alien where Namn = '"+Namn+"'";
-            String fråga5 = "SELECT mibdb.Plats.Benamning FROM mibdb.Plats "
-            + "JOIN mibdb.Alien ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats "
-            + "WHERE mibdb.Alien.Namn = '"+Namn+"'";
-            String fråga6 = "SELECT mibdb.Agent.namn FROM mibdb.Agent "
-            + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
-            + "WHERE mibdb.Alien.Namn = '"+Namn+"'";
-
-            String svar1 = idb.fetchSingle(fråga1);
-            String svar2 = idb.fetchSingle(fråga2);
-            String svar3 = idb.fetchSingle(fråga3);
-            String svar4 = idb.fetchSingle(fråga4);
-            String svar5 = idb.fetchSingle(fråga5);
-            String svar6 = idb.fetchSingle(fråga6);
-
-            txtAID.setText(svar1);
-            txtAnstDatum.setText(svar2);
-            txtalienNamn.setText(svar3);
-            txtTelefon.setText(svar4);
-            txtPlats.setText(svar5);
-            txtAnsvarig.setText(svar6);
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+                txtID.setText(Resultat2);
+                txtTelefon.setText(Resultat3);
+                txtDatum.setText(Resultat4);
+                
+                txtLösenord.setText(Resultat6);
+                txtOmråde.setText(Resultat7);
+               
+                if(Resultat5.equals("J")) {
+                    txtAdmin.setText(Ja);
+                }
+                if (Resultat5.equals("N")) {
+                     txtAdmin.setText(Nej);
+                }
+                        
+                
+                
+            }catch (Exception e) {
+           System.out.println(e.getMessage());
+                
+            }
         }
-
+        
     }//GEN-LAST:event_btnSökActionPerformed
 
     /**
@@ -253,21 +276,21 @@ public class SökPåAgent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSök;
-    private javax.swing.JLabel lblAliensID;
-    private javax.swing.JLabel lblAngeAliensNamn;
-    private javax.swing.JLabel lblAnstDatum;
-    private javax.swing.JLabel lblAnsvarigAgent;
+    private javax.swing.JLabel lblAdmin;
+    private javax.swing.JLabel lblDatum;
+    private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblLösenord;
     private javax.swing.JLabel lblNamn;
-    private javax.swing.JLabel lblPlats;
+    private javax.swing.JLabel lblOmråde;
     private javax.swing.JLabel lblResultat;
     private javax.swing.JLabel lblRubrik;
     private javax.swing.JLabel lblTelefon;
-    private javax.swing.JTextField txtAID;
-    private javax.swing.JTextField txtAnstDatum;
-    private javax.swing.JTextField txtAnsvarig;
+    private javax.swing.JTextField txtAdmin;
+    private javax.swing.JTextField txtDatum;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtLösenord;
     private javax.swing.JTextField txtNamn;
-    private javax.swing.JTextField txtPlats;
+    private javax.swing.JTextField txtOmråde;
     private javax.swing.JTextField txtTelefon;
-    private javax.swing.JTextField txtalienNamn;
     // End of variables declaration//GEN-END:variables
 }

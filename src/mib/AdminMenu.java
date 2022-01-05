@@ -111,6 +111,11 @@ public class AdminMenu extends javax.swing.JFrame {
         jLabel6.setText("Ändra agent befattning");
 
         btnÄndrabefattning.setText("Tryck här");
+        btnÄndrabefattning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndrabefattningActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Ändra agent information");
 
@@ -235,17 +240,26 @@ public class AdminMenu extends javax.swing.JFrame {
     private void btnTabortalienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortalienActionPerformed
         // TODO add your handling code here:
          new RaderaAlien(idb).setVisible(true);
+         dispose();
     }//GEN-LAST:event_btnTabortalienActionPerformed
 
     private void btnTabortutrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortutrustningActionPerformed
         // TODO add your handling code here:
         new RaderaUtrustning(idb).setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnTabortutrustningActionPerformed
 
     private void btnSökagentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökagentActionPerformed
         // TODO add your handling code here:
         new SökPåAgent(idb).setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnSökagentActionPerformed
+
+    private void btnÄndrabefattningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndrabefattningActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAgentBefattning(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnÄndrabefattningActionPerformed
 
     /**
      * @param args the command line arguments
