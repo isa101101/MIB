@@ -174,9 +174,9 @@ public class RaderaAlien extends javax.swing.JFrame {
         String namn = txtNamn.getText();
         
         try{
-            String fråga = "SELECT mibdb.Alien.Telefon FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
-           
-            ArrayList <HashMap <String,String>> svar = idb.fetchRows(fråga);
+            String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
+            
+            ArrayList <HashMap <String,String>> svar = idb.fetchRows(fråga.toString());
             
             for(HashMap <String,String> ID : svar){
                 
