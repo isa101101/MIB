@@ -39,6 +39,7 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
         lblAliensNamn = new javax.swing.JLabel();
         txtNamn = new javax.swing.JTextField();
         btnHämtaPlats = new javax.swing.JButton();
+        btnTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +67,8 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
             }
         });
 
+        btnTillbaka.setText("Tillbaka");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,11 +86,13 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNyPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtBefintligPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnHämtaPlats))
-                            .addComponent(txtNyPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnTillbaka)
+                                    .addComponent(btnHämtaPlats))))))
                 .addContainerGap(7, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -108,9 +113,11 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNyPlats)
                     .addComponent(txtNyPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnÄndra)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnÄndra)
+                    .addComponent(btnTillbaka))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -123,7 +130,7 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
         try{
             
             String fråga = "SELECT mibdb.Plats.Benamning FROM mibdb.Plats "
-                    + "JOIN mibdb.Alien ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats"
+                    + "JOIN mibdb.Alien ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats "
                     + "WHERE mibdb.Alien.Namn = '"+namn+"'";
             
             String svar = idb.fetchSingle(fråga);
@@ -173,6 +180,7 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHämtaPlats;
+    private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnÄndra;
     private javax.swing.JLabel lblAliensNamn;
     private javax.swing.JLabel lblBefintligtPlats;
