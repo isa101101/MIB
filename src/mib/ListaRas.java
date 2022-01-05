@@ -174,7 +174,7 @@ public class ListaRas extends javax.swing.JFrame {
            try{
                
            String fråga3 = "SELECT mibdb.Alien.Namn FROM Mibdb.Alien "
-                + "JOIN mibdb.Boglodite ON mibdb.Boglodite.Alien_ID = mibdb.Alien.Alien_ID";
+                   + "JOIN mibdb.Boglodite ON mibdb.Boglodite.Alien_ID = mibdb.Alien.Alien_ID";
                
            ArrayList <HashMap<String,String>> svar3 = idb.fetchRows(fråga3);
            
