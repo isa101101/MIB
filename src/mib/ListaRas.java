@@ -6,6 +6,9 @@ package mib;
 
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import java.util.HashMap;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -129,13 +132,62 @@ public class ListaRas extends javax.swing.JFrame {
         taVisaResultat.setText("");
         String Ras = cmbValdRas.getSelectedItem().toString();
         
+        if(Ras.equals("Worm"))
+        {
+            
         try{
             
+        String fråga1 = "SELECT mibdb.Alien.Namn FROM Mibdb.Alien "
+                + "JOIN mibdb.Worm ON mibdb.Worm.Alien_ID = mibdb.Alien.Alien_ID";
+        
+        ArrayList <HashMap<String,String>> svar1 = idb.fetchRows(fråga1);
+        
+        
+        for (HashMap <String,String> Namn : svar1){
             
+            taVisaResultat.append(Namn.get("Namn") + "\n");
+        }
+          
         }catch (Exception e) {
            System.out.println(e.getMessage());
         }
+        }
         
+        if(Ras.equals("Squid")) {
+            
+            try {
+                String fråga2 = "SELECT mibdb.Alien.Namn FROM Mibdb.Alien "
+                + "JOIN mibdb.Squid ON mibdb.Squid.Alien_ID = mibdb.Alien.Alien_ID";
+                
+                ArrayList <HashMap<String,String>> svar2 = idb.fetchRows(fråga2);
+                
+                for (HashMap <String,String> Namn : svar2){
+                    
+                    taVisaResultat.append(Namn.get("Namn") + "\n");
+                }
+            }catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+            
+       if (Ras.equals("Boglodite")){
+           
+           try{
+               
+           String fråga3 = "SELECT mibdb.Alien.Namn FROM Mibdb.Alien "
+                + "JOIN mibdb.Boglodite ON mibdb.Boglodite.Alien_ID = mibdb.Alien.Alien_ID";
+               
+           ArrayList <HashMap<String,String>> svar3 = idb.fetchRows(fråga3);
+           
+           for (HashMap <String,String> Namn : svar3){
+               
+               taVisaResultat.append(Namn.get("Namn") + "\n");
+           }
+        
+           }catch (Exception e) {
+           System.out.println(e.getMessage());
+           }
+        }
+        }
     }//GEN-LAST:event_btnSökActionPerformed
 
     /**
