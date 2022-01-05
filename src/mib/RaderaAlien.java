@@ -7,6 +7,9 @@ package mib;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  *
  * @author isabellefredriksson
@@ -36,6 +39,12 @@ public class RaderaAlien extends javax.swing.JFrame {
         lblAngeAlienNamn = new javax.swing.JLabel();
         txtNamn = new javax.swing.JTextField();
         btnRadera = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtVisaResultat = new javax.swing.JTextArea();
+        btnSök = new javax.swing.JButton();
+        lblMiniRubrikResultat = new javax.swing.JLabel();
+        lblAngeID = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +67,23 @@ public class RaderaAlien extends javax.swing.JFrame {
             }
         });
 
+        txtVisaResultat.setColumns(20);
+        txtVisaResultat.setRows(5);
+        jScrollPane1.setViewportView(txtVisaResultat);
+
+        btnSök.setText("Sök");
+        btnSök.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSökActionPerformed(evt);
+            }
+        });
+
+        lblMiniRubrikResultat.setText("Aliens ID med det angivna namnet:");
+
+        lblAngeID.setText("Ange det ID på den alien du vill radera:");
+
+        txtID.setColumns(8);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -65,13 +91,20 @@ public class RaderaAlien extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMiniRubrikResultat)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSök)
                     .addComponent(btnRadera)
                     .addComponent(lblRubrikRaderaAlien)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblAngeAlienNamn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(70, Short.MAX_VALUE))
+                        .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblAngeID)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,9 +115,19 @@ public class RaderaAlien extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAngeAlienNamn)
                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSök)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblMiniRubrikResultat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAngeID)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRadera)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -123,6 +166,29 @@ public class RaderaAlien extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRaderaActionPerformed
 
+    private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
+        // TODO add your handling code here:
+        String namn = txtNamn.getText();
+        
+        try{
+            String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien"
+                    + "WHERE mibdb.Alien.Namn = '"+namn+"'";
+            
+            ArrayList <HashMap <String,String>> svar = idb.fetchRows(fråga);
+            
+            for(HashMap <String,String> ID : svar){
+                
+                txtVisaResultat.append(ID.get("ID") + "\n");
+                
+            }
+            
+            
+        }catch(InfException e) {
+           System.out.println(e.getMessage());
+        
+        }
+    }//GEN-LAST:event_btnSökActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -160,8 +226,14 @@ public class RaderaAlien extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRadera;
+    private javax.swing.JButton btnSök;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAngeAlienNamn;
+    private javax.swing.JLabel lblAngeID;
+    private javax.swing.JLabel lblMiniRubrikResultat;
     private javax.swing.JLabel lblRubrikRaderaAlien;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNamn;
+    private javax.swing.JTextArea txtVisaResultat;
     // End of variables declaration//GEN-END:variables
 }
