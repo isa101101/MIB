@@ -16,12 +16,12 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     /**
      * Creates new form NyregistreraAgent
      */
-    public NyregistreraAgent() {
+    public NyregistreraAgent(InfDB idb) {
         this.idb = idb;
         initComponents();
     }
 
-    NyregistreraAgent(InfDB idb) {
+    NyregistreraAgent() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -226,9 +226,13 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         try {
             String fråga = "SELECT max(Agent_ID) FROM mibdb.Agent";
             
-            String svar1 = idb.fetchSingle(fråga); 
+           String svar1 = idb.fetchSingle(fråga); 
             
-           lblHämtatID.setText(svar1 +1);
+            int svaret = Integer.parseInt(svar1);
+            int resultat = svaret +1;
+            String slutResultat = Integer.toString(resultat);
+            
+           lblHämtatID.setText(slutResultat);
             
             
         }catch (Exception e) {

@@ -4,6 +4,7 @@
  */
 package mib;
 
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
@@ -33,7 +34,7 @@ public class RaderaAlien extends javax.swing.JFrame {
 
         lblRubrikRaderaAlien = new javax.swing.JLabel();
         lblAngeAlienNamn = new javax.swing.JLabel();
-        tfAlienNamn = new javax.swing.JTextField();
+        txtNamn = new javax.swing.JTextField();
         btnRadera = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,14 +44,19 @@ public class RaderaAlien extends javax.swing.JFrame {
 
         lblAngeAlienNamn.setText("Ange aliens namn:");
 
-        tfAlienNamn.setColumns(8);
-        tfAlienNamn.addActionListener(new java.awt.event.ActionListener() {
+        txtNamn.setColumns(8);
+        txtNamn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfAlienNamnActionPerformed(evt);
+                txtNamnActionPerformed(evt);
             }
         });
 
         btnRadera.setText("Radera");
+        btnRadera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRaderaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,7 +70,7 @@ public class RaderaAlien extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblAngeAlienNamn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfAlienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -75,7 +81,7 @@ public class RaderaAlien extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAngeAlienNamn)
-                    .addComponent(tfAlienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnRadera)
                 .addContainerGap(32, Short.MAX_VALUE))
@@ -84,9 +90,38 @@ public class RaderaAlien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfAlienNamnActionPerformed
+    private void txtNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfAlienNamnActionPerformed
+    }//GEN-LAST:event_txtNamnActionPerformed
+
+    private void btnRaderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaderaActionPerformed
+        // TODO add your handling code here:
+        
+        if (Validering.textFaltVarde(txtNamn)) {
+            try {
+                String Namn = txtNamn.getText();
+                String fråga1 = "SELECT Namn FROM mibdb.Alien WHERE Namn = '" +Namn+ "'";
+                
+                 String svar1 = idb.fetchSingle(fråga1);
+                 
+                 String Resultat1 = svar1;
+ 
+                 if(Namn.equalsIgnoreCase(Resultat1)){
+                 String radera = "DELETE FROM mibdb.Alien where Namn = '"+Namn+"'";
+                 JOptionPane.showMessageDialog(null, "'"+Namn+"' borttagen");
+ 
+                 idb.delete(radera);
+
+                 }else{
+                      JOptionPane.showMessageDialog(null, "En Alien med namnet '"+Namn+"' finns inte");
+                 }
+                
+            }catch(InfException e) {
+           System.out.println(e.getMessage());
+        
+        }
+        }
+    }//GEN-LAST:event_btnRaderaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,6 +162,6 @@ public class RaderaAlien extends javax.swing.JFrame {
     private javax.swing.JButton btnRadera;
     private javax.swing.JLabel lblAngeAlienNamn;
     private javax.swing.JLabel lblRubrikRaderaAlien;
-    private javax.swing.JTextField tfAlienNamn;
+    private javax.swing.JTextField txtNamn;
     // End of variables declaration//GEN-END:variables
 }

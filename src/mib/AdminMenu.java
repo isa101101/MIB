@@ -84,6 +84,11 @@ public class AdminMenu extends javax.swing.JFrame {
         jLabel3.setText("Ta bort utrustning");
 
         btnTabortutrustning.setText("Tryck här");
+        btnTabortutrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTabortutrustningActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Nyregistrera agent");
 
@@ -226,6 +231,11 @@ public class AdminMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
          new RaderaAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnTabortalienActionPerformed
+
+    private void btnTabortutrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortutrustningActionPerformed
+        // TODO add your handling code here:
+        new RaderaUtrustning(idb).setVisible(true);
+    }//GEN-LAST:event_btnTabortutrustningActionPerformed
 
     /**
      * @param args the command line arguments

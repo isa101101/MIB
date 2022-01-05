@@ -222,81 +222,84 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
     private void btnNästaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNästaActionPerformed
         // TODO add your handling code here:
-            
-        
 
-            String kategori = cbValdKategori.getSelectedItem().toString();
-            String HID = lblHämtadID.getText();
-            String ID = lblHämtadID.getText();
-            String Benämning = txtUtrustningBenämning.getText();
-            String överföring = txtKommunikation.getText();
-            String kaliber = txtVapen.getText();
-            String kraft = txtTeknik.getText();
-            String kommunikation = "Kommunikation";
-            String vapen = "Vapen";
-            String teknik = "Teknik";
-            String välj = "-Välj-";
-        
-             if (HID.isBlank()) {
-                JOptionPane.showMessageDialog(null, "Hämta ID");  
-            }
-         
-             if (kategori.equals(välj)) {
-                JOptionPane.showMessageDialog(null, "Välj Kategori");
-            }
+        String kategori = cbValdKategori.getSelectedItem().toString();
+        String HID = lblHämtadID.getText();
+        String ID = lblHämtadID.getText();
+        String Benämning = txtUtrustningBenämning.getText();
+        String överföring = txtKommunikation.getText();
+        String kaliber1 = txtVapen.getText();
+        String kraft = txtTeknik.getText();
+        String kommunikation = "Kommunikation";
+        String vapen = "Vapen";
+        String teknik = "Teknik";
+        String välj = "-Välj-";
+        int kaliber2 = Integer.parseInt(kaliber1);
 
-            
-             if (Validering.textFaltVarde(txtUtrustningBenämning)) { 
-                 
+        if (HID.isBlank()) {
+            JOptionPane.showMessageDialog(null, "Hämta ID");
+        }
+
+        if (kategori.equals(välj)) {
+            JOptionPane.showMessageDialog(null, "Välj Kategori");
+        }
+
+        if (Validering.textFaltVarde(txtUtrustningBenämning)) {
+
             try {
 
-           
-           if (kategori.equals(kommunikation)) {
-               if(överföring.isBlank()){
-                   JOptionPane.showMessageDialog(null, "Välj överföringsteknik"); 
-                }else {
-                String kom = "INSERT INTO mibdb.Kommunikation (Utrustnings_ID, overforingsteknik) VALUES ('" + ID + "', '" + överföring + "')";
-                idb.insert(kom);
-                String NyUtrustning1 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
-                idb.insert(NyUtrustning1);
-               
-            }
-           }
-           // if (kategori.equals(vapen)) {
-             //   Validering.textFaltVarde(txtVapen);
-            
-           if (kategori.equals(vapen)) {
-               if(kaliber.isBlank()){
-                   JOptionPane.showMessageDialog(null, "Välj kaliber"); 
-               }else{
-                String vap = "INSERT INTO mibdb.Vapen (Utrustnings_ID, kaliber) VALUES ('" + ID + "', '" + kaliber + "')";
-                idb.insert(vap);
-                String NyUtrustning2 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
-                idb.insert(NyUtrustning2);
-            }
-           }
-           // if (kategori.equals(teknik)) {
-             //   Validering.textFaltVarde(txtTeknik);
-            
-            if (kategori.equals(teknik)) {
-                if(kraft.isBlank()){
-                  JOptionPane.showMessageDialog(null, "Välj kraftkälla");   
-                }else{
-                String tek = "INSERT INTO mibdb.Teknik (Utrustnings_ID, Kraftkalla) VALUES ('" + ID + "', '" + kraft + "')";
-                idb.insert(tek);
-                String NyUtrustning3 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
-                 idb.insert(NyUtrustning3);
-                //JOptionPane.showMessageDialog(null, "Ny utrustning tillagd");
-            }
-            }
+                if (kategori.equals(kommunikation)) {
+                    if (överföring.isBlank()) {
+                        JOptionPane.showMessageDialog(null, "Välj överföringsteknik");
+                    } else {
+                        String kom = "INSERT INTO mibdb.Kommunikation (Utrustnings_ID, overforingsteknik) VALUES ('" + ID + "', '" + överföring + "')";
+                        idb.insert(kom);
+                        String NyUtrustning1 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
+                        idb.insert(NyUtrustning1);
+                        JOptionPane.showMessageDialog(null, "Ny utrustning tillagd");
+
+                    }
+                }
+                // if (kategori.equals(vapen)) {
+                //   Validering.textFaltVarde(txtVapen);
+
+                if (kategori.equals(vapen)) {
+                    if (kaliber1.isBlank()) {
+                        JOptionPane.showMessageDialog(null, "Välj kaliber");
+
+                    } else {
+
+                        String vap = "INSERT INTO mibdb.Vapen (Utrustnings_ID, kaliber) VALUES ('" + ID + "', '" + kaliber2 + "')";
+                        idb.insert(vap);
+                        String NyUtrustning2 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
+                        idb.insert(NyUtrustning2);
+                        JOptionPane.showMessageDialog(null, "Ny utrustning tillagd");
+
+                    }
+                }
+
+                // if (kategori.equals(teknik)) {
+                //   Validering.textFaltVarde(txtTeknik);
+                if (kategori.equals(teknik)) {
+                    if (kraft.isBlank()) {
+                        JOptionPane.showMessageDialog(null, "Välj kraftkälla");
+                    } else {
+                        String tek = "INSERT INTO mibdb.Teknik (Utrustnings_ID, Kraftkalla) VALUES ('" + ID + "', '" + kraft + "')";
+                        idb.insert(tek);
+                        String NyUtrustning3 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
+                        idb.insert(NyUtrustning3);
+                        JOptionPane.showMessageDialog(null, "Ny utrustning tillagd");
+                    }
+                }
 
             
- 
-        }catch (InfException e) {
-            System.out.println(e.getMessage());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Ange korrekta siffror");
+                } catch (InfException e) {
+                System.out.println(e.getMessage());
             }
-             }
- 
+        }
+
      
     }//GEN-LAST:event_btnNästaActionPerformed
 
