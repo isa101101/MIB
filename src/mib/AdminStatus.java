@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 
 /**
@@ -33,9 +34,9 @@ public class AdminStatus extends javax.swing.JFrame {
         lblNamn = new javax.swing.JLabel();
         txtNamn = new javax.swing.JTextField();
         lblStatus = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        lblAdmin = new javax.swing.JLabel();
+        cmbJa = new javax.swing.JComboBox<>();
+        btnÄndra = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,11 +49,16 @@ public class AdminStatus extends javax.swing.JFrame {
 
         lblStatus.setText("Ange status");
 
-        jLabel1.setText("Admin");
+        lblAdmin.setText("Admin");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nej", "Ja" }));
+        cmbJa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nej", "Ja" }));
 
-        jButton1.setText("Ändra");
+        btnÄndra.setText("Ändra");
+        btnÄndra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,7 +71,7 @@ public class AdminStatus extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblStatus)
                         .addGap(117, 117, 117)
-                        .addComponent(jLabel1))
+                        .addComponent(lblAdmin))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblNamn)
                         .addGap(60, 60, 60)
@@ -74,8 +80,8 @@ public class AdminStatus extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnÄndra)
+                    .addComponent(cmbJa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(123, 123, 123))
         );
         layout.setVerticalGroup(
@@ -90,16 +96,71 @@ public class AdminStatus extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblStatus)
-                    .addComponent(jLabel1))
+                    .addComponent(lblAdmin))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbJa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnÄndra)
                 .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
+        // TODO add your handling code here:
+
+         
+
+        
+        if (Validering.textFaltVarde(txtNamn)) {
+            try {
+                String Namn = txtNamn.getText();
+                String fråga = "SELECT mibdb.Agent.Namn from mibdb.Agent where Namn = '" + Namn + "'";
+                String Status = cmbJa.getSelectedItem().toString();
+
+                String Ja = "Ja";
+                String Nej = "Nej";
+
+                String förändringJa = "UPDATE mibdb.Agent SET mibdb.Agent.Administrator  = 'J' WHERE mibdb.Agent.Namn= '" + Namn + "'";
+                String förändringNej = "UPDATE mibdb.Agent SET mibdb.Agent.Administrator  = 'N' WHERE mibdb.Agent.Namn= '" + Namn + "'";
+                
+                String svar = idb.fetchSingle(fråga);
+                
+                 if (Namn.equalsIgnoreCase(svar)) {
+                     if (Status.equals(Ja)) {
+                        idb.update(förändringJa);
+                        JOptionPane.showMessageDialog(null, ""+ Namn+" är nu administratör");
+                    }
+                     if (Status.equals(Nej)) {
+                        idb.update(förändringNej);
+                        JOptionPane.showMessageDialog(null, ""+ Namn+" är inte längre administratör");
+                     }
+                     
+                 }else {
+                    JOptionPane.showMessageDialog(null, "Agent '" + Namn + "' finns inte");
+                 }
+                    
+               
+
+               
+               
+                   
+                    
+               
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+
+            }
+        }
+
+
+    
+
+
+        
+    }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,9 +198,9 @@ public class AdminStatus extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnÄndra;
+    private javax.swing.JComboBox<String> cmbJa;
+    private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblNamn;
     private javax.swing.JLabel lblRubrik;
     private javax.swing.JLabel lblStatus;
