@@ -153,7 +153,7 @@ public class RaderaAlien extends javax.swing.JFrame {
 
                 if (ID.equals(Resultat1)) {
                     String radera = "DELETE FROM mibdb.Alien where Alien_ID = '" + ID + "'";
-                    JOptionPane.showMessageDialog(null, "Alien med '" + ID + "' borttagen");
+                    JOptionPane.showMessageDialog(null, "Alien med ID '" + ID + "' borttagen");
 
                     idb.delete(radera);
 

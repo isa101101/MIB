@@ -42,7 +42,7 @@ public class AdminMenu extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         btnSökagent = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        btnÄndrabefattning = new javax.swing.JButton();
+        btnAdminstatus = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         btnÄndraagent = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -108,12 +108,12 @@ public class AdminMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Ändra agent befattning");
+        jLabel6.setText("Ändra administratörsstatus");
 
-        btnÄndrabefattning.setText("Tryck här");
-        btnÄndrabefattning.addActionListener(new java.awt.event.ActionListener() {
+        btnAdminstatus.setText("Tryck här");
+        btnAdminstatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnÄndrabefattningActionPerformed(evt);
+                btnAdminstatusActionPerformed(evt);
             }
         });
 
@@ -124,10 +124,20 @@ public class AdminMenu extends javax.swing.JFrame {
         jLabel8.setText("Ta bort agent");
 
         btnTabortagent.setText("Tryck här");
+        btnTabortagent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTabortagentActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Ändra områdeschef");
 
         btnÄndraochef.setText("Tryck här");
+        btnÄndraochef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraochefActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Ändra kontorschef");
 
@@ -156,7 +166,7 @@ public class AdminMenu extends javax.swing.JFrame {
                     .addComponent(btnÄndrakchef)
                     .addComponent(btnÄndraochef)
                     .addComponent(btnÄndraagent)
-                    .addComponent(btnÄndrabefattning)
+                    .addComponent(btnAdminstatus)
                     .addComponent(btnSökagent)
                     .addComponent(btnNyagent)
                     .addComponent(btnTabortutrustning)
@@ -164,7 +174,7 @@ public class AdminMenu extends javax.swing.JFrame {
                     .addComponent(btnÄndraalien)
                     .addComponent(btnNyalien)
                     .addComponent(btnTabortagent))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +206,7 @@ public class AdminMenu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(btnÄndrabefattning))
+                    .addComponent(btnAdminstatus))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -255,11 +265,21 @@ public class AdminMenu extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnSökagentActionPerformed
 
-    private void btnÄndrabefattningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndrabefattningActionPerformed
+    private void btnAdminstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminstatusActionPerformed
         // TODO add your handling code here:
-        new ÄndraAgentBefattning(idb).setVisible(true);
+        new AdminStatus(idb).setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnÄndrabefattningActionPerformed
+    }//GEN-LAST:event_btnAdminstatusActionPerformed
+
+    private void btnTabortagentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortagentActionPerformed
+        // TODO add your handling code here:
+        new RaderaAgent(idb).setVisible(true);
+    }//GEN-LAST:event_btnTabortagentActionPerformed
+
+    private void btnÄndraochefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraochefActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnÄndraochefActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,6 +317,7 @@ public class AdminMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdminstatus;
     private javax.swing.JButton btnNyagent;
     private javax.swing.JButton btnNyalien;
     private javax.swing.JButton btnSökagent;
@@ -305,7 +326,6 @@ public class AdminMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnTabortutrustning;
     private javax.swing.JButton btnÄndraagent;
     private javax.swing.JButton btnÄndraalien;
-    private javax.swing.JButton btnÄndrabefattning;
     private javax.swing.JButton btnÄndrakchef;
     private javax.swing.JButton btnÄndraochef;
     private javax.swing.JLabel jLabel1;

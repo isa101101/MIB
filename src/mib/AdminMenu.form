@@ -43,7 +43,7 @@
                   <Component id="btnÄndrakchef" min="-2" max="-2" attributes="0"/>
                   <Component id="btnÄndraochef" min="-2" max="-2" attributes="0"/>
                   <Component id="btnÄndraagent" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnÄndrabefattning" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAdminstatus" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSökagent" min="-2" max="-2" attributes="0"/>
                   <Component id="btnNyagent" min="-2" max="-2" attributes="0"/>
                   <Component id="btnTabortutrustning" min="-2" max="-2" attributes="0"/>
@@ -52,7 +52,7 @@
                   <Component id="btnNyalien" min="-2" max="-2" attributes="0"/>
                   <Component id="btnTabortagent" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="115" max="32767" attributes="0"/>
+              <EmptySpace pref="97" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -92,7 +92,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnÄndrabefattning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAdminstatus" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -200,15 +200,15 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra agent befattning"/>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra administrat&#xf6;rsstatus"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btn&#xc4;ndrabefattning">
+    <Component class="javax.swing.JButton" name="btnAdminstatus">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tryck h&#xe4;r"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndrabefattningActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdminstatusActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -230,6 +230,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Tryck h&#xe4;r"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTabortagentActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
@@ -240,6 +243,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Tryck h&#xe4;r"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraochefActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
