@@ -36,6 +36,9 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
         txtBefintligtRegDatum = new javax.swing.JTextField();
         txtNyttRegDatum = new javax.swing.JTextField();
         btnÄndra = new javax.swing.JButton();
+        lblAliensNamn = new javax.swing.JLabel();
+        txtNamn = new javax.swing.JTextField();
+        btnHämtaRegDatum = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +55,17 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
 
         btnÄndra.setText("Ändra");
 
+        lblAliensNamn.setText("Aliens namn:");
+
+        txtNamn.setColumns(8);
+
+        btnHämtaRegDatum.setText("Hämta");
+        btnHämtaRegDatum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHämtaRegDatumActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,19 +73,29 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnÄndra)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblRubrikÄndraRegDatum)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblNyttRegDatum)
-                                .addComponent(lblBefintligtRegDatum))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtBefintligtRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtNyttRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(20, 20, 20))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblRubrikÄndraRegDatum, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnÄndra)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblNyttRegDatum)
+                                            .addComponent(lblAliensNamn))
+                                        .addGap(48, 48, 48))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(lblBefintligtRegDatum)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtBefintligtRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtNyttRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnHämtaRegDatum)))))
+                        .addGap(0, 49, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,19 +104,42 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
                 .addComponent(lblRubrikÄndraRegDatum)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBefintligtRegDatum)
-                    .addComponent(txtBefintligtRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAliensNamn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNyttRegDatum)
-                    .addComponent(txtNyttRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtBefintligtRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBefintligtRegDatum)
+                    .addComponent(btnHämtaRegDatum))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNyttRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNyttRegDatum))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnÄndra)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnHämtaRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaRegDatumActionPerformed
+        // TODO add your handling code here:
+        
+        String namn = txtNamn.getText();
+   
+        try {
+            
+            String fråga = "SELECT mibdb.Alien.Registreringsdatum FROM mibdb.Alien WHERE mibdb.Alien.namn = '"+namn+"'";
+            
+            String svar = idb.fetchSingle(fråga);
+            
+            txtBefintligtRegDatum.setText(svar);
+            
+        }catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnHämtaRegDatumActionPerformed
 
     /**
      * @param args the command line arguments
@@ -130,11 +177,14 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHämtaRegDatum;
     private javax.swing.JButton btnÄndra;
+    private javax.swing.JLabel lblAliensNamn;
     private javax.swing.JLabel lblBefintligtRegDatum;
     private javax.swing.JLabel lblNyttRegDatum;
     private javax.swing.JLabel lblRubrikÄndraRegDatum;
     private javax.swing.JTextField txtBefintligtRegDatum;
+    private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtNyttRegDatum;
     // End of variables declaration//GEN-END:variables
 }

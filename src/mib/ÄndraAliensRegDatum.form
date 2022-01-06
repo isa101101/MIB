@@ -26,24 +26,40 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnÄndra" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblRubrikÄndraRegDatum" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblNyttRegDatum" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblBefintligtRegDatum" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRubrikÄndraRegDatum" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnÄndra" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblNyttRegDatum" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAliensNamn" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblBefintligtRegDatum" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="txtBefintligtRegDatum" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtNyttRegDatum" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="btnHämtaRegDatum" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="txtBefintligtRegDatum" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNyttRegDatum" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="0" pref="49" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -54,17 +70,23 @@
               <Component id="lblRubrikÄndraRegDatum" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblBefintligtRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtBefintligtRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAliensNamn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblNyttRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNyttRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtBefintligtRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblBefintligtRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnHämtaRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtNyttRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNyttRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="btnÄndra" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,6 +124,24 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAliensNamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Aliens namn:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNamn">
+      <Properties>
+        <Property name="columns" type="int" value="8"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnH&#xe4;mtaRegDatum">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="H&#xe4;mta"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnH&#xe4;mtaRegDatumActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

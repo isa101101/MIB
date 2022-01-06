@@ -44,6 +44,11 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnÄndra.setText("Ändra");
+        btnÄndra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraActionPerformed(evt);
+            }
+        });
 
         txtNyPlats.setColumns(8);
 
@@ -142,6 +147,27 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnHämtaPlatsActionPerformed
+
+    private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
+        // TODO add your handling code here:
+        String namn = txtNamn.getText();
+        String nyPlats = txtNyPlats.getText();
+        
+        try{
+            
+            String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Agent"
+                    + "WHERE mibdb.Alien.namn = '"+namn+"'";
+            
+            String svar = idb.fetchSingle(fråga);
+            
+            String ändra = "UPDATE mibdb.Alien SET Plats = '"+nyPlats+"' WHERE mibdb.Alien.Alien_ID = '"+svar+"'";
+            
+            idb.update(ändra);
+            
+        }catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**
      * @param args the command line arguments
