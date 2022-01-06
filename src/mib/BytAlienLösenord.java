@@ -39,10 +39,11 @@ public class BytAlienLösenord extends javax.swing.JFrame {
         txtNyaLösenordet = new javax.swing.JTextField();
         txtAnvändarnamn = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        btnTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setText("Ändra Lösenord");
 
         btnÄndra.setText("Ändra");
@@ -64,7 +65,12 @@ public class BytAlienLösenord extends javax.swing.JFrame {
 
         jLabel2.setText("Användarnamn");
 
-        jLabel3.setText("Alien");
+        btnTillbaka.setText("Tillbaka till menyn");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,6 +79,7 @@ public class BytAlienLösenord extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnTillbaka)
                     .addComponent(txtAnvändarnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNyttLösenord)
@@ -84,17 +91,12 @@ public class BytAlienLösenord extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))))
-                .addContainerGap(211, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addContainerGap())
+                .addContainerGap(179, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1)
                 .addGap(31, 31, 31)
                 .addComponent(jLabel2)
@@ -110,7 +112,8 @@ public class BytAlienLösenord extends javax.swing.JFrame {
                 .addComponent(txtNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnÄndra)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(btnTillbaka))
         );
 
         pack();
@@ -118,22 +121,28 @@ public class BytAlienLösenord extends javax.swing.JFrame {
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
+        
+        if (Validering.textFaltVarde(txtAnvändarnamn)) {
+            
         try{
             String alien = txtAnvändarnamn.getText();
             String befintligtLösenord = txtBefintligaLösenordet.getText();
             String nyttLösenord = txtNyaLösenordet.getText();
 
-            String fråga1 = "SELECT Losenord FROM mibdb.Alien where namn = '"+alien+"'";
+            String fråga1 = "SELECT Losenord FROM mibdb.Alien where Namn = '"+alien+"'";
+            String fråga2 = "SELECT Namn FROM mibdb.Alien where Namn = '"+alien+"'";
 
             String svar1 = idb.fetchSingle(fråga1);
-
-            if(svar1.equals(befintligtLösenord))
-
-            {
+            String svar2 = idb.fetchSingle(fråga2);
+            
+            
+            if(alien.equals(svar2)){
+                if(svar1.equals(befintligtLösenord)){
+                    
                 String ändra = "UPDATE mibdb.Alien SET Losenord = '"+nyttLösenord+"' WHERE Namn = '"+alien+"'";
-
                 idb.update(ändra);
-                
+                JOptionPane.showMessageDialog(null, "Lösenordet har ändrats");
+            }  
 
             } else {
                 JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenord");
@@ -142,7 +151,14 @@ public class BytAlienLösenord extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        }
     }//GEN-LAST:event_btnÄndraActionPerformed
+
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        // TODO add your handling code here:
+         new AlienMenu(idb).setVisible(true);
+            dispose();   
+    }//GEN-LAST:event_btnTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,10 +196,10 @@ public class BytAlienLösenord extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnÄndra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblBefintligtLösenord;
     private javax.swing.JLabel lblNyttLösenord;
     private javax.swing.JTextField txtAnvändarnamn;
