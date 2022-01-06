@@ -155,7 +155,14 @@ public class RaderaAlien extends javax.swing.JFrame {
                     String radera = "DELETE FROM mibdb.Alien where Alien_ID = '" + ID + "'";
                     JOptionPane.showMessageDialog(null, "Alien med ID '" + ID + "' borttagen");
 
+                    String raderaRas1 = "DELETE FROM mibdb.Worm where Alien_ID = '"+ ID +"'";
+                    String raderaRas2 = "DELETE FROM mibdb.Squid where Alien_ID = '"+ ID +"'";
+                    String raderaRas3 = "DELETE FROM mibdb.Boglodite where Alien_ID = '"+ ID +"'";
+                    
                     idb.delete(radera);
+                    idb.delete(raderaRas1);
+                    idb.delete(raderaRas2);
+                    idb.delete(raderaRas3);
 
                 } else {
                     JOptionPane.showMessageDialog(null, "En Alien med ID '" + ID + "' finns inte");

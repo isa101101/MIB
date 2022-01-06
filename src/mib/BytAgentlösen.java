@@ -125,6 +125,8 @@ public class BytAgentlösen extends javax.swing.JFrame {
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
+        if(Validering.textFaltVarde(txtAnvändarnamn) && Validering.textFaltVarde(txtBefintligaLösenordet) 
+                && Validering.textFaltVarde(txtNyaLösenordet)) {
         try{
             String agent = txtAnvändarnamn.getText();
             String befintligtLösenord = txtBefintligaLösenordet.getText();
@@ -134,21 +136,31 @@ public class BytAgentlösen extends javax.swing.JFrame {
             
             String svar1 = idb.fetchSingle(fråga1);
             
+            String fråga2 = "SELECT mibdb.Agent.Namn FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+agent+"'";
+            
+            String svar2 = idb.fetchSingle(fråga2);
+            
         
             
-            if(svar1.equals(befintligtLösenord))
+            if(svar1.equals(befintligtLösenord) && svar2 != null){
                 
-            {
+                
                 String ändra = "UPDATE mibdb.Agent SET losenord = '"+nyttLösenord+"' WHERE Namn = '"+agent+"'";
                 
                 idb.update(ändra);
                 
+                JOptionPane.showMessageDialog(null, "Lösenordet har har ändrats!");
+                
+                
             } else {
                 JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenord");
             }
+            
+            
         
         } catch (Exception e) {
            System.out.println(e.getMessage());
+        }
         }
     }//GEN-LAST:event_btnÄndraActionPerformed
 

@@ -88,71 +88,73 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblNyregUtrustning" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblOmrådeschefer" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="btnKlickaHärOmrådeschefer" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="btnNyregUtrustning" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="LblUtrustning" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
-                                      <Component id="btnKlickaHärUtrustning" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblÄndraLösenordLänk" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                                      <Component id="btnKlickaHärÄndraLösenord" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblNyregAlienLänk" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                                      <Component id="btnKlickaHärNyregAlien" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="btnInfo" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblÄndraInfoAlienLänk" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblListaRasAlien" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btnKlickaHärListaRas" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnKlickaHärÄndraInfoAlien" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="lblVälkommenRubrik" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="lblÄndraLösenordLänk" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
-                                              <Component id="btnKlickaHärÄndraLösenord" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="lblNyregAlienLänk" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                                              <Component id="btnKlickaHärNyregAlien" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                                              <Component id="btnInfo" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblÄndraInfoAlienLänk" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblListaRasAlien" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="btnKlickaHärListaRas" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnKlickaHärÄndraInfoAlien" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Component id="lblVälkommenRubrik" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="lblAlienRegTvåDatum" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblAlienOlikaPlatser" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                                      <Component id="lblNyregUtrustning" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblOmrådeschefer" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="btnKlickaHärOmrådeschefer" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Component id="btnNyregUtrustning" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="LblUtrustning" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+                                                  <Component id="btnKlickaHärUtrustning" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnKlickaHärAlienPlatser" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnKlickaHärAlienRegDatum" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="lblAlienRegTvåDatum" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblAlienOlikaPlatser" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="btnKlickaHärAlienPlatser" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnKlickaHärAlienRegDatum" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -175,7 +177,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="lblVälkommenRubrik" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblÄndraLösenordLänk" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnKlickaHärÄndraLösenord" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -203,19 +205,16 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                      <Component id="lblAlienRegTvåDatum" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="btnKlickaHärAlienRegDatum" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnKlickaHärAlienRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAlienRegTvåDatum" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAlienOlikaPlatser" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnKlickaHärAlienPlatser" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LblUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnKlickaHärUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -230,7 +229,7 @@
                   <Component id="lblOmrådeschefer" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnKlickaHärOmrådeschefer" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="151" max="32767" attributes="0"/>
+              <EmptySpace pref="163" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -241,7 +240,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen Angentensnamn!"/>
+        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen!"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl&#xc4;ndraL&#xf6;senordL&#xe4;nk">
