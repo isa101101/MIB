@@ -90,11 +90,6 @@
                       <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblNyregUtrustning" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblTopplista" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnTopplista" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblOmrådeschefer" min="-2" max="-2" attributes="0"/>
@@ -164,7 +159,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="192" max="32767" attributes="0"/>
+              <EmptySpace pref="229" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -175,7 +170,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="58" max="32767" attributes="0"/>
+                      <EmptySpace pref="61" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -235,12 +230,7 @@
                   <Component id="lblOmrådeschefer" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnKlickaHärOmrådeschefer" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblTopplista" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnTopplista" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="119" max="32767" attributes="0"/>
+              <EmptySpace pref="151" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -299,11 +289,6 @@
     <Component class="javax.swing.JLabel" name="lblOmr&#xe5;deschefer">
       <Properties>
         <Property name="text" type="java.lang.String" value="Omr&#xe5;deschefer"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTopplista">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Topplista (topp 3) agenter med flest aliens"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="LblUtrustning">
@@ -389,14 +374,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKlickaH&#xe4;rOmr&#xe5;descheferActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnTopplista">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Klicka h&#xe4;r"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTopplistaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

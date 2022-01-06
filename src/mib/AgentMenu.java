@@ -54,7 +54,6 @@ public class AgentMenu extends javax.swing.JFrame {
         lblNyregUtrustning = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         lblOmrådeschefer = new javax.swing.JLabel();
-        lblTopplista = new javax.swing.JLabel();
         LblUtrustning = new javax.swing.JLabel();
         btnKlickaHärÄndraLösenord = new javax.swing.JButton();
         btnKlickaHärNyregAlien = new javax.swing.JButton();
@@ -66,7 +65,6 @@ public class AgentMenu extends javax.swing.JFrame {
         btnKlickaHärUtrustning = new javax.swing.JButton();
         btnNyregUtrustning = new javax.swing.JButton();
         btnKlickaHärOmrådeschefer = new javax.swing.JButton();
-        btnTopplista = new javax.swing.JButton();
 
         popupMenu1.setLabel("popupMenu1");
 
@@ -105,8 +103,6 @@ public class AgentMenu extends javax.swing.JFrame {
         jLabel10.setText("Sök information om alien");
 
         lblOmrådeschefer.setText("Områdeschefer");
-
-        lblTopplista.setText("Topplista (topp 3) agenter med flest aliens");
 
         LblUtrustning.setText("Min utrustning");
 
@@ -180,13 +176,6 @@ public class AgentMenu extends javax.swing.JFrame {
             }
         });
 
-        btnTopplista.setText("Klicka här");
-        btnTopplista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTopplistaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -200,10 +189,6 @@ public class AgentMenu extends javax.swing.JFrame {
                         .addGap(218, 218, 218)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNyregUtrustning)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTopplista)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnTopplista))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(lblOmrådeschefer)
@@ -251,7 +236,7 @@ public class AgentMenu extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(btnKlickaHärAlienPlatser)
                                         .addComponent(btnKlickaHärAlienRegDatum)))))))
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,7 +245,7 @@ public class AgentMenu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(249, 249, 249)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblVälkommenRubrik)
@@ -306,11 +291,7 @@ public class AgentMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOmrådeschefer)
                     .addComponent(btnKlickaHärOmrådeschefer))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTopplista)
-                    .addComponent(btnTopplista))
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         pack();
@@ -364,12 +345,6 @@ public class AgentMenu extends javax.swing.JFrame {
        new MinUtrustning(idb).setVisible(true);
        dispose();
     }//GEN-LAST:event_btnKlickaHärUtrustningActionPerformed
-
-    private void btnTopplistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTopplistaActionPerformed
-        // TODO add your handling code here:
-         new Topplista(idb).setVisible(true);
-         dispose();
-    }//GEN-LAST:event_btnTopplistaActionPerformed
 
     private void btnKlickaHärOmrådescheferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärOmrådescheferActionPerformed
         // TODO add your handling code here:
@@ -431,7 +406,6 @@ public class AgentMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnKlickaHärÄndraInfoAlien;
     private javax.swing.JButton btnKlickaHärÄndraLösenord;
     private javax.swing.JButton btnNyregUtrustning;
-    private javax.swing.JButton btnTopplista;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
@@ -448,7 +422,6 @@ public class AgentMenu extends javax.swing.JFrame {
     private javax.swing.JLabel lblNyregAlienLänk;
     private javax.swing.JLabel lblNyregUtrustning;
     private javax.swing.JLabel lblOmrådeschefer;
-    private javax.swing.JLabel lblTopplista;
     private javax.swing.JLabel lblVälkommenRubrik;
     private javax.swing.JLabel lblÄndraInfoAlienLänk;
     private javax.swing.JLabel lblÄndraLösenordLänk;

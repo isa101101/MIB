@@ -16,14 +16,11 @@ public class ÄndraAliensID extends javax.swing.JFrame {
     /**
      * Creates new form ÄndraAliensID
      */
-    public ÄndraAliensID() {
+    public ÄndraAliensID(InfDB idb) {
         this.idb = idb;
         initComponents();
     }
 
-    ÄndraAliensID(InfDB idb) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
