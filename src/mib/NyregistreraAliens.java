@@ -317,10 +317,21 @@ public class NyregistreraAliens extends javax.swing.JFrame {
             String worm2 = cmbRas.getSelectedItem().toString();
             
             
+            String FrågaPlats = "SELECT mibdb.Plats.Plats_ID FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '"+Plats+"'";
             
+            String SvarPlats = idb.fetchSingle(FrågaPlats);
+            
+            int Plats_ID = Integer.parseInt(SvarPlats);
+            
+            String FrågaAnsvarigAgent = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+AnsvarigAgent+"'";
+            
+            String SvarAgent = idb.fetchSingle(FrågaAnsvarigAgent);
+            
+            int Agent_ID = Integer.parseInt(SvarAgent);
+           
            
             String Nyalien = "INSERT INTO mibdb.Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES "
-                    + "('"+ID+"','"+Datum+"','"+lösenord+"','"+Namn+"', '"+Telefon+"','"+Plats+"','"+AnsvarigAgent+"')";
+                    + "('"+ID+"','"+Datum+"','"+lösenord+"','"+Namn+"', '"+Telefon+"','"+Plats_ID+"','"+Agent_ID+"')";
             
           
             idb.insert(Nyalien);
