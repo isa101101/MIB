@@ -120,6 +120,11 @@ public class AdminMenu extends javax.swing.JFrame {
         jLabel7.setText("Ändra agent information");
 
         btnÄndraagent.setText("Tryck här");
+        btnÄndraagent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraagentActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Ta bort agent");
 
@@ -148,7 +153,7 @@ public class AdminMenu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(228, 228, 228)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNyalien)
                     .addComponent(jLabel1)
@@ -174,12 +179,12 @@ public class AdminMenu extends javax.swing.JFrame {
                     .addComponent(btnÄndraalien)
                     .addComponent(btnNyalien)
                     .addComponent(btnTabortagent))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNyalien)
                     .addComponent(btnNyalien))
@@ -223,7 +228,7 @@ public class AdminMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(btnÄndrakchef))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         pack();
@@ -274,12 +279,22 @@ public class AdminMenu extends javax.swing.JFrame {
     private void btnTabortagentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortagentActionPerformed
         // TODO add your handling code here:
         new RaderaAgent(idb).setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnTabortagentActionPerformed
 
     private void btnÄndraochefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraochefActionPerformed
         // TODO add your handling code here:
+        new ÄndraOmrådeschef(idb).setVisible(true);
+        dispose();
         
     }//GEN-LAST:event_btnÄndraochefActionPerformed
+
+    private void btnÄndraagentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraagentActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAgent(idb).setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_btnÄndraagentActionPerformed
 
     /**
      * @param args the command line arguments
