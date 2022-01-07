@@ -119,9 +119,19 @@ public class RaderaUtrustning extends javax.swing.JFrame {
             String Resultat1 = svar1;
             
             if(ID.equals(Resultat1)){
+           
             String radera = "DELETE FROM mibdb.Utrustning where Utrustnings_ID = '"+ID +"' and Benamning = '"+Namn+"'";
+            String radera2 = "DELETE FROM mibdb.Vapen WHERE Utrustnings_ID = '"+ID+"'";
+            String radera3 = "DELETE FROM mibdb.Teknik WHERE Utrustnings_ID = '"+ID+"'";
+            String radera4 = "DELETE FROM mibdb.Kommunikation WHERE Utrustnings_ID = '"+ID+"'";
  
             idb.delete(radera);
+            idb.delete(radera2);
+            idb.delete(radera3);
+            idb.delete(radera4);
+            
+             JOptionPane.showMessageDialog(null, "'"+Namn+"' har raderats"); 
+             
             }else {
                JOptionPane.showMessageDialog(null, "Utrustningen finns inte"); 
             }
