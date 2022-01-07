@@ -37,6 +37,7 @@ public class AlienMenu extends javax.swing.JFrame {
         lblområdeschef = new javax.swing.JLabel();
         btnOmrådeschef = new javax.swing.JButton();
         btnÄndraLösenord = new javax.swing.JButton();
+        btnLoggaUt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,6 +62,13 @@ public class AlienMenu extends javax.swing.JFrame {
             }
         });
 
+        btnLoggaUt.setText("Logga ut");
+        btnLoggaUt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoggaUtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,6 +86,10 @@ public class AlienMenu extends javax.swing.JFrame {
                             .addComponent(btnOmrådeschef)
                             .addComponent(btnÄndraLösenord))))
                 .addContainerGap(345, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLoggaUt)
+                .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,7 +104,9 @@ public class AlienMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblområdeschef)
                     .addComponent(btnOmrådeschef))
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)
+                .addComponent(btnLoggaUt)
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -109,6 +123,12 @@ public class AlienMenu extends javax.swing.JFrame {
         new OmrådesChefAlien(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnOmrådeschefActionPerformed
+
+    private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
+        // TODO add your handling code here:
+        new Inloggtvå(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,6 +166,7 @@ public class AlienMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLoggaUt;
     private javax.swing.JButton btnOmrådeschef;
     private javax.swing.JButton btnÄndraLösenord;
     private javax.swing.JLabel lblVälkommen;

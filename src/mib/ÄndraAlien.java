@@ -41,7 +41,6 @@ public class ÄndraAlien extends javax.swing.JFrame {
         btnUppdatera = new javax.swing.JButton();
         lblAnsvarigAgent = new javax.swing.JLabel();
         lblAktuellPlats = new javax.swing.JLabel();
-        lblTillbaka = new javax.swing.JLabel();
         btnTillbaka = new javax.swing.JButton();
         btnÄndraNamn = new javax.swing.JButton();
         btnÄndraRegDatum = new javax.swing.JButton();
@@ -76,9 +75,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
         lblAktuellPlats.setText("Aktuell plats:");
 
-        lblTillbaka.setText("Tillbaka till menyn");
-
-        btnTillbaka.setText("Tryck här");
+        btnTillbaka.setText("Tillbaka");
         btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTillbakaActionPerformed(evt);
@@ -140,8 +137,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTillbaka)
-                                .addGap(28, 28, 28)
+                                .addGap(145, 145, 145)
                                 .addComponent(btnTillbaka))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,9 +193,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
                     .addComponent(lblRas)
                     .addComponent(btnUppdatera))
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTillbaka)
-                    .addComponent(btnTillbaka))
+                .addComponent(btnTillbaka)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -216,7 +210,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
         // TODO add your handling code here:
-        new AgentMenu(idb).setVisible(true);
+        new Inloggtvå(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
@@ -308,6 +302,5 @@ public class ÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblNamn;
     private javax.swing.JLabel lblRas;
     private javax.swing.JLabel lblTelefon;
-    private javax.swing.JLabel lblTillbaka;
     // End of variables declaration//GEN-END:variables
 }

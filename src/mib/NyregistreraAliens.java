@@ -343,7 +343,26 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                             + "('" + ID + "','" + Datum + "','" + lösenord + "','" + Namn + "', '" + Telefon + "','" + Plats_ID + "','" + Agent_ID + "')";
 
                     idb.insert(Nyalien);
+                    
+                    String worm = "Worm";
+                String squid = "Squid";
+                String boglodite = "Boglodite";
 
+                if (cmbRas.getSelectedItem().equals(worm)) {
+                    String ras1 = "INSERT INTO mibdb.Worm (Alien_ID) VALUES ('" + ID + "')";
+                    idb.insert(ras1);
+                }
+
+                if (cmbRas.getSelectedItem().equals(squid)) {
+                    String ras2 = "INSERT INTO mibdb.Squid (Alien_ID, Antal_Armar) VALUES ('" + ID + "', '" + antalArmar + "')";
+                    idb.insert(ras2);
+                }
+
+                if (cmbRas.getSelectedItem().equals(boglodite)) {
+                    String ras3 = "INSERT INTO mibdb.Boglodite (Alien_ID, Antal_Boogies) VALUES ('" + ID + "', '" + antalBoogies + "')";
+                    idb.insert(ras3);
+                }
+                
                     JOptionPane.showMessageDialog(null, "Alien har registreras");
                     }
                     else{
@@ -378,24 +397,6 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Platsen du angav fanns inte sen tidigare och har nu registreras, tryck registrera igen för att lägga till alien!");
                 }
 
-                String worm = "Worm";
-                String squid = "Squid";
-                String boglodite = "Boglodite";
-
-                if (cmbRas.getSelectedItem().equals(worm)) {
-                    String ras1 = "INSERT INTO mibdb.Worm (Alien_ID) VALUES ('" + ID + "')";
-                    idb.insert(ras1);
-                }
-
-                if (cmbRas.getSelectedItem().equals(squid)) {
-                    String ras2 = "INSERT INTO mibdb.Squid (Alien_ID, Antal_Armar) VALUES ('" + ID + "', '" + antalArmar + "')";
-                    idb.insert(ras2);
-                }
-
-                if (cmbRas.getSelectedItem().equals(boglodite)) {
-                    String ras3 = "INSERT INTO mibdb.Boglodite (Alien_ID, Antal_Boogies) VALUES ('" + ID + "', '" + antalBoogies + "')";
-                    idb.insert(ras3);
-                }
 
             } catch (Exception e) {
 

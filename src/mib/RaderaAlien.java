@@ -45,6 +45,7 @@ public class RaderaAlien extends javax.swing.JFrame {
         lblMiniRubrikResultat = new javax.swing.JLabel();
         lblAngeID = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
+        btnTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,6 +85,13 @@ public class RaderaAlien extends javax.swing.JFrame {
 
         txtID.setColumns(8);
 
+        btnTillbaka.setText("Tillbaka");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,7 +99,10 @@ public class RaderaAlien extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(214, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRadera)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnRadera)
+                        .addGap(92, 92, 92)
+                        .addComponent(btnTillbaka))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblAngeID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -126,7 +137,9 @@ public class RaderaAlien extends javax.swing.JFrame {
                     .addComponent(lblAngeID)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRadera)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRadera)
+                    .addComponent(btnTillbaka))
                 .addContainerGap(155, Short.MAX_VALUE))
         );
 
@@ -204,6 +217,12 @@ public class RaderaAlien extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_btnSökActionPerformed
 
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        // TODO add your handling code here:
+        new AdminMenu(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnTillbakaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -242,6 +261,7 @@ public class RaderaAlien extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRadera;
     private javax.swing.JButton btnSök;
+    private javax.swing.JButton btnTillbaka;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAngeAlienNamn;
     private javax.swing.JLabel lblAngeID;
