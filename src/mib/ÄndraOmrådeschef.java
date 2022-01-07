@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 
 /**
@@ -118,13 +119,16 @@ public class ÄndraOmrådeschef extends javax.swing.JFrame {
                String AID = idb.fetchSingle(hämtaAID);
                String OID = idb.fetchSingle(hämtaOID);
                
+               int SvarOID = Integer.parseInt(OID);
+               int SvarAID = Integer.parseInt(AID);
                
                
+               String ändra = "UPDATE mibdb.Omradeschef SET Agent_ID = '"+SvarAID+"'WHERE mibdb.Omradeschef.Omrade = '"+SvarOID+"'";
                
+               idb.update(ändra);
                
-               
-               
-               
+               JOptionPane.showMessageDialog(null, "Områdeschefen är ändrad!");
+                        
                
            } catch (Exception e) {
                 System.out.println(e.getMessage());
