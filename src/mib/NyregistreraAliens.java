@@ -341,7 +341,32 @@ public class NyregistreraAliens extends javax.swing.JFrame {
             String SvarFinnsPlats = idb.fetchSingle(FrågaFinnsPlats);
             
             
-            if(SvarFinnsPlats == null){
+            if(SvarFinnsPlats != null){
+                
+            String FrågaPlats = "SELECT mibdb.Plats.Plats_ID FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '"+Plats+"'";
+            
+            String SvarPlats = idb.fetchSingle(FrågaPlats);
+            
+            int Plats_ID = Integer.parseInt(SvarPlats);
+            
+            String FrågaAnsvarigAgent = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+AnsvarigAgent+"'";
+            
+            String SvarAgent = idb.fetchSingle(FrågaAnsvarigAgent);
+            
+            int Agent_ID = Integer.parseInt(SvarAgent);
+           
+           
+            String Nyalien = "INSERT INTO mibdb.Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES "
+                    + "('"+ID+"','"+Datum+"','"+lösenord+"','"+Namn+"', '"+Telefon+"','"+Plats_ID+"','"+Agent_ID+"')";
+            
+          
+            idb.insert(Nyalien);
+            
+            JOptionPane.showMessageDialog(null, "Alien har registreras");
+            
+            }
+            else{
+                
              //Om inte platsen finns ska den läggas till, vilket koden nedan gör
              
             String FrågaNyPlats_ID = "SELECT max(Plats_ID) FROM mibdb.Plats";
@@ -361,27 +386,14 @@ public class NyregistreraAliens extends javax.swing.JFrame {
             int SvaretOmråde_ID = Integer.parseInt(SvarOmråde_ID);
             
             
-            String nyPlats = "INSERT INTO mibdb.Plats (Plats_ID, Finns_I, Benamning) VALUES ('"+ResultatNyPlats_ID+"', '"+SvaretOmråde_ID+"', '"+Plats+"')";   
+            String nyPlats = "INSERT INTO mibdb.Plats (Plats_ID, Finns_I, Benamning) VALUES ('"+ResultatNyPlats_ID+"', '"+SvaretOmråde_ID+"', '"+Plats+"')"; 
+            
+            idb.insert(nyPlats);
+            
+            JOptionPane.showMessageDialog(null, "Platsen du angav fanns inte sen tidigare och har nu registreras, tryck registrera igen för att registrera alien!");
             }
             
-            String FrågaPlats = "SELECT mibdb.Plats.Plats_ID FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '"+Plats+"'";
             
-            String SvarPlats = idb.fetchSingle(FrågaPlats);
-            
-            int Plats_ID = Integer.parseInt(SvarPlats);
-            
-            String FrågaAnsvarigAgent = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+AnsvarigAgent+"'";
-            
-            String SvarAgent = idb.fetchSingle(FrågaAnsvarigAgent);
-            
-            int Agent_ID = Integer.parseInt(SvarAgent);
-           
-           
-            String Nyalien = "INSERT INTO mibdb.Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES "
-                    + "('"+ID+"','"+Datum+"','"+lösenord+"','"+Namn+"', '"+Telefon+"','"+Plats_ID+"','"+Agent_ID+"')";
-            
-          
-            idb.insert(Nyalien);
             
             String worm = "Worm";
             String squid = "Squid";
