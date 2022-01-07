@@ -134,16 +134,25 @@ public class ÄndraOmrådeschef extends javax.swing.JFrame {
                String OID = idb.fetchSingle(hämtaOID);
                
                if(AID != null){
-               
+ 
                int SvarOID = Integer.parseInt(OID);
                int SvarAID = Integer.parseInt(AID);
                
+               String fråga = "SELECT mibdb.Omradeschef.Agent_ID FROM mibdb.Omradeschef WHERE mibdb.Omradeschef.Agent_ID = '"+AID+"'";
                
+               String svar = idb.fetchSingle(fråga);
+               
+               if(svar == null)
+               {
                String ändra = "UPDATE mibdb.Omradeschef SET Agent_ID = '"+SvarAID+"'WHERE mibdb.Omradeschef.Omrade = '"+SvarOID+"'";
                
                idb.update(ändra);
                
                JOptionPane.showMessageDialog(null, "Områdeschefen är ändrad!");
+               }
+               else {
+                   JOptionPane.showMessageDialog(null,"Den angivna agenten är redan chef över ett annat område!");
+               }
                }
                else{
                    JOptionPane.showMessageDialog(null, "Den angivna agenten finns ej, ange någon annan agent eller registrera agenten först!");
