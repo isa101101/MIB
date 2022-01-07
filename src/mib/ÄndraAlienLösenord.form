@@ -31,30 +31,30 @@
                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="btnÄndra" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblBefintligtLösenord" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNyttLösenord" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblBefintligtLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNyttLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtBefintligtLösenord" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNyttLösenord" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtBefintligtLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtNyttLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnHämta" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnTillbaka" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnHämta" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="153" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,12 +84,58 @@
                   <Component id="btnÄndra" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnTillbaka" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="314" max="32767" attributes="0"/>
+              <EmptySpace pref="149" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JButton" name="btn&#xc4;ndra">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNyttL&#xf6;senord">
+      <Properties>
+        <Property name="columns" type="int" value="10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnH&#xe4;mta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="H&#xe4;mta"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnH&#xe4;mtaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtBefintligtL&#xf6;senord">
+      <Properties>
+        <Property name="columns" type="int" value="10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyttL&#xf6;senord">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nytt l&#xf6;senord:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblBefintligtL&#xf6;senord">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Befintligt l&#xf6;senord:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNamn">
+      <Properties>
+        <Property name="columns" type="int" value="10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ange Namn:"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -98,55 +144,12 @@
         <Property name="text" type="java.lang.String" value="&#xc4;ndra Agent L&#xf6;senord"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblNamn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ange Namn:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtNamn">
-      <Properties>
-        <Property name="columns" type="int" value="10"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblBefintligtL&#xf6;senord">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Befintligt l&#xf6;senord:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblNyttL&#xf6;senord">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nytt l&#xf6;senord:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtBefintligtL&#xf6;senord">
-      <Properties>
-        <Property name="columns" type="int" value="10"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtNyttL&#xf6;senord">
-      <Properties>
-        <Property name="columns" type="int" value="10"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btn&#xc4;ndra">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="btnTillbaka">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tillbaka"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTillbakaActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnH&#xe4;mta">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="H&#xe4;mta"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnH&#xe4;mtaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
