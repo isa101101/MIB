@@ -19,14 +19,11 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
     /**
      * Creates new form ÄndraAliensNamn
      */
-    public ÄndraAliensNamn() {
+    public ÄndraAliensNamn(InfDB idb) {
         this.idb = idb;
         initComponents();
     }
 
-    ÄndraAliensNamn(InfDB idb) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -124,6 +121,7 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
 
     private void btnÄndraNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraNamnActionPerformed
         // TODO add your handling code here:
+        
         if(Validering.textFaltVarde(txtBefintligtNamn) && Validering.textFaltVarde(txtNyttNamn)) {
             
         

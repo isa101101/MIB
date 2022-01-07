@@ -4,6 +4,7 @@
  */
 package mib;
 
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
@@ -55,6 +56,11 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
         txtNyttRegDatum.setColumns(8);
 
         btnÄndra.setText("Ändra");
+        btnÄndra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraActionPerformed(evt);
+            }
+        });
 
         lblAliensNamn.setText("Aliens namn:");
 
@@ -68,6 +74,11 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
         });
 
         btnTillbaka.setText("Tillbaka");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,31 +87,29 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRubrikÄndraRegDatum, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblRubrikÄndraRegDatum)
+                    .addComponent(btnÄndra)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnÄndra)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblNyttRegDatum)
-                                            .addComponent(lblAliensNamn))
-                                        .addGap(48, 48, 48))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(lblBefintligtRegDatum)
-                                        .addGap(18, 18, 18)))
+                                    .addComponent(lblNyttRegDatum)
+                                    .addComponent(lblAliensNamn))
+                                .addGap(48, 48, 48))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblBefintligtRegDatum)
+                                .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtBefintligtRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNyttRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtBefintligtRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtNyttRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnTillbaka)
-                                            .addComponent(btnHämtaRegDatum))))))
-                        .addGap(0, 40, Short.MAX_VALUE))))
+                                    .addComponent(btnTillbaka)
+                                    .addComponent(btnHämtaRegDatum))))))
+                .addGap(0, 37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,6 +142,7 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
     private void btnHämtaRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaRegDatumActionPerformed
         // TODO add your handling code here:
         
+        if(Validering.textFaltVarde(txtNamn)){
         String namn = txtNamn.getText();
    
         try {
@@ -146,7 +156,38 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
         }catch (Exception e) {
            System.out.println(e.getMessage());
         }
+        }
     }//GEN-LAST:event_btnHämtaRegDatumActionPerformed
+
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAlien(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnTillbakaActionPerformed
+
+    private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
+        // TODO add your handling code here:
+        
+        if(Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtNyttRegDatum)){
+        String namn = txtNamn.getText();
+        String NyttRegDatum =txtNyttRegDatum.getText();
+        
+        try{
+            String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
+            
+            String svar = idb.fetchSingle(fråga);
+            
+            String ändra = "UPDATE mibdb.Alien SET Registreringsdatum = '"+NyttRegDatum+"' WHERE mibdb.Alien.Alien_ID = '"+svar+"'";
+            
+            idb.update(ändra);
+            
+            JOptionPane.showMessageDialog(null, "Registreringsdatumet är ändrat!");
+            
+        }catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+        }
+    }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,6 +4,7 @@
  */
 package mib;
 
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
@@ -135,6 +136,7 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
 
     private void btnHämtaPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaPlatsActionPerformed
         // TODO add your handling code here:
+        if(Validering.textFaltVarde(txtNamn)){
         String namn = txtNamn.getText();
         
         try{
@@ -150,6 +152,7 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
         }catch (Exception e) {
            System.out.println(e.getMessage());
         }
+        }
         
     }//GEN-LAST:event_btnHämtaPlatsActionPerformed
 
@@ -162,7 +165,7 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
         
         try{
             
-            String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Agent"
+            String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien"
                     + "WHERE mibdb.Alien.namn = '"+namn+"'";
             
             String svar = idb.fetchSingle(fråga);
@@ -170,6 +173,8 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
             String ändra = "UPDATE mibdb.Alien SET Plats = '"+nyPlats+"' WHERE mibdb.Alien.Alien_ID = '"+svar+"'";
             
             idb.update(ändra);
+            
+            JOptionPane.showMessageDialog(null, "Aliens plats är ändrat!");
             
         }catch (Exception e) {
            System.out.println(e.getMessage());
