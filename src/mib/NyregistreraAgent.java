@@ -52,9 +52,9 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         txtNamn = new javax.swing.JTextField();
         txtTelefon = new javax.swing.JTextField();
         txtAnstDatum = new javax.swing.JTextField();
-        txtAdmin = new javax.swing.JTextField();
         txtLösenord = new javax.swing.JTextField();
         cmbOmråde = new javax.swing.JComboBox<>();
+        cmbAdmin = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,11 +114,11 @@ public class NyregistreraAgent extends javax.swing.JFrame {
 
         txtAnstDatum.setColumns(8);
 
-        txtAdmin.setColumns(8);
-
         txtLösenord.setColumns(8);
 
         cmbOmråde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Norrland", "Svealand", "Götaland" }));
+
+        cmbAdmin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nej", "Ja" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,12 +144,12 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lblLösenord)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                             .addComponent(txtLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(lblAgentAdmin)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(cmbAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lblAgentNamn)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -195,7 +195,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAgentAdmin)
-                    .addComponent(txtAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLösenord)
@@ -242,31 +242,56 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     private void btnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraActionPerformed
         // TODO add your handling code here:
         
+        if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtTelefon) && Validering.textFaltVarde(txtAnstDatum)
+                && Validering.textFaltVarde(txtLösenord)){
         try{
         String ID = lblHämtatID.getText();
         String Namn = txtNamn.getText();
         String Telefon = txtTelefon.getText();
         String AnstDatum = txtAnstDatum.getText();
-        String Admin = txtAdmin.getText();
+        String Admin = cmbAdmin.getSelectedItem().toString();
         String Lösenord = txtLösenord.getText();
         String Område = cmbOmråde.getSelectedItem().toString();
+        
+        String frågaFinnsRedanNamn = "SELECT mibdb.Agent.Namn FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+Namn+"'";
+        String SvarFinnsRedanNamn = idb.fetchSingle(frågaFinnsRedanNamn);
+        
+         String AdminStatus = "";
+        if(SvarFinnsRedanNamn == null)
+        {
         
         String Fråga = "SELECT Omrades_ID FROM mibdb.Omrade where Benamning= '"+Område+"'";
         
         String svar = idb.fetchSingle(Fråga);
         
+        int OmrådesID = Integer.parseInt(svar);
         
+        int AgentID = Integer.parseInt(ID);
+        
+        if(Admin.equals("Nej"))
+        {
+            AdminStatus = "N";
+        }
+        else {
+            AdminStatus = "J";
+        }
         
         String nyAgent = "INSERT INTO mibdb.Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Losenord, Omrade) VALUES"
-                + "('"+ID+"', '"+Namn+"', '"+Telefon+"', '"+AnstDatum+"', '"+Admin+"', '"+Lösenord+"', '"+svar+"')";
+                + "('"+AgentID+"', '"+Namn+"', '"+Telefon+"', '"+AnstDatum+"', '"+AdminStatus+"', '"+Lösenord+"', '"+OmrådesID+"')";
        
         idb.insert(nyAgent);
         
         JOptionPane.showMessageDialog(null, "En ny agent är registrerad!");
+        }
+        
+        else {
+           JOptionPane.showMessageDialog(null, "Det finns redan en alien med det namn du önskade, testa något annat!"); 
+        }
         
         }catch (Exception e) {
             System.out.println(e.getMessage());
             }
+        }
     }//GEN-LAST:event_btnRegistreraActionPerformed
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
@@ -314,6 +339,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     private javax.swing.JLabel RubrikNyAgent;
     private javax.swing.JButton btnRegistrera;
     private javax.swing.JButton btnTillbaka;
+    private javax.swing.JComboBox<String> cmbAdmin;
     private javax.swing.JComboBox<String> cmbOmråde;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel lblAgentAdmin;
@@ -326,7 +352,6 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     private javax.swing.JLabel lblLösenord;
     private javax.swing.JLabel lblOmråde;
     private javax.swing.JLabel lblTillbaka;
-    private javax.swing.JTextField txtAdmin;
     private javax.swing.JTextField txtAnstDatum;
     private javax.swing.JTextField txtLösenord;
     private javax.swing.JTextField txtNamn;

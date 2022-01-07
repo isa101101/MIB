@@ -177,10 +177,15 @@ public class ÄndraKontorschef extends javax.swing.JFrame {
         
             String svar = idb.fetchSingle(fråga);
             
-            if(svar != null){
+            if(svar == null){
             
             String ändra = "UPDATE mibdb.Kontorschef SET Agent_ID = '"+AID+"' "
                     + "WHERE mibdb.Kontorschef.Kontorsbeteckning = '"+kontor+"'";
+            
+            idb.update(ändra);
+            
+            JOptionPane.showMessageDialog(null, "Det angivna kontoret har nu fått en ny kontorschef");
+            
             }
             else
             {

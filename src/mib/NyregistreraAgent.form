@@ -47,13 +47,13 @@
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="lblLösenord" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="31" max="32767" attributes="0"/>
                           <Component id="txtLösenord" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="lblAgentAdmin" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="txtAdmin" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cmbAdmin" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="lblAgentNamn" min="-2" max="-2" attributes="0"/>
@@ -112,7 +112,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAgentAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -240,11 +240,6 @@
         <Property name="columns" type="int" value="8"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAdmin">
-      <Properties>
-        <Property name="columns" type="int" value="8"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="txtL&#xf6;senord">
       <Properties>
         <Property name="columns" type="int" value="8"/>
@@ -257,6 +252,19 @@
             <StringItem index="0" value="Norrland"/>
             <StringItem index="1" value="Svealand"/>
             <StringItem index="2" value="G&#xf6;taland"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbAdmin">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Nej"/>
+            <StringItem index="1" value="Ja"/>
           </StringArray>
         </Property>
       </Properties>
