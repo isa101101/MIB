@@ -336,6 +336,33 @@ public class NyregistreraAliens extends javax.swing.JFrame {
             String worm2 = cmbRas.getSelectedItem().toString();
             String Område = cmbOmråde.getSelectedItem().toString();
             
+            String FrågaFinnsPlats = "SELECT mibdb.Plats.Benamning WHERE mibdb.Plats.Benamning = '"+ Plats +"'";
+            
+            String SvarFinnsPlats = idb.fetchSingle(FrågaFinnsPlats);
+            
+            
+            if(SvarFinnsPlats == null){
+             //Om inte platsen finns ska den läggas till, vilket koden nedan gör
+             
+            String FrågaNyPlats_ID = "SELECT max(Plats_ID) FROM mibdb.Plats";
+            
+            String SvarNyPlats_ID = idb.fetchSingle(FrågaNyPlats_ID);
+            
+            int SvaretNyPlats_ID = Integer.parseInt(SvarNyPlats_ID);
+            
+            int ResultatNyPlats_ID = SvaretNyPlats_ID +1;
+            
+            String NyPlats_ID = Integer.toString(ResultatNyPlats_ID);
+            
+            String FrågaOmråde_ID = "SELECT mibdb.Omrade.Omrades_ID FROM mibdb.Omrade WHERE mibdb.Omrade.Benamning = '"+Område+"'";
+            
+            String SvarOmråde_ID = idb.fetchSingle(FrågaOmråde_ID);
+            
+            int SvaretOmråde_ID = Integer.parseInt(SvarOmråde_ID);
+            
+            
+            String nyPlats = "INSERT INTO mibdb.Plats (Plats_ID, Finns_I, Benamning) VALUES ('"+ResultatNyPlats_ID+"', '"+SvaretOmråde_ID+"', '"+Plats+"')";   
+            }
             
             String FrågaPlats = "SELECT mibdb.Plats.Plats_ID FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '"+Plats+"'";
             
@@ -348,8 +375,6 @@ public class NyregistreraAliens extends javax.swing.JFrame {
             String SvarAgent = idb.fetchSingle(FrågaAnsvarigAgent);
             
             int Agent_ID = Integer.parseInt(SvarAgent);
-            
-            //if()
            
            
             String Nyalien = "INSERT INTO mibdb.Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES "
