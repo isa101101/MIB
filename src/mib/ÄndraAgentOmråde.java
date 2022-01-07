@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 
 /**
@@ -33,46 +34,66 @@ public class ÄndraAgentOmråde extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNamn = new javax.swing.JTextField();
         bntHämta = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
         btnÄndra = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtOmråde = new javax.swing.JTextField();
+        cmbOmråde = new javax.swing.JComboBox<>();
+        btnTillbaka = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setText("Ändra område ");
 
         jLabel2.setText("Ange namn");
 
         jLabel3.setText("Nytt område");
 
-        jTextField1.setColumns(10);
+        txtNamn.setColumns(10);
 
         bntHämta.setText("Hämta");
-
-        jTextField2.setColumns(10);
+        bntHämta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntHämtaActionPerformed(evt);
+            }
+        });
 
         btnÄndra.setText("Ändra");
+        btnÄndra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Befintligt område");
 
-        jTextField3.setColumns(10);
+        txtOmråde.setColumns(10);
+
+        cmbOmråde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Svealand", "Götaland", "Norrland" }));
+        cmbOmråde.setToolTipText("");
+
+        btnTillbaka.setText("Tillbaka");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(169, 169, 169)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bntHämta))
                     .addComponent(jLabel1)
@@ -81,38 +102,104 @@ public class ÄndraAgentOmråde extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnÄndra)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnÄndra)
+                            .addComponent(btnTillbaka))))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(102, 102, 102)
                 .addComponent(jLabel1)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bntHämta))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(11, 11, 11))
+                    .addComponent(cmbOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addComponent(btnÄndra)
-                .addGap(29, 29, 29))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(btnTillbaka)
+                .addGap(41, 41, 41))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bntHämtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntHämtaActionPerformed
+        // TODO add your handling code here:
+        
+        String Namn = txtNamn.getText();
+        
+         if(Validering.textFaltVarde(txtNamn)){
+        try {
+       String Namnet = "SELECT Namn FROM mibdb.Agent where Namn = '"+Namn+"'";     
+       String fråga = "SELECT mibdb.Omrade.Benamning FROM mibdb.Omrade join mibdb.Agent on "
+        + "mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade where mibdb.Agent.Namn ='"+Namn+"'";
+       
+       String svar = idb.fetchSingle(fråga);
+       String svar2 = idb.fetchSingle(Namnet);
+       
+       if(Namn.equalsIgnoreCase(svar2)) {
+       txtOmråde.setText(svar);
+       
+        }else {
+          JOptionPane.showMessageDialog(null, "Agent '"+ Namn + "' finns inte");
+       }
+       
+        } catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+         }
+       
+    }//GEN-LAST:event_bntHämtaActionPerformed
+
+    private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+
+        String Namn = txtNamn.getText();
+        String NyttOmråde = cmbOmråde.getSelectedItem().toString();
+        
+       
+        
+        String NID = "Select mibdb.Omrade.Omrades_ID from mibdb.Omrade where mibdb.Omrade.Benamning = '"+NyttOmråde+"'";
+        String svar = idb.fetchSingle(NID);
+        
+        int Nytt = Integer.parseInt(svar);
+       
+       
+        
+        String ändra = "UPDATE mibdb.Agent SET Omrade = '"+Nytt+"' WHERE mibdb.Agent.Namn = '"+Namn+"'";
+        idb.update(ändra);
+        JOptionPane.showMessageDialog(null, "Område har ändrats");
+        
+        
+        } catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+        
+    }//GEN-LAST:event_btnÄndraActionPerformed
+
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAgent(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,14 +238,15 @@ public class ÄndraAgentOmråde extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntHämta;
+    private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnÄndra;
+    private javax.swing.JComboBox<String> cmbOmråde;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtNamn;
+    private javax.swing.JTextField txtOmråde;
     // End of variables declaration//GEN-END:variables
 }

@@ -181,6 +181,7 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
             
             idb.update(ändra);
             
+           
             JOptionPane.showMessageDialog(null, "Registreringsdatumet är ändrat!");
             
         }catch (Exception e) {

@@ -5,6 +5,8 @@
 package mib;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 /**
  *
@@ -117,22 +119,35 @@ public class MinUtrustning extends javax.swing.JFrame {
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
 
-        try{
-            String Namn = txtAgent.getText();
-            
-        String fraga ="SELECT mibdb.Utrustning.Benamning FROM mibdb.Utrustning "
-                + "JOIN mibdb.Innehar_Utrustning ON mibdb.Utrustning.Utrustnings_ID = mibdb.Innehar_Utrustning.Utrustnings_ID "
-                + "JOIN mibdb.Agent ON mibdb.Agent.Agent_ID = mibdb.Innehar_Utrustning.Agent_ID WHERE mibdb.Agent.Namn = '"+Namn+"'";
-        
-        
-            ArrayList<String> svar = idb.fetchColumn(fraga);
-            
-        String svar2 = svar.toString();
-     
-        taVisaResultat.setText(svar2);
-        
-        } catch (Exception e) {
-           System.out.println(e.getMessage());
+        if (Validering.textFaltVarde(txtAgent)) {
+           
+            try {
+                 taVisaResultat.setText("");
+                
+                String Namn = txtAgent.getText();
+                
+                String frågaNamn = "SELECT mibdb.Agent.Namn from mibdb.Agent WHERE mibdb.Agent.Namn = '"+Namn+"'";
+                String svarNamn = idb.fetchSingle(frågaNamn);
+                
+                if (Namn.equalsIgnoreCase(svarNamn)) {
+                    
+                String fraga = "SELECT mibdb.Utrustning.Benamning FROM mibdb.Utrustning "
+                        + "JOIN mibdb.Innehar_Utrustning ON mibdb.Utrustning.Utrustnings_ID = mibdb.Innehar_Utrustning.Utrustnings_ID "
+                        + "JOIN mibdb.Agent ON mibdb.Agent.Agent_ID = mibdb.Innehar_Utrustning.Agent_ID WHERE mibdb.Agent.Namn = '"+Namn+"'";
+
+                ArrayList<String> svar = idb.fetchColumn(fraga);
+
+                for (String Utrustning : svar) {
+
+                    taVisaResultat.append(Utrustning+"\n");
+                }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Agent "+Namn+" finns inte");
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
 
         
