@@ -4,6 +4,7 @@
  */
 package mib;
 
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -154,10 +155,17 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
                     + "WHERE mibdb.Alien.Namn = '"+namn+"'";
             
             String svar = idb.fetchSingle(fråga);
+            
+            if (svar != null){
           
             txtNuvarandeAgent.setText(svar);
             
-            
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet");
+          
+            }
+  
         }catch (Exception e) {
            System.out.println(e.getMessage());
         }

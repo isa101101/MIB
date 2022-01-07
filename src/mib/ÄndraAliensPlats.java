@@ -173,9 +173,9 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
         
         try{
             
-            String frågaAgentID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.namn = '"+namn+"'";
+            String frågaAlienID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.namn = '"+namn+"'";
             
-            String svarAgentID = idb.fetchSingle(frågaAgentID);
+            String svarAlienID = idb.fetchSingle(frågaAlienID);
             
             String frågaPlatsID = "SELECT mibdb.Plats.Plats_ID FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '"+nyPlats+"'";
             
@@ -186,7 +186,7 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
                 
                 int ResultatPlatsID = Integer.parseInt(svarPlatsID); 
                 
-                String ändra = "UPDATE mibdb.Alien SET Plats = '"+ResultatPlatsID+"' WHERE mibdb.Alien.Alien_ID = '"+svarAgentID+"'";
+                String ändra = "UPDATE mibdb.Alien SET Plats = '"+ResultatPlatsID+"' WHERE mibdb.Alien.Alien_ID = '"+svarAlienID+"'";
             
                 idb.update(ändra);
             
@@ -195,7 +195,7 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
     
             }
             else{
-                JOptionPane.showMessageDialog(null, "Angiven plats finns inte!");
+                JOptionPane.showMessageDialog(null, "Angiven plats finns inte, vänligen ange en annan plats!");
                 
             }
             
