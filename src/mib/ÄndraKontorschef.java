@@ -154,6 +154,8 @@ public class ÄndraKontorschef extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if (Validering.textFaltVarde(txtNamn)) {
+        }
+        
 
     }//GEN-LAST:event_btnÄndraActionPerformed
 
@@ -197,7 +199,7 @@ public class ÄndraKontorschef extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ÄndraKontorschef().setVisible(true);
+                
             }
         });
     }

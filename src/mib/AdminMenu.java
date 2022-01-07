@@ -147,6 +147,11 @@ public class AdminMenu extends javax.swing.JFrame {
         jLabel10.setText("Ändra kontorschef");
 
         btnÄndrakchef.setText("Tryck här");
+        btnÄndrakchef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndrakchefActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -295,6 +300,12 @@ public class AdminMenu extends javax.swing.JFrame {
         dispose();
         
     }//GEN-LAST:event_btnÄndraagentActionPerformed
+
+    private void btnÄndrakchefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndrakchefActionPerformed
+        // TODO add your handling code here:
+        new ÄndraKontorschef(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnÄndrakchefActionPerformed
 
     /**
      * @param args the command line arguments
