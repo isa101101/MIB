@@ -15,23 +15,23 @@ import oru.inf.InfException;
 public class NyregistreraAliens extends javax.swing.JFrame {
 
     private InfDB idb;
+
     /**
      * Creates new form AlienMenu
      */
-   
-       
+
     /**
      * Creates new form NyregistreraAliens
      */
     public NyregistreraAliens(InfDB idb) {
-         this.idb = idb;
+        this.idb = idb;
         initComponents();
-        
-         txtAntalArmar.setVisible(false);
+
+        txtAntalArmar.setVisible(false);
         txtAntaBoogies.setVisible(false);
         lblAntaBoogies.setVisible(false);
         lblAngeArmar.setVisible(false);
-        
+
     }
 
     /**
@@ -319,114 +319,109 @@ public class NyregistreraAliens extends javax.swing.JFrame {
 
     private void btnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraActionPerformed
         // TODO add your handling code here:
-        
-         if (Validering.textFaltVarde(txtRegistreringsdatum) && Validering.textFaltVarde(txtlösenord) && 
-                 Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtTelefon) && Validering.textFaltVarde(txtPlats) && Validering.textFaltVarde(txtAnsvarigagent)){   
-        
-        try {
-            String ID = lblID.getText();
-            String Datum = txtRegistreringsdatum.getText();
-            String lösenord = txtlösenord.getText();
-            String Namn = txtNamn.getText();
-            String Telefon = txtTelefon.getText();
-            String Plats = txtPlats.getText();
-            String AnsvarigAgent = txtAnsvarigagent.getText();
-            String antalArmar = txtAntalArmar.getText();
-            String antalBoogies = txtAntaBoogies.getText();
-            String worm2 = cmbRas.getSelectedItem().toString();
-            String Område = cmbOmråde.getSelectedItem().toString();
-            
-            String FrågaFinnsPlats = "SELECT mibdb.Plats.Benamning WHERE mibdb.Plats.Benamning = '"+ Plats +"'";
-            
-            String SvarFinnsPlats = idb.fetchSingle(FrågaFinnsPlats);
-            
-            
-            if(SvarFinnsPlats != null){
+
+        if (Validering.textFaltVarde(txtRegistreringsdatum) && Validering.textFaltVarde(txtlösenord)
+                && Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtTelefon) && Validering.textFaltVarde(txtPlats) && Validering.textFaltVarde(txtAnsvarigagent)) {
+
+            try {
+                String ID = lblID.getText();
+                String Datum = txtRegistreringsdatum.getText();
+                String lösenord = txtlösenord.getText();
+                String Namn = txtNamn.getText();
+                String Telefon = txtTelefon.getText();
+                String Plats = txtPlats.getText();
+                String AnsvarigAgent = txtAnsvarigagent.getText();
+                String antalArmar = txtAntalArmar.getText();
+                String antalBoogies = txtAntaBoogies.getText();
+                String worm2 = cmbRas.getSelectedItem().toString();
+                String Område = cmbOmråde.getSelectedItem().toString();
+
+                String FrågaFinnsPlats = "SELECT mibdb.Plats.Benamning FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '" + Plats + "'";
                 
-            String FrågaPlats = "SELECT mibdb.Plats.Plats_ID FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '"+Plats+"'";
+                String SvarFinnsPlats = idb.fetchSingle(FrågaFinnsPlats);
+
+                if (SvarFinnsPlats != null) {
+                    
+
+                    String FrågaPlats = "SELECT mibdb.Plats.Plats_ID FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '" + Plats + "'";
+                    
+                    String SvarPlats = idb.fetchSingle(FrågaPlats);
+
+                    int Plats_ID = Integer.parseInt(SvarPlats);
+
+                    String FrågaAnsvarigAgent = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '" + AnsvarigAgent + "'";
+
+                    String SvarAgent = idb.fetchSingle(FrågaAnsvarigAgent);
+                    
+                    if(SvarAgent != null) {
+                    int Agent_ID = Integer.parseInt(SvarAgent);
+
+                    String Nyalien = "INSERT INTO mibdb.Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES "
+                            + "('" + ID + "','" + Datum + "','" + lösenord + "','" + Namn + "', '" + Telefon + "','" + Plats_ID + "','" + Agent_ID + "')";
+
+                    idb.insert(Nyalien);
+
+                    JOptionPane.showMessageDialog(null, "Alien har registreras");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Ange annan Agent, den angivna agenten finns ej!");
+                    }
+
+                } else {
+                    
+                    //Om inte platsen finns ska den läggas till, vilket koden nedan gör
+                    String FrågaNyPlats_ID = "SELECT max(Plats_ID) FROM mibdb.Plats";
+
+                    
+                    String SvarNyPlats_ID = idb.fetchSingle(FrågaNyPlats_ID);
             
-            String SvarPlats = idb.fetchSingle(FrågaPlats);
-            
-            int Plats_ID = Integer.parseInt(SvarPlats);
-            
-            String FrågaAnsvarigAgent = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+AnsvarigAgent+"'";
-            
-            String SvarAgent = idb.fetchSingle(FrågaAnsvarigAgent);
-            
-            int Agent_ID = Integer.parseInt(SvarAgent);
-           
-           
-            String Nyalien = "INSERT INTO mibdb.Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES "
-                    + "('"+ID+"','"+Datum+"','"+lösenord+"','"+Namn+"', '"+Telefon+"','"+Plats_ID+"','"+Agent_ID+"')";
-            
-          
-            idb.insert(Nyalien);
-            
-            JOptionPane.showMessageDialog(null, "Alien har registreras");
-            
+
+                    int SvaretNyPlats_ID = Integer.parseInt(SvarNyPlats_ID);
+
+                    int ResultatNyPlats_ID = SvaretNyPlats_ID + 1;
+
+
+                    String FrågaOmråde_ID = "SELECT mibdb.Omrade.Omrades_ID FROM mibdb.Omrade WHERE mibdb.Omrade.Benamning = '" + Område + "'";
+
+                    
+                    String SvarOmråde_ID = idb.fetchSingle(FrågaOmråde_ID);
+
+                    int SvaretOmråde_ID = Integer.parseInt(SvarOmråde_ID);
+
+                    String nyPlats = "INSERT INTO mibdb.Plats (Plats_ID, Finns_I, Benamning) VALUES ('" + ResultatNyPlats_ID + "', '" + SvaretOmråde_ID + "', '" + Plats + "')";
+
+                    idb.insert(nyPlats);
+
+                    JOptionPane.showMessageDialog(null, "Platsen du angav fanns inte sen tidigare och har nu registreras, tryck registrera igen för att lägga till alien!");
+                }
+
+                String worm = "Worm";
+                String squid = "Squid";
+                String boglodite = "Boglodite";
+
+                if (cmbRas.getSelectedItem().equals(worm)) {
+                    String ras1 = "INSERT INTO mibdb.Worm (Alien_ID) VALUES ('" + ID + "')";
+                    idb.insert(ras1);
+                }
+
+                if (cmbRas.getSelectedItem().equals(squid)) {
+                    String ras2 = "INSERT INTO mibdb.Squid (Alien_ID, Antal_Armar) VALUES ('" + ID + "', '" + antalArmar + "')";
+                    idb.insert(ras2);
+                }
+
+                if (cmbRas.getSelectedItem().equals(boglodite)) {
+                    String ras3 = "INSERT INTO mibdb.Boglodite (Alien_ID, Antal_Boogies) VALUES ('" + ID + "', '" + antalBoogies + "')";
+                    idb.insert(ras3);
+                }
+
+            } catch (Exception e) {
+
+                System.out.println(e.getMessage());
             }
-            else{
-                
-             //Om inte platsen finns ska den läggas till, vilket koden nedan gör
-             
-            String FrågaNyPlats_ID = "SELECT max(Plats_ID) FROM mibdb.Plats";
-            
-            String SvarNyPlats_ID = idb.fetchSingle(FrågaNyPlats_ID);
-            
-            int SvaretNyPlats_ID = Integer.parseInt(SvarNyPlats_ID);
-            
-            int ResultatNyPlats_ID = SvaretNyPlats_ID +1;
-            
-            String NyPlats_ID = Integer.toString(ResultatNyPlats_ID);
-            
-            String FrågaOmråde_ID = "SELECT mibdb.Omrade.Omrades_ID FROM mibdb.Omrade WHERE mibdb.Omrade.Benamning = '"+Område+"'";
-            
-            String SvarOmråde_ID = idb.fetchSingle(FrågaOmråde_ID);
-            
-            int SvaretOmråde_ID = Integer.parseInt(SvarOmråde_ID);
-            
-            
-            String nyPlats = "INSERT INTO mibdb.Plats (Plats_ID, Finns_I, Benamning) VALUES ('"+ResultatNyPlats_ID+"', '"+SvaretOmråde_ID+"', '"+Plats+"')"; 
-            
-            idb.insert(nyPlats);
-            
-            JOptionPane.showMessageDialog(null, "Platsen du angav fanns inte sen tidigare och har nu registreras, tryck registrera igen för att registrera alien!");
-            }
-            
-            
-            
-            String worm = "Worm";
-            String squid = "Squid";
-            String boglodite = "Boglodite";
-         
-            
-            if(cmbRas.getSelectedItem().equals(worm)) {
-            String ras1 = "INSERT INTO mibdb.Worm (Alien_ID) VALUES ('"+ID+"')";
-            idb.insert(ras1);
-            }
-            
-            if(cmbRas.getSelectedItem().equals(squid)) {
-            String ras2 = "INSERT INTO mibdb.Squid (Alien_ID, Antal_Armar) VALUES ('"+ID+"', '"+antalArmar+"')";
-            idb.insert(ras2);
-            }
-            
-            if(cmbRas.getSelectedItem().equals(boglodite)) {
-            String ras3 = "INSERT INTO mibdb.Boglodite (Alien_ID, Antal_Boogies) VALUES ('"+ID+"', '"+antalBoogies+"')"; 
-            idb.insert(ras3);
-            }
-            
-            JOptionPane.showMessageDialog(null, "En ny alien har registreras!");
-           
-            
-            
-        } catch (Exception e)  {
-            
-           System.out.println(e.getMessage());
-        }
 
     }//GEN-LAST:event_btnRegistreraActionPerformed
     }
-    
+
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
         // TODO add your handling code here:
         new AgentMenu(idb).setVisible(true);
@@ -437,19 +432,18 @@ public class NyregistreraAliens extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             String fråga = "SELECT max(Alien_ID) FROM mibdb.Alien";
-            
-            String svar1 = idb.fetchSingle(fråga); 
-            
+
+            String svar1 = idb.fetchSingle(fråga);
+
             int svaret = Integer.parseInt(svar1);
-            int resultat = svaret +1;
+            int resultat = svaret + 1;
             String slutResultat = Integer.toString(resultat);
-            
-           lblID.setText(slutResultat);
-            
-            
-        }catch (Exception e) {
+
+            lblID.setText(slutResultat);
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-            }
+        }
     }//GEN-LAST:event_btnHämtaIdActionPerformed
 
     private void cmbRasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbRasItemStateChanged
@@ -461,28 +455,26 @@ public class NyregistreraAliens extends javax.swing.JFrame {
         lblAntaBoogies.setVisible(false);
         lblAngeArmar.setVisible(false);
 
-        if(vald.equals("Squid")) {
-            
+        if (vald.equals("Squid")) {
+
             try {
                 txtAntalArmar.setVisible(true);
                 lblAngeArmar.setVisible(true);
-     
-                
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
-        }
-     
-        if(vald.equals("Boglodite")) {
-            
+
+        if (vald.equals("Boglodite")) {
+
             try {
                 txtAntaBoogies.setVisible(true);
                 lblAntaBoogies.setVisible(true);
-     
-                
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }//GEN-LAST:event_cmbRasItemStateChanged
 
@@ -516,7 +508,7 @@ public class NyregistreraAliens extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }

@@ -4,17 +4,27 @@
  */
 package mib;
 
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 /**
  *
  * @author isabellefredriksson
  */
 public class ÄndraAliensRas extends javax.swing.JFrame {
 
+    private InfDB idb;
     /**
      * Creates new form ÄndraAliensRas
      */
-    public ÄndraAliensRas() {
+    public ÄndraAliensRas(InfDB idb) {
+        this.idb = idb;
         initComponents();
+        
+        txtAntalArmar.setVisible(false);
+        txtAntaBoogies.setVisible(false);
+        lblAntaBoogies.setVisible(false);
+        lblAngeArmar.setVisible(false);
     }
 
     /**
@@ -26,21 +36,234 @@ public class ÄndraAliensRas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        lblAliensNamn = new javax.swing.JLabel();
+        txtNamn = new javax.swing.JTextField();
+        lblNyRas = new javax.swing.JLabel();
+        cmbRas = new javax.swing.JComboBox<>();
+        btnÄndra = new javax.swing.JButton();
+        btnTillbaka = new javax.swing.JButton();
+        lblAntaBoogies = new javax.swing.JLabel();
+        lblAngeArmar = new javax.swing.JLabel();
+        txtAntaBoogies = new javax.swing.JTextField();
+        txtAntalArmar = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel1.setText("Ändra aliens ras");
+
+        lblAliensNamn.setText("Ange aliens namn:");
+
+        txtNamn.setColumns(8);
+
+        lblNyRas.setText("Ny ras:");
+
+        cmbRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Välj-", "Squid", "Boglodite", "Worm" }));
+        cmbRas.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbRasItemStateChanged(evt);
+            }
+        });
+
+        btnÄndra.setText("Ändra");
+        btnÄndra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraActionPerformed(evt);
+            }
+        });
+
+        btnTillbaka.setText("Tillbaka");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
+
+        lblAntaBoogies.setText("Ange Antal boogies");
+
+        lblAngeArmar.setText("Ange antal armar");
+
+        txtAntaBoogies.setColumns(8);
+
+        txtAntalArmar.setColumns(8);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblNyRas)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblAntaBoogies)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblAngeArmar)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jLabel1)))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnÄndra)
+                        .addGap(109, 109, 109)
+                        .addComponent(btnTillbaka))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtAntalArmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblAliensNamn)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtAntaBoogies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(59, 216, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAliensNamn)
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNyRas)
+                    .addComponent(cmbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAngeArmar)
+                    .addComponent(txtAntalArmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAntaBoogies)
+                    .addComponent(txtAntaBoogies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnÄndra)
+                    .addComponent(btnTillbaka))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAlien(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnTillbakaActionPerformed
+
+    private void cmbRasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbRasItemStateChanged
+        // TODO add your handling code here:
+        String vald = cmbRas.getSelectedItem().toString();
+
+        txtAntalArmar.setVisible(false);
+        txtAntaBoogies.setVisible(false);
+        lblAntaBoogies.setVisible(false);
+        lblAngeArmar.setVisible(false);
+
+        if(vald.equals("Squid")) {
+            
+            try {
+                txtAntalArmar.setVisible(true);
+                lblAngeArmar.setVisible(true);
+     
+                
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        }
+     
+        if(vald.equals("Boglodite")) {
+            
+            try {
+                txtAntaBoogies.setVisible(true);
+                lblAntaBoogies.setVisible(true);
+     
+                
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        }
+    }//GEN-LAST:event_cmbRasItemStateChanged
+
+    private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
+        // TODO add your handling code here:
+        
+        String namn = txtNamn.getText();
+        String Ras = cmbRas.getSelectedItem().toString();
+        
+        try{
+        
+        String frågaAlienID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
+           
+        String svarAlienID = idb.fetchSingle(frågaAlienID);
+        
+        if(svarAlienID != null){
+            
+            int resultatAlienID = Integer.parseInt(svarAlienID);
+            
+            String raderaRas1 = "DELETE FROM mibdb.Worm where Alien_ID = '"+ resultatAlienID +"'";
+            String raderaRas2 = "DELETE FROM mibdb.Squid where Alien_ID = '"+resultatAlienID +"'";
+            String raderaRas3 = "DELETE FROM mibdb.Boglodite where Alien_ID = '"+ resultatAlienID +"'";
+            
+            idb.delete(raderaRas1);
+            idb.delete(raderaRas2);
+            idb.delete(raderaRas3);
+            
+                String worm = "Worm";
+                String squid = "Squid";
+                String boglodite = "Boglodite";
+                String välj = "-Välj-";
+                String antalArmar = txtAntalArmar.getText();
+                String antalBoogies = txtAntaBoogies.getText();
+                
+
+                if (cmbRas.getSelectedItem().equals(worm)) {
+                    String ras1 = "INSERT INTO mibdb.Worm (Alien_ID) VALUES ('" + resultatAlienID + "')";
+                    idb.insert(ras1);
+                }
+
+                if (cmbRas.getSelectedItem().equals(squid)) {
+                    int antalArmarSquid = Integer.parseInt(antalArmar);
+                    String ras2 = "INSERT INTO mibdb.Squid (Alien_ID, Antal_Armar) VALUES ('" + resultatAlienID + "', '" + antalArmarSquid + "')";
+                    idb.insert(ras2);
+                }
+
+                if (cmbRas.getSelectedItem().equals(boglodite)) {
+                    int antalBoogiesBoglodite = Integer.parseInt(antalBoogies);
+                    String ras3 = "INSERT INTO mibdb.Boglodite (Alien_ID, Antal_Boogies) VALUES ('" + resultatAlienID + "', '" + antalBoogiesBoglodite + "')";
+                    idb.insert(ras3);
+                }
+                
+                if (cmbRas.getSelectedItem().equals(välj))
+                {
+                    JOptionPane.showMessageDialog(null, "Du måste välja en ras! Välj en ras och tryck ändra igen!");
+                }
+                
+            JOptionPane.showMessageDialog(null, "Aliens ras har ändrats!");
+            
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet");
+        }
+        
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -72,11 +295,22 @@ public class ÄndraAliensRas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ÄndraAliensRas().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnTillbaka;
+    private javax.swing.JButton btnÄndra;
+    private javax.swing.JComboBox<String> cmbRas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblAliensNamn;
+    private javax.swing.JLabel lblAngeArmar;
+    private javax.swing.JLabel lblAntaBoogies;
+    private javax.swing.JLabel lblNyRas;
+    private javax.swing.JTextField txtAntaBoogies;
+    private javax.swing.JTextField txtAntalArmar;
+    private javax.swing.JTextField txtNamn;
     // End of variables declaration//GEN-END:variables
 }

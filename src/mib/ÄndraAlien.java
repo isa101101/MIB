@@ -21,11 +21,6 @@ public class ÄndraAlien extends javax.swing.JFrame {
     public ÄndraAlien(InfDB idb) {
          this.idb = idb;
         initComponents();
-        
-         txtAntalArmar.setVisible(false);
-        txtAntaBoogies.setVisible(false);
-        lblAntaBoogies.setVisible(false);
-        lblAngeArmar.setVisible(false);
     }
 
     /**
@@ -40,7 +35,6 @@ public class ÄndraAlien extends javax.swing.JFrame {
         lblTelefon = new javax.swing.JLabel();
         lblLösenord = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        cmbRas = new javax.swing.JComboBox<>();
         RubrikNyAlien = new javax.swing.JLabel();
         lblNamn = new javax.swing.JLabel();
         lblRas = new javax.swing.JLabel();
@@ -49,10 +43,6 @@ public class ÄndraAlien extends javax.swing.JFrame {
         lblAktuellPlats = new javax.swing.JLabel();
         lblTillbaka = new javax.swing.JLabel();
         btnTillbaka = new javax.swing.JButton();
-        txtAntalArmar = new javax.swing.JTextField();
-        txtAntaBoogies = new javax.swing.JTextField();
-        lblAngeArmar = new javax.swing.JLabel();
-        lblAntaBoogies = new javax.swing.JLabel();
         btnÄndraNamn = new javax.swing.JButton();
         btnÄndraRegDatum = new javax.swing.JButton();
         btnÄndraLösenord = new javax.swing.JButton();
@@ -68,13 +58,6 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
         jLabel1.setText("Registreringsdatum");
 
-        cmbRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Välj-", "Squid", "Boglodite", "Worm" }));
-        cmbRas.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbRasItemStateChanged(evt);
-            }
-        });
-
         RubrikNyAlien.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         RubrikNyAlien.setText("Ändra alien information");
 
@@ -82,7 +65,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
         lblRas.setText("Ras:");
 
-        btnUppdatera.setText("Uppdatera");
+        btnUppdatera.setText("Ändra Ras");
         btnUppdatera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUppdateraActionPerformed(evt);
@@ -101,14 +84,6 @@ public class ÄndraAlien extends javax.swing.JFrame {
                 btnTillbakaActionPerformed(evt);
             }
         });
-
-        txtAntalArmar.setColumns(8);
-
-        txtAntaBoogies.setColumns(8);
-
-        lblAngeArmar.setText("Ange antal armar");
-
-        lblAntaBoogies.setText("Ange Antal boogies");
 
         btnÄndraNamn.setText("Ändra namn");
         btnÄndraNamn.addActionListener(new java.awt.event.ActionListener() {
@@ -165,11 +140,16 @@ public class ÄndraAlien extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblTillbaka)
+                                .addGap(28, 28, 28)
+                                .addComponent(btnTillbaka))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(lblLösenord)
                                     .addComponent(lblNamn)
-                                    .addComponent(lblTelefon))
+                                    .addComponent(lblTelefon)
+                                    .addComponent(lblRas))
                                 .addGap(28, 28, 28)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnÄndraRegDatum)
@@ -177,41 +157,11 @@ public class ÄndraAlien extends javax.swing.JFrame {
                                     .addComponent(btnÄndraNamn)
                                     .addComponent(btnÄndraTelefon)
                                     .addComponent(btnÄndraPlats)
-                                    .addComponent(btnÄndraAgent)))
+                                    .addComponent(btnÄndraAgent)
+                                    .addComponent(btnUppdatera)))
                             .addComponent(lblAnsvarigAgent)
                             .addComponent(lblAktuellPlats))
                         .addGap(0, 74, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnUppdatera)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTillbaka)
-                                .addGap(28, 28, 28)
-                                .addComponent(btnTillbaka)))
-                        .addGap(69, 69, 69))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblRas)
-                                .addGap(18, 18, 18)
-                                .addComponent(cmbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblAntaBoogies)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtAntaBoogies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblAngeArmar)
-                                        .addGap(22, 22, 22)
-                                        .addComponent(txtAntalArmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,25 +192,15 @@ public class ÄndraAlien extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAnsvarigAgent)
                     .addComponent(btnÄndraAgent))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRas)
-                    .addComponent(cmbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAngeArmar)
-                    .addComponent(txtAntalArmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAntaBoogies)
-                    .addComponent(txtAntaBoogies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnUppdatera)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(btnUppdatera))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTillbaka)
                     .addComponent(btnTillbaka))
-                .addGap(63, 63, 63))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -270,38 +210,8 @@ public class ÄndraAlien extends javax.swing.JFrame {
     
     private void btnUppdateraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUppdateraActionPerformed
         // TODO add your handling code here:
-
- 
-        try {
-      
-            String antalArmar = txtAntalArmar.getText();
-            String antalBoogies = txtAntaBoogies.getText();
-            String worm = cmbRas.getSelectedItem().toString();
-            
-          
-            if(cmbRas.equals("Worm")) {
-            //String ras1 = "INSERT INTO mibdb.Worm (Alien_ID) VALUES ('"+ID+"')";
-            //idb.insert(ras1);
-            }
-            
-            if(cmbRas.equals("Squid")) {
-            //String ras2 = "INSERT INTO mibdb.Squid (Alien_ID, Antal_Armar) VALUES ('"+ID+"', '"+antalArmar+"')";
-           // idb.insert(ras2);
-            }
-            
-            if(cmbRas.equals("Boglodite")) {
-           // String ras3 = "INSERT INTO mibdb.Boglodite (Alien_ID, Antal_Boogies) VALUES ('"+ID+"', '"+antalBoogies+"')"; 
-            //idb.insert(ras3);
-            }
-            
-            
-            //idb.update(ändra);
-            
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        
+        new ÄndraAliensRas(idb).setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnUppdateraActionPerformed
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
@@ -309,41 +219,6 @@ public class ÄndraAlien extends javax.swing.JFrame {
         new AgentMenu(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
-
-    private void cmbRasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbRasItemStateChanged
-        // TODO add your handling code here:
-
-        String vald = cmbRas.getSelectedItem().toString();
-
-        txtAntalArmar.setVisible(false);
-        txtAntaBoogies.setVisible(false);
-        lblAntaBoogies.setVisible(false);
-        lblAngeArmar.setVisible(false);
-
-        if(vald.equals("Squid")) {
-            
-            try {
-                txtAntalArmar.setVisible(true);
-                lblAngeArmar.setVisible(true);
-     
-                
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        }
-     
-        if(vald.equals("Boglodite")) {
-            
-            try {
-                txtAntaBoogies.setVisible(true);
-                lblAntaBoogies.setVisible(true);
-     
-                
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        }
-    }//GEN-LAST:event_cmbRasItemStateChanged
 
     private void btnÄndraNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraNamnActionPerformed
         // TODO add your handling code here:
@@ -426,18 +301,13 @@ public class ÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JButton btnÄndraPlats;
     private javax.swing.JButton btnÄndraRegDatum;
     private javax.swing.JButton btnÄndraTelefon;
-    private javax.swing.JComboBox<String> cmbRas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAktuellPlats;
-    private javax.swing.JLabel lblAngeArmar;
     private javax.swing.JLabel lblAnsvarigAgent;
-    private javax.swing.JLabel lblAntaBoogies;
     private javax.swing.JLabel lblLösenord;
     private javax.swing.JLabel lblNamn;
     private javax.swing.JLabel lblRas;
     private javax.swing.JLabel lblTelefon;
     private javax.swing.JLabel lblTillbaka;
-    private javax.swing.JTextField txtAntaBoogies;
-    private javax.swing.JTextField txtAntalArmar;
     // End of variables declaration//GEN-END:variables
 }

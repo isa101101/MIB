@@ -32,12 +32,18 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblTillbaka" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblNamn" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRas" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -47,6 +53,7 @@
                                   <Component id="btnÄndraTelefon" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnÄndraPlats" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnÄndraAgent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnUppdatera" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="lblAnsvarigAgent" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -55,49 +62,6 @@
                       <EmptySpace min="0" pref="74" max="32767" attributes="0"/>
                   </Group>
               </Group>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnUppdatera" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblTillbaka" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblRas" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="cmbRas" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="27" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lblAntaBoogies" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtAntaBoogies" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lblAngeArmar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                      <Component id="txtAntalArmar" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -136,29 +100,17 @@
                   <Component id="lblAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnÄndraAgent" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblRas" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cmbRas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnUppdatera" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAngeArmar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAntalArmar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAntaBoogies" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAntaBoogies" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnUppdatera" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblTillbaka" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnTillbaka" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -178,24 +130,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Registreringsdatum"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cmbRas">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="-V&#xe4;lj-"/>
-            <StringItem index="1" value="Squid"/>
-            <StringItem index="2" value="Boglodite"/>
-            <StringItem index="3" value="Worm"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cmbRasItemStateChanged"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="RubrikNyAlien">
       <Properties>
@@ -217,7 +151,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnUppdatera">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Uppdatera"/>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra Ras"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUppdateraActionPerformed"/>
@@ -245,26 +179,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTillbakaActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtAntalArmar">
-      <Properties>
-        <Property name="columns" type="int" value="8"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtAntaBoogies">
-      <Properties>
-        <Property name="columns" type="int" value="8"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblAngeArmar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ange antal armar"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblAntaBoogies">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ange Antal boogies"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btn&#xc4;ndraNamn">
       <Properties>
