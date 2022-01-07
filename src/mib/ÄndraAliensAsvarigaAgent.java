@@ -178,13 +178,32 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
         String nyAgent = txtNyAgent.getText();
         
         try{
-            String fråga = "";
+            String frågaAlienID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
+           
+            String svarAlienID = idb.fetchSingle(frågaAlienID);
             
-            String svar = "";
+            String frågaAgentID = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+nyAgent+"'";
             
-            int resultat = Integer.parseInt(svar);
+            String svarAgentID = idb.fetchSingle(frågaAgentID);
             
+            if(svarAgentID != null)
+            {
             
+            int resultatAlienID = Integer.parseInt(svarAlienID);
+            
+            int resultatAgentID = Integer.parseInt(svarAgentID);
+             
+            String ändra = "UPDATE mibdb.Alien SET Ansvarig_Agent = '"+resultatAgentID+"' WHERE mibdb.Alien.Alien_ID = '"+resultatAlienID+"'";
+             
+            idb.update(ändra);
+            
+            JOptionPane.showMessageDialog(null, "Aliens ansvariga agent har ändrat");
+                   
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Det finns ingen Agent med det angivna namnet!");
+            }
+ 
             
         }catch (Exception e) {
            System.out.println(e.getMessage());
