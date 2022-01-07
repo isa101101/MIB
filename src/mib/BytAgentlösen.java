@@ -40,6 +40,7 @@ public class BytAgentlösen extends javax.swing.JFrame {
         txtNyaLösenordet = new javax.swing.JTextField();
         txtAnvändarnamn = new javax.swing.JTextField();
         btnTillbaka = new javax.swing.JButton();
+        txtText = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,14 +73,22 @@ public class BytAgentlösen extends javax.swing.JFrame {
             }
         });
 
+        txtText.setText("Tillbaka");
+        txtText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTextActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(334, 334, 334)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtAnvändarnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -90,16 +99,15 @@ public class BytAgentlösen extends javax.swing.JFrame {
                             .addComponent(txtBefintligaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
-                                .addComponent(jLabel1))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnTillbaka)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                                .addComponent(jLabel1))
+                            .addComponent(txtText)))
+                    .addComponent(btnTillbaka))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addComponent(btnTillbaka)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblRubrikÄndraLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,7 +125,9 @@ public class BytAgentlösen extends javax.swing.JFrame {
                 .addComponent(txtNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnÄndra)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(56, 56, 56)
+                .addComponent(txtText)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         pack();
@@ -133,24 +143,20 @@ public class BytAgentlösen extends javax.swing.JFrame {
             String nyttLösenord = txtNyaLösenordet.getText();
             
             String fråga1 = "SELECT losenord FROM mibdb.Agent where namn = '"+agent+"'";
-            
-            String svar1 = idb.fetchSingle(fråga1);
-            
             String fråga2 = "SELECT mibdb.Agent.Namn FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+agent+"'";
             
+            String svar1 = idb.fetchSingle(fråga1);
             String svar2 = idb.fetchSingle(fråga2);
             
         
-            
-            if(svar1.equals(befintligtLösenord) && svar2 != null){
+            if(agent.equalsIgnoreCase(svar2)){
+                if(svar1.equals(befintligtLösenord)){
                 
                 
                 String ändra = "UPDATE mibdb.Agent SET losenord = '"+nyttLösenord+"' WHERE Namn = '"+agent+"'";
-                
-                idb.update(ändra);
-                
+                idb.update(ändra);         
                 JOptionPane.showMessageDialog(null, "Lösenordet har har ändrats!");
-                
+            }   
                 
             } else {
                 JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenord");
@@ -167,7 +173,14 @@ public class BytAgentlösen extends javax.swing.JFrame {
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
         // TODO add your handling code here:
         new AgentMenu(idb).setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
+
+    private void txtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTextActionPerformed
+        // TODO add your handling code here:
+        new Inloggtvå(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_txtTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,5 +227,6 @@ public class BytAgentlösen extends javax.swing.JFrame {
     private javax.swing.JTextField txtAnvändarnamn;
     private javax.swing.JTextField txtBefintligaLösenordet;
     private javax.swing.JTextField txtNyaLösenordet;
+    private javax.swing.JButton txtText;
     // End of variables declaration//GEN-END:variables
 }

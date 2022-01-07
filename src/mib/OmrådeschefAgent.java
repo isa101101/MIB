@@ -37,6 +37,7 @@ public class OmrådeschefAgent extends javax.swing.JFrame {
         btnSök = new javax.swing.JButton();
         lblOmrådesChefValdaOmråde = new javax.swing.JLabel();
         lblChef = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,30 +59,42 @@ public class OmrådeschefAgent extends javax.swing.JFrame {
 
         lblChef.setText("                ");
 
+        jButton1.setText("Tillbaka");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap(135, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblOmrådesChefValdaOmråde)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblChef))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblAngeOmråde)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmbOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSök))
-                    .addComponent(lblRubrikOmrådeschef))
-                .addContainerGap(50, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblOmrådesChefValdaOmråde)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblChef))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblAngeOmråde)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnSök))
+                            .addComponent(lblRubrikOmrådeschef))
+                        .addGap(127, 127, 127))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(82, 82, 82)
                 .addComponent(lblRubrikOmrådeschef)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -92,7 +105,9 @@ public class OmrådeschefAgent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOmrådesChefValdaOmråde)
                     .addComponent(lblChef))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -118,6 +133,13 @@ public class OmrådeschefAgent extends javax.swing.JFrame {
         } 
         
     }//GEN-LAST:event_btnSökActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        new AgentMenu(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,6 +179,7 @@ public class OmrådeschefAgent extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSök;
     private javax.swing.JComboBox<String> cmbOmråde;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblAngeOmråde;
     private javax.swing.JLabel lblChef;
     private javax.swing.JLabel lblOmrådesChefValdaOmråde;

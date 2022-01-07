@@ -39,11 +39,12 @@ public class SökAlienPlats extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtResultat = new javax.swing.JTextArea();
         btnSök = new javax.swing.JButton();
+        txtTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblRubrikSökOmråde.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        lblRubrikSökOmråde.setText("Sök efter Aliens i ett plats");
+        lblRubrikSökOmråde.setText("Sök efter Aliens på en plats");
 
         lblAngeOmråde.setText("Ange plats:");
 
@@ -62,43 +63,56 @@ public class SökAlienPlats extends javax.swing.JFrame {
             }
         });
 
+        txtTillbaka.setText("Tillbaka");
+        txtTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTillbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(249, 249, 249)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblRubrikSökOmråde))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtSök, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSök))
-                            .addComponent(lblAngeOmråde)
-                            .addComponent(lblResultat)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                            .addComponent(lblAngeOmråde)))
+                    .addComponent(lblRubrikSökOmråde)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtTillbaka)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblResultat)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(59, 59, 59)
                 .addComponent(lblRubrikSökOmråde)
-                .addGap(18, 18, 18)
+                .addGap(51, 51, 51)
                 .addComponent(lblAngeOmråde)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSök, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSök))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGap(58, 58, 58)
                 .addComponent(lblResultat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(txtTillbaka)
+                .addGap(51, 51, 51))
         );
 
         pack();
@@ -138,6 +152,12 @@ public class SökAlienPlats extends javax.swing.JFrame {
         
         }
     }//GEN-LAST:event_btnSökActionPerformed
+
+    private void txtTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTillbakaActionPerformed
+        // TODO add your handling code here:
+        new AgentMenu(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_txtTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,6 +203,7 @@ public class SökAlienPlats extends javax.swing.JFrame {
     private javax.swing.JLabel lblRubrikSökOmråde;
     private javax.swing.JTextArea txtResultat;
     private javax.swing.JTextField txtSök;
+    private javax.swing.JButton txtTillbaka;
     // End of variables declaration//GEN-END:variables
 
 }

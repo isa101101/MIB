@@ -37,6 +37,7 @@ public class MinUtrustning extends javax.swing.JFrame {
         lblResultat = new javax.swing.JLabel();
         btnSök = new javax.swing.JButton();
         txtAgent = new javax.swing.JTextField();
+        txtTilbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,28 +62,39 @@ public class MinUtrustning extends javax.swing.JFrame {
 
         txtAgent.setColumns(7);
 
+        txtTilbaka.setText("Tillbaka");
+        txtTilbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTilbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(279, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblRubrikUtrustning)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblAngeNamn)
                         .addGap(71, 71, 71)
                         .addComponent(txtAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnSök)
-                        .addComponent(lblResultat)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtTilbaka)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblResultat)
+                                .addComponent(btnSök)))))
+                .addGap(247, 247, 247))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(54, 54, 54)
                 .addComponent(lblRubrikUtrustning)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -90,11 +102,13 @@ public class MinUtrustning extends javax.swing.JFrame {
                     .addComponent(txtAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnSök)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
                 .addComponent(lblResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(31, 31, 31)
+                .addComponent(txtTilbaka)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,6 +139,12 @@ public class MinUtrustning extends javax.swing.JFrame {
 
         
     }//GEN-LAST:event_btnSökActionPerformed
+
+    private void txtTilbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTilbakaActionPerformed
+        // TODO add your handling code here:
+        new AgentMenu(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_txtTilbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,5 +189,6 @@ public class MinUtrustning extends javax.swing.JFrame {
     private javax.swing.JLabel lblRubrikUtrustning;
     private javax.swing.JTextArea taVisaResultat;
     private javax.swing.JTextField txtAgent;
+    private javax.swing.JButton txtTilbaka;
     // End of variables declaration//GEN-END:variables
 }
