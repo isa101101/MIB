@@ -116,16 +116,14 @@ public class MinUtrustning extends javax.swing.JFrame {
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
-        
-        //String Inloggad = Inloggtvå.getAnvändare();
-        
+
         try{
             String Namn = txtAgent.getText();
             
         String fraga ="SELECT mibdb.Utrustning.Benamning FROM mibdb.Utrustning "
                 + "JOIN mibdb.Innehar_Utrustning ON mibdb.Utrustning.Utrustnings_ID = mibdb.Innehar_Utrustning.Utrustnings_ID "
                 + "JOIN mibdb.Agent ON mibdb.Agent.Agent_ID = mibdb.Innehar_Utrustning.Agent_ID WHERE mibdb.Agent.Namn = '"+Namn+"'";
-        // Ändra koden då att utrustning bara hämtas för den inloggade agenten.
+        
         
             ArrayList<String> svar = idb.fetchColumn(fraga);
             

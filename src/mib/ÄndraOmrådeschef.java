@@ -106,12 +106,10 @@ public class ÄndraOmrådeschef extends javax.swing.JFrame {
 
         
         if (Validering.textFaltVarde(txtNamn)) {
+            
            try {
                String Namn = txtNamn.getText();
                String Område = cmbOmråde.getSelectedItem().toString();
-               String svealand = "Svealand";
-               String götaland = "Götaland";
-               String Norrland = "Norrland";
                
                String hämtaAID = "SELECT mibdb.Agent.Agent_ID from mibdb.Agent WHERE mibdb.Agent.Namn = '"+Namn+"'";
                String hämtaOID ="SELECT mibdb.Omrade.Omrades_ID from mibdb.Omrade where mibdb.Omrade.Benamning = '"+Område+"'";

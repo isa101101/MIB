@@ -53,6 +53,11 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
         lblNyAnsvarigAgent.setText("Ny ansvarig agent:");
 
         btnÄndra.setText("Ändra");
+        btnÄndra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraActionPerformed(evt);
+            }
+        });
 
         txtNuvarandeAgent.setColumns(8);
 
@@ -63,6 +68,11 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
         txtNamn.setColumns(8);
 
         btnHämtaAgent.setText("Hämta agent");
+        btnHämtaAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHämtaAgentActionPerformed(evt);
+            }
+        });
 
         btnTillbaka.setText("Tillbaka");
         btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +140,48 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
         new ÄndraAlien(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
+
+    private void btnHämtaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaAgentActionPerformed
+        // TODO add your handling code here:
+        if(Validering.textFaltVarde(txtNamn)){
+            
+        String namn = txtNamn.getText();
+        
+        try{
+            
+            String fråga = "SELECT mibdb.Agent.Namn FROM mibdb.Agent "
+                    + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
+                    + "WHERE mibdb.Alien.Namn = '"+namn+"'";
+            
+            String svar = idb.fetchSingle(fråga);
+          
+            txtNuvarandeAgent.setText(svar);
+            
+            
+        }catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+        }
+    }//GEN-LAST:event_btnHämtaAgentActionPerformed
+
+    private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
+        // TODO add your handling code here:
+        String namn = txtNamn.getText();
+        String nyAgent = txtNyAgent.getText();
+        
+        try{
+            String fråga = "";
+            
+            String svar = "";
+            
+            int resultat = Integer.parseInt(svar);
+            
+            
+            
+        }catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**
      * @param args the command line arguments

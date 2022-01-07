@@ -165,16 +165,22 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
         
         try{
             
-            String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien"
-                    + "WHERE mibdb.Alien.namn = '"+namn+"'";
+            String frågaAgentID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.namn = '"+namn+"'";
             
-            String svar = idb.fetchSingle(fråga);
+            String svarAgentID = idb.fetchSingle(frågaAgentID);
             
-            String ändra = "UPDATE mibdb.Alien SET Plats = '"+nyPlats+"' WHERE mibdb.Alien.Alien_ID = '"+svar+"'";
+            String frågaPlatsID = "SELECT mibdb.Plats.Plats_ID FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '"+nyPlats+"'";
+            
+            String svarPlatsID = idb.fetchSingle(frågaPlatsID);
+            
+            int ResultatPlatsID = Integer.parseInt(svarPlatsID);
+            
+            String ändra = "UPDATE mibdb.Alien SET Plats = '"+ResultatPlatsID+"' WHERE mibdb.Alien.Alien_ID = '"+svarAgentID+"'";
             
             idb.update(ändra);
             
             JOptionPane.showMessageDialog(null, "Aliens plats är ändrat!");
+            
             
         }catch (Exception e) {
            System.out.println(e.getMessage());
