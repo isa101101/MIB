@@ -141,13 +141,21 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
         
         try{
             
+            
             String fråga = "SELECT mibdb.Plats.Benamning FROM mibdb.Plats "
                     + "JOIN mibdb.Alien ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats "
                     + "WHERE mibdb.Alien.Namn = '"+namn+"'";
             
             String svar = idb.fetchSingle(fråga);
             
-            txtBefintligPlats.setText(svar);
+            if(svar != null){
+            
+                txtBefintligPlats.setText(svar);
+            
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet");
+            }
             
         }catch (Exception e) {
            System.out.println(e.getMessage());
@@ -173,13 +181,23 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
             
             String svarPlatsID = idb.fetchSingle(frågaPlatsID);
             
-            int ResultatPlatsID = Integer.parseInt(svarPlatsID);
             
-            String ändra = "UPDATE mibdb.Alien SET Plats = '"+ResultatPlatsID+"' WHERE mibdb.Alien.Alien_ID = '"+svarAgentID+"'";
+            if(svarPlatsID != null){
+                
+                int ResultatPlatsID = Integer.parseInt(svarPlatsID); 
+                
+                String ändra = "UPDATE mibdb.Alien SET Plats = '"+ResultatPlatsID+"' WHERE mibdb.Alien.Alien_ID = '"+svarAgentID+"'";
             
-            idb.update(ändra);
+                idb.update(ändra);
             
-            JOptionPane.showMessageDialog(null, "Aliens plats är ändrat!");
+                JOptionPane.showMessageDialog(null, "Aliens plats är ändrat!");
+                
+    
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Angiven plats finns inte!");
+                
+            }
             
             
         }catch (Exception e) {

@@ -126,7 +126,7 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
                     .addComponent(txtBefintligtLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHämta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNyttLösenord)
                     .addComponent(txtNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -144,14 +144,19 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
         if(Validering.textFaltVarde(txtNamn)){
         String namn = txtNamn.getText();
 
-        
         try{
-
             String fråga = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
 
             String svar = idb.fetchSingle(fråga);
+            
+            if(svar != null){
 
             txtBefintligtLösenord.setText(svar);
+            
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet");
+            }
 
         }catch (Exception e) {
             System.out.println(e.getMessage());
