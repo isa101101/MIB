@@ -4,6 +4,7 @@
  */
 package mib;
 
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
@@ -84,6 +85,11 @@ public class ÄndraKontorschef extends javax.swing.JFrame {
         txtNuvarandeKontorsChef.setToolTipText("");
 
         btnHämta.setText("Hämta");
+        btnHämta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHämtaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,6 +174,33 @@ public class ÄndraKontorschef extends javax.swing.JFrame {
     private void txtKontorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKontorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtKontorActionPerformed
+
+    private void btnHämtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaActionPerformed
+        // TODO add your handling code here:
+        
+        String kontor = txtKontor.getText();
+        
+        try{
+            
+            String fråga = "SELECT mibdb.Agent.Namn FROM mibdb.Agent "
+                    + "JOIN mibdb.Kontorschef ON mibdb.Agent.Agent_ID = mibdb.Kontorschef.Agent_ID"
+                    + "WHERE mibdb.Kontorschef.Kontorsbeteckning = '"+ kontor +"' ";
+            
+            String svar = idb.fetchSingle(fråga);
+            
+            if(svar !=null){
+                
+                txtNuvarandeKontorsChef.setText(svar);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Det angivna kontoret finns inte, försök igen!");
+            }
+        }catch (Exception e) {
+                System.out.println(e.getMessage());
+              
+           }
+    }//GEN-LAST:event_btnHämtaActionPerformed
 
     /**
      * @param args the command line arguments
