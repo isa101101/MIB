@@ -3,22 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
+
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
- * @author jackmacbook
+ * @author isabellefredriksson
  */
-public class ÄndraAgentLösenord extends javax.swing.JFrame {
-    
-    private InfDB idb;
+public class ÄndraAlienLösenord extends javax.swing.JFrame {
 
+    private InfDB idb;
     /**
-     * Creates new form ÄndraAgentLösenord
+     * Creates new form ÄndraAlienLösenord
      */
-    public ÄndraAgentLösenord(InfDB idb){
-            this.idb=idb;
-    
+    public ÄndraAlienLösenord(InfDB idb) {
+        this.idb = idb;
+                
         initComponents();
     }
 
@@ -31,47 +33,52 @@ public class ÄndraAgentLösenord extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        lblNamn = new javax.swing.JLabel();
-        txtNamn = new javax.swing.JTextField();
-        lblBefintligtLösenord = new javax.swing.JLabel();
-        lblNyttLösenord = new javax.swing.JLabel();
-        txtBefintligtLösenord = new javax.swing.JTextField();
-        txtNyttLösenord = new javax.swing.JTextField();
         btnÄndra = new javax.swing.JButton();
-        btnTillbaka = new javax.swing.JButton();
+        txtNyttLösenord = new javax.swing.JTextField();
         btnHämta = new javax.swing.JButton();
+        txtBefintligtLösenord = new javax.swing.JTextField();
+        lblNyttLösenord = new javax.swing.JLabel();
+        lblBefintligtLösenord = new javax.swing.JLabel();
+        txtNamn = new javax.swing.JTextField();
+        lblNamn = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btnTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel1.setText("Ändra Agent Lösenord");
-
-        lblNamn.setText("Ange Namn:");
-
-        txtNamn.setColumns(10);
-
-        lblBefintligtLösenord.setText("Befintligt lösenord:");
-
-        lblNyttLösenord.setText("Nytt lösenord:");
-
-        txtBefintligtLösenord.setColumns(10);
-
-        txtNyttLösenord.setColumns(10);
-
         btnÄndra.setText("Ändra");
-
-        btnTillbaka.setText("Tillbaka");
-        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+        btnÄndra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTillbakaActionPerformed(evt);
+                btnÄndraActionPerformed(evt);
             }
         });
+
+        txtNyttLösenord.setColumns(10);
 
         btnHämta.setText("Hämta");
         btnHämta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHämtaActionPerformed(evt);
+            }
+        });
+
+        txtBefintligtLösenord.setColumns(10);
+
+        lblNyttLösenord.setText("Nytt lösenord:");
+
+        lblBefintligtLösenord.setText("Befintligt lösenord:");
+
+        txtNamn.setColumns(10);
+
+        lblNamn.setText("Ange Namn:");
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel1.setText("Ändra Agent Lösenord");
+
+        btnTillbaka.setText("Tillbaka");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
             }
         });
 
@@ -102,7 +109,7 @@ public class ÄndraAgentLösenord extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnTillbaka)
                             .addComponent(btnHämta))))
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,36 +133,59 @@ public class ÄndraAgentLösenord extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnÄndra)
                     .addComponent(btnTillbaka))
-                .addContainerGap(314, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
-        // TODO add your handling code here:
-        new ÄndraAgent(idb).setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnTillbakaActionPerformed
-
     private void btnHämtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaActionPerformed
         // TODO add your handling code here:
         if(Validering.textFaltVarde(txtNamn)){
         String namn = txtNamn.getText();
+
         
         try{
-    
-            String fråga = "SELECT mibdb.Agent.Losenord FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+namn+"'";
-            
+
+            String fråga = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
+
             String svar = idb.fetchSingle(fråga);
-            
+
             txtBefintligtLösenord.setText(svar);
-            
+
         }catch (Exception e) {
-           System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
         }
     }//GEN-LAST:event_btnHämtaActionPerformed
+
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAlien(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnTillbakaActionPerformed
+
+    private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
+        // TODO add your handling code here:
+        String namn = txtNamn.getText();
+        String nyttLösenord = txtNyttLösenord.getText();
+        
+        try{
+            
+            String frågaAgentID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.namn = '"+namn+"'";
+            
+            String svarAgentID = idb.fetchSingle(frågaAgentID);
+            
+            String ändra = "UPDATE mibdb.Alien SET Losenord = '"+nyttLösenord+"' WHERE mibdb.Alien.Alien_ID = '"+svarAgentID+"'";
+            
+            idb.update(ändra);
+            
+            JOptionPane.showMessageDialog(null, "Aliens lösenord är ändrat!");
+            
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,13 +204,13 @@ public class ÄndraAgentLösenord extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ÄndraAgentLösenord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ÄndraAlienLösenord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ÄndraAgentLösenord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ÄndraAlienLösenord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ÄndraAgentLösenord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ÄndraAlienLösenord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ÄndraAgentLösenord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ÄndraAlienLösenord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

@@ -41,13 +41,13 @@ public class ÄndraAgent extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnÄndraID = new javax.swing.JButton();
         btnLösenord = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        ÄndraOmråde = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        BtnÄndraTelefon = new javax.swing.JButton();
+        BtnÄndraNamn = new javax.swing.JButton();
+        BtnÄndraAnstDatum = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -58,7 +58,7 @@ public class ÄndraAgent extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setText("Ändra agent information ");
 
         jLabel2.setText("Ange namn för den agent du vill ändra information");
@@ -78,10 +78,10 @@ public class ÄndraAgent extends javax.swing.JFrame {
 
         jLabel3.setText("Välj vilken information du vill förändra");
 
-        jButton2.setText("Ändra");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnÄndraID.setText("Ändra");
+        btnÄndraID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnÄndraIDActionPerformed(evt);
             }
         });
 
@@ -92,15 +92,15 @@ public class ÄndraAgent extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Ändra");
+        ÄndraOmråde.setText("Ändra");
 
         jLabel4.setText("ID");
 
-        jButton6.setText("Ändra");
+        BtnÄndraTelefon.setText("Ändra");
 
-        jButton7.setText("Ändra");
+        BtnÄndraNamn.setText("Ändra");
 
-        jButton9.setText("Ändra");
+        BtnÄndraAnstDatum.setText("Ändra");
 
         jLabel5.setText("Namn");
 
@@ -141,13 +141,13 @@ public class ÄndraAgent extends javax.swing.JFrame {
                                         .addComponent(jLabel6))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(BtnÄndraTelefon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(BtnÄndraNamn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnÄndraID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel8)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton9))
+                                    .addComponent(BtnÄndraAnstDatum))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel12)
@@ -155,7 +155,7 @@ public class ÄndraAgent extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(btnLösenord)
-                                        .addComponent(jButton5))))
+                                        .addComponent(ÄndraOmråde))))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(jLabel9)
@@ -180,7 +180,7 @@ public class ÄndraAgent extends javax.swing.JFrame {
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSök)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(lblID))
@@ -189,18 +189,18 @@ public class ÄndraAgent extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jButton2))
+                    .addComponent(btnÄndraID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
+                    .addComponent(BtnÄndraNamn)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
+                    .addComponent(BtnÄndraTelefon)
                     .addComponent(jLabel6))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
+                    .addComponent(BtnÄndraAnstDatum)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -209,7 +209,7 @@ public class ÄndraAgent extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jButton5))
+                    .addComponent(ÄndraOmråde))
                 .addGap(48, 48, 48))
         );
 
@@ -245,15 +245,15 @@ public class ÄndraAgent extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_btnSökActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnÄndraIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraIDActionPerformed
         // TODO add your handling code here:
         new ÄndraAgentLösenord(idb).setVisible(true);
          dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnÄndraIDActionPerformed
 
     private void btnLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLösenordActionPerformed
         // TODO add your handling code here:
-         new BytAgentlösen(idb).setVisible(true);
+         new ÄndraAgentLösenord(idb).setVisible(true);
             dispose();
     }//GEN-LAST:event_btnLösenordActionPerformed
 
@@ -293,13 +293,12 @@ public class ÄndraAgent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnÄndraAnstDatum;
+    private javax.swing.JButton BtnÄndraNamn;
+    private javax.swing.JButton BtnÄndraTelefon;
     private javax.swing.JButton btnLösenord;
     private javax.swing.JButton btnSök;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton btnÄndraID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -314,5 +313,6 @@ public class ÄndraAgent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblID;
     private javax.swing.JTextField txtNamn;
+    private javax.swing.JButton ÄndraOmråde;
     // End of variables declaration//GEN-END:variables
 }

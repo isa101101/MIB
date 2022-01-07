@@ -136,6 +136,11 @@ public class ÄndraAlien extends javax.swing.JFrame {
         });
 
         btnÄndraLösenord.setText("Ändra lösenord");
+        btnÄndraLösenord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraLösenordActionPerformed(evt);
+            }
+        });
 
         btnÄndraTelefon.setText("Ändra telefon");
         btnÄndraTelefon.addActionListener(new java.awt.event.ActionListener() {
@@ -385,6 +390,12 @@ public class ÄndraAlien extends javax.swing.JFrame {
         new ÄndraAliensAsvarigaAgent(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnÄndraAgentActionPerformed
+
+    private void btnÄndraLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraLösenordActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAlienLösenord(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnÄndraLösenordActionPerformed
     
     /**
      * @param args the command line arguments
