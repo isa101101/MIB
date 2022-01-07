@@ -162,9 +162,7 @@ public class ÄndraAgentTelefon extends javax.swing.JFrame {
               JOptionPane.showMessageDialog(null, "Det finns ingen agent med namnet '"+namn+"'");
             
         }
-        
-        
-        
+
         }catch (Exception e) {
                 System.out.println(e.getMessage());
             

@@ -293,7 +293,8 @@ public class ÄndraAgent extends javax.swing.JFrame {
 
     private void ÄndraOmrådeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraOmrådeActionPerformed
         // TODO add your handling code here:
-        
+        new ÄndraAgentOmråde(idb).setVisible(true);
+        dispose();
     }//GEN-LAST:event_ÄndraOmrådeActionPerformed
 
     /**
