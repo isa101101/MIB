@@ -36,7 +36,6 @@ public class NyregistreraAgent extends javax.swing.JFrame {
 
         lblFyllRutor = new javax.swing.JLabel();
         RubrikNyAgent = new javax.swing.JLabel();
-        lblObligatoriskaFält = new javax.swing.JLabel();
         lblAgentID = new javax.swing.JLabel();
         lblAgentNamn = new javax.swing.JLabel();
         lblAgentTelefon = new javax.swing.JLabel();
@@ -63,9 +62,6 @@ public class NyregistreraAgent extends javax.swing.JFrame {
 
         RubrikNyAgent.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         RubrikNyAgent.setText("Lägg till en ny agent");
-
-        lblObligatoriskaFält.setFont(new java.awt.Font("Lucida Grande", 2, 10)); // NOI18N
-        lblObligatoriskaFält.setText("* = obligatoriska fält.");
 
         lblAgentID.setText("Agent ID");
 
@@ -101,20 +97,20 @@ public class NyregistreraAgent extends javax.swing.JFrame {
             }
         });
 
-        txtNamn.setColumns(6);
+        txtNamn.setColumns(8);
 
-        txtTelefon.setColumns(6);
+        txtTelefon.setColumns(8);
         txtTelefon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefonActionPerformed(evt);
             }
         });
 
-        txtAnstDatum.setColumns(6);
+        txtAnstDatum.setColumns(8);
 
-        txtAdmin.setColumns(6);
+        txtAdmin.setColumns(8);
 
-        txtLösenord.setColumns(6);
+        txtLösenord.setColumns(8);
 
         cmbOmråde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Norrland", "Svealand", "Götaland" }));
 
@@ -125,7 +121,6 @@ public class NyregistreraAgent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblObligatoriskaFält)
                     .addComponent(lblFyllRutor)
                     .addComponent(RubrikNyAgent)
                     .addComponent(btnRegistrera)
@@ -174,9 +169,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                 .addComponent(RubrikNyAgent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblFyllRutor)
-                .addGap(3, 3, 3)
-                .addComponent(lblObligatoriskaFält)
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAgentID)
                     .addComponent(lblHämtatID)
@@ -317,7 +310,6 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     private javax.swing.JLabel lblFyllRutor;
     private javax.swing.JLabel lblHämtatID;
     private javax.swing.JLabel lblLösenord;
-    private javax.swing.JLabel lblObligatoriskaFält;
     private javax.swing.JLabel lblOmråde;
     private javax.swing.JLabel lblTillbaka;
     private javax.swing.JTextField txtAdmin;

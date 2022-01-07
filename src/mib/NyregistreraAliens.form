@@ -50,36 +50,33 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblObligatoriskaFält" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="lblAntaBoogies" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtAntaBoogies" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblAntaBoogies" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtAntaBoogies" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblAngeArmar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                      <Component id="txtAntalArmar" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAnsvarigAgent" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="lblAngeArmar" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                          <Component id="txtAntalArmar" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblNamn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblAnsvarigAgent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtTelefon" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtRegistreringsdatum" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtlösenord" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtPlats" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtAnsvarigagent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtTelefon" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtRegistreringsdatum" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtlösenord" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPlats" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtAnsvarigagent" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -123,9 +120,7 @@
               <Component id="RubrikNyAlien" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblFyllRutor" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-              <Component id="lblObligatoriskaFält" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="lblAlienID" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -301,14 +296,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistreraActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblObligatoriskaF&#xe4;lt">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="10" style="2"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="* = obligatoriska f&#xe4;lt."/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAlienID">
       <Properties>
