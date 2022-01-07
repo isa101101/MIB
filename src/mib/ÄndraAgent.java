@@ -51,6 +51,7 @@ public class ÄndraAgent extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        btnTillbaka = new javax.swing.JButton();
 
         jLabel7.setText("jLabel7");
 
@@ -84,6 +85,11 @@ public class ÄndraAgent extends javax.swing.JFrame {
         });
 
         ÄndraOmråde.setText("Ändra");
+        ÄndraOmråde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ÄndraOmrådeActionPerformed(evt);
+            }
+        });
 
         BtnÄndraTelefon.setText("Ändra");
         BtnÄndraTelefon.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +106,11 @@ public class ÄndraAgent extends javax.swing.JFrame {
         });
 
         BtnÄndraAnstDatum.setText("Ändra");
+        BtnÄndraAnstDatum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnÄndraAnstDatumActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Namn");
 
@@ -110,6 +121,13 @@ public class ÄndraAgent extends javax.swing.JFrame {
         jLabel11.setText("Lösenord");
 
         jLabel12.setText("Område");
+
+        btnTillbaka.setText("Tillbaka");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,7 +166,8 @@ public class ÄndraAgent extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnLösenord)
-                                    .addComponent(ÄndraOmråde)))))
+                                    .addComponent(ÄndraOmråde)))
+                            .addComponent(btnTillbaka)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(234, 234, 234)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,7 +224,9 @@ public class ÄndraAgent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(ÄndraOmråde))
-                .addGap(90, 90, 90))
+                .addGap(39, 39, 39)
+                .addComponent(btnTillbaka)
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -258,6 +279,24 @@ public class ÄndraAgent extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BtnÄndraTelefonActionPerformed
 
+    private void BtnÄndraAnstDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnÄndraAnstDatumActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAgentAnstDatum(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnÄndraAnstDatumActionPerformed
+
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        // TODO add your handling code here:
+        new AdminMenu(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnTillbakaActionPerformed
+
+    private void ÄndraOmrådeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraOmrådeActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAgentOmråde(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ÄndraOmrådeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -299,6 +338,7 @@ public class ÄndraAgent extends javax.swing.JFrame {
     private javax.swing.JButton BtnÄndraTelefon;
     private javax.swing.JButton btnLösenord;
     private javax.swing.JButton btnSök;
+    private javax.swing.JButton btnTillbaka;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
