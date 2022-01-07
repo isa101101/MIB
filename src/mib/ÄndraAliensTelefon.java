@@ -144,6 +144,8 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
         
+        if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtNyttTelefon) && Validering.textFaltVarde(txtBefintligtTelefon))
+        {
         String namn = txtNamn.getText();
         String nyTelefon = txtNyttTelefon.getText();
         
@@ -163,7 +165,7 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
         }catch (Exception e) {
            System.out.println(e.getMessage());
         }
-        
+        }
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     private void btnHämtaTelnrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaTelnrActionPerformed
@@ -176,7 +178,15 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
             
             String svar = idb.fetchSingle(fråga);
             
-            txtBefintligtTelefon.setText(svar);
+            if(svar != null)
+            {
+              txtBefintligtTelefon.setText(svar);  
+            }
+            
+            else{
+                JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet!");
+            }
+            
             
             
         }catch (Exception e) {
