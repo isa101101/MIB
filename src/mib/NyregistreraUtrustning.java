@@ -64,7 +64,6 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         lblöverföring = new javax.swing.JLabel();
         lblKaliber = new javax.swing.JLabel();
         lblKtaftkälla = new javax.swing.JLabel();
-        txtTillbaka = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -109,13 +108,8 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< Updated upstream
         btnLäggTill.setText("Lägg till");
         btnLäggTill.addActionListener(new java.awt.event.ActionListener() {
-=======
-        btnNästa.setText("Lägg till");
-        btnNästa.addActionListener(new java.awt.event.ActionListener() {
->>>>>>> Stashed changes
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLäggTillActionPerformed(evt);
             }
@@ -142,13 +136,6 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
         lblKtaftkälla.setText("Kraftkälla");
 
-        txtTillbaka.setText("Tillbaka");
-        txtTillbaka.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTillbakaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,50 +143,42 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-<<<<<<< Updated upstream
                         .addContainerGap()
                         .addComponent(btnLäggTill))
                     .addGroup(layout.createSequentialGroup()
-=======
->>>>>>> Stashed changes
                         .addGap(18, 18, 18)
                         .addComponent(lblRubrikNyUtrustning))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtTillbaka)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblFyllIInfo)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFyllIInfo)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblUtrustningID)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lblHämtadID)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnHämtaID))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(lblUtrustningID)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(lblHämtadID)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnHämtaID))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(lblKategori)
-                                                        .addComponent(lblBenämning)
-                                                        .addComponent(lblöverföring))
-                                                    .addGap(38, 38, 38))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(lblKaliber, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(lblKtaftkälla, javax.swing.GroupLayout.Alignment.LEADING))
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtUtrustningBenämning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cbValdKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtKommunikation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtVapen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtTeknik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGap(10, 10, 10)
-                                    .addComponent(btnNästa))))))
-                .addContainerGap(233, Short.MAX_VALUE))
+                                                .addComponent(lblKategori)
+                                                .addComponent(lblBenämning)
+                                                .addComponent(lblöverföring))
+                                            .addGap(38, 38, 38))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(lblKaliber, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblKtaftkälla, javax.swing.GroupLayout.Alignment.LEADING))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtUtrustningBenämning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbValdKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtKommunikation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtVapen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtTeknik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,18 +211,10 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTeknik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< Updated upstream
                     .addComponent(lblKtaftkälla))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(btnLäggTill)
                 .addContainerGap())
-=======
-                    .addComponent(lblKtaftkälla)
-                    .addComponent(btnNästa))
-                .addGap(42, 42, 42)
-                .addComponent(txtTillbaka)
-                .addContainerGap(55, Short.MAX_VALUE))
->>>>>>> Stashed changes
         );
 
         pack();
@@ -385,12 +356,6 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbValdKategoriItemStateChanged
 
-    private void txtTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTillbakaActionPerformed
-        // TODO add your handling code here:
-        new AgentMenu(idb).setVisible(true);
-        dispose();
-    }//GEN-LAST:event_txtTillbakaActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -444,7 +409,6 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     private javax.swing.JLabel lblöverföring;
     private javax.swing.JTextField txtKommunikation;
     private javax.swing.JTextField txtTeknik;
-    private javax.swing.JButton txtTillbaka;
     private javax.swing.JTextField txtUtrustningBenämning;
     private javax.swing.JTextField txtVapen;
     // End of variables declaration//GEN-END:variables
