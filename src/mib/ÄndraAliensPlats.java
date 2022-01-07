@@ -73,6 +73,11 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
         });
 
         btnTillbaka.setText("Tillbaka");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,6 +155,8 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
+        
+        if(Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtNyPlats) && Validering.textFaltVarde(txtBefintligPlats)){
         String namn = txtNamn.getText();
         String nyPlats = txtNyPlats.getText();
         
@@ -167,7 +174,14 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
         }catch (Exception e) {
            System.out.println(e.getMessage());
         }
+        }
     }//GEN-LAST:event_btnÄndraActionPerformed
+
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAlien(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnTillbakaActionPerformed
 
     /**
      * @param args the command line arguments

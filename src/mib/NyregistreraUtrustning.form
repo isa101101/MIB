@@ -63,7 +63,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnNästa" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnLäggTill" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -154,7 +154,7 @@
                   <Component id="lblKtaftkälla" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="46" max="32767" attributes="0"/>
-              <Component id="btnNästa" min="-2" max="-2" attributes="0"/>
+              <Component id="btnLäggTill" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -210,12 +210,12 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnN&#xe4;sta">
+    <Component class="javax.swing.JButton" name="btnL&#xe4;ggTill">
       <Properties>
-        <Property name="text" type="java.lang.String" value="N&#xe4;sta"/>
+        <Property name="text" type="java.lang.String" value="L&#xe4;gg till"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnN&#xe4;staActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnL&#xe4;ggTillActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblUtrustningID">

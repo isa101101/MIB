@@ -54,7 +54,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         lblKategori = new javax.swing.JLabel();
         txtUtrustningBenämning = new javax.swing.JTextField();
         cbValdKategori = new javax.swing.JComboBox<>();
-        btnNästa = new javax.swing.JButton();
+        btnLäggTill = new javax.swing.JButton();
         lblUtrustningID = new javax.swing.JLabel();
         lblHämtadID = new javax.swing.JLabel();
         btnHämtaID = new javax.swing.JButton();
@@ -108,10 +108,10 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
             }
         });
 
-        btnNästa.setText("Nästa");
-        btnNästa.addActionListener(new java.awt.event.ActionListener() {
+        btnLäggTill.setText("Lägg till");
+        btnLäggTill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNästaActionPerformed(evt);
+                btnLäggTillActionPerformed(evt);
             }
         });
 
@@ -144,7 +144,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnNästa))
+                        .addComponent(btnLäggTill))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(lblRubrikNyUtrustning))
@@ -213,14 +213,14 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                     .addComponent(txtTeknik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblKtaftkälla))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(btnNästa)
+                .addComponent(btnLäggTill)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnNästaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNästaActionPerformed
+    private void btnLäggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLäggTillActionPerformed
         // TODO add your handling code here:
 
         String kategori = cbValdKategori.getSelectedItem().toString();
@@ -301,7 +301,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         }
 
      
-    }//GEN-LAST:event_btnNästaActionPerformed
+    }//GEN-LAST:event_btnLäggTillActionPerformed
 
     private void btnHämtaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaIDActionPerformed
         // TODO add your handling code here:
@@ -393,7 +393,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHämtaID;
-    private javax.swing.JButton btnNästa;
+    private javax.swing.JButton btnLäggTill;
     private javax.swing.JComboBox<String> cbValdKategori;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

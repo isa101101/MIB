@@ -43,6 +43,7 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
         txtNyttNamn = new javax.swing.JTextField();
         txtBefintligtNamn = new javax.swing.JTextField();
         lblRubrikÄndraNamn = new javax.swing.JLabel();
+        btnTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +65,13 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
         lblRubrikÄndraNamn.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         lblRubrikÄndraNamn.setText("Ändra aliens namn");
 
+        btnTillbaka.setText("Tillbaka");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -71,9 +79,6 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnÄndraNamn)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -87,7 +92,12 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
                         .addGap(147, 147, 147))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblRubrikÄndraNamn)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnTillbaka)
+                            .addComponent(btnÄndraNamn))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,7 +114,9 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
                     .addComponent(lblNyttNamn))
                 .addGap(18, 18, 18)
                 .addComponent(btnÄndraNamn)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnTillbaka)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
@@ -112,6 +124,8 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
 
     private void btnÄndraNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraNamnActionPerformed
         // TODO add your handling code here:
+        if(Validering.textFaltVarde(txtBefintligtNamn) && Validering.textFaltVarde(txtNyttNamn)) {
+            
         
         try{
         String BefintligtNamn = txtBefintligtNamn.getText();
@@ -129,6 +143,8 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
                    
                    idb.update(ändra);
                    
+                   JOptionPane.showMessageDialog(null, "Namnet är ändrat!");
+                   
                    } else 
                        JOptionPane.showMessageDialog(null, "Det finns redan en alien med detta namn!");
                    {
@@ -139,8 +155,15 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
         }catch (Exception e) {
            System.out.println(e.getMessage());
         }
-        
+        }
     }//GEN-LAST:event_btnÄndraNamnActionPerformed
+
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        // TODO add your handling code here:
+        new ÄndraAlien(idb).setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_btnTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,6 +201,7 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnÄndraNamn;
     private javax.swing.JLabel lblBefintligtNamn;
     private javax.swing.JLabel lblNyttNamn;
