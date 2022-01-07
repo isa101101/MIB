@@ -241,7 +241,7 @@ public class SökPåAlien extends javax.swing.JFrame {
     private void txtTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTillbakaActionPerformed
         // TODO add your handling code here:
         
-        new AgentMenu(idb).setVisible(true);
+        new Inloggtvå(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_txtTillbakaActionPerformed
 

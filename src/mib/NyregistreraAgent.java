@@ -4,6 +4,7 @@
  */
 package mib;
 
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
@@ -87,6 +88,11 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         lblTillbaka.setText("Tillbaka till menyn");
 
         btnTillbaka.setText("Tillbaka");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
 
         lblHämtatID.setText("                ");
 
@@ -256,10 +262,18 @@ public class NyregistreraAgent extends javax.swing.JFrame {
        
         idb.insert(nyAgent);
         
+        JOptionPane.showMessageDialog(null, "En ny agent är registrerad!");
+        
         }catch (Exception e) {
             System.out.println(e.getMessage());
             }
     }//GEN-LAST:event_btnRegistreraActionPerformed
+
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        // TODO add your handling code here:
+        new AdminMenu(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
