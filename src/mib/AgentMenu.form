@@ -163,6 +163,11 @@
               </Group>
               <EmptySpace pref="229" max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="btnLoggaUT" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -172,7 +177,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="61" max="32767" attributes="0"/>
+                      <EmptySpace pref="10" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -229,7 +234,9 @@
                   <Component id="lblOmrådeschefer" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnKlickaHärOmrådeschefer" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="163" max="32767" attributes="0"/>
+              <EmptySpace pref="77" max="32767" attributes="0"/>
+              <Component id="btnLoggaUT" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -373,6 +380,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKlickaH&#xe4;rOmr&#xe5;descheferActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLoggaUT">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Logga ut"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoggaUTActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

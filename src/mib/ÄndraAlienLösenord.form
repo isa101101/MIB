@@ -141,7 +141,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra Agent L&#xf6;senord"/>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra Alien L&#xf6;senord"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnTillbaka">

@@ -65,6 +65,7 @@ public class AgentMenu extends javax.swing.JFrame {
         btnKlickaHärUtrustning = new javax.swing.JButton();
         btnNyregUtrustning = new javax.swing.JButton();
         btnKlickaHärOmrådeschefer = new javax.swing.JButton();
+        btnLoggaUT = new javax.swing.JButton();
 
         popupMenu1.setLabel("popupMenu1");
 
@@ -176,6 +177,13 @@ public class AgentMenu extends javax.swing.JFrame {
             }
         });
 
+        btnLoggaUT.setText("Logga ut");
+        btnLoggaUT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoggaUTActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -238,6 +246,10 @@ public class AgentMenu extends javax.swing.JFrame {
                                             .addComponent(btnKlickaHärAlienPlatser)
                                             .addComponent(btnKlickaHärAlienRegDatum))))))))
                 .addContainerGap(229, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnLoggaUT)
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,7 +258,7 @@ public class AgentMenu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(249, 249, 249)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblVälkommenRubrik)
@@ -290,7 +302,9 @@ public class AgentMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOmrådeschefer)
                     .addComponent(btnKlickaHärOmrådeschefer))
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addComponent(btnLoggaUT)
+                .addContainerGap())
         );
 
         pack();
@@ -358,6 +372,12 @@ public class AgentMenu extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnKlickaHärListaRasActionPerformed
 
+    private void btnLoggaUTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUTActionPerformed
+        // TODO add your handling code here:
+        new Inloggtvå(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnLoggaUTActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -404,6 +424,7 @@ public class AgentMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnKlickaHärUtrustning;
     private javax.swing.JButton btnKlickaHärÄndraInfoAlien;
     private javax.swing.JButton btnKlickaHärÄndraLösenord;
+    private javax.swing.JButton btnLoggaUT;
     private javax.swing.JButton btnNyregUtrustning;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;

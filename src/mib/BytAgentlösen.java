@@ -40,7 +40,6 @@ public class BytAgentlösen extends javax.swing.JFrame {
         txtNyaLösenordet = new javax.swing.JTextField();
         txtAnvändarnamn = new javax.swing.JTextField();
         btnTillbaka = new javax.swing.JButton();
-        txtText = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,43 +72,30 @@ public class BytAgentlösen extends javax.swing.JFrame {
             }
         });
 
-        txtText.setText("Tillbaka");
-        txtText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTextActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(334, 334, 334)
+                .addGap(348, 348, 348)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnTillbaka)
+                    .addComponent(txtAnvändarnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNyttLösenord)
+                    .addComponent(lblBefintligtLösenord)
+                    .addComponent(lblRubrikÄndraLösenord)
+                    .addComponent(btnÄndra)
+                    .addComponent(txtBefintligaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAnvändarnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNyttLösenord)
-                            .addComponent(lblBefintligtLösenord)
-                            .addComponent(lblRubrikÄndraLösenord)
-                            .addComponent(btnÄndra)
-                            .addComponent(txtBefintligaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel1))
-                            .addComponent(txtText)))
-                    .addComponent(btnTillbaka))
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel1)))
                 .addContainerGap(361, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(btnTillbaka)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(81, 81, 81)
                 .addComponent(lblRubrikÄndraLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
@@ -125,9 +111,9 @@ public class BytAgentlösen extends javax.swing.JFrame {
                 .addComponent(txtNyaLösenordet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnÄndra)
-                .addGap(56, 56, 56)
-                .addComponent(txtText)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(btnTillbaka)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         pack();
@@ -176,12 +162,6 @@ public class BytAgentlösen extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
-    private void txtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTextActionPerformed
-        // TODO add your handling code here:
-        new Inloggtvå(idb).setVisible(true);
-        dispose();
-    }//GEN-LAST:event_txtTextActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -227,6 +207,5 @@ public class BytAgentlösen extends javax.swing.JFrame {
     private javax.swing.JTextField txtAnvändarnamn;
     private javax.swing.JTextField txtBefintligaLösenordet;
     private javax.swing.JTextField txtNyaLösenordet;
-    private javax.swing.JButton txtText;
     // End of variables declaration//GEN-END:variables
 }

@@ -73,7 +73,7 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
         lblNamn.setText("Ange Namn:");
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel1.setText("Ändra Agent Lösenord");
+        jLabel1.setText("Ändra Alien Lösenord");
 
         btnTillbaka.setText("Tillbaka");
         btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
