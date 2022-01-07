@@ -6,6 +6,7 @@
 package mib;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 
 
@@ -122,12 +123,20 @@ public class SökAlienPlats extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         txtResultat.setText("");
-        if (Validering.textFaltVarde(txtSök)) {
-        
         String plats = txtSök.getText();
         
+        if (Validering.textFaltVarde(txtSök)) { 
         try {
-            String fråga = "SELECT Namn FROM mibdb.Alien "
+            
+            String frågaPlats = "SELECT mibdb.Plats.Benamning from mibdb.Plats where Benamning = '"+plats+"'";
+            String svarPlats = idb.fetchSingle(frågaPlats);
+            
+            if(svarPlats==null){
+                
+                JOptionPane.showMessageDialog(null, "Platsen finns inte");
+                
+            } else {
+                 String fråga = "SELECT Namn FROM mibdb.Alien "
                     + "JOIN mibdb.Plats ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats "
                     + "WHERE mibdb.Plats.Benamning = '"+plats+"'";
             
@@ -142,15 +151,14 @@ public class SökAlienPlats extends javax.swing.JFrame {
                 {
                     txtResultat.setText("Finns ingen alien på denna plats just nu!");
                 }
-            }
-            
-            
-            
+            }         
+        }
+
         }catch (Exception e) {
            System.out.println(e.getMessage());
         }
-        
         }
+        
     }//GEN-LAST:event_btnSökActionPerformed
 
     private void txtTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTillbakaActionPerformed

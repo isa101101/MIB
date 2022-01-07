@@ -38,9 +38,15 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
         lblNyttNamn = new javax.swing.JLabel();
         lblBefintligtNamn = new javax.swing.JLabel();
         txtNyttNamn = new javax.swing.JTextField();
-        txtBefintligtNamn = new javax.swing.JTextField();
+        txtNamn = new javax.swing.JTextField();
         lblRubrikÄndraNamn = new javax.swing.JLabel();
         btnTillbaka = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        cmbSök = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        taVisaResultat = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,7 +63,7 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
 
         txtNyttNamn.setColumns(8);
 
-        txtBefintligtNamn.setColumns(8);
+        txtNamn.setColumns(10);
 
         lblRubrikÄndraNamn.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         lblRubrikÄndraNamn.setText("Ändra aliens namn");
@@ -69,51 +75,81 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
             }
         });
 
+        jTextField1.setColumns(8);
+
+        cmbSök.setText("Sök");
+        cmbSök.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSökActionPerformed(evt);
+            }
+        });
+
+        taVisaResultat.setColumns(20);
+        taVisaResultat.setRows(5);
+        jScrollPane1.setViewportView(taVisaResultat);
+
+        jLabel1.setText("Ange ID på den Alien du vill ändra namn på");
+
+        jLabel2.setText("Aliens ID med det angivna namnet:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNyttNamn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtNyttNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblBefintligtNamn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtBefintligtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(147, 147, 147))
-                    .addGroup(layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnTillbaka)
+                    .addComponent(btnÄndraNamn)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cmbSök)
                         .addComponent(lblRubrikÄndraNamn)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblBefintligtNamn)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(jLabel2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnTillbaka)
-                            .addComponent(btnÄndraNamn))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(lblNyttNamn)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNyttNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(22, 22, 22)
                 .addComponent(lblRubrikÄndraNamn)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBefintligtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblBefintligtNamn))
+                    .addComponent(lblBefintligtNamn)
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addComponent(cmbSök)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNyttNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNyttNamn))
                 .addGap(18, 18, 18)
                 .addComponent(btnÄndraNamn)
-                .addGap(18, 18, 18)
+                .addGap(64, 64, 64)
                 .addComponent(btnTillbaka)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
 
         pack();
@@ -122,33 +158,16 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
     private void btnÄndraNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraNamnActionPerformed
         // TODO add your handling code here:
         
-        if(Validering.textFaltVarde(txtBefintligtNamn) && Validering.textFaltVarde(txtNyttNamn)) {
-            
-        
+        if(Validering.textFaltVarde(txtNyttNamn)) {
         try{
-        String BefintligtNamn = txtBefintligtNamn.getText();
+        String namn = txtNamn.getText();
         String NyttNamn = txtNyttNamn.getText();
-        
-        String fråga = "SELECT mibdb.Alien.Namn FROM mibdb.Alien";
-        
-        ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
-                 
-                 for(HashMap<String, String> Namn : svar) {
-                     
-                   if(!NyttNamn.equals(Namn)) {
-            
-                   String ändra = "UPDATE mibdb.Alien SET Namn = '"+NyttNamn+"' WHERE Namn = '"+BefintligtNamn+"'";
+        String ändra = "UPDATE mibdb.Alien SET Namn = '"+NyttNamn+"' WHERE Namn = '"+namn+"'";
                    
-                   idb.update(ändra);
+        idb.update(ändra);
+        JOptionPane.showMessageDialog(null, "Namnet har ändrats");
                    
-                   JOptionPane.showMessageDialog(null, "Namnet är ändrat!");
-                   
-                   } else 
-                       JOptionPane.showMessageDialog(null, "Det finns redan en alien med detta namn!");
-                   {
-                       
-                   }
-                   }
+                  
 
         }catch (Exception e) {
            System.out.println(e.getMessage());
@@ -162,6 +181,47 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
         dispose();
         
     }//GEN-LAST:event_btnTillbakaActionPerformed
+
+    private void cmbSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSökActionPerformed
+        // TODO add your handling code here:
+         taVisaResultat.setText("");
+
+        String namn = txtNamn.getText();
+
+        if (Validering.textFaltVarde(txtNamn)) {
+
+            try {
+                
+                String frågaNamn = "SELECT mibdb.Alien.Namn from mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
+                
+                String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '" +namn+ "'";
+                
+                String svarNamn = idb.fetchSingle(fråga);
+                
+                if (svarNamn==null) {
+                    JOptionPane.showMessageDialog(null, "Det finns ingen alien med namnet '"+namn+"'");
+
+                } else {
+                    ArrayList<String> svar = idb.fetchColumn(fråga);
+
+                for (String ID : svar) {
+
+                    taVisaResultat.append(ID + "\n");
+
+                }
+                 
+                    
+                }
+                
+                
+
+            } catch (InfException e) {
+                System.out.println(e.getMessage());
+
+            }
+         }
+        
+    }//GEN-LAST:event_cmbSökActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,10 +261,16 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnÄndraNamn;
+    private javax.swing.JButton cmbSök;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblBefintligtNamn;
     private javax.swing.JLabel lblNyttNamn;
     private javax.swing.JLabel lblRubrikÄndraNamn;
-    private javax.swing.JTextField txtBefintligtNamn;
+    private javax.swing.JTextArea taVisaResultat;
+    private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtNyttNamn;
     // End of variables declaration//GEN-END:variables
 }
