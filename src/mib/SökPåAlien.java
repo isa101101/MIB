@@ -381,7 +381,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                     }
                         
 
-                     txtLösenord.setText(svar7);
+                     
 
 
                 } 
