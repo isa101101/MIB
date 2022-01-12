@@ -4,6 +4,8 @@
  */
 package mib;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -21,6 +23,16 @@ public class ÄndraAlien extends javax.swing.JFrame {
     public ÄndraAlien(InfDB idb) {
          this.idb = idb;
         initComponents();
+        
+        lbl1.setVisible(false);
+        lbl2.setVisible(false);
+        txtID.setVisible(false);
+        txtResultata.setVisible(false);
+        btnVälj.setVisible(false);
+        
+        
+        
+        
     }
 
     /**
@@ -51,11 +63,15 @@ public class ÄndraAlien extends javax.swing.JFrame {
         txtNamn = new javax.swing.JTextField();
         lbl1 = new javax.swing.JLabel();
         btnSök = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         lbl2 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
         btnVälj = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtResultata = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        txtVald = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,58 +159,80 @@ public class ÄndraAlien extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
         lbl2.setText("Det finns fler aliens med namnet välj ID");
 
         txtID.setColumns(10);
 
         btnVälj.setText("Välj");
+        btnVälj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVäljActionPerformed(evt);
+            }
+        });
+
+        txtResultata.setColumns(20);
+        txtResultata.setRows(5);
+        jScrollPane1.setViewportView(txtResultata);
+
+        jLabel2.setText("Du har valt ");
+
+        txtVald.setText("Braxen");
+
+        jTextField2.setText("7");
+
+        jLabel3.setText("med ID");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(259, 259, 259)
+                .addGap(286, 286, 286)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(145, 145, 145)
                         .addComponent(btnTillbaka))
                     .addComponent(lblAnsvarigAgent)
                     .addComponent(lblAktuellPlats)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(lblLösenord)
+                            .addComponent(lblNamn)
+                            .addComponent(lblTelefon)
+                            .addComponent(lblRas))
+                        .addGap(0, 0, 0)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnÄndraRegDatum)
+                            .addComponent(btnÄndraLösenord)
+                            .addComponent(btnÄndraNamn)
+                            .addComponent(btnÄndraTelefon)
+                            .addComponent(btnÄndraPlats)
+                            .addComponent(btnÄndraAgent)
+                            .addComponent(btnUppdatera)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSök))
+                    .addComponent(RubrikNyAlien)
+                    .addComponent(lbl1)
+                    .addComponent(lbl2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(144, 144, 144))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(txtVald, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel3))
+                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(lblLösenord)
-                                .addComponent(lblNamn)
-                                .addComponent(lblTelefon)
-                                .addComponent(lblRas))
-                            .addGap(28, 28, 28)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnÄndraRegDatum)
-                                .addComponent(btnÄndraLösenord)
-                                .addComponent(btnÄndraNamn)
-                                .addComponent(btnÄndraTelefon)
-                                .addComponent(btnÄndraPlats)
-                                .addComponent(btnÄndraAgent)
-                                .addComponent(btnUppdatera)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnSök))
-                            .addComponent(RubrikNyAlien)
-                            .addComponent(lbl1)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnVälj)))))
+                                .addComponent(btnVälj)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(342, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -210,13 +248,20 @@ public class ÄndraAlien extends javax.swing.JFrame {
                     .addComponent(btnSök))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(lbl2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVälj))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtVald, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(btnÄndraRegDatum))
@@ -246,7 +291,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
                     .addComponent(btnUppdatera))
                 .addGap(29, 29, 29)
                 .addComponent(btnTillbaka)
-                .addGap(76, 76, 76))
+                .addGap(17, 17, 17))
         );
 
         pack();
@@ -304,7 +349,49 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
         // TODO add your handling code here:
+        
+         String Namn = txtNamn.getText();
+         txtResultata.setVisible(false);
+
+        try {
+       
+
+            String frågaA = "SELECT Alien_ID FROM mibdb.Alien where Namn = '" + Namn + "'";
+            
+            String svaret = idb.fetchSingle(frågaA);
+            
+            if (svaret == null){
+                JOptionPane.showMessageDialog(null, "Det finns ingen alien med namnet '" + Namn + "'");
+            }
+            
+
+            ArrayList<String> svarA = idb.fetchColumn(frågaA);
+
+            for (String ID : svarA) {
+                
+
+                if (svarA.size() > 1) {
+                   
+                  
+                    txtID.setVisible(true);             
+                    txtResultata.setVisible(true);
+                    lbl1.setVisible(true);
+                    lbl2.setVisible(true);
+                    
+                    txtResultata.append(ID + "\n");
+                }
+                
+            }
+        }catch (Exception e) {
+           System.out.println(e.getMessage());
+           }            
+                    
     }//GEN-LAST:event_btnSökActionPerformed
+
+    private void btnVäljActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVäljActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnVäljActionPerformed
     
     /**
      * @param args the command line arguments
@@ -354,8 +441,10 @@ public class ÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JButton btnÄndraRegDatum;
     private javax.swing.JButton btnÄndraTelefon;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lblAktuellPlats;
@@ -366,5 +455,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblTelefon;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNamn;
+    private javax.swing.JTextArea txtResultata;
+    private javax.swing.JTextField txtVald;
     // End of variables declaration//GEN-END:variables
 }

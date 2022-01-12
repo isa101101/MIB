@@ -22,6 +22,7 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
     public ÄndraAliensNamn(InfDB idb) {
         this.idb = idb;
         initComponents();
+       
     }
 
 
