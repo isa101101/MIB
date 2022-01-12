@@ -323,7 +323,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                     String fråga6 = "SELECT mibdb.Agent.namn FROM mibdb.Agent "
                             + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
                             + "WHERE mibdb.Alien.Namn = '" + Namn + "'";
-                    String fråga7 = "SELECT mibdb.Alien-Losenord FROM mibdb.Alien where Alien_ID = '" + ID + "'";
+                    String fråga7 = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien where Alien_ID = '" + ID + "'";
 
                     String svar1 = idb.fetchSingle(fråga1);
                     String svar2 = idb.fetchSingle(fråga2);
@@ -339,7 +339,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                     txtTelefon.setText(svar4);
                     txtPlats.setText(svar5);
                     txtAnsvarig.setText(svar6);
-
+                    txtLösenord.setText(svar7);
                     
                     /** Pågrund av att aliens ras lagras i tre olika tabell och inte refereras i alien tabell
                     * ställs tre frågor nedan med hjälp av villkor för att hitta vilken ras alien har
@@ -419,7 +419,7 @@ public class SökPåAlien extends javax.swing.JFrame {
         String fråga6 = "SELECT mibdb.Agent.namn FROM mibdb.Agent "
                 + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
                 + "WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
-        String fråga7 = "SELECT mibdb.Alien-Losenord FROM mibdb.Alien where Alien_ID = '" + ID + "'";
+        String fråga7 = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien where Alien_ID = '" + ID + "'";
 
         String svar1 = idb.fetchSingle(fråga1);
         String svar2 = idb.fetchSingle(fråga2);
@@ -437,7 +437,39 @@ public class SökPåAlien extends javax.swing.JFrame {
         txtAnsvarig.setText(svar6);
         txtLösenord.setText(svar7);
         
-        
+        String fråga8 = "SELECT mibdb.Worm.Alien_ID from mibdb.Worm WHERE Alien_ID = '"+svar1+"'";
+                    
+                    String svar8 = idb.fetchSingle(fråga8);
+                    
+                    if(svar8 == null)
+                    {
+                        String fråga9 = "SELECT mibdb.Squid.Alien_ID from mibdb.Squid WHERE Alien_ID = '"+svar1+"'";
+                        
+                        String svar9 = idb.fetchSingle(fråga9);
+                        
+                        if (svar9 == null)
+                        {
+                            String fråga10 = "SELECT mibdb.Boglodite.Alien_ID from mibdb.Boglodite WHERE Alien_ID = '"+svar1+"'";
+                            
+                            String svar10 = idb.fetchSingle(fråga10);
+                            
+                            if (svar10 == null)
+                            {
+                                txtRas.setText("Ingen ras");
+                            }
+                            
+                            else {
+                                txtRas.setText("Boglodite");
+                            }
+                        }
+                        else {
+                            txtRas.setText("Squid");
+                        }
+                    }
+                    else{
+                        txtRas.setText("Worm");
+                    }
+                        
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }
