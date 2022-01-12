@@ -142,6 +142,7 @@ public class ÄndraAgentTelefon extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if (Validering.textFaltVarde(txtNamn)) {
+            
         try {
         String namn = txtNamn.getText();
         String NyttNummer = txtNyttnummer.getText();
@@ -168,6 +169,7 @@ public class ÄndraAgentTelefon extends javax.swing.JFrame {
             
         }
         }
+       
     }//GEN-LAST:event_btnHämtaActionPerformed
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
@@ -178,6 +180,8 @@ public class ÄndraAgentTelefon extends javax.swing.JFrame {
         String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Telefon = '"+NyttNummer+"' where mibdb.Agent.Namn = '"+namn+"'";
         
          if (Validering.textFaltVarde(txtNyttnummer)) {
+             
+            if (Validering.textFaltNummer(txtNyttnummer)){
              try {
                  idb.update(ändra);
                  JOptionPane.showMessageDialog(null, "Numret har ändrats");
@@ -185,6 +189,14 @@ public class ÄndraAgentTelefon extends javax.swing.JFrame {
              }catch (Exception e) {
                 System.out.println(e.getMessage());
              }
+         
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Telefonnumret ska bestå av siffror, ange nytt nummer med enbart siffror!");
+            }
+          }
+         else {
+             JOptionPane.showMessageDialog(null, "Vänligen ange ett nytt nummer, rutan är tom");
          }
         
      

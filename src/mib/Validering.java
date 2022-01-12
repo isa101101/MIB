@@ -42,7 +42,7 @@ public class Validering extends javax.swing.JFrame {
         
         boolean resultat = true;
         
-        if (ruta.getText().matches("[0-9] + [-]")) {
+        if (!ruta.getText().matches("[0-9]")) {
            JOptionPane.showMessageDialog(null, "Det får endast vara siffror i textrutan");
            resultat = false;
         }

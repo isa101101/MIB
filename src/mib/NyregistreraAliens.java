@@ -349,6 +349,7 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                     
                     if(SvarAgent != null) {
                     int Agent_ID = Integer.parseInt(SvarAgent);
+                    
 
                     String Nyalien = "INSERT INTO mibdb.Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES "
                             + "('" + ID + "','" + Datumet + "','" + lösenord + "','" + Namn + "', '" + Telefon + "','" + Plats_ID + "','" + Agent_ID + "')";
@@ -358,18 +359,19 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                     String worm = "Worm";
                 String squid = "Squid";
                 String boglodite = "Boglodite";
+                    
 
-                if (cmbRas.getSelectedItem().equals(worm)) {
+                if (cmbRas.getSelectedItem().equals("worm")) {
                     String ras1 = "INSERT INTO mibdb.Worm (Alien_ID) VALUES ('" + ID + "')";
                     idb.insert(ras1);
                 }
 
-                if (cmbRas.getSelectedItem().equals(squid)) {
+                if (cmbRas.getSelectedItem().equals("squid")) {
                     String ras2 = "INSERT INTO mibdb.Squid (Alien_ID, Antal_Armar) VALUES ('" + ID + "', '" + antalArmar + "')";
                     idb.insert(ras2);
                 }
 
-                if (cmbRas.getSelectedItem().equals(boglodite)) {
+                if (cmbRas.getSelectedItem().equals("boglodite")) {
                     String ras3 = "INSERT INTO mibdb.Boglodite (Alien_ID, Antal_Boogies) VALUES ('" + ID + "', '" + antalBoogies + "')";
                     idb.insert(ras3);
                 }
