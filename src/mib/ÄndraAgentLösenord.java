@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 
 /**
@@ -60,6 +61,11 @@ public class ÄndraAgentLösenord extends javax.swing.JFrame {
         txtNyttLösenord.setColumns(10);
 
         btnÄndra.setText("Ändra");
+        btnÄndra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraActionPerformed(evt);
+            }
+        });
 
         btnTillbaka.setText("Tillbaka");
         btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +162,32 @@ public class ÄndraAgentLösenord extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_btnHämtaActionPerformed
+
+    private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
+        // TODO add your handling code here:
+        if (Validering.textFaltVarde(txtNamn)){
+        String namn = txtNamn.getText();
+        String nyttLösenord = txtNyttLösenord.getText();
+        
+        String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Losenord = '"+ nyttLösenord +"' WHERE mibdb.Agent.Namn = '"+ namn +"' ";
+        
+        if (nyttLösenord.length() < 6){
+            
+            try {
+                 idb.update(ändra);
+                 JOptionPane.showMessageDialog(null, "Lösenord har ändrats");
+                 
+             }catch (Exception e) {
+                System.out.println(e.getMessage());
+             }
+ 
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Det nya lösenordet måste vara kortare i 6 tecken!");
+        }
+        }
+        
+    }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**
      * @param args the command line arguments

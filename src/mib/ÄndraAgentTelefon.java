@@ -189,17 +189,9 @@ public class ÄndraAgentTelefon extends javax.swing.JFrame {
              }catch (Exception e) {
                 System.out.println(e.getMessage());
              }
-         
             }
-            else {
-                JOptionPane.showMessageDialog(null, "Telefonnumret ska bestå av siffror, ange nytt nummer med enbart siffror!");
-            }
-          }
-         else {
-             JOptionPane.showMessageDialog(null, "Vänligen ange ett nytt nummer, rutan är tom");
          }
-        
-     
+  
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**
