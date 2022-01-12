@@ -20,6 +20,9 @@ public class BytAlienLösenord extends javax.swing.JFrame {
     public BytAlienLösenord(InfDB idb) {
         this.idb =idb;
         initComponents();
+        
+        String Användarnamn = ÄndraAlien.txtVald.getText();
+        txtAnvändarnamn.setText(Användarnamn);
     }
 
     /**

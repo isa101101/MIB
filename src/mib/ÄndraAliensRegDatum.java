@@ -28,11 +28,7 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
         
         txtHämtatnamn.setText(ANamn);
         txtHämtatID.setText(AID);
-                
-        
-        
-        
-               
+  
     }
     
     

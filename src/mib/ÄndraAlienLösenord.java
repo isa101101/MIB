@@ -19,9 +19,14 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
      * Creates new form ÄndraAlienLösenord
      */
     public ÄndraAlienLösenord(InfDB idb) {
-        this.idb = idb;
-                
+        this.idb = idb;     
         initComponents();
+        
+        String Användarnamn = ÄndraAlien.txtVald.getText();
+        String ID = ÄndraAlien.txtValdID.getText();
+        
+        txtNamn.setText(Användarnamn);
+        txtAID.setText(ID);
     }
 
     /**
@@ -43,6 +48,8 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
         lblNamn = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnTillbaka = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtAID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +89,10 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("Alien ID");
+
+        txtAID.setColumns(10);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,26 +101,29 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
                 .addGap(207, 207, 207)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblNamn)
-                        .addGap(70, 70, 70)
-                        .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnÄndra, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnÄndra)
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblBefintligtLösenord)
                                     .addComponent(lblNyttLösenord))
-                                .addGap(27, 27, 27)
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtBefintligtLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
+                                    .addComponent(txtAID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnTillbaka)
-                            .addComponent(btnHämta))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnHämta)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(lblNamn)
+                            .addComponent(jLabel2))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,18 +136,22 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtAID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBefintligtLösenord)
                     .addComponent(txtBefintligtLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHämta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNyttLösenord)
                     .addComponent(txtNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnÄndra)
                     .addComponent(btnTillbaka))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,10 +160,11 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
     private void btnHämtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaActionPerformed
         // TODO add your handling code here:
         if(Validering.textFaltVarde(txtNamn)){
-        String namn = txtNamn.getText();
+        String AID =ÄndraAlien.txtValdID.getText();
+        String Alien = txtAID.getText();
 
         try{
-            String fråga = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
+            String fråga = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '"+AID+"'";
 
             String svar = idb.fetchSingle(fråga);
             
@@ -174,22 +193,35 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
         // TODO add your handling code here:
         String namn = txtNamn.getText();
         String nyttLösenord = txtNyttLösenord.getText();
+        String gamaltLösen = txtBefintligtLösenord.getText();
+        String AID =ÄndraAlien.txtValdID.getText();
         
-        try{
+        if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtAID) && Validering.textFaltVarde(txtBefintligtLösenord) && Validering.textFaltVarde(txtNyttLösenord)) {
+        
+            try{
             
-            String frågaAgentID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.namn = '"+namn+"'";
+           
+            String Lösen = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '"+AID+"'";
+    
+            String AlienID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
             
-            String svarAgentID = idb.fetchSingle(frågaAgentID);
+            String svarID = idb.fetchSingle(AlienID);
             
-            String ändra = "UPDATE mibdb.Alien SET Losenord = '"+nyttLösenord+"' WHERE mibdb.Alien.Alien_ID = '"+svarAgentID+"'";
+            String ändra = "UPDATE mibdb.Alien SET Losenord = '"+nyttLösenord+"' WHERE mibdb.Alien.Alien_ID = '"+svarID+"'";
             
             idb.update(ändra);
             
             JOptionPane.showMessageDialog(null, "Aliens lösenord är ändrat!");
             
+            
+        
         }catch (Exception e) {
             System.out.println(e.getMessage());
+ 
         }
+        }
+    
+    
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**
@@ -232,9 +264,11 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
     private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnÄndra;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblBefintligtLösenord;
     private javax.swing.JLabel lblNamn;
     private javax.swing.JLabel lblNyttLösenord;
+    private javax.swing.JTextField txtAID;
     private javax.swing.JTextField txtBefintligtLösenord;
     private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtNyttLösenord;
