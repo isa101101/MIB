@@ -4,9 +4,12 @@
  */
 package mib;
 
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import java.util.Date;
 /**
  *
  * @author isabellefredriksson
@@ -51,10 +54,10 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         txtNamn = new javax.swing.JTextField();
         txtTelefon = new javax.swing.JTextField();
-        txtAnstDatum = new javax.swing.JTextField();
         txtLösenord = new javax.swing.JTextField();
         cmbOmråde = new javax.swing.JComboBox<>();
         cmbAdmin = new javax.swing.JComboBox<>();
+        Datum = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,13 +115,13 @@ public class NyregistreraAgent extends javax.swing.JFrame {
             }
         });
 
-        txtAnstDatum.setColumns(8);
-
         txtLösenord.setColumns(8);
 
         cmbOmråde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Norrland", "Svealand", "Götaland" }));
 
         cmbAdmin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nej", "Ja" }));
+
+        Datum.setDateFormatString("yyyy-MM-dd");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,11 +129,11 @@ public class NyregistreraAgent extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFyllRutor)
-                    .addComponent(RubrikNyAgent)
-                    .addComponent(btnRegistrera)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lblFyllRutor, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(RubrikNyAgent, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegistrera, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblAgentID)
@@ -141,7 +144,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnTillbaka)
                             .addComponent(jButton3)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lblLösenord)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
@@ -157,16 +160,16 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lblAgentTelefon)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblAnstDatum)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtAnstDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(lblOmråde)
                         .addGap(40, 40, 40)
-                        .addComponent(cmbOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                        .addComponent(cmbOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(lblAnstDatum)
+                        .addGap(18, 18, 18)
+                        .addComponent(Datum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(319, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,10 +192,10 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                     .addComponent(lblAgentTelefon)
                     .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAnstDatum)
-                    .addComponent(txtAnstDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(Datum, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAgentAdmin)
                     .addComponent(cmbAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -210,7 +213,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTillbaka)
                     .addComponent(btnTillbaka))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         pack();
@@ -242,16 +245,23 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     private void btnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraActionPerformed
         // TODO add your handling code here:
         
-        if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtTelefon) && Validering.textFaltVarde(txtAnstDatum)
+        if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtTelefon)
                 && Validering.textFaltVarde(txtLösenord)){
-        try{
-        String ID = lblHämtatID.getText();
-        String Namn = txtNamn.getText();
-        String Telefon = txtTelefon.getText();
-        String AnstDatum = txtAnstDatum.getText();
-        String Admin = cmbAdmin.getSelectedItem().toString();
-        String Lösenord = txtLösenord.getText();
-        String Område = cmbOmråde.getSelectedItem().toString();
+            try {
+                String ID = lblHämtatID.getText();
+                String Namn = txtNamn.getText();
+                String Telefon = txtTelefon.getText();
+                Date AnstDatum = Datum.getDate();
+                String Admin = cmbAdmin.getSelectedItem().toString();
+                String Lösenord = txtLösenord.getText();
+                String Område = cmbOmråde.getSelectedItem().toString();
+
+               SimpleDateFormat formatet = new SimpleDateFormat("YYYY/MM/D");
+               String form = formatet.format(AnstDatum.getTime());
+               String Datumet = form;
+                
+                
+
         
         String frågaFinnsRedanNamn = "SELECT mibdb.Agent.Namn FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+Namn+"'";
         String SvarFinnsRedanNamn = idb.fetchSingle(frågaFinnsRedanNamn);
@@ -277,7 +287,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         }
         
         String nyAgent = "INSERT INTO mibdb.Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Losenord, Omrade) VALUES"
-                + "('"+AgentID+"', '"+Namn+"', '"+Telefon+"', '"+AnstDatum+"', '"+AdminStatus+"', '"+Lösenord+"', '"+OmrådesID+"')";
+                + "('"+AgentID+"', '"+Namn+"', '"+Telefon+"', '"+Datumet+"', '"+AdminStatus+"', '"+Lösenord+"', '"+OmrådesID+"')";
        
         idb.insert(nyAgent);
         
@@ -336,6 +346,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser Datum;
     private javax.swing.JLabel RubrikNyAgent;
     private javax.swing.JButton btnRegistrera;
     private javax.swing.JButton btnTillbaka;
@@ -352,7 +363,6 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     private javax.swing.JLabel lblLösenord;
     private javax.swing.JLabel lblOmråde;
     private javax.swing.JLabel lblTillbaka;
-    private javax.swing.JTextField txtAnstDatum;
     private javax.swing.JTextField txtLösenord;
     private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtTelefon;
