@@ -48,6 +48,14 @@ public class ÄndraAlien extends javax.swing.JFrame {
         btnÄndraTelefon = new javax.swing.JButton();
         btnÄndraPlats = new javax.swing.JButton();
         btnÄndraAgent = new javax.swing.JButton();
+        txtNamn = new javax.swing.JTextField();
+        lbl1 = new javax.swing.JLabel();
+        btnSök = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        lbl2 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
+        btnVälj = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,47 +132,91 @@ public class ÄndraAlien extends javax.swing.JFrame {
             }
         });
 
+        txtNamn.setColumns(10);
+
+        lbl1.setText("Ange namn på den Alien du vill ändra");
+
+        btnSök.setText("Sök");
+        btnSök.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSökActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        lbl2.setText("Det finns fler aliens med namnet välj ID");
+
+        txtID.setColumns(10);
+
+        btnVälj.setText("Välj");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(259, 259, 259)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(RubrikNyAlien)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(btnTillbaka))
+                    .addComponent(lblAnsvarigAgent)
+                    .addComponent(lblAktuellPlats)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(lblLösenord)
+                                .addComponent(lblNamn)
+                                .addComponent(lblTelefon)
+                                .addComponent(lblRas))
+                            .addGap(28, 28, 28)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnÄndraRegDatum)
+                                .addComponent(btnÄndraLösenord)
+                                .addComponent(btnÄndraNamn)
+                                .addComponent(btnÄndraTelefon)
+                                .addComponent(btnÄndraPlats)
+                                .addComponent(btnÄndraAgent)
+                                .addComponent(btnUppdatera)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(145, 145, 145)
-                                .addComponent(btnTillbaka))
+                                .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSök))
+                            .addComponent(RubrikNyAlien)
+                            .addComponent(lbl1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl2)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(lblLösenord)
-                                    .addComponent(lblNamn)
-                                    .addComponent(lblTelefon)
-                                    .addComponent(lblRas))
-                                .addGap(28, 28, 28)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnÄndraRegDatum)
-                                    .addComponent(btnÄndraLösenord)
-                                    .addComponent(btnÄndraNamn)
-                                    .addComponent(btnÄndraTelefon)
-                                    .addComponent(btnÄndraPlats)
-                                    .addComponent(btnÄndraAgent)
-                                    .addComponent(btnUppdatera)))
-                            .addComponent(lblAnsvarigAgent)
-                            .addComponent(lblAktuellPlats))
-                        .addGap(0, 74, Short.MAX_VALUE))))
+                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnVälj)))))
+                .addContainerGap(342, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(26, 26, 26)
                 .addComponent(RubrikNyAlien)
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
+                .addComponent(lbl1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSök))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVälj))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(btnÄndraRegDatum))
@@ -194,7 +246,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
                     .addComponent(btnUppdatera))
                 .addGap(29, 29, 29)
                 .addComponent(btnTillbaka)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(76, 76, 76))
         );
 
         pack();
@@ -249,6 +301,10 @@ public class ÄndraAlien extends javax.swing.JFrame {
         new ÄndraAlienLösenord(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnÄndraLösenordActionPerformed
+
+    private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSökActionPerformed
     
     /**
      * @param args the command line arguments
@@ -287,8 +343,10 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel RubrikNyAlien;
+    private javax.swing.JButton btnSök;
     private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnUppdatera;
+    private javax.swing.JButton btnVälj;
     private javax.swing.JButton btnÄndraAgent;
     private javax.swing.JButton btnÄndraLösenord;
     private javax.swing.JButton btnÄndraNamn;
@@ -296,11 +354,17 @@ public class ÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JButton btnÄndraRegDatum;
     private javax.swing.JButton btnÄndraTelefon;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lbl1;
+    private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lblAktuellPlats;
     private javax.swing.JLabel lblAnsvarigAgent;
     private javax.swing.JLabel lblLösenord;
     private javax.swing.JLabel lblNamn;
     private javax.swing.JLabel lblRas;
     private javax.swing.JLabel lblTelefon;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtNamn;
     // End of variables declaration//GEN-END:variables
 }

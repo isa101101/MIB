@@ -283,6 +283,7 @@ public class SökPåAlien extends javax.swing.JFrame {
         String Namn = txtNamn.getText();
 
         try {
+       
 
             String frågaA = "SELECT Alien_ID FROM mibdb.Alien where Namn = '" + Namn + "'";
             
@@ -322,6 +323,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                     String fråga6 = "SELECT mibdb.Agent.namn FROM mibdb.Agent "
                             + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
                             + "WHERE mibdb.Alien.Namn = '" + Namn + "'";
+                    String fråga7 = "SELECT mibdb.Alien-Losenord FROM mibdb.Alien where Alien_ID = '" + ID + "'";
 
                     String svar1 = idb.fetchSingle(fråga1);
                     String svar2 = idb.fetchSingle(fråga2);
@@ -329,6 +331,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                     String svar4 = idb.fetchSingle(fråga4);
                     String svar5 = idb.fetchSingle(fråga5);
                     String svar6 = idb.fetchSingle(fråga6);
+                     String svar7 = idb.fetchSingle(fråga7);
 
                     txtAID.setText(svar1);
                     txtRegdatum.setText(svar2);
@@ -336,6 +339,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                     txtTelefon.setText(svar4);
                     txtPlats.setText(svar5);
                     txtAnsvarig.setText(svar6);
+
                     
                     /** Pågrund av att aliens ras lagras i tre olika tabell och inte refereras i alien tabell
                     * ställs tre frågor nedan med hjälp av villkor för att hitta vilken ras alien har
@@ -377,6 +381,9 @@ public class SökPåAlien extends javax.swing.JFrame {
                     }
                         
 
+                     txtLösenord.setText(svar7);
+
+
                 } 
 
             }
@@ -412,6 +419,7 @@ public class SökPåAlien extends javax.swing.JFrame {
         String fråga6 = "SELECT mibdb.Agent.namn FROM mibdb.Agent "
                 + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
                 + "WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
+        String fråga7 = "SELECT mibdb.Alien-Losenord FROM mibdb.Alien where Alien_ID = '" + ID + "'";
 
         String svar1 = idb.fetchSingle(fråga1);
         String svar2 = idb.fetchSingle(fråga2);
@@ -419,6 +427,7 @@ public class SökPåAlien extends javax.swing.JFrame {
         String svar4 = idb.fetchSingle(fråga4);
         String svar5 = idb.fetchSingle(fråga5);
         String svar6 = idb.fetchSingle(fråga6);
+        String svar7 = idb.fetchSingle(fråga7);
 
         txtAID.setText(svar1);
         txtRegdatum.setText(svar2);
@@ -426,6 +435,8 @@ public class SökPåAlien extends javax.swing.JFrame {
         txtTelefon.setText(svar4);
         txtPlats.setText(svar5);
         txtAnsvarig.setText(svar6);
+        txtLösenord.setText(svar7);
+        
         
         }catch (Exception e) {
             System.out.println(e.getMessage());
