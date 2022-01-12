@@ -65,7 +65,7 @@ public class SökPåAlien extends javax.swing.JFrame {
         lblLösenord = new javax.swing.JLabel();
         txtLösenord = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtRas = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         taResultat = new javax.swing.JTextArea();
         lbl1 = new javax.swing.JLabel();
@@ -131,7 +131,7 @@ public class SökPåAlien extends javax.swing.JFrame {
 
         jLabel1.setText("Ras");
 
-        jTextField1.setColumns(10);
+        txtRas.setColumns(10);
 
         taResultat.setColumns(20);
         taResultat.setRows(5);
@@ -159,7 +159,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addContainerGap(302, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(242, 242, 242)
+                .addGap(184, 184, 184)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtTillbaka)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,7 +185,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                                     .addComponent(txtAnsvarig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtRegdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtLösenord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblSökEfterAlien)
@@ -266,7 +266,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                             .addComponent(txtAnsvarig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel1))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(94, 94, 94)
                 .addComponent(txtTillbaka)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -336,6 +336,46 @@ public class SökPåAlien extends javax.swing.JFrame {
                     txtTelefon.setText(svar4);
                     txtPlats.setText(svar5);
                     txtAnsvarig.setText(svar6);
+                    
+                    /** Pågrund av att aliens ras lagras i tre olika tabell och inte refereras i alien tabell
+                    * ställs tre frågor nedan med hjälp av villkor för att hitta vilken ras alien har
+                    * Om alien inte har någon angiven ras så kommer det generera null på alla frågor och där med 
+                    * göra det som står i sista else-satsen, alltså skriva ut att alien inte har någon ras.
+                    */
+                    
+                    String fråga8 = "SELECT mibdb.Worm.Alien_ID from mibdb.Worm WHERE Alien_ID = '"+svar1+"'";
+                    
+                    String svar8 = idb.fetchSingle(fråga8);
+                    
+                    if(svar8 == null)
+                    {
+                        String fråga9 = "SELECT mibdb.Squid.Alien_ID from mibdb.Squid WHERE Alien_ID = '"+svar1+"'";
+                        
+                        String svar9 = idb.fetchSingle(fråga9);
+                        
+                        if (svar9 == null)
+                        {
+                            String fråga10 = "SELECT mibdb.Boglodite.Alien_ID from mibdb.Boglodite WHERE Alien_ID = '"+svar1+"'";
+                            
+                            String svar10 = idb.fetchSingle(fråga10);
+                            
+                            if (svar10 == null)
+                            {
+                                txtRas.setText("Ingen ras");
+                            }
+                            
+                            else {
+                                txtRas.setText("Boglodite");
+                            }
+                        }
+                        else {
+                            txtRas.setText("Squid");
+                        }
+                    }
+                    else{
+                        txtRas.setText("Worm");
+                    }
+                        
 
                 } 
 
@@ -437,7 +477,6 @@ public class SökPåAlien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
@@ -458,6 +497,7 @@ public class SökPåAlien extends javax.swing.JFrame {
     private javax.swing.JTextField txtLösenord;
     private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtPlats;
+    private javax.swing.JTextField txtRas;
     private javax.swing.JTextField txtRegdatum;
     private javax.swing.JTextField txtTelefon;
     private javax.swing.JButton txtTillbaka;
