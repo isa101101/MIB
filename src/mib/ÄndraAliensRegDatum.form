@@ -23,42 +23,50 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblRubrikÄndraRegDatum" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnÄndra" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblNyttRegDatum" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblAliensNamn" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAliensNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtHämtatnamn" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtHämtatID" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblNyttRegDatum" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="lblBefintligtRegDatum" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblBefintligtRegDatum" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnÄndra" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="txtBefintligtRegDatum" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNyttRegDatum" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnHämtaRegDatum" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="txtBefintligtRegDatum" pref="136" max="32767" attributes="0"/>
+                          <Component id="Datum" min="-2" pref="130" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnHämtaRegDatum" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="37" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="279" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,26 +77,33 @@
               <Component id="lblRubrikÄndraRegDatum" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtHämtatnamn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblAliensNamn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtHämtatID" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtBefintligtRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblBefintligtRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnHämtaRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNyttRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNyttRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="lblNyttRegDatum" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnÄndra" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnTillbaka" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="Datum" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnÄndra" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnTillbaka" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace pref="284" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -114,12 +129,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtBefintligtRegDatum">
       <Properties>
-        <Property name="columns" type="int" value="8"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtNyttRegDatum">
-      <Properties>
-        <Property name="columns" type="int" value="8"/>
+        <Property name="columns" type="int" value="10"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btn&#xc4;ndra">
@@ -135,9 +145,9 @@
         <Property name="text" type="java.lang.String" value="Aliens namn:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNamn">
+    <Component class="javax.swing.JTextField" name="txtH&#xe4;mtatnamn">
       <Properties>
-        <Property name="columns" type="int" value="8"/>
+        <Property name="columns" type="int" value="10"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnH&#xe4;mtaRegDatum">
@@ -155,6 +165,21 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTillbakaActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Aliens ID"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtH&#xe4;mtatID">
+      <Properties>
+        <Property name="columns" type="int" value="10"/>
+      </Properties>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="Datum">
+      <Properties>
+        <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

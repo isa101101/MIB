@@ -16,7 +16,7 @@ import java.util.Date;
  * @author jackmacbook
  */
 public class ÄndraAlien extends javax.swing.JFrame {
-    
+
     private InfDB idb;
 
     /**
@@ -31,10 +31,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
         txtID.setVisible(false);
         txtResultata.setVisible(false);
         btnVälj.setVisible(false);
-        
-        
-        
-        
+ 
     }
 
     /**
@@ -72,9 +69,8 @@ public class ÄndraAlien extends javax.swing.JFrame {
         txtResultata = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         txtVald = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtValdID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        Datum = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -179,15 +175,11 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
         jLabel2.setText("Du har valt ");
 
-        txtVald.setText("Braxen");
+        txtVald.setColumns(10);
 
-        jTextField2.setText("7");
+        txtValdID.setColumns(10);
 
         jLabel3.setText("med ID");
-
-        Datum.setDateFormatString("yyyy-mm-dd");
-        Datum.setMaxSelectableDate(new java.util.Date(253370764908000L));
-        Datum.setMinSelectableDate(new java.util.Date(-62135769492000L));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -198,53 +190,54 @@ public class ÄndraAlien extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl2)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtVald, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel3))
-                                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtVald, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 612, Short.MAX_VALUE)
-                                .addComponent(btnSök))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnVälj)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(btnTillbaka))
-                    .addComponent(lblAnsvarigAgent)
-                    .addComponent(lblAktuellPlats)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(lblLösenord)
-                            .addComponent(lblNamn)
-                            .addComponent(lblTelefon)
-                            .addComponent(lblRas))
-                        .addGap(0, 0, 0)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnÄndraRegDatum)
-                            .addComponent(btnÄndraLösenord)
-                            .addComponent(btnÄndraNamn)
-                            .addComponent(btnÄndraPlats)
-                            .addComponent(btnÄndraAgent)
-                            .addComponent(btnUppdatera)
+                                .addComponent(jLabel3)
+                                .addContainerGap(273, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnÄndraTelefon)
-                                .addGap(82, 82, 82)
-                                .addComponent(Datum, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(RubrikNyAlien)
-                    .addComponent(lbl1))
-                .addContainerGap(138, Short.MAX_VALUE))
+                                .addGap(59, 59, 59)
+                                .addComponent(btnVälj)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(txtValdID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl2)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(145, 145, 145)
+                                .addComponent(btnTillbaka))
+                            .addComponent(lblAnsvarigAgent)
+                            .addComponent(lblAktuellPlats)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(lblLösenord)
+                                    .addComponent(lblNamn)
+                                    .addComponent(lblTelefon)
+                                    .addComponent(lblRas))
+                                .addGap(0, 0, 0)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnÄndraRegDatum)
+                                    .addComponent(btnÄndraLösenord)
+                                    .addComponent(btnÄndraNamn)
+                                    .addComponent(btnÄndraPlats)
+                                    .addComponent(btnÄndraAgent)
+                                    .addComponent(btnUppdatera)
+                                    .addComponent(btnÄndraTelefon)))
+                            .addComponent(RubrikNyAlien)
+                            .addComponent(lbl1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(150, 150, 150)
+                                .addComponent(btnSök)))
+                        .addContainerGap(158, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,21 +250,22 @@ public class ÄndraAlien extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSök))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(lbl2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVälj))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtVald, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(txtValdID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -285,12 +279,10 @@ public class ÄndraAlien extends javax.swing.JFrame {
                     .addComponent(lblNamn)
                     .addComponent(btnÄndraNamn))
                 .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblTelefon)
-                        .addComponent(btnÄndraTelefon))
-                    .addComponent(Datum, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefon)
+                    .addComponent(btnÄndraTelefon))
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAktuellPlats)
                     .addComponent(btnÄndraPlats))
@@ -304,13 +296,13 @@ public class ÄndraAlien extends javax.swing.JFrame {
                     .addComponent(btnUppdatera))
                 .addGap(29, 29, 29)
                 .addComponent(btnTillbaka)
-                .addGap(17, 17, 17))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
+    
     
     private void btnUppdateraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUppdateraActionPerformed
         // TODO add your handling code here:
@@ -364,8 +356,8 @@ public class ÄndraAlien extends javax.swing.JFrame {
         // TODO add your handling code here:
         
          String Namn = txtNamn.getText();
-         txtResultata.setVisible(false);
-
+         String AID = txtID.getText();
+ 
         try {
        
 
@@ -377,7 +369,6 @@ public class ÄndraAlien extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Det finns ingen alien med namnet '" + Namn + "'");
             }
             
-
             ArrayList<String> svarA = idb.fetchColumn(frågaA);
 
             for (String ID : svarA) {
@@ -390,21 +381,13 @@ public class ÄndraAlien extends javax.swing.JFrame {
                     txtResultata.setVisible(true);
                     lbl1.setVisible(true);
                     lbl2.setVisible(true);
+                    btnVälj.setVisible(true);
                     
                     txtResultata.append(ID + "\n");
-                    
-                   String datum = Datum.getDate().toString().substring(0, 9);
-                   String datum2 = Datum.getDate().toString();
-                   String datum3 = Datum.getDateFormatString().toString();
-                   Date datum4 = Datum.getDate();
-                          
-                   
-                   
-                    SimpleDateFormat formatet = new SimpleDateFormat("yyyy-mm-dd");
-                    String form = formatet.format(datum4.getTime());
-                    txtResultata.setText(form);
-                   
-                   
+                
+                } else {
+                    txtVald.setText(Namn);
+                    txtValdID.setText(svaret);
                 }
                 
             }
@@ -416,6 +399,12 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
     private void btnVäljActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVäljActionPerformed
         // TODO add your handling code here:
+        
+        String Namnet = txtNamn.getText();
+        String ID = txtID.getText();
+        txtVald.setText(Namnet);
+        txtValdID.setText(ID);
+        
         
     }//GEN-LAST:event_btnVäljActionPerformed
     
@@ -455,7 +444,6 @@ public class ÄndraAlien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser Datum;
     private javax.swing.JLabel RubrikNyAlien;
     private javax.swing.JButton btnSök;
     private javax.swing.JButton btnTillbaka;
@@ -471,7 +459,6 @@ public class ÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lblAktuellPlats;
@@ -483,6 +470,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNamn;
     private javax.swing.JTextArea txtResultata;
-    private javax.swing.JTextField txtVald;
+    public static javax.swing.JTextField txtVald;
+    public static javax.swing.JTextField txtValdID;
     // End of variables declaration//GEN-END:variables
 }
