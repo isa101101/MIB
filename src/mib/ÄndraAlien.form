@@ -23,8 +23,8 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="259" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="286" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
@@ -32,40 +32,52 @@
                   </Group>
                   <Component id="lblAnsvarigAgent" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lblAktuellPlats" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRas" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnÄndraRegDatum" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnÄndraLösenord" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnÄndraNamn" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnÄndraTelefon" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnÄndraPlats" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnÄndraAgent" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnUppdatera" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnSök" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="RubrikNyAlien" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblNamn" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblRas" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnÄndraRegDatum" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnÄndraLösenord" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnÄndraNamn" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnÄndraTelefon" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnÄndraPlats" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnÄndraAgent" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnUppdatera" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnSök" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="RubrikNyAlien" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbl1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbl2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="txtVald" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="txtID" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnVälj" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -88,14 +100,22 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Component id="lbl2" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="9" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnVälj" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtVald" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnÄndraRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -132,7 +152,7 @@
               </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -263,21 +283,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnS&#xf6;kActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
-          <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="rows" type="int" value="5"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="javax.swing.JLabel" name="lbl2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Det finns fler aliens med namnet v&#xe4;lj ID"/>
@@ -291,6 +296,44 @@
     <Component class="javax.swing.JButton" name="btnV&#xe4;lj">
       <Properties>
         <Property name="text" type="java.lang.String" value="V&#xe4;lj"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnV&#xe4;ljActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="txtResultata">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Du har valt "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtVald">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Braxen"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="7"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="med ID"/>
       </Properties>
     </Component>
   </SubComponents>
