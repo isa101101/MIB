@@ -301,7 +301,6 @@ public class SökPåAlien extends javax.swing.JFrame {
 
                 if (svarA.size() > 1) {
                    
-                    taResultat.setText("");
                     txtID.setVisible(true);
                     btnSök2.setVisible(true);
                     taResultat.setVisible(true);
@@ -323,7 +322,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                     String fråga6 = "SELECT mibdb.Agent.namn FROM mibdb.Agent "
                             + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
                             + "WHERE mibdb.Alien.Namn = '" + Namn + "'";
-                    String fråga7 = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien where Alien_ID = '" + ID + "'";
+                    String fråga7 = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien where mibdb.Alien.Namn = '"+ Namn +"'";
 
                     String svar1 = idb.fetchSingle(fråga1);
                     String svar2 = idb.fetchSingle(fråga2);
@@ -331,7 +330,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                     String svar4 = idb.fetchSingle(fråga4);
                     String svar5 = idb.fetchSingle(fråga5);
                     String svar6 = idb.fetchSingle(fråga6);
-                     String svar7 = idb.fetchSingle(fråga7);
+                    String svar7 = idb.fetchSingle(fråga7);
 
                     txtAID.setText(svar1);
                     txtRegdatum.setText(svar2);
