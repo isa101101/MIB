@@ -181,7 +181,7 @@ public class ÄndraAgentTelefon extends javax.swing.JFrame {
         
          if (Validering.textFaltVarde(txtNyttnummer)) {
 
-            if(NyttNummer.matches("[0-9]")){
+            if(Validering.textFaltNummer(txtNyttnummer)){
                 
              try {
                  String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Telefon = '"+NyttNummer+"' where mibdb.Agent.Namn = '"+namn+"'";
@@ -193,9 +193,7 @@ public class ÄndraAgentTelefon extends javax.swing.JFrame {
              }
             
             }
-            else {
-                
-            }
+            
          }
   
     }//GEN-LAST:event_btnÄndraActionPerformed
