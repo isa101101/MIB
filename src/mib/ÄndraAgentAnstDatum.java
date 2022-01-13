@@ -150,59 +150,55 @@ public class ÄndraAgentAnstDatum extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
     private void btnHämtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaActionPerformed
-        // TODO add your handling code here:
-        
-        
+        // Metoden hämtar anställningsdatum för en anguven agent.
+
         try {
-        String Namn = txtNamn.getText();
-        
-        String frågaNamn = "SELECT mibdb.Agent.Namn from mibdb.Agent WHERE mibdb.Agent.Namn = '"+Namn+"'";
-        String frågaDatum = "SELECT mibdb.Agent.Anstallningsdatum FROM mibdb.Agent WHERE Namn = '"+Namn+"'";
-        
-        
-        String svarNamn = idb.fetchSingle(frågaNamn);
-        String svarDatum = idb.fetchSingle(frågaDatum);
-        
-        if(Namn.equalsIgnoreCase(svarNamn)){
-            txtDatum.setText(svarDatum);
-            
-            
-        } else{
-            JOptionPane.showMessageDialog(null, "Det finns ingen agent med namnet '"+Namn+"'");
-        }
-        
-        
-        
+            String Namn = txtNamn.getText();
+
+            String frågaNamn = "SELECT mibdb.Agent.Namn from mibdb.Agent WHERE mibdb.Agent.Namn = '" + Namn + "'";
+            String frågaDatum = "SELECT mibdb.Agent.Anstallningsdatum FROM mibdb.Agent WHERE Namn = '" + Namn + "'";
+
+            String svarNamn = idb.fetchSingle(frågaNamn);
+            String svarDatum = idb.fetchSingle(frågaDatum);
+
+            //Kontrollerar att agenten finns.
+            if (Namn.equalsIgnoreCase(svarNamn)) {
+                txtDatum.setText(svarDatum);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Det finns ingen agent med namnet '" + Namn + "'");
+            }
+
         } catch (Exception e) {
-           System.out.println(e.getMessage());
-        } 
-        
+            System.out.println(e.getMessage());
+        }
+
     }//GEN-LAST:event_btnHämtaActionPerformed
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
-        // TODO add your handling code here:
-        
-        
-         String Namn = txtNamn.getText();
-         Date NyttDatum = Datum.getDate();
- 
+        // Metoden ändrar anställningsdatum för angiven agent.
+
+        String Namn = txtNamn.getText();
+        // Skapar en lokal variabel av datatypen Date.
+        Date NyttDatum = Datum.getDate();
+
+        //Kontrollerar att det nya datumet är angivet.
         if (NyttDatum != null) {
             try {
-
+                // Konverterar datumformatet så att det passar databasen.
                 SimpleDateFormat formatet = new SimpleDateFormat("YYYY/MM/D");
                 String form = formatet.format(NyttDatum.getTime());
                 String Datumet = form;
 
-                String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Anstallningsdatum = '" +form+ "' where mibdb.Agent.Namn = '" + Namn + "'";
-                idb.update(ändra);
+                String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Anstallningsdatum = '" + form + "' where mibdb.Agent.Namn = '" + Namn + "'";
+                idb.update(ändra); //Uppdatera anställningsdatum i Agent tabellen.
                 JOptionPane.showMessageDialog(null, "Anställningsdatum har ändrats");
 
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
-
-        
+     
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**

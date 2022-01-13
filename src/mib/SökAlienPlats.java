@@ -120,39 +120,39 @@ public class SökAlienPlats extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
-        // TODO add your handling code here:
-        
+        // Metoden söker fram och visar alla aliens på en angiven plats.
+
         txtResultat.setText("");
         String plats = txtSök.getText();
-        
-        if (Validering.textFaltVarde(txtSök)) { 
-        try {
-            
-            String frågaPlats = "SELECT mibdb.Plats.Benamning from mibdb.Plats where Benamning = '"+plats+"'";
-            String svarPlats = idb.fetchSingle(frågaPlats);
-            
-            if(svarPlats==null){
-                
-                JOptionPane.showMessageDialog(null, "Platsen finns inte");
-                
-            } else {
-                 String fråga = "SELECT Namn FROM mibdb.Alien "
-                    + "JOIN mibdb.Plats ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats "
-                    + "WHERE mibdb.Plats.Benamning = '"+plats+"'";
-            
-            ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
-            
-            
-            for (HashMap<String, String> Namn : svar) {
 
-                txtResultat.append(Namn.get("Namn") + "\n");
+        if (Validering.textFaltVarde(txtSök)) {
+            try {
+                //Hämtar platsen 
+                String frågaPlats = "SELECT mibdb.Plats.Benamning from mibdb.Plats where Benamning = '" + plats + "'";
+                String svarPlats = idb.fetchSingle(frågaPlats);
+
+                //Kontrollerar att platsen finns.
+                if (svarPlats == null) {
+                    JOptionPane.showMessageDialog(null, "Platsen finns inte");
+
+                } else {
+                    //Hämtar alla aliens på angiven plats
+                    String fråga = "SELECT Namn FROM mibdb.Alien "
+                            + "JOIN mibdb.Plats ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats "
+                            + "WHERE mibdb.Plats.Benamning = '" + plats + "'";
+
+                    ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
+
+                    for (HashMap<String, String> Namn : svar) {
+
+                        txtResultat.append(Namn.get("Namn") + "\n"); // Skriver ut alla aliens på platsen.
+                    }
+
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-
-        }
-
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
-        }
         }
         
     }//GEN-LAST:event_btnSökActionPerformed

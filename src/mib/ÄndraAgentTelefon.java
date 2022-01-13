@@ -139,63 +139,57 @@ public class ÄndraAgentTelefon extends javax.swing.JFrame {
     }//GEN-LAST:event_tbnTillbakaActionPerformed
 
     private void btnHämtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaActionPerformed
-        // TODO add your handling code here:
-        
+        // Metoden hämtar befintligt telefonnummer för angiven agent.
+
         if (Validering.textFaltVarde(txtNamn)) {
-            
-        try {
-        String namn = txtNamn.getText();
-        String NyttNummer = txtNyttnummer.getText();
-        
-        String frågaNamn = "SELECT mibdb.Agent.Namn from mibdb.Agent WHERE mibdb.Agent.Namn = '"+namn+"'";
-        String frågaTelefon = "SELECT mibdb.Agent.Telefon from mibdb.Agent WHERE mibdb.Agent.Namn = '"+namn+"'";
-        String frågaID = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+namn+"'";   
-        
-        
-        String svarNamn = idb.fetchSingle(frågaNamn);
-        String svarTelefon = idb.fetchSingle(frågaTelefon);
-        String svarID = idb.fetchSingle(frågaID);
-        
-        if (namn.equals(svarNamn)) {
-            txtNummer.setText(svarTelefon);
-            
-        } else {
-              JOptionPane.showMessageDialog(null, "Det finns ingen agent med namnet '"+namn+"'");
-            
+
+            try {
+                String namn = txtNamn.getText();
+                String NyttNummer = txtNyttnummer.getText();
+
+                String frågaNamn = "SELECT mibdb.Agent.Namn from mibdb.Agent WHERE mibdb.Agent.Namn = '" + namn + "'";
+                String frågaTelefon = "SELECT mibdb.Agent.Telefon from mibdb.Agent WHERE mibdb.Agent.Namn = '" + namn + "'";
+                String frågaID = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '" + namn + "'";
+
+                String svarNamn = idb.fetchSingle(frågaNamn);
+                String svarTelefon = idb.fetchSingle(frågaTelefon);
+                String svarID = idb.fetchSingle(frågaID);
+
+                //Kontrollerar att agenten finns.
+                if (namn.equals(svarNamn)) {
+                    txtNummer.setText(svarTelefon);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Det finns ingen agent med namnet '" + namn + "'");
+
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+
+            }
         }
 
-        }catch (Exception e) {
-                System.out.println(e.getMessage());
-            
-        }
-        }
-       
     }//GEN-LAST:event_btnHämtaActionPerformed
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
-        // TODO add your handling code here:
-        
+        // Metoden ändrar telefonnummer för angiven agent.
         String namn = txtNamn.getText();
         String NyttNummer = txtNyttnummer.getText();
-       
-        
-         if (Validering.textFaltVarde(txtNyttnummer)) {
 
-            if(Validering.textFaltNummer(txtNyttnummer)){
-                
-             try {
-                 String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Telefon = '"+NyttNummer+"' where mibdb.Agent.Namn = '"+namn+"'";
-                 idb.update(ändra);
-                 JOptionPane.showMessageDialog(null, "Numret har ändrats");
-                 
-             }catch (Exception e) {
-                System.out.println(e.getMessage());
-             }
-            
+        if (Validering.textFaltVarde(txtNyttnummer)) {
+            if (Validering.textFaltNummer(txtNyttnummer)) {
+
+                try {
+                    String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Telefon = '" + NyttNummer + "' where mibdb.Agent.Namn = '" + namn + "'";
+                    idb.update(ändra); // Uppdaterar Agent tabellen i databasen.
+                    JOptionPane.showMessageDialog(null, "Numret har ändrats");
+
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
             }
-            
-         }
-  
+        }
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**

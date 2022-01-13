@@ -166,64 +166,61 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
     private void btnHämtaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaAgentActionPerformed
-        // TODO add your handling code here:
-        if(Validering.textFaltVarde(txtNamn)){
-            
-        String ID = txtID.getText();
-        
-        try{
-            
-            String fråga = "SELECT mibdb.Agent.Namn FROM mibdb.Agent "
-                    + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
-                    + "WHERE mibdb.Alien.Alien_ID = '"+ID+"'";
-            
-            String svar = idb.fetchSingle(fråga);
-            
-            if (svar != null){
-          
-            txtNuvarandeAgent.setText(svar);
-            
+        // Metoden hämtar ansvarig agent för en angiven alien.
+        if (Validering.textFaltVarde(txtNamn)) {
+
+            String ID = txtID.getText();
+
+            try {
+                // Hämtar ansvarig agent från databasen.
+                String fråga = "SELECT mibdb.Agent.Namn FROM mibdb.Agent "
+                        + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
+                        + "WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
+                String svar = idb.fetchSingle(fråga);
+
+                //Om ansvarig agent hittas  skrivs namnet ut i textrutan.
+                if (svar != null) {
+                    txtNuvarandeAgent.setText(svar);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet");
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-            else{
-                JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet");
-          
-            }
-  
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
-        }
         }
     }//GEN-LAST:event_btnHämtaAgentActionPerformed
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
-        // TODO add your handling code here:
+        // Metoden ändrar en agiven aliens ansvariga agent.
         String ID = txtID.getText();
         String nyAgent = txtNyAgent.getText();
-        
-        try{  
-            String frågaAgentID = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+nyAgent+"'";
-            String svarAgentID = idb.fetchSingle(frågaAgentID);
-            
-            if(svarAgentID != null)
-            {
-            
-            int resultatAlienID = Integer.parseInt(ID); 
-            int resultatAgentID = Integer.parseInt(svarAgentID);
-             
-            String ändra = "UPDATE mibdb.Alien SET Ansvarig_Agent = '"+resultatAgentID+"' WHERE mibdb.Alien.Alien_ID = '"+resultatAlienID+"'";
-             
-            idb.update(ändra);
-            
-            JOptionPane.showMessageDialog(null, "Aliens ansvariga agent har ändrat");
-                   
+
+        if (Validering.textFaltVarde(txtID) && Validering.textFaltVarde(txtNyAgent)) {
+            try {
+                //Kontrollerar att den önskade nya ansvariga ageenten finns.
+                String frågaAgentID = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '" + nyAgent + "'";
+                String svarAgentID = idb.fetchSingle(frågaAgentID);
+
+                if (svarAgentID != null) {
+
+                    //Databasen tar bara emot datatypen int för alienID och Agent ID, därför görs en omtypning från String till int.
+                    int resultatAlienID = Integer.parseInt(ID);
+                    int resultatAgentID = Integer.parseInt(svarAgentID);
+
+                    String ändra = "UPDATE mibdb.Alien SET Ansvarig_Agent = '" + resultatAgentID + "' WHERE mibdb.Alien.Alien_ID = '" + resultatAlienID + "'";
+                    idb.update(ändra); //Databasen uppdateras.
+
+                    JOptionPane.showMessageDialog(null, "Aliens ansvariga agent har ändrat");
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Det finns ingen Agent med det angivna namnet!");
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-            else {
-                JOptionPane.showMessageDialog(null, "Det finns ingen Agent med det angivna namnet!");
-            }
- 
-            
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_btnÄndraActionPerformed
 

@@ -145,46 +145,45 @@ public class ÄndraAgentLösenord extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
     private void btnHämtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaActionPerformed
-        // TODO add your handling code here:
-        if(Validering.textFaltVarde(txtNamn)){
-        String namn = txtNamn.getText();
-        
-        try{
-    
-            String fråga = "SELECT mibdb.Agent.Losenord FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+namn+"'";
-            
-            String svar = idb.fetchSingle(fråga);
-            
-            txtBefintligtLösenord.setText(svar);
-            
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
-        }
+        // Metoden hämtar befintnligt lösenord för en angiven agent.
+        if (Validering.textFaltVarde(txtNamn)) {
+            String namn = txtNamn.getText();
+
+            try {
+                String fråga = "SELECT mibdb.Agent.Losenord FROM mibdb.Agent WHERE mibdb.Agent.Namn = '" + namn + "'";
+                String svar = idb.fetchSingle(fråga);
+
+                txtBefintligtLösenord.setText(svar);
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }//GEN-LAST:event_btnHämtaActionPerformed
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
-        // TODO add your handling code here:
-        if (Validering.textFaltVarde(txtNamn)){
-        String namn = txtNamn.getText();
-        String nyttLösenord = txtNyttLösenord.getText();
-        
-        String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Losenord = '"+ nyttLösenord +"' WHERE mibdb.Agent.Namn = '"+ namn +"' ";
-        
-        if (Validering.LösenordLängd(txtNyttLösenord)){
+        // Metoden ändrar lösenordet för den angivna agenten.
+        if (Validering.textFaltVarde(txtNamn)) {
+            String namn = txtNamn.getText();
+            String nyttLösenord = txtNyttLösenord.getText();
+
+            String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Losenord = '" + nyttLösenord + "' WHERE mibdb.Agent.Namn = '" + namn + "' ";
             
-            try {
-                 idb.update(ändra);
-                 JOptionPane.showMessageDialog(null, "Lösenord har ändrats");
-                 
-             }catch (Exception e) {
-                System.out.println(e.getMessage());
-             }
- 
+            //Kontrollerar att det nya lösenordets längd överensstämmer med databasens format för lösenord.
+            if (Validering.LösenordLängd(txtNyttLösenord)) {
+
+                try {
+                    idb.update(ändra); // Uppdaterar lösenordet.
+                    JOptionPane.showMessageDialog(null, "Lösenord har ändrats");
+
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+
+            }
+
         }
-       
-        }
-        
+
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**

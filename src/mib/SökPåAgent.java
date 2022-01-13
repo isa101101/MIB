@@ -194,23 +194,23 @@ public class SökPåAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
-        // TODO add your handling code here:
-        
+        // Metoden hämtar all information om en angiven agent.
+
         String Namn = txtNamn.getText();
-        
-       
-        
+
         if (Validering.textFaltVarde(txtNamn)) {
-            try{
-                String fråga1 = "SELECT Namn FROM mibdb.Agent where Namn = '"+Namn+"'";
-                String fråga2 = "SELECT Agent_ID FROM mibdb.Agent where Namn = '"+Namn+"'";
-                String fråga3 = "SELECT Telefon FROM mibdb.Agent where Namn = '"+Namn+"'";
-                String fråga4 = "SELECT Anstallningsdatum FROM mibdb.Agent where Namn = '"+Namn+"'";
-                String fråga5 = "SELECT Administrator FROM mibdb.Agent where Namn = '"+Namn+"'";
-                String fråga6 = "SELECT Losenord FROM mibdb.Agent where Namn = '"+Namn+"'";
+            try {
+                //Hämtar samtliga uppgifter om en angiven agent.
+                String fråga1 = "SELECT Namn FROM mibdb.Agent where Namn = '" + Namn + "'";
+                String fråga2 = "SELECT Agent_ID FROM mibdb.Agent where Namn = '" + Namn + "'";
+                String fråga3 = "SELECT Telefon FROM mibdb.Agent where Namn = '" + Namn + "'";
+                String fråga4 = "SELECT Anstallningsdatum FROM mibdb.Agent where Namn = '" + Namn + "'";
+                String fråga5 = "SELECT Administrator FROM mibdb.Agent where Namn = '" + Namn + "'";
+                String fråga6 = "SELECT Losenord FROM mibdb.Agent where Namn = '" + Namn + "'";
                 String fråga7 = "SELECT mibdb.Omrade.Benamning FROM mibdb.Omrade join mibdb.Agent on "
-                                + "mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade where mibdb.Agent.Namn ='"+Namn+"'";
-                
+                        + "mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade where mibdb.Agent.Namn ='" + Namn + "'";
+
+                //Hämtar svar på samtliga frågor.
                 String Resultat1 = idb.fetchSingle(fråga1);
                 String Resultat2 = idb.fetchSingle(fråga2);
                 String Resultat3 = idb.fetchSingle(fråga3);
@@ -218,39 +218,37 @@ public class SökPåAgent extends javax.swing.JFrame {
                 String Resultat5 = idb.fetchSingle(fråga5);
                 String Resultat6 = idb.fetchSingle(fråga6);
                 String Resultat7 = idb.fetchSingle(fråga7);
-                
-                
-                if(!Namn.equalsIgnoreCase(Resultat1)){
-                    JOptionPane.showMessageDialog(null, "Det finns ingen agent med namnet '"+ Namn + "'");
+
+                //Kontrollerar att namnet finns.
+                if (!Namn.equalsIgnoreCase(Resultat1)) {
+                    JOptionPane.showMessageDialog(null, "Det finns ingen agent med namnet '" + Namn + "'");
                 }
-                
-                
+
+                //Lokala variabler för adminstatus.
                 String Ja = "Ja";
                 String Nej = "Nej";
                 
-
+                
+                //Skriver ut svar på samtliga frågor.
                 txtID.setText(Resultat2);
                 txtTelefon.setText(Resultat3);
                 txtDatum.setText(Resultat4);
-                
                 txtLösenord.setText(Resultat6);
                 txtOmråde.setText(Resultat7);
-               
-                if(Resultat5.equals("J")) {
+
+                if (Resultat5.equals("J")) {
                     txtAdmin.setText(Ja);
                 }
                 if (Resultat5.equals("N")) {
-                     txtAdmin.setText(Nej);
+                    txtAdmin.setText(Nej);
                 }
-                        
-                
-                
-            }catch (Exception e) {
-           System.out.println(e.getMessage());
-                
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+
             }
         }
-        
+
     }//GEN-LAST:event_btnSökActionPerformed
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed

@@ -106,20 +106,25 @@ public class ÄndraAgentNam extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
-        // TODO add your handling code here:
-        
-          if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtNyttNamn)) {
-            try {
+        // Metoden ändrar namnet/beteckning på en agent.
 
+        if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtNyttNamn)) {
+            try {
+                //Lokala variabler-
                 String Namn = txtNamn.getText();
                 String nyttNamn = txtNyttNamn.getText();
-
+                
+                //Frågar om namnet redan finns.
                 String frågaFinnsRedanNamn = "SELECT mibdb.Agent.Namn FROM mibdb.Agent WHERE mibdb.Agent.Namn = '" + nyttNamn + "'";
                 String SvarFinnsRedanNamn = idb.fetchSingle(frågaFinnsRedanNamn);
+                
+                //Frågar om det nuvarande namnet har angivits korrekt.
                 String fråga = "SELECT mibdb.Agent.Namn from mibdb.Agent WHERE Namn = '" + Namn + "'";
                 String svar = idb.fetchSingle(fråga);
-
+                
+                //Kontrollerar att det nya namnet inte är upptaget.
                 if (SvarFinnsRedanNamn == null) {
+                    //Kontrollerar att det nuvarande namnet finns.
                     if (Namn.equalsIgnoreCase(svar)) {
 
                         String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Namn = '" + nyttNamn + "' WHERE mibdb.Agent.Namn = '" + Namn + "'";
@@ -130,8 +135,8 @@ public class ÄndraAgentNam extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, " Det finns ingen agent med namnet '" + Namn + "'");
                     }
 
-                }else {
-                    JOptionPane.showMessageDialog(null, " Det finns redan en agent med namnet '" +nyttNamn+ "'");
+                } else {
+                    JOptionPane.showMessageDialog(null, " Det finns redan en agent med namnet '" + nyttNamn + "'");
                 }
 
             } catch (Exception e) {
