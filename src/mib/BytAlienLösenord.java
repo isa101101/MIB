@@ -21,8 +21,7 @@ public class BytAlienLösenord extends javax.swing.JFrame {
         this.idb =idb;
         initComponents();
         
-        String Användarnamn = ÄndraAlien.txtVald.getText();
-        txtAnvändarnamn.setText(Användarnamn);
+        
     }
 
     /**

@@ -36,8 +36,8 @@ public class AlienMenu extends javax.swing.JFrame {
         lblÄndraLösenord = new javax.swing.JLabel();
         lblområdeschef = new javax.swing.JLabel();
         btnOmrådeschef = new javax.swing.JButton();
-        btnÄndraLösenord = new javax.swing.JButton();
         btnLoggaUt = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,17 +55,17 @@ public class AlienMenu extends javax.swing.JFrame {
             }
         });
 
-        btnÄndraLösenord.setText("Tryck här");
-        btnÄndraLösenord.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnÄndraLösenordActionPerformed(evt);
-            }
-        });
-
         btnLoggaUt.setText("Logga ut");
         btnLoggaUt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoggaUtActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Tryck här");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -82,9 +82,9 @@ public class AlienMenu extends javax.swing.JFrame {
                             .addComponent(lblområdeschef)
                             .addComponent(lblÄndraLösenord))
                         .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnOmrådeschef)
-                            .addComponent(btnÄndraLösenord))))
+                            .addComponent(jButton1))))
                 .addContainerGap(345, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -99,7 +99,7 @@ public class AlienMenu extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblÄndraLösenord)
-                    .addComponent(btnÄndraLösenord))
+                    .addComponent(jButton1))
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblområdeschef)
@@ -112,12 +112,6 @@ public class AlienMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnÄndraLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraLösenordActionPerformed
-        // TODO add your handling code here:
-        new BytAlienLösenord(idb).setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnÄndraLösenordActionPerformed
-
     private void btnOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmrådeschefActionPerformed
         // TODO add your handling code here:
         new OmrådesChefAlien(idb).setVisible(true);
@@ -129,6 +123,12 @@ public class AlienMenu extends javax.swing.JFrame {
         new Inloggtvå(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new BytAlienLösenord(idb).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,7 +168,7 @@ public class AlienMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoggaUt;
     private javax.swing.JButton btnOmrådeschef;
-    private javax.swing.JButton btnÄndraLösenord;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblVälkommen;
     private javax.swing.JLabel lblområdeschef;
     private javax.swing.JLabel lblÄndraLösenord;
