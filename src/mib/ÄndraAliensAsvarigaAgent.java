@@ -169,13 +169,13 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(Validering.textFaltVarde(txtNamn)){
             
-        String namn = txtNamn.getText();
+        String ID = txtID.getText();
         
         try{
             
             String fråga = "SELECT mibdb.Agent.Namn FROM mibdb.Agent "
                     + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
-                    + "WHERE mibdb.Alien.Namn = '"+namn+"'";
+                    + "WHERE mibdb.Alien.Alien_ID = '"+ID+"'";
             
             String svar = idb.fetchSingle(fråga);
             
