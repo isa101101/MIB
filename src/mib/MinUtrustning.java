@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
+
 /**
  *
  * @author isabellefredriksson
@@ -15,6 +16,7 @@ import oru.inf.InfDB;
 public class MinUtrustning extends javax.swing.JFrame {
 
     private InfDB idb;
+
     /**
      * Creates new form MinUtrustning
      */
@@ -117,32 +119,36 @@ public class MinUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
-        // TODO add your handling code here:
+        // Metod som hämtar agentens utrustning genom att ange agentens namn
 
         if (Validering.textFaltVarde(txtAgent)) {
-           
+
             try {
-                 taVisaResultat.setText("");
-                
+                //Tömmer Textfältet varje gång man trycker på sök-knappen
+                taVisaResultat.setText("");
+
+                //Hämtar värdet från textrutan
                 String Namn = txtAgent.getText();
-                
-                String frågaNamn = "SELECT mibdb.Agent.Namn from mibdb.Agent WHERE mibdb.Agent.Namn = '"+Namn+"'";
+
+                String frågaNamn = "SELECT mibdb.Agent.Namn from mibdb.Agent WHERE mibdb.Agent.Namn = '" + Namn + "'";
                 String svarNamn = idb.fetchSingle(frågaNamn);
-                
+
+                //Kontroll om det finns någon agent med det angvina namnet
                 if (Namn.equalsIgnoreCase(svarNamn)) {
-                    
-                String fraga = "SELECT mibdb.Utrustning.Benamning FROM mibdb.Utrustning "
-                        + "JOIN mibdb.Innehar_Utrustning ON mibdb.Utrustning.Utrustnings_ID = mibdb.Innehar_Utrustning.Utrustnings_ID "
-                        + "JOIN mibdb.Agent ON mibdb.Agent.Agent_ID = mibdb.Innehar_Utrustning.Agent_ID WHERE mibdb.Agent.Namn = '"+Namn+"'";
 
-                ArrayList<String> svar = idb.fetchColumn(fraga);
+                    String fraga = "SELECT mibdb.Utrustning.Benamning FROM mibdb.Utrustning "
+                            + "JOIN mibdb.Innehar_Utrustning ON mibdb.Utrustning.Utrustnings_ID = mibdb.Innehar_Utrustning.Utrustnings_ID "
+                            + "JOIN mibdb.Agent ON mibdb.Agent.Agent_ID = mibdb.Innehar_Utrustning.Agent_ID WHERE mibdb.Agent.Namn = '" + Namn + "'";
 
-                for (String Utrustning : svar) {
+                    //Skapas en lista med all utrustning som finns på den agivna perssonen
+                    ArrayList<String> svar = idb.fetchColumn(fraga);
 
-                    taVisaResultat.append(Utrustning+"\n");
-                }
+                    for (String Utrustning : svar) {
+
+                        taVisaResultat.append(Utrustning + "\n");
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Agent "+Namn+" finns inte");
+                    JOptionPane.showMessageDialog(null, "Agent " + Namn + " finns inte");
                 }
 
             } catch (Exception e) {
@@ -150,11 +156,10 @@ public class MinUtrustning extends javax.swing.JFrame {
             }
         }
 
-        
+
     }//GEN-LAST:event_btnSökActionPerformed
 
     private void txtTilbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTilbakaActionPerformed
-        // TODO add your handling code here:
         new AgentMenu(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_txtTilbakaActionPerformed
@@ -189,7 +194,7 @@ public class MinUtrustning extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }

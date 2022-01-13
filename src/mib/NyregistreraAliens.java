@@ -21,7 +21,6 @@ public class NyregistreraAliens extends javax.swing.JFrame {
     /**
      * Creates new form AlienMenu
      */
-
     /**
      * Creates new form NyregistreraAliens
      */
@@ -300,111 +299,113 @@ public class NyregistreraAliens extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlatsActionPerformed
-        // TODO add your handling code here:
+        //Får ej bort denna, ignorera!
     }//GEN-LAST:event_txtPlatsActionPerformed
 
     private void txtlösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlösenordActionPerformed
-        // TODO add your handling code here:
+        //Får ej bort denna, ignorera!
     }//GEN-LAST:event_txtlösenordActionPerformed
 
     private void btnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraActionPerformed
-        // TODO add your handling code here:
+        //Metod för att lägg till ny alien
 
-        if (Validering.textFaltVarde(txtlösenord) && Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtTelefon) 
+        if (Validering.textFaltVarde(txtlösenord) && Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtTelefon)
                 && Validering.textFaltVarde(txtPlats) && Validering.textFaltVarde(txtAnsvarigagent)) {
-            
-            if (Validering.LösenordLängd(txtlösenord)){
-                
-                if(Validering.textFaltNummer(txtTelefon)) {
 
-            try {
-                String ID = lblID.getText();
-                Date regDatum = Datum.getDate();
-                String lösenord = txtlösenord.getText();
-                String Namn = txtNamn.getText();
-                String Telefon = txtTelefon.getText();
-                String Plats = txtPlats.getText();
-                String AnsvarigAgent = txtAnsvarigagent.getText();
-                String antalArmar = txtAntalArmar.getText();
-                String antalBoogies = txtAntaBoogies.getText();
-                String worm2 = cmbRas.getSelectedItem().toString();
-                String Område = cmbOmråde.getSelectedItem().toString();
-                
-               SimpleDateFormat formatet = new SimpleDateFormat("YYYY/MM/D");
-               String form = formatet.format(regDatum.getTime());
-               String Datumet = form;
+            if (Validering.LösenordLängd(txtlösenord)) {
 
-                String FrågaFinnsPlats = "SELECT mibdb.Plats.Benamning FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '" + Plats + "'";
-                
-                String SvarFinnsPlats = idb.fetchSingle(FrågaFinnsPlats);
+                if (Validering.textFaltNummer(txtTelefon)) {
 
-                if (SvarFinnsPlats != null) {
-                    
+                    try {
+                        //Hämta värdet från alla fält
+                        String ID = lblID.getText();
+                        Date regDatum = Datum.getDate();
+                        String lösenord = txtlösenord.getText();
+                        String Namn = txtNamn.getText();
+                        String Telefon = txtTelefon.getText();
+                        String Plats = txtPlats.getText();
+                        String AnsvarigAgent = txtAnsvarigagent.getText();
+                        String antalArmar = txtAntalArmar.getText();
+                        String antalBoogies = txtAntaBoogies.getText();
+                        String worm2 = cmbRas.getSelectedItem().toString();
+                        String Område = cmbOmråde.getSelectedItem().toString();
 
-                    String FrågaPlats = "SELECT mibdb.Plats.Plats_ID FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '" + Plats + "'";
-                    
-                    String SvarPlats = idb.fetchSingle(FrågaPlats);
+                        //Formaterar datumet likt datatypen date så den kan lagras i databasen
+                        SimpleDateFormat formatet = new SimpleDateFormat("YYYY/MM/D");
+                        String form = formatet.format(regDatum.getTime());
+                        String Datumet = form;
 
-                    int Plats_ID = Integer.parseInt(SvarPlats);
+                        //Gör en SQL-fråga för att se om den angivna platsen finns eller inte 
+                        String FrågaFinnsPlats = "SELECT mibdb.Plats.Benamning FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '" + Plats + "'";
 
-                    String FrågaAnsvarigAgent = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '" + AnsvarigAgent + "'";
+                        String SvarFinnsPlats = idb.fetchSingle(FrågaFinnsPlats);
 
-                    String SvarAgent = idb.fetchSingle(FrågaAnsvarigAgent);
-                    
-                    if(SvarAgent != null) {
-                    int Agent_ID = Integer.parseInt(SvarAgent);
-                    
+                        //Villkor för om platsen finns
+                        if (SvarFinnsPlats != null) {
 
-                    String Nyalien = "INSERT INTO mibdb.Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES "
-                            + "('" + ID + "','" + Datumet + "','" + lösenord + "','" + Namn + "', '" + Telefon + "','" + Plats_ID + "','" + Agent_ID + "')";
+                            String FrågaPlats = "SELECT mibdb.Plats.Plats_ID FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '" + Plats + "'";
 
-                    idb.insert(Nyalien);
-              
-                if (cmbRas.getSelectedItem().equals("Worm")) {
-                    String ras1 = "INSERT INTO mibdb.Worm (Alien_ID) VALUES ('" + ID + "')";
-                    idb.insert(ras1);
-                }
+                            String SvarPlats = idb.fetchSingle(FrågaPlats);
 
-                if (cmbRas.getSelectedItem().equals("Squid")) {
-                    String ras2 = "INSERT INTO mibdb.Squid (Alien_ID, Antal_Armar) VALUES ('" + ID + "', '" + antalArmar + "')";
-                    idb.insert(ras2);
-                }
+                            //"Omtypning" från String till int då det är Plats_ID av datatypen int som ska lagras i databasen
+                            int Plats_ID = Integer.parseInt(SvarPlats);
 
-                if (cmbRas.getSelectedItem().equals("Boglodite")) {
-                    String ras3 = "INSERT INTO mibdb.Boglodite (Alien_ID, Antal_Boogies) VALUES ('" + ID + "', '" + antalBoogies + "')";
-                    idb.insert(ras3);
-                }
-                
-                    JOptionPane.showMessageDialog(null, "Alien har registreras");
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Ange annan Agent, den angivna agenten finns ej!");
-                    }
+                            String FrågaAnsvarigAgent = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '" + AnsvarigAgent + "'";
 
-                } else {
-                    
-                    //Om inte platsen finns ska den läggas till, vilket koden nedan gör
-                    String FrågaNyPlats_ID = "SELECT max(Plats_ID) FROM mibdb.Plats";
+                            String SvarAgent = idb.fetchSingle(FrågaAnsvarigAgent);
 
-                    
-                    String SvarNyPlats_ID = idb.fetchSingle(FrågaNyPlats_ID);
-            
+                            //Kontroll om Ansvarig agent finns eller inte
+                            if (SvarAgent != null) {
+                                //"Omtypning" från String till int med samma anledning som på plarts
+                                int Agent_ID = Integer.parseInt(SvarAgent);
 
-                    int SvaretNyPlats_ID = Integer.parseInt(SvarNyPlats_ID);
+                                String Nyalien = "INSERT INTO mibdb.Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES "
+                                        + "('" + ID + "','" + Datumet + "','" + lösenord + "','" + Namn + "', '" + Telefon + "','" + Plats_ID + "','" + Agent_ID + "')";
 
-                    int ResultatNyPlats_ID = SvaretNyPlats_ID + 1;
+                                idb.insert(Nyalien); //Alien läggs till!
 
+                                //Villkor för att se vilken ras som har angivits och där med vilken tabell det ska lagras i
+                                if (cmbRas.getSelectedItem().equals("Worm")) {
+                                    String ras1 = "INSERT INTO mibdb.Worm (Alien_ID) VALUES ('" + ID + "')";
+                                    idb.insert(ras1);
+                                }
 
-                    String FrågaOmråde_ID = "SELECT mibdb.Omrade.Omrades_ID FROM mibdb.Omrade WHERE mibdb.Omrade.Benamning = '" + Område + "'";
+                                if (cmbRas.getSelectedItem().equals("Squid")) {
+                                    String ras2 = "INSERT INTO mibdb.Squid (Alien_ID, Antal_Armar) VALUES ('" + ID + "', '" + antalArmar + "')";
+                                    idb.insert(ras2);
+                                }
 
-                    
-                    String SvarOmråde_ID = idb.fetchSingle(FrågaOmråde_ID);
+                                if (cmbRas.getSelectedItem().equals("Boglodite")) {
+                                    String ras3 = "INSERT INTO mibdb.Boglodite (Alien_ID, Antal_Boogies) VALUES ('" + ID + "', '" + antalBoogies + "')";
+                                    idb.insert(ras3);
+                                }
 
-                    int SvaretOmråde_ID = Integer.parseInt(SvarOmråde_ID);
+                                JOptionPane.showMessageDialog(null, "Alien har registreras");
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Ange annan Agent, den angivna agenten finns ej!");
+                            }
 
-                    String nyPlats = "INSERT INTO mibdb.Plats (Plats_ID, Finns_I, Benamning) VALUES ('" + ResultatNyPlats_ID + "', '" + SvaretOmråde_ID + "', '" + Plats + "')";
+                        } else {
 
-                    idb.insert(nyPlats);
+                            //Om inte platsen finns ska den läggas till, vilket koden nedan gör
+                            //Hämtar ID för nya platsen samt de valda område om gör "omtypning"
+                            String FrågaNyPlats_ID = "SELECT max(Plats_ID) FROM mibdb.Plats";
+
+                            String SvarNyPlats_ID = idb.fetchSingle(FrågaNyPlats_ID);
+
+                            int SvaretNyPlats_ID = Integer.parseInt(SvarNyPlats_ID);
+
+                            int ResultatNyPlats_ID = SvaretNyPlats_ID + 1;
+
+                            String FrågaOmråde_ID = "SELECT mibdb.Omrade.Omrades_ID FROM mibdb.Omrade WHERE mibdb.Omrade.Benamning = '" + Område + "'";
+
+                            String SvarOmråde_ID = idb.fetchSingle(FrågaOmråde_ID);
+
+                            int SvaretOmråde_ID = Integer.parseInt(SvarOmråde_ID);
+
+                            String nyPlats = "INSERT INTO mibdb.Plats (Plats_ID, Finns_I, Benamning) VALUES ('" + ResultatNyPlats_ID + "', '" + SvaretOmråde_ID + "', '" + Plats + "')";
+
+                            idb.insert(nyPlats); //Platsen läggs till!
 
                             JOptionPane.showMessageDialog(null, "Platsen du angav fanns inte sen tidigare och har nu registreras, tryck registrera igen för att lägga till alien!");
                         }
@@ -419,23 +420,25 @@ public class NyregistreraAliens extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnRegistreraActionPerformed
-    
+
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
-        // TODO add your handling code here:
         new Inloggtvå(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
     private void btnHämtaIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaIdActionPerformed
-        // TODO add your handling code here:
+        //Metod hämtar ID som är ledigt i tur så inte det anges något för högt eller upptaget ID
         try {
             String fråga = "SELECT max(Alien_ID) FROM mibdb.Alien";
 
             String svar1 = idb.fetchSingle(fråga);
 
+            //Skapar en lokal variabel och gör "omtypning" från String till Int
             int svaret = Integer.parseInt(svar1);
-            int resultat = svaret + 1;
+            int resultat = svaret + 1; //Kör +1 för att det ska generera nästa lediga ID
+
+            //"Omtypning" från Int till String för att kunna sätta värdet på labeln
             String slutResultat = Integer.toString(resultat);
 
             lblID.setText(slutResultat);
@@ -446,9 +449,10 @@ public class NyregistreraAliens extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHämtaIdActionPerformed
 
     private void cmbRasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbRasItemStateChanged
-        // TODO add your handling code here:
+        //Metod som tar fram olka textfält beorende vilken ras som väljs
         String vald = cmbRas.getSelectedItem().toString();
 
+        //Till en början är alla "onsynliga" och blir sedan satta som true om de ska visas på skärmen
         txtAntalArmar.setVisible(false);
         txtAntaBoogies.setVisible(false);
         lblAntaBoogies.setVisible(false);

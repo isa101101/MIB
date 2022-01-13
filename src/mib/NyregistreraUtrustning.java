@@ -4,7 +4,6 @@
  */
 package mib;
 
-
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -16,26 +15,26 @@ import oru.inf.InfException;
 public class NyregistreraUtrustning extends javax.swing.JFrame {
 
     private InfDB idb;
+
     /**
      * Creates new form NyregistreraUtrustning
      */
     public NyregistreraUtrustning(InfDB idb) {
         this.idb = idb;
         initComponents();
-        
+
         txtKommunikation.setVisible(false);
         txtTeknik.setVisible(false);
         txtVapen.setVisible(false);
         lblKaliber.setVisible(false);
         lblKtaftkälla.setVisible(false);
         lblöverföring.setVisible(false);
-        
+
     }
 
     //NyregistreraUtrustning(InfDB idb) {
-        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     //}
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -232,8 +231,9 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLäggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLäggTillActionPerformed
-        // TODO add your handling code here:
+        // Metoden lägger till ny utrustning
 
+        //Hämtar värden från samtliga fält samt deklararerar fyra lokala variabler för metod equals senare
         String kategori = cbValdKategori.getSelectedItem().toString();
         String HID = lblHämtadID.getText();
         String Benämning = txtUtrustningBenämning.getText();
@@ -244,18 +244,21 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         String vapen = "Vapen";
         String teknik = "Teknik";
         String välj = "-Välj-";
-        
 
+        //Kontroll att Utustningen får ett ID
         if (HID.isBlank()) {
             JOptionPane.showMessageDialog(null, "Hämta ID");
         }
 
+        //Kontroll att en kategori väljs
         if (kategori.equals(välj)) {
             JOptionPane.showMessageDialog(null, "Välj Kategori");
         }
 
         if (Validering.textFaltVarde(txtUtrustningBenämning)) {
 
+            //Nedan kontrolleras vilken kategori som har valds och sedan läggs utrustningen till i den tabellen
+            //samt utrustningstabell
             try {
 
                 if (kategori.equals("Kommunikation")) {
@@ -264,117 +267,106 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                     } else {
                         int ID = Integer.parseInt(HID);
                         String kom = "INSERT INTO mibdb.Kommunikation (Utrustnings_ID, overforingsteknik) VALUES ('" + ID + "', '" + överföring + "')";
-                        idb.insert(kom);
+                        idb.insert(kom); //Läggs till i tabellen för kommunikation
                         String NyUtrustning1 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
-                        idb.insert(NyUtrustning1);
+                        idb.insert(NyUtrustning1);//Läggs till i tabellen för utrustning
                         JOptionPane.showMessageDialog(null, "Ny utrustning tillagd");
 
                     }
                 }
 
                 if (kategori.equals(vapen)) {
-                    
+
                     if (kaliber1.isBlank()) {
                         JOptionPane.showMessageDialog(null, "Välj kaliber");
-                        
-                        
-                    }else {
+
+                    } else {
                         int kaliber2 = Integer.parseInt(kaliber1);
                         int ID = Integer.parseInt(HID);
-                  String vap = "INSERT INTO mibdb.Vapen (Utrustnings_ID, kaliber) VALUES ('" + ID + "', '" + kaliber2 + "')";
-                        idb.insert(vap);
+                        String vap = "INSERT INTO mibdb.Vapen (Utrustnings_ID, kaliber) VALUES ('" + ID + "', '" + kaliber2 + "')";
+                        idb.insert(vap); //Läggs till i tabellen för vapen
                         String NyUtrustning2 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
-                        idb.insert(NyUtrustning2);
-                        JOptionPane.showMessageDialog(null, "Ny utrustning tillagd");  
+                        idb.insert(NyUtrustning2); //Läggs till i tabellen för utrustning
+                        JOptionPane.showMessageDialog(null, "Ny utrustning tillagd");
                     }
                 }
 
-                // if (kategori.equals(teknik)) {
-                //   Validering.textFaltVarde(txtTeknik);
                 if (kategori.equals(teknik)) {
                     if (kraft.isBlank()) {
                         JOptionPane.showMessageDialog(null, "Välj kraftkälla");
                     } else {
                         int ID = Integer.parseInt(HID);
                         String tek = "INSERT INTO mibdb.Teknik (Utrustnings_ID, Kraftkalla) VALUES ('" + ID + "', '" + kraft + "')";
-                        idb.insert(tek);
+                        idb.insert(tek); //Läggs till i tabellen för teknik
                         String NyUtrustning3 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
-                        idb.insert(NyUtrustning3);
+                        idb.insert(NyUtrustning3); //Läggs till i tabellen för utrustning
                         JOptionPane.showMessageDialog(null, "Ny utrustning tillagd");
                     }
                 }
 
-            
-            
-                
-                }catch(NumberFormatException e ) {
-            JOptionPane.showMessageDialog(null, "Du måste ange kaliber med siffror, inga bokstäver är tillåtna!");
-            
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Du måste ange kaliber med siffror, inga bokstäver är tillåtna!");
+
             } catch (InfException e) {
                 System.out.println(e.getMessage());
-        }
-            
-        }
-    
+            }
 
-     
+        }
+
     }//GEN-LAST:event_btnLäggTillActionPerformed
 
     private void btnHämtaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaIDActionPerformed
-        // TODO add your handling code here:
-        
-            //String fråga1 = "SELECT max(Utrustnings_ID) FROM mibdb.Utrustning";
-            
-          try {
+        //Metod hämtar ID som är ledigt i tur så inte det anges något för högt eller upptaget ID
+
+        try {
             String fråga = "SELECT max(Utrustnings_ID) FROM mibdb.Utrustning";
-            
-            String svar1 = idb.fetchSingle(fråga); 
-            
+
+            String svar1 = idb.fetchSingle(fråga);
+
+            //Skapar en lokal variabel och gör "omtypning" från String till Int
             int svaret = Integer.parseInt(svar1);
-            int resultat = svaret +1;
-            
+            int resultat = svaret + 1; //Kör +1 för att det ska generera nästa lediga ID
+
+            //"Omtypning" från Int till String för att kunna sätta värdet på labeln
             String slutResultat = Integer.toString(resultat);
-            
-           lblHämtadID.setText(slutResultat);
-            
-            
-        }catch (Exception e) {
+
+            lblHämtadID.setText(slutResultat);
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-            }
+        }
     }//GEN-LAST:event_btnHämtaIDActionPerformed
 
     private void cbValdKategoriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbValdKategoriItemStateChanged
-        // TODO add your handling code here:
-        
+        // Metod som tar fram olka textfält beorende vilken kategori som väljs
+
         String vald = cbValdKategori.getSelectedItem().toString();
-        
+
+        //Till en början är alla "onsynliga" och blir sedan satta som true om de ska visas på skärmen
         txtKommunikation.setVisible(false);
         txtTeknik.setVisible(false);
         txtVapen.setVisible(false);
         lblKaliber.setVisible(false);
         lblKtaftkälla.setVisible(false);
         lblöverföring.setVisible(false);
-        
-       
-        
-        if(vald.equals("Kommunikation")) {
-             txtKommunikation.setVisible(true);
-             lblöverföring.setVisible(true);
+
+        if (vald.equals("Kommunikation")) {
+            txtKommunikation.setVisible(true);
+            lblöverföring.setVisible(true);
         }
-        
-        if(vald.equals("Vapen")){
+
+        if (vald.equals("Vapen")) {
             txtVapen.setVisible(true);
             lblKaliber.setVisible(true);
         }
-        
-        if(vald.equals("Teknik")) {
-             txtTeknik.setVisible(true);
-             lblKtaftkälla.setVisible(true);
+
+        if (vald.equals("Teknik")) {
+            txtTeknik.setVisible(true);
+            lblKtaftkälla.setVisible(true);
         }
     }//GEN-LAST:event_cbValdKategoriItemStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         new AgentMenu(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -409,7 +401,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }

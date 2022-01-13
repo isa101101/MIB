@@ -153,12 +153,15 @@ public class OmrådesChefAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
-        // TODO add your handling code here:
+        // Metod där information hämtas om den agent som är områdeschef för ett område
         
+        //Hämtar det valda området i comboBoxen
         String område = cmbOmråde.getSelectedItem().toString();
         
         try{
         
+        //Nedan ställs SQL-frågor för att hämta den information 
+        //som sedan skrivs ut i textrutan
         String fråga1 = "SELECT mibdb.Agent.Namn FROM mibdb.Agent "
                 + "join mibdb.Omrade ON mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade "
                 + "where mibdb.Omrade.Benamning = '"+område+"'";
@@ -176,6 +179,7 @@ public class OmrådesChefAlien extends javax.swing.JFrame {
                 + "JOIN mibdb.Omrade ON mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade "
                 + "where mibdb.Omrade.Benamning = '"+område+"'";
         
+        //Hämtar svaret på SQL-frågor i databasen
         String svar1 = idb.fetchSingle(fråga1);
         String svar2 = idb.fetchSingle(fråga2);
         String svar3 = idb.fetchSingle(fråga3);
@@ -193,8 +197,7 @@ public class OmrådesChefAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSökActionPerformed
 
     private void txtTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTillbakaActionPerformed
-        // TODO add your handling code here:
-        new AlienMenu(idb).setVisible(true);
+new AlienMenu(idb).setVisible(true);
         dispose();  
     }//GEN-LAST:event_txtTillbakaActionPerformed
 

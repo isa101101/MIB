@@ -9,7 +9,6 @@ import oru.inf.InfException;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-
 /**
  *
  * @author isabellefredriksson
@@ -17,6 +16,7 @@ import java.util.ArrayList;
 public class ListaRas extends javax.swing.JFrame {
 
     private InfDB idb;
+
     /**
      * Creates new form ListaRas
      */
@@ -137,74 +137,69 @@ public class ListaRas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbValdRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbValdRasActionPerformed
-        // TODO add your handling code here:
+        //Går ej att ta bort, igonera denna!
     }//GEN-LAST:event_cmbValdRasActionPerformed
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
-        // TODO add your handling code here:
-        
-        taVisaResultat.setText("");
-        String Ras = cmbValdRas.getSelectedItem().toString();
-        
-          try{
-        
-        if(Ras.equals("Worm")) {
+        //Metod för att söka vilka alien som har en viss ras
 
-        String fråga1 = "SELECT mibdb.Alien.Namn FROM Mibdb.Alien "
-                + "JOIN mibdb.Worm ON mibdb.Worm.Alien_ID = mibdb.Alien.Alien_ID";
-        
-        ArrayList <HashMap<String,String>> svar1 = idb.fetchRows(fråga1);
-        
-        
-        for (HashMap <String, String> Namn : svar1){
-            
-            taVisaResultat.append(Namn.get("Namn")+"\n");
-        }
-        }
-          
-      
-        
-        
-        if(Ras.equals("Squid")) {
+        //Tömma textrutan för varje klick på sök
+        taVisaResultat.setText("");
+
+        //Hämtar det angivna värdet i comboBox
+        String Ras = cmbValdRas.getSelectedItem().toString();
+
+        try {
+
+            //Kollar vad den agivna rasen matchar med för att se vilken ras-tabellen man ska hämta ifrån
+            //Och utifrån det göra en lista med dem alien från den tabellen
+            if (Ras.equals("Worm")) {
+
+                String fråga1 = "SELECT mibdb.Alien.Namn FROM Mibdb.Alien "
+                        + "JOIN mibdb.Worm ON mibdb.Worm.Alien_ID = mibdb.Alien.Alien_ID";
+
+                ArrayList<HashMap<String, String>> svar1 = idb.fetchRows(fråga1);
+
+                for (HashMap<String, String> Namn : svar1) {
+
+                    taVisaResultat.append(Namn.get("Namn") + "\n");
+                }
+            }
+
+            if (Ras.equals("Squid")) {
 
                 String fråga2 = "SELECT mibdb.Alien.Namn FROM Mibdb.Alien "
-                + "JOIN mibdb.Squid ON mibdb.Squid.Alien_ID = mibdb.Alien.Alien_ID";
-                
-                ArrayList <HashMap<String,String>> svar2 = idb.fetchRows(fråga2);
-                
-                for (HashMap <String,String> Namn : svar2){
-                    
+                        + "JOIN mibdb.Squid ON mibdb.Squid.Alien_ID = mibdb.Alien.Alien_ID";
+
+                ArrayList<HashMap<String, String>> svar2 = idb.fetchRows(fråga2);
+
+                for (HashMap<String, String> Namn : svar2) {
+
                     taVisaResultat.append(Namn.get("Namn") + "\n");
-                    
+
                 }
-           
+
+            }
+
+            if (Ras.equals("Boglodite")) {
+                String fråga3 = "SELECT mibdb.Alien.Namn FROM Mibdb.Alien "
+                        + "JOIN mibdb.Boglodite ON mibdb.Boglodite.Alien_ID = mibdb.Alien.Alien_ID";
+
+                ArrayList<HashMap<String, String>> svar3 = idb.fetchRows(fråga3);
+
+                for (HashMap<String, String> Namn : svar3) {
+
+                    taVisaResultat.append(Namn.get("Namn") + "\n");
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-            
-       if (Ras.equals("Boglodite")){
-           
-           
-               
-           String fråga3 = "SELECT mibdb.Alien.Namn FROM Mibdb.Alien "
-                   + "JOIN mibdb.Boglodite ON mibdb.Boglodite.Alien_ID = mibdb.Alien.Alien_ID";
-               
-           ArrayList <HashMap<String,String>> svar3 = idb.fetchRows(fråga3);
-           
-           for (HashMap <String,String> Namn : svar3){
-               
-               taVisaResultat.append(Namn.get("Namn") + "\n");
-           }
-       }   
-       
-           }catch (Exception e) {
-           System.out.println(e.getMessage());
-           }
-          
-        
-        
+
     }//GEN-LAST:event_btnSökActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         new AgentMenu(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -239,7 +234,7 @@ public class ListaRas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }
