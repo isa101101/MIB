@@ -22,6 +22,13 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
     public ÄndraAliensAsvarigaAgent(InfDB idb) {
         this.idb = idb;
         initComponents();
+        
+        String HämtaNamn = ÄndraAlien.txtVald.getText();
+        String HämtaID = ÄndraAlien.txtValdID.getText();
+        
+        txtNamn.setText(HämtaNamn);
+        txtID.setText(HämtaID);
+               
     }
 
     /**
@@ -43,6 +50,8 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
         txtNamn = new javax.swing.JTextField();
         btnHämtaAgent = new javax.swing.JButton();
         btnTillbaka = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,13 +69,13 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
             }
         });
 
-        txtNuvarandeAgent.setColumns(8);
+        txtNuvarandeAgent.setColumns(10);
 
-        txtNyAgent.setColumns(8);
+        txtNyAgent.setColumns(10);
 
         lblAliensNamn.setText("Aliens namn:");
 
-        txtNamn.setColumns(8);
+        txtNamn.setColumns(10);
 
         btnHämtaAgent.setText("Hämta agent");
         btnHämtaAgent.addActionListener(new java.awt.event.ActionListener() {
@@ -82,42 +91,56 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Alien ID");
+
+        txtID.setColumns(10);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(251, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnÄndra)
-                    .addComponent(lblRubrikÄndraAnsvarigAgent)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(lblNyAnsvarigAgent)
-                            .addComponent(lblAliensNamn))
+                            .addComponent(lblNyAnsvarigAgent))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNyAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtNuvarandeAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnTillbaka)
-                                    .addComponent(btnHämtaAgent))))))
-                .addGap(0, 53, Short.MAX_VALUE))
+                                    .addComponent(btnHämtaAgent)))))
+                    .addComponent(lblRubrikÄndraAnsvarigAgent)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAliensNamn)
+                            .addComponent(jLabel1))
+                        .addGap(103, 103, 103)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(184, 184, 184))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(75, 75, 75)
                 .addComponent(lblRubrikÄndraAnsvarigAgent)
-                .addGap(19, 19, 19)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAliensNamn)
                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtNuvarandeAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,7 +153,7 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnÄndra)
                     .addComponent(btnTillbaka))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(244, Short.MAX_VALUE))
         );
 
         pack();
@@ -249,10 +272,12 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
     private javax.swing.JButton btnHämtaAgent;
     private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnÄndra;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblAliensNamn;
     private javax.swing.JLabel lblNyAnsvarigAgent;
     private javax.swing.JLabel lblRubrikÄndraAnsvarigAgent;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtNuvarandeAgent;
     private javax.swing.JTextField txtNyAgent;

@@ -22,6 +22,11 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
     public ÄndraAliensNamn(InfDB idb) {
         this.idb = idb;
         initComponents();
+        
+        String HämtaNamn = ÄndraAlien.txtVald.getText();
+        String HämtaID = ÄndraAlien.txtValdID.getText();
+        txtNamn.setText(HämtaNamn);
+        txtID.setText(HämtaID);
        
     }
 
@@ -43,12 +48,8 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
         txtNamn = new javax.swing.JTextField();
         lblRubrikÄndraNamn = new javax.swing.JLabel();
         btnTillbaka = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        cmbSök = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        taVisaResultat = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -63,9 +64,9 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
 
         lblNyttNamn.setText("Ange nytt namn:");
 
-        lblBefintligtNamn.setText("Ange befintligt namn:");
+        lblBefintligtNamn.setText("Nuvarande namn");
 
-        txtNyttNamn.setColumns(8);
+        txtNyttNamn.setColumns(10);
 
         txtNamn.setColumns(10);
 
@@ -79,51 +80,31 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setColumns(8);
+        jLabel3.setText("Alien ID");
 
-        cmbSök.setText("Sök");
-        cmbSök.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbSökActionPerformed(evt);
-            }
-        });
-
-        taVisaResultat.setColumns(20);
-        taVisaResultat.setRows(5);
-        jScrollPane1.setViewportView(taVisaResultat);
-
-        jLabel1.setText("Ange ID på den Alien du vill ändra namn på");
-
-        jLabel2.setText("Aliens ID med det angivna namnet:");
+        txtID.setColumns(10);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnTillbaka)
-                    .addComponent(btnÄndraNamn)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(cmbSök)
-                        .addComponent(lblRubrikÄndraNamn)
+                .addGap(277, 277, 277)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblRubrikÄndraNamn)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnÄndraNamn)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblBefintligtNamn)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel3)
+                                .addComponent(lblBefintligtNamn)
+                                .addComponent(lblNyttNamn))
                             .addGap(18, 18, 18)
-                            .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addComponent(jLabel2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblNyttNamn)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNyttNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNyttNamn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnTillbaka)))
                 .addContainerGap(299, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -131,29 +112,23 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(lblRubrikÄndraNamn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBefintligtNamn)
                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addComponent(cmbSök)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel3)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNyttNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNyttNamn))
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addComponent(btnÄndraNamn)
-                .addGap(64, 64, 64)
+                .addGap(27, 27, 27)
                 .addComponent(btnTillbaka)
-                .addGap(37, 37, 37))
+                .addGap(205, 205, 205))
         );
 
         pack();
@@ -164,9 +139,9 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
         
         if(Validering.textFaltVarde(txtNyttNamn)) {
         try{
-        String namn = txtNamn.getText();
+        String ID = txtID.getText();
         String NyttNamn = txtNyttNamn.getText();
-        String ändra = "UPDATE mibdb.Alien SET Namn = '"+NyttNamn+"' WHERE Namn = '"+namn+"'";
+        String ändra = "UPDATE mibdb.Alien SET Namn = '"+NyttNamn+"' WHERE mibdb.Alien.Alien_ID = '"+ID+"'";
                    
         idb.update(ändra);
         JOptionPane.showMessageDialog(null, "Namnet har ändrats");
@@ -185,47 +160,6 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
         dispose();
         
     }//GEN-LAST:event_btnTillbakaActionPerformed
-
-    private void cmbSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSökActionPerformed
-        // TODO add your handling code here:
-         taVisaResultat.setText("");
-
-        String namn = txtNamn.getText();
-
-        if (Validering.textFaltVarde(txtNamn)) {
-
-            try {
-                
-                String frågaNamn = "SELECT mibdb.Alien.Namn from mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
-                
-                String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '" +namn+ "'";
-                
-                String svarNamn = idb.fetchSingle(fråga);
-                
-                if (svarNamn==null) {
-                    JOptionPane.showMessageDialog(null, "Det finns ingen alien med namnet '"+namn+"'");
-
-                } else {
-                    ArrayList<String> svar = idb.fetchColumn(fråga);
-
-                for (String ID : svar) {
-
-                    taVisaResultat.append(ID + "\n");
-
-                }
-                 
-                    
-                }
-                
-                
-
-            } catch (InfException e) {
-                System.out.println(e.getMessage());
-
-            }
-         }
-        
-    }//GEN-LAST:event_cmbSökActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,16 +199,12 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnÄndraNamn;
-    private javax.swing.JButton cmbSök;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblBefintligtNamn;
     private javax.swing.JLabel lblNyttNamn;
     private javax.swing.JLabel lblRubrikÄndraNamn;
-    private javax.swing.JTextArea taVisaResultat;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtNyttNamn;
     // End of variables declaration//GEN-END:variables

@@ -24,18 +24,20 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnÄndra" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblRubrikÄndraAliensPlats" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRubrikÄndraAliensPlats" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblNyPlats" min="-2" max="-2" attributes="0"/>
                           <Component id="lblBefintligtPlats" min="-2" max="-2" attributes="0"/>
                           <Component id="lblAliensNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtID" min="-2" max="-2" attributes="0"/>
                           <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
                           <Component id="txtNyPlats" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
@@ -49,7 +51,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="7" max="32767" attributes="0"/>
+              <EmptySpace pref="211" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -58,12 +60,17 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="lblRubrikÄndraAliensPlats" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAliensNamn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNamn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtID" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtBefintligPlats" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblBefintligtPlats" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -79,7 +86,7 @@
                   <Component id="btnÄndra" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnTillbaka" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace pref="208" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -95,12 +102,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtNyPlats">
       <Properties>
-        <Property name="columns" type="int" value="8"/>
+        <Property name="columns" type="int" value="10"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtBefintligPlats">
       <Properties>
-        <Property name="columns" type="int" value="8"/>
+        <Property name="columns" type="int" value="10"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNyPlats">
@@ -128,7 +135,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtNamn">
       <Properties>
-        <Property name="columns" type="int" value="8"/>
+        <Property name="columns" type="int" value="10"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnH&#xe4;mtaPlats">
@@ -146,6 +153,16 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTillbakaActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alien ID"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtID">
+      <Properties>
+        <Property name="columns" type="int" value="10"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
