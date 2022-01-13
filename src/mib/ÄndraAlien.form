@@ -75,7 +75,7 @@
                                   <Component id="btnÄndraNamn" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnÄndraPlats" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnÄndraAgent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnUppdatera" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnÄndraRas" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnÄndraTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -157,7 +157,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblRas" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnUppdatera" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnÄndraRas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
@@ -200,12 +200,12 @@
         <Property name="text" type="java.lang.String" value="Ras:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnUppdatera">
+    <Component class="javax.swing.JButton" name="btn&#xc4;ndraRas">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra Ras"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUppdateraActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraRasActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAnsvarigAgent">

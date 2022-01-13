@@ -49,7 +49,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
         RubrikNyAlien = new javax.swing.JLabel();
         lblNamn = new javax.swing.JLabel();
         lblRas = new javax.swing.JLabel();
-        btnUppdatera = new javax.swing.JButton();
+        btnÄndraRas = new javax.swing.JButton();
         lblAnsvarigAgent = new javax.swing.JLabel();
         lblAktuellPlats = new javax.swing.JLabel();
         btnTillbaka = new javax.swing.JButton();
@@ -87,10 +87,10 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
         lblRas.setText("Ras:");
 
-        btnUppdatera.setText("Ändra Ras");
-        btnUppdatera.addActionListener(new java.awt.event.ActionListener() {
+        btnÄndraRas.setText("Ändra Ras");
+        btnÄndraRas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUppdateraActionPerformed(evt);
+                btnÄndraRasActionPerformed(evt);
             }
         });
 
@@ -229,7 +229,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
                                     .addComponent(btnÄndraNamn)
                                     .addComponent(btnÄndraPlats)
                                     .addComponent(btnÄndraAgent)
-                                    .addComponent(btnUppdatera)
+                                    .addComponent(btnÄndraRas)
                                     .addComponent(btnÄndraTelefon)))
                             .addComponent(RubrikNyAlien)
                             .addComponent(lbl1)
@@ -293,7 +293,7 @@ public class ÄndraAlien extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRas)
-                    .addComponent(btnUppdatera))
+                    .addComponent(btnÄndraRas))
                 .addGap(29, 29, 29)
                 .addComponent(btnTillbaka)
                 .addContainerGap(104, Short.MAX_VALUE))
@@ -304,11 +304,15 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
     
     
-    private void btnUppdateraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUppdateraActionPerformed
+    private void btnÄndraRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraRasActionPerformed
         // TODO add your handling code here:
+        if (Validering.textFaltVarde(txtVald) && Validering.textFaltVarde(txtValdID)) {
         new ÄndraAliensRas(idb).setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnUppdateraActionPerformed
+        }else {
+            JOptionPane.showMessageDialog(null, "Välj vilken alien du vill ändra");
+        }
+    }//GEN-LAST:event_btnÄndraRasActionPerformed
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
         // TODO add your handling code here:
@@ -318,38 +322,62 @@ public class ÄndraAlien extends javax.swing.JFrame {
 
     private void btnÄndraNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraNamnActionPerformed
         // TODO add your handling code here:
+        if (Validering.textFaltVarde(txtVald) && Validering.textFaltVarde(txtValdID)) {
         new ÄndraAliensNamn(idb).setVisible(true);
         dispose();
+         }else {
+            JOptionPane.showMessageDialog(null, "Välj vilken alien du vill ändra");
+        }
     }//GEN-LAST:event_btnÄndraNamnActionPerformed
 
     private void btnÄndraRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraRegDatumActionPerformed
         // TODO add your handling code here:
+        if (Validering.textFaltVarde(txtVald) && Validering.textFaltVarde(txtValdID)) {
         new ÄndraAliensRegDatum(idb).setVisible(true);
         dispose();
+         }else {
+            JOptionPane.showMessageDialog(null, "Välj vilken alien du vill ändra");
+        }
     }//GEN-LAST:event_btnÄndraRegDatumActionPerformed
 
     private void btnÄndraTelefonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraTelefonActionPerformed
         // TODO add your handling code here:
+        if (Validering.textFaltVarde(txtVald) && Validering.textFaltVarde(txtValdID)) {
         new ÄndraAliensTelefon(idb).setVisible(true);
         dispose();
+        }else {
+            JOptionPane.showMessageDialog(null, "Välj vilken alien du vill ändra");
+        }
     }//GEN-LAST:event_btnÄndraTelefonActionPerformed
 
     private void btnÄndraPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraPlatsActionPerformed
         // TODO add your handling code here:
+        if (Validering.textFaltVarde(txtVald) && Validering.textFaltVarde(txtValdID)) {
         new ÄndraAliensPlats(idb).setVisible(true);
         dispose();
+        }else {
+            JOptionPane.showMessageDialog(null, "Välj vilken alien du vill ändra");
+        }
     }//GEN-LAST:event_btnÄndraPlatsActionPerformed
 
     private void btnÄndraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAgentActionPerformed
         // TODO add your handling code here:
+        if (Validering.textFaltVarde(txtVald) && Validering.textFaltVarde(txtValdID)) {
         new ÄndraAliensAsvarigaAgent(idb).setVisible(true);
         dispose();
+        }else {
+            JOptionPane.showMessageDialog(null, "Välj vilken alien du vill ändra");
+        }
     }//GEN-LAST:event_btnÄndraAgentActionPerformed
 
     private void btnÄndraLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraLösenordActionPerformed
         // TODO add your handling code here:
+        if (Validering.textFaltVarde(txtVald) && Validering.textFaltVarde(txtValdID)) {
         new ÄndraAlienLösenord(idb).setVisible(true);
         dispose();
+        }else {
+            JOptionPane.showMessageDialog(null, "Välj vilken alien du vill ändra");
+        }
     }//GEN-LAST:event_btnÄndraLösenordActionPerformed
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
@@ -447,12 +475,12 @@ public class ÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel RubrikNyAlien;
     private javax.swing.JButton btnSök;
     private javax.swing.JButton btnTillbaka;
-    private javax.swing.JButton btnUppdatera;
     private javax.swing.JButton btnVälj;
     private javax.swing.JButton btnÄndraAgent;
     private javax.swing.JButton btnÄndraLösenord;
     private javax.swing.JButton btnÄndraNamn;
     private javax.swing.JButton btnÄndraPlats;
+    private javax.swing.JButton btnÄndraRas;
     private javax.swing.JButton btnÄndraRegDatum;
     private javax.swing.JButton btnÄndraTelefon;
     private javax.swing.JLabel jLabel1;

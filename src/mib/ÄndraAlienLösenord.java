@@ -164,8 +164,8 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
         String Alien = txtAID.getText();
 
         try{
+            
             String fråga = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '"+AID+"'";
-
             String svar = idb.fetchSingle(fråga);
             
             if(svar != null){
@@ -197,6 +197,7 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
         String AID =ÄndraAlien.txtValdID.getText();
         
         if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtAID) && Validering.textFaltVarde(txtBefintligtLösenord) && Validering.textFaltVarde(txtNyttLösenord)) {
+            if (Validering.LösenordLängd(txtNyttLösenord)) {
         
             try{
             
@@ -218,6 +219,7 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
         }catch (Exception e) {
             System.out.println(e.getMessage());
  
+        }
         }
         }
     

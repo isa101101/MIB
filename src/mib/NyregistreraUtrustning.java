@@ -244,7 +244,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         String vapen = "Vapen";
         String teknik = "Teknik";
         String välj = "-Välj-";
-        int kaliber2 = Integer.parseInt(kaliber1);
+        
 
         if (HID.isBlank()) {
             JOptionPane.showMessageDialog(null, "Hämta ID");
@@ -279,6 +279,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                         
                         
                     }else {
+                        int kaliber2 = Integer.parseInt(kaliber1);
                         int ID = Integer.parseInt(HID);
                   String vap = "INSERT INTO mibdb.Vapen (Utrustnings_ID, kaliber) VALUES ('" + ID + "', '" + kaliber2 + "')";
                         idb.insert(vap);
@@ -305,10 +306,16 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
             
             
-                } catch (InfException e) {
+                
+                }catch(NumberFormatException e ) {
+            JOptionPane.showMessageDialog(null, "Du måste ange kaliber med siffror, inga bokstäver är tillåtna!");
+            
+            } catch (InfException e) {
                 System.out.println(e.getMessage());
-            }
         }
+            
+        }
+    
 
      
     }//GEN-LAST:event_btnLäggTillActionPerformed
