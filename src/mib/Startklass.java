@@ -16,21 +16,18 @@ import oru.inf.InfException;
 public class Startklass {
 
     private static InfDB idb;
-    
 
     public static void main(String[] args) {
         try {
-            
+
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
-            
-        }catch (InfException ettUndantag) {
+
+        } catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog(null, "Något gick fel");
             System.out.println("internt felmeddelande " + ettUndantag.getMessage());
-            
+
         }
 
-        
-        
         new Inloggtvå(idb).setVisible(true);
 
     }

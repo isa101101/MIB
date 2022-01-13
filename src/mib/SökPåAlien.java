@@ -276,40 +276,40 @@ public class SökPåAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
-        // TODO add your handling code here:
+        // Metoden hämtar all information om angiven alien.
+        // Efterssom att flera aliens kan ha samma namn så kontrollerar koden också så rätt ID anges i dessa fall.
 
         String Namn = txtNamn.getText();
 
         try {
-       
 
             String frågaA = "SELECT Alien_ID FROM mibdb.Alien where Namn = '" + Namn + "'";
-            
+
             String svaret = idb.fetchSingle(frågaA);
-            
-            if (svaret == null){
+
+            //Kontrollerar att namnet finns.
+            if (svaret == null) {
                 JOptionPane.showMessageDialog(null, "Det finns ingen alien med namnet '" + Namn + "'");
             }
-            
 
             ArrayList<String> svarA = idb.fetchColumn(frågaA);
 
             for (String ID : svarA) {
                 
-
+                //Om det finns fler aliens med samma namn så görs nya textrutor och labels synliga där ID måste anges.
                 if (svarA.size() > 1) {
-                   
+
                     txtID.setVisible(true);
                     btnSök2.setVisible(true);
                     taResultat.setVisible(true);
                     lbl1.setVisible(true);
                     lbl2.setVisible(true);
-                    
-                     taResultat.append(ID + "\n");
-                    
-     
-                } else if (svarA.size() == 1) {
 
+                    taResultat.append(ID + "\n");
+                    
+                } else if (svarA.size() == 1) {
+                    
+                    //Hämtar samtliga uppgifter om en angiven alien.
                     String fråga1 = "SELECT Alien_ID FROM mibdb.Alien where Namn = '" + Namn + "'";
                     String fråga2 = "SELECT Registreringsdatum FROM mibdb.Alien where Namn = '" + Namn + "'";
                     String fråga3 = "SELECT Namn FROM mibdb.Alien where Namn = '" + Namn + "'";
@@ -320,8 +320,9 @@ public class SökPåAlien extends javax.swing.JFrame {
                     String fråga6 = "SELECT mibdb.Agent.namn FROM mibdb.Agent "
                             + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
                             + "WHERE mibdb.Alien.Namn = '" + Namn + "'";
-                    String fråga7 = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien where mibdb.Alien.Namn = '"+ Namn +"'";
-
+                    String fråga7 = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien where mibdb.Alien.Namn = '" + Namn + "'";
+                    
+                    //Hämtar svar på samtliga frågor.
                     String svar1 = idb.fetchSingle(fråga1);
                     String svar2 = idb.fetchSingle(fråga2);
                     String svar3 = idb.fetchSingle(fråga3);
@@ -330,6 +331,7 @@ public class SökPåAlien extends javax.swing.JFrame {
                     String svar6 = idb.fetchSingle(fråga6);
                     String svar7 = idb.fetchSingle(fråga7);
 
+                    //Skriver ut svaren på samtliga frågor.
                     txtAID.setText(svar1);
                     txtRegdatum.setText(svar2);
                     txtalienNamn.setText(svar3);
@@ -337,51 +339,43 @@ public class SökPåAlien extends javax.swing.JFrame {
                     txtPlats.setText(svar5);
                     txtAnsvarig.setText(svar6);
                     txtLösenord.setText(svar7);
-                    
-                    /** Pågrund av att aliens ras lagras i tre olika tabell och inte refereras i alien tabell
-                    * ställs tre frågor nedan med hjälp av villkor för att hitta vilken ras alien har
-                    * Om alien inte har någon angiven ras så kommer det generera null på alla frågor och där med 
-                    * göra det som står i sista else-satsen, alltså skriva ut att alien inte har någon ras.
-                    */
-                    
-                    String fråga8 = "SELECT mibdb.Worm.Alien_ID from mibdb.Worm WHERE Alien_ID = '"+svar1+"'";
-                    
+
+                    /**
+                     * Pågrund av att aliens ras lagras i tre olika tabell och
+                     * inte refereras i alien tabell ställs tre frågor nedan med
+                     * hjälp av villkor för att hitta vilken ras alien har Om
+                     * alien inte har någon angiven ras så kommer det generera
+                     * null på alla frågor och där med göra det som står i sista
+                     * else-satsen, alltså skriva ut att alien inte har någon
+                     * ras.
+                     */
+                    String fråga8 = "SELECT mibdb.Worm.Alien_ID from mibdb.Worm WHERE Alien_ID = '" + svar1 + "'";
+
                     String svar8 = idb.fetchSingle(fråga8);
-                    
-                    if(svar8 == null)
-                    {
-                        String fråga9 = "SELECT mibdb.Squid.Alien_ID from mibdb.Squid WHERE Alien_ID = '"+svar1+"'";
-                        
+
+                    if (svar8 == null) {
+                        String fråga9 = "SELECT mibdb.Squid.Alien_ID from mibdb.Squid WHERE Alien_ID = '" + svar1 + "'";
+
                         String svar9 = idb.fetchSingle(fråga9);
-                        
-                        if (svar9 == null)
-                        {
-                            String fråga10 = "SELECT mibdb.Boglodite.Alien_ID from mibdb.Boglodite WHERE Alien_ID = '"+svar1+"'";
-                            
+
+                        if (svar9 == null) {
+                            String fråga10 = "SELECT mibdb.Boglodite.Alien_ID from mibdb.Boglodite WHERE Alien_ID = '" + svar1 + "'";
+
                             String svar10 = idb.fetchSingle(fråga10);
-                            
-                            if (svar10 == null)
-                            {
+
+                            if (svar10 == null) {
                                 txtRas.setText("Ingen ras");
-                            }
-                            
-                            else {
+                            } else {
                                 txtRas.setText("Boglodite");
                             }
-                        }
-                        else {
+                        } else {
                             txtRas.setText("Squid");
                         }
-                    }
-                    else{
+                    } else {
                         txtRas.setText("Worm");
                     }
-                        
 
-                     
-
-
-                } 
+                }
 
             }
 
@@ -400,78 +394,80 @@ public class SökPåAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTillbakaActionPerformed
 
     private void btnSök2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSök2ActionPerformed
-        // TODO add your handling code here:
-    
+        // Metoden hämtar all information om en angiven alien då det finns fler aliens med samma namn.
+
         String ID = txtID.getText();
-        
+
         try {
 
-        String fråga1 = "SELECT Alien_ID FROM mibdb.Alien where Alien_ID = '" + ID + "'";
-        String fråga2 = "SELECT Registreringsdatum FROM mibdb.Alien where Alien_ID = '" + ID + "'";
-        String fråga3 = "SELECT Namn FROM mibdb.Alien where Alien_ID = '" + ID + "'";
-        String fråga4 = "SELECT Telefon FROM mibdb.Alien where Alien_ID = '" + ID + "'";
-        String fråga5 = "SELECT mibdb.Plats.Benamning FROM mibdb.Plats "
-                + "JOIN mibdb.Alien ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats "
-                + "WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
-        String fråga6 = "SELECT mibdb.Agent.namn FROM mibdb.Agent "
-                + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
-                + "WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
-        String fråga7 = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien where Alien_ID = '" + ID + "'";
+            //Hämtar samtliga uppgifter om en angiven alien.
+            String fråga1 = "SELECT Alien_ID FROM mibdb.Alien where Alien_ID = '" + ID + "'";
+            String fråga2 = "SELECT Registreringsdatum FROM mibdb.Alien where Alien_ID = '" + ID + "'";
+            String fråga3 = "SELECT Namn FROM mibdb.Alien where Alien_ID = '" + ID + "'";
+            String fråga4 = "SELECT Telefon FROM mibdb.Alien where Alien_ID = '" + ID + "'";
+            String fråga5 = "SELECT mibdb.Plats.Benamning FROM mibdb.Plats "
+                    + "JOIN mibdb.Alien ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats "
+                    + "WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
+            String fråga6 = "SELECT mibdb.Agent.namn FROM mibdb.Agent "
+                    + "JOIN mibdb.Alien ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent "
+                    + "WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
+            String fråga7 = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien where Alien_ID = '" + ID + "'";
 
-        String svar1 = idb.fetchSingle(fråga1);
-        String svar2 = idb.fetchSingle(fråga2);
-        String svar3 = idb.fetchSingle(fråga3);
-        String svar4 = idb.fetchSingle(fråga4);
-        String svar5 = idb.fetchSingle(fråga5);
-        String svar6 = idb.fetchSingle(fråga6);
-        String svar7 = idb.fetchSingle(fråga7);
+            //Hämtar svar på Samtliga frågor.
+            String svar1 = idb.fetchSingle(fråga1);
+            String svar2 = idb.fetchSingle(fråga2);
+            String svar3 = idb.fetchSingle(fråga3);
+            String svar4 = idb.fetchSingle(fråga4);
+            String svar5 = idb.fetchSingle(fråga5);
+            String svar6 = idb.fetchSingle(fråga6);
+            String svar7 = idb.fetchSingle(fråga7);
 
-        txtAID.setText(svar1);
-        txtRegdatum.setText(svar2);
-        txtalienNamn.setText(svar3);
-        txtTelefon.setText(svar4);
-        txtPlats.setText(svar5);
-        txtAnsvarig.setText(svar6);
-        txtLösenord.setText(svar7);
-        
-        String fråga8 = "SELECT mibdb.Worm.Alien_ID from mibdb.Worm WHERE Alien_ID = '"+svar1+"'";
-                    
-                    String svar8 = idb.fetchSingle(fråga8);
-                    
-                    if(svar8 == null)
-                    {
-                        String fråga9 = "SELECT mibdb.Squid.Alien_ID from mibdb.Squid WHERE Alien_ID = '"+svar1+"'";
-                        
-                        String svar9 = idb.fetchSingle(fråga9);
-                        
-                        if (svar9 == null)
-                        {
-                            String fråga10 = "SELECT mibdb.Boglodite.Alien_ID from mibdb.Boglodite WHERE Alien_ID = '"+svar1+"'";
-                            
-                            String svar10 = idb.fetchSingle(fråga10);
-                            
-                            if (svar10 == null)
-                            {
-                                txtRas.setText("Ingen ras");
-                            }
-                            
-                            else {
-                                txtRas.setText("Boglodite");
-                            }
-                        }
-                        else {
-                            txtRas.setText("Squid");
-                        }
+            //Skriver ut svar på samtliga frågor.
+            txtAID.setText(svar1);
+            txtRegdatum.setText(svar2);
+            txtalienNamn.setText(svar3);
+            txtTelefon.setText(svar4);
+            txtPlats.setText(svar5);
+            txtAnsvarig.setText(svar6);
+            txtLösenord.setText(svar7);
+
+            /**
+             * Pågrund av att aliens ras lagras i tre olika tabell och inte
+             * refereras i alien tabell ställs tre frågor nedan med hjälp av
+             * villkor för att hitta vilken ras alien har Om alien inte har
+             * någon angiven ras så kommer det generera null på alla frågor och
+             * där med göra det som står i sista else-satsen, alltså skriva ut
+             * att alien inte har någon ras.
+             */
+            String fråga8 = "SELECT mibdb.Worm.Alien_ID from mibdb.Worm WHERE Alien_ID = '" + svar1 + "'";
+
+            String svar8 = idb.fetchSingle(fråga8);
+
+            if (svar8 == null) {
+                String fråga9 = "SELECT mibdb.Squid.Alien_ID from mibdb.Squid WHERE Alien_ID = '" + svar1 + "'";
+
+                String svar9 = idb.fetchSingle(fråga9);
+
+                if (svar9 == null) {
+                    String fråga10 = "SELECT mibdb.Boglodite.Alien_ID from mibdb.Boglodite WHERE Alien_ID = '" + svar1 + "'";
+
+                    String svar10 = idb.fetchSingle(fråga10);
+
+                    if (svar10 == null) {
+                        txtRas.setText("Ingen ras");
+                    } else {
+                        txtRas.setText("Boglodite");
                     }
-                    else{
-                        txtRas.setText("Worm");
-                    }
-                        
-        }catch (Exception e) {
+                } else {
+                    txtRas.setText("Squid");
+                }
+            } else {
+                txtRas.setText("Worm");
+            }
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-                    
 
     }//GEN-LAST:event_btnSök2ActionPerformed
 

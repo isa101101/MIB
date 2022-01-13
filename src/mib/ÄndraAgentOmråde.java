@@ -140,59 +140,55 @@ public class ÄndraAgentOmråde extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntHämtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntHämtaActionPerformed
-        // TODO add your handling code here:
-        
+        // Metoden hämtar nuvarande område för angiven agent.
+
         String Namn = txtNamn.getText();
-        
-         if(Validering.textFaltVarde(txtNamn)){
-        try {
-       String Namnet = "SELECT Namn FROM mibdb.Agent where Namn = '"+Namn+"'";     
-       String fråga = "SELECT mibdb.Omrade.Benamning FROM mibdb.Omrade join mibdb.Agent on "
-        + "mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade where mibdb.Agent.Namn ='"+Namn+"'";
-       
-       String svar = idb.fetchSingle(fråga);
-       String svar2 = idb.fetchSingle(Namnet);
-       
-       if(Namn.equalsIgnoreCase(svar2)) {
-       txtOmråde.setText(svar);
-       
-        }else {
-          JOptionPane.showMessageDialog(null, "Agent '"+ Namn + "' finns inte");
-       }
-       
-        } catch (Exception e) {
-           System.out.println(e.getMessage());
+
+        if (Validering.textFaltVarde(txtNamn)) {
+            try {
+                String Namnet = "SELECT Namn FROM mibdb.Agent where Namn = '" + Namn + "'";
+                String fråga = "SELECT mibdb.Omrade.Benamning FROM mibdb.Omrade join mibdb.Agent on "
+                        + "mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade where mibdb.Agent.Namn ='" + Namn + "'";
+
+                String svar = idb.fetchSingle(fråga);
+                String svar2 = idb.fetchSingle(Namnet);
+
+                //Kontrollerar att agenten finns
+                if (Namn.equalsIgnoreCase(svar2)) {
+                    txtOmråde.setText(svar);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Agent '" + Namn + "' finns inte");
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
-         }
-       
+
     }//GEN-LAST:event_bntHämtaActionPerformed
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
-        // TODO add your handling code here:
-        
+        // Metoden ändrar område för angiven agent.
+
         try {
 
-        String Namn = txtNamn.getText();
-        String NyttOmråde = cmbOmråde.getSelectedItem().toString();
-        
-       
-        
-        String NID = "Select mibdb.Omrade.Omrades_ID from mibdb.Omrade where mibdb.Omrade.Benamning = '"+NyttOmråde+"'";
-        String svar = idb.fetchSingle(NID);
-        
-        int Nytt = Integer.parseInt(svar);
-       
-       
-        
-        String ändra = "UPDATE mibdb.Agent SET Omrade = '"+Nytt+"' WHERE mibdb.Agent.Namn = '"+Namn+"'";
-        idb.update(ändra);
-        JOptionPane.showMessageDialog(null, "Område har ändrats");
-        
-        
+            String Namn = txtNamn.getText();
+            String NyttOmråde = cmbOmråde.getSelectedItem().toString();
+
+            // Hämtar ID för nytt område.
+            String NID = "Select mibdb.Omrade.Omrades_ID from mibdb.Omrade where mibdb.Omrade.Benamning = '" + NyttOmråde + "'";
+            String svar = idb.fetchSingle(NID);
+            int Nytt = Integer.parseInt(svar); // Omtypning från String till int för oområdesID.
+
+            String ändra = "UPDATE mibdb.Agent SET Omrade = '" + Nytt + "' WHERE mibdb.Agent.Namn = '" + Namn + "'";
+            idb.update(ändra); //Uppdaterar område i Agent tabellen.
+            JOptionPane.showMessageDialog(null, "Område har ändrats");
+
         } catch (Exception e) {
-           System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
-        
+
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed

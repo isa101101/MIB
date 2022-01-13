@@ -381,52 +381,49 @@ public class ÄndraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnÄndraLösenordActionPerformed
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
-        // TODO add your handling code here:
-        
-         String Namn = txtNamn.getText();
-         String AID = txtID.getText();
- 
-        try {
-       
+        // Metoden söker om det finns finns fler än en alien med det angivna namnet.
+        // Om det bara finns en skrivs Namn och ID ut för den angivna alien.
 
+        String Namn = txtNamn.getText();
+        String AID = txtID.getText();
+
+        try {
+            //Kontrollerar att det finns en alien med det angivna namnet.
             String frågaA = "SELECT Alien_ID FROM mibdb.Alien where Namn = '" + Namn + "'";
-            
             String svaret = idb.fetchSingle(frågaA);
-            
-            if (svaret == null){
+
+            if (svaret == null) {
                 JOptionPane.showMessageDialog(null, "Det finns ingen alien med namnet '" + Namn + "'");
             }
             
+            // Om det finns fler aliens med samma namn skapas en ArrayList och ID för respektive alien skrivs ut i textarean.
             ArrayList<String> svarA = idb.fetchColumn(frågaA);
 
             for (String ID : svarA) {
-                
-
                 if (svarA.size() > 1) {
-                   
-                  
-                    txtID.setVisible(true);             
+
+                    txtID.setVisible(true);
                     txtResultata.setVisible(true);
                     lbl1.setVisible(true);
                     lbl2.setVisible(true);
                     btnVälj.setVisible(true);
-                    
+
                     txtResultata.append(ID + "\n");
-                
+
                 } else {
                     txtVald.setText(Namn);
                     txtValdID.setText(svaret);
                 }
-                
+
             }
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
-           }            
-                    
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }//GEN-LAST:event_btnSökActionPerformed
 
     private void btnVäljActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVäljActionPerformed
-        // TODO add your handling code here:
+        // Metoden används om det finns fler alien med samma namn, och metoden används för att välja ID för specifik alien.
         
         String Namnet = txtNamn.getText();
         String ID = txtID.getText();

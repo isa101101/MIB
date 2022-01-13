@@ -158,28 +158,28 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHämtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaActionPerformed
-        // TODO add your handling code here:
-        if(Validering.textFaltVarde(txtNamn)){
-        String AID =ÄndraAlien.txtValdID.getText();
-        String Alien = txtAID.getText();
+        // Metoden hämtar befintligt lösenord för angiven alien.
+        // Eftersom agenter har tillgång till all information om alla aliens så är det rimligt att lösenordet inte behöver anges. 
+       
+        if (Validering.textFaltVarde(txtNamn)) {
+            String AID = ÄndraAlien.txtValdID.getText();
+            String Alien = txtAID.getText();
 
-        try{
-            
-            String fråga = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '"+AID+"'";
-            String svar = idb.fetchSingle(fråga);
-            
-            if(svar != null){
+            try {
+                //Hämtar lösenord från alien tabellen.
+                String fråga = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '" + AID + "'";
+                String svar = idb.fetchSingle(fråga);
 
-            txtBefintligtLösenord.setText(svar);
-            
+                if (svar != null) {
+                    txtBefintligtLösenord.setText(svar);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet");
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-            else{
-                JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet");
-            }
-
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
         }
     }//GEN-LAST:event_btnHämtaActionPerformed
 
@@ -190,7 +190,9 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
-        // TODO add your handling code here:
+        // Metoden ändrar lösenord för angiven alien.
+
+        //Lokala variabler
         String namn = txtNamn.getText();
         String nyttLösenord = txtNyttLösenord.getText();
         String gamaltLösen = txtBefintligtLösenord.getText();
@@ -202,15 +204,13 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
                 if (Validering.LösenordLängd(txtNyttLösenord)) {
 
                     try {
-
+                        
                         String Lösen = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '" + AID + "'";
-
                         String AlienID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '" + namn + "'";
-
                         String svarID = idb.fetchSingle(AlienID);
-
+                        
+                        //Uppdaterar lösenordet
                         String ändra = "UPDATE mibdb.Alien SET Losenord = '" + nyttLösenord + "' WHERE mibdb.Alien.Alien_ID = '" + svarID + "'";
-
                         idb.update(ändra);
 
                         JOptionPane.showMessageDialog(null, "Aliens lösenord är ändrat!");
@@ -222,9 +222,6 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
                 }
             }
         }
-    
-    
-    
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     /**
