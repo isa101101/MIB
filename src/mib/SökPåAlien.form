@@ -43,69 +43,65 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="txtTillbaka" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblRegDatum" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblNamn" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblTelefon" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblPlats" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblAnsvarigAgent" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblRegDatum" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNamn" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTelefon" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblPlats" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblAnsvarigAgent" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblLösenord" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
+                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtalienNamn" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPlats" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtAnsvarig" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtRegdatum" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtLösenord" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtRas" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblLösenord" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblSökEfterAlien" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblAngeAliensNamn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                      <Component id="btnSök" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jScrollPane2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblAliensID" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtID" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnSök2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtAID" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtalienNamn" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPlats" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtAnsvarig" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtRegdatum" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtLösenord" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtRas" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="lblResultat" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblAngeAliensNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="btnSök" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblAliensID" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtID" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnSök2" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtAID" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblSökEfterAlien" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                          <Component id="txtTillbaka" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
+                  <Component id="lblResultat" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="470" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -113,7 +109,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="lblSökEfterAlien" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSökEfterAlien" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTillbaka" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="lblAngeAliensNamn" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -127,7 +126,7 @@
               <Component id="jScrollPane2" min="-2" pref="92" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="lbl2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="7" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSök2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -179,9 +178,7 @@
                   </Group>
                   <Component id="txtRas" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-              <Component id="txtTillbaka" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
           </Group>

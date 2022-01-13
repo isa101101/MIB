@@ -314,7 +314,7 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                 && Validering.textFaltVarde(txtPlats) && Validering.textFaltVarde(txtAnsvarigagent)) {
             
             if (Validering.LösenordLängd(txtlösenord)){
-                if(Validering.textFaltNummer(txtTelefon)) {
+                //if(Validering.textFaltNummer(txtTelefon)) {
 
             try {
                 String ID = lblID.getText();
@@ -417,7 +417,7 @@ public class NyregistreraAliens extends javax.swing.JFrame {
 
                         System.out.println(e.getMessage());
                     }
-                }
+                //}
 
             }
         }
