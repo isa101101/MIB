@@ -247,6 +247,11 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         
         if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtTelefon)
                 && Validering.textFaltVarde(txtLösenord)){
+            
+        if (Validering.LösenordLängd(txtLösenord)){
+            
+        if (Validering.textFaltNummer(txtTelefon)) {
+            
             try {
                 String ID = lblHämtatID.getText();
                 String Namn = txtNamn.getText();
@@ -301,6 +306,8 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         }catch (Exception e) {
             System.out.println(e.getMessage());
             }
+        }
+        }
         }
     }//GEN-LAST:event_btnRegistreraActionPerformed
 

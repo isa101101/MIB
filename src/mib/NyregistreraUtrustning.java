@@ -271,21 +271,20 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
                     }
                 }
-                // if (kategori.equals(vapen)) {
-                //   Validering.textFaltVarde(txtVapen);
 
                 if (kategori.equals(vapen)) {
+                    
                     if (kaliber1.isBlank()) {
                         JOptionPane.showMessageDialog(null, "Välj kaliber");
-
-                    } else {
+                        
+                        
+                    }else {
                         int ID = Integer.parseInt(HID);
                   String vap = "INSERT INTO mibdb.Vapen (Utrustnings_ID, kaliber) VALUES ('" + ID + "', '" + kaliber2 + "')";
                         idb.insert(vap);
                         String NyUtrustning2 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
                         idb.insert(NyUtrustning2);
-                        JOptionPane.showMessageDialog(null, "Ny utrustning tillagd");
-
+                        JOptionPane.showMessageDialog(null, "Ny utrustning tillagd");  
                     }
                 }
 

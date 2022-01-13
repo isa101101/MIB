@@ -49,22 +49,25 @@ public class Validering extends javax.swing.JFrame {
         catch(NumberFormatException e )
         {
             resultat = false;
-            JOptionPane.showMessageDialog(null, "Det får endast vara siffror i textrutan");
+            JOptionPane.showMessageDialog(null, "Det får endast vara siffror i textrutan för telefon nummer");
         }
  
         return resultat;
     }
     
-  
-    public static boolean textFaltBokstaver (JTextField ruta) {
+    public static boolean textIntPåKaliber (JTextField ruta) {
         
         boolean resultat = true;
         
-        if (ruta.getText().matches("[a-z A-Z]+")){
-            JOptionPane.showMessageDialog(null, "Det får endast vara bokstäver i textrutan");
-            
+        try{
+            Integer.parseInt(ruta.getText());
         }
-        
+        catch(NumberFormatException e )
+        {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Du måste ange kaliber med siffror, inga bokstäver är tillåtna!");
+        }
+ 
         return resultat;
     }
     
@@ -80,8 +83,10 @@ public class Validering extends javax.swing.JFrame {
 
         return resultat;
     }
-  
+    
 }
+  
+
 
    
     
