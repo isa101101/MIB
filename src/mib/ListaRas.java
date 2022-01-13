@@ -175,6 +175,7 @@ public class ListaRas extends javax.swing.JFrame {
                 for (HashMap <String,String> Namn : svar2){
                     
                     taVisaResultat.append(Namn.get("Namn") + "\n");
+                    
                 }
            
         }

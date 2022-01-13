@@ -199,6 +199,8 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
         if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtAID) && Validering.textFaltVarde(txtBefintligtLösenord) && Validering.textFaltVarde(txtNyttLösenord)) {
             if (Validering.LösenordLängd(txtNyttLösenord)) {
         
+            if(Validering.LösenordLängd(txtNyttLösenord)){
+            
             try{
             
            
