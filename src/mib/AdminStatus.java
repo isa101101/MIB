@@ -122,46 +122,40 @@ public class AdminStatus extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
-        // TODO add your handling code here:
+//Metod för att ändra vilka agenter som är admin
 
-         
-
-        
         if (Validering.textFaltVarde(txtNamn)) {
             try {
+                //Lokala variabler som hämtar fältens värden
                 String Namn = txtNamn.getText();
                 String fråga = "SELECT mibdb.Agent.Namn from mibdb.Agent where Namn = '" + Namn + "'";
                 String Status = cmbJa.getSelectedItem().toString();
 
+                //Lokala variabler för att använda nedan i metoden equals
                 String Ja = "Ja";
                 String Nej = "Nej";
 
+                //SQL-frågorna som ställs för att uppdatera rätt tabell
                 String förändringJa = "UPDATE mibdb.Agent SET mibdb.Agent.Administrator  = 'J' WHERE mibdb.Agent.Namn= '" + Namn + "'";
                 String förändringNej = "UPDATE mibdb.Agent SET mibdb.Agent.Administrator  = 'N' WHERE mibdb.Agent.Namn= '" + Namn + "'";
-                
-                String svar = idb.fetchSingle(fråga);
-                
-                 if (Namn.equalsIgnoreCase(svar)) {
-                     if (Status.equals(Ja)) {
-                        idb.update(förändringJa);
-                        JOptionPane.showMessageDialog(null, ""+ Namn+" är nu administratör");
-                    }
-                     if (Status.equals(Nej)) {
-                        idb.update(förändringNej);
-                        JOptionPane.showMessageDialog(null, ""+ Namn+" är inte längre administratör");
-                     }
-                     
-                 }else {
-                    JOptionPane.showMessageDialog(null, "Agent '" + Namn + "' finns inte");
-                 }
-                    
-               
 
-               
-               
-                   
+                String svar = idb.fetchSingle(fråga);
+
+                //Kontroll att agenten finns
+                if (Namn.equalsIgnoreCase(svar)) {
                     
-               
+                    if (Status.equals(Ja)) {
+                        idb.update(förändringJa); //Uppdatera status till Ja
+                        JOptionPane.showMessageDialog(null, "" + Namn + " är nu administratör");
+                    }
+                    if (Status.equals(Nej)) {
+                        idb.update(förändringNej); //Uppdatera status till nej
+                        JOptionPane.showMessageDialog(null, "" + Namn + " är inte längre administratör");
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Agent '" + Namn + "' finns inte");
+                }
 
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -170,14 +164,9 @@ public class AdminStatus extends javax.swing.JFrame {
         }
 
 
-    
-
-
-        
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
-        // TODO add your handling code here:
         new AdminMenu(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
@@ -212,7 +201,7 @@ public class AdminStatus extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }

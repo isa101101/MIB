@@ -309,71 +309,62 @@ public class AgentMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Metoderna nedan motsvarar knapptrycken som instansierar nya objektet från den klassen som står efter nyckelordet new
+    //Genom att ange metoden dispose stängs det nuvarande fönstret
+    
     private void btnNyregUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyregUtrustningActionPerformed
-        // TODO add your handling code here:
         new NyregistreraUtrustning(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnNyregUtrustningActionPerformed
 
     private void btnKlickaHärÄndraLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärÄndraLösenordActionPerformed
-        // TODO add your handling code here:
         new BytAgentlösen(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnKlickaHärÄndraLösenordActionPerformed
 
     private void btnKlickaHärNyregAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärNyregAlienActionPerformed
-        // TODO add your handling code here:
         new NyregistreraAliens(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnKlickaHärNyregAlienActionPerformed
 
     private void btnKlickaHärÄndraInfoAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärÄndraInfoAlienActionPerformed
-        // TODO add your handling code here:
-         new ÄndraAlien(idb).setVisible(true);
-         dispose();
+        new ÄndraAlien(idb).setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnKlickaHärÄndraInfoAlienActionPerformed
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
-        // TODO add your handling code here:
         new SökPåAlien(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnInfoActionPerformed
 
     private void btnKlickaHärAlienPlatserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärAlienPlatserActionPerformed
-        // TODO add your handling code here:
         new SökAlienPlats(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnKlickaHärAlienPlatserActionPerformed
 
     private void btnKlickaHärAlienRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärAlienRegDatumActionPerformed
-        // TODO add your handling code here:
         new AlienRegMellanDatum(idb).setVisible(true);
         dispose();
         
     }//GEN-LAST:event_btnKlickaHärAlienRegDatumActionPerformed
 
     private void btnKlickaHärUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärUtrustningActionPerformed
-       // TODO add your handling code here:
-       new MinUtrustning(idb).setVisible(true);
-       dispose();
+        new MinUtrustning(idb).setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnKlickaHärUtrustningActionPerformed
 
     private void btnKlickaHärOmrådescheferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärOmrådescheferActionPerformed
-        // TODO add your handling code here:
         new OmrådeschefAgent(idb).setVisible(true);
         dispose();
-        
     }//GEN-LAST:event_btnKlickaHärOmrådescheferActionPerformed
 
     private void btnKlickaHärListaRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlickaHärListaRasActionPerformed
-        // TODO add your handling code here:
         new ListaRas(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnKlickaHärListaRasActionPerformed
 
     private void btnLoggaUTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUTActionPerformed
-        // TODO add your handling code here:
         new Inloggtvå(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnLoggaUTActionPerformed

@@ -37,7 +37,7 @@ public class AlienMenu extends javax.swing.JFrame {
         lblområdeschef = new javax.swing.JLabel();
         btnOmrådeschef = new javax.swing.JButton();
         btnLoggaUt = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnÄndraLösenord = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,10 +62,10 @@ public class AlienMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Tryck här");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnÄndraLösenord.setText("Tryck här");
+        btnÄndraLösenord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnÄndraLösenordActionPerformed(evt);
             }
         });
 
@@ -84,7 +84,7 @@ public class AlienMenu extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnOmrådeschef)
-                            .addComponent(jButton1))))
+                            .addComponent(btnÄndraLösenord))))
                 .addContainerGap(345, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -99,7 +99,7 @@ public class AlienMenu extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblÄndraLösenord)
-                    .addComponent(jButton1))
+                    .addComponent(btnÄndraLösenord))
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblområdeschef)
@@ -112,23 +112,22 @@ public class AlienMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Metoderna nedan motsvarar knapptrycken som instansierar nya objektet från den klassen som står efter nyckelordet new
+    //Genom att ange metoden dispose stängs det nuvarande fönstret
     private void btnOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmrådeschefActionPerformed
-        // TODO add your handling code here:
         new OmrådesChefAlien(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnOmrådeschefActionPerformed
 
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
-        // TODO add your handling code here:
         new Inloggtvå(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void btnÄndraLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraLösenordActionPerformed
         new BytAlienLösenord(idb).setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnÄndraLösenordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,7 +167,7 @@ public class AlienMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoggaUt;
     private javax.swing.JButton btnOmrådeschef;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnÄndraLösenord;
     private javax.swing.JLabel lblVälkommen;
     private javax.swing.JLabel lblområdeschef;
     private javax.swing.JLabel lblÄndraLösenord;

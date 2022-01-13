@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author isabellefredriksson
  */
 public class AlienRegMellanDatum extends javax.swing.JFrame {
-    
+
     private InfDB idb;
 
     /**
@@ -146,26 +147,31 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
-        // TODO add your handling code here:
-         
+        //Metod för att hämta alla aliens som har reg.datum mellan två datum
+
+        //Börjar med att sätta textrutan till tom för att varje gång man gör ett tryck på Sök och ny information
+        // kommer ska den tidigare sökningen försvinna
         taListaResultat.setText("");
         try {
 
+            //Två lokala variabler som hämtar datum (datatyp date) från kalendern
             Date start = Datum1.getDate();
             Date slut = Datum2.getDate();
-         
+
+            //Villkor så att både startdatum och slutdatum finns
             if (start != null && slut != null) {
 
-            SimpleDateFormat formatet = new SimpleDateFormat("YYYY/MM/D");
-            String format1 = formatet.format(start.getTime());
-            String format2 = formatet.format(slut.getTime());
+                //Formaterar datumet likt datatypen date så den kan hämtas i databasen
+                SimpleDateFormat formatet = new SimpleDateFormat("YYYY/MM/D");
+                String format1 = formatet.format(start.getTime());
+                String format2 = formatet.format(slut.getTime());
 
-            
                 String Dat1 = format1;
                 String Dat2 = format2;
 
                 String fråga = "SELECT Namn FROM mibdb.Alien WHERE Registreringsdatum BETWEEN '" + Dat1 + "' AND '" + Dat2 + "'";
 
+                //Gör en lista och loop för att få ut samtliga alien inom de valda datumen
                 ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
 
                 for (HashMap<String, String> Namn : svar) {
@@ -183,12 +189,10 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
 
-         
-        
+
     }//GEN-LAST:event_btnSökActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         new AgentMenu(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -223,7 +227,7 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }

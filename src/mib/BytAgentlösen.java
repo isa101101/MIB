@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
+
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 
@@ -11,14 +12,14 @@ import oru.inf.InfDB;
  * @author jackmacbook
  */
 public class BytAgentlösen extends javax.swing.JFrame {
-    
+
     private InfDB idb;
 
     /**
      * Creates new form BytAgentlösen
      */
     public BytAgentlösen(InfDB idb) {
-        this.idb=idb;
+        this.idb = idb;
         initComponents();
     }
 
@@ -120,53 +121,51 @@ public class BytAgentlösen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
-        // TODO add your handling code here:
-        if(Validering.textFaltVarde(txtAnvändarnamn) && Validering.textFaltVarde(txtBefintligaLösenordet) 
+        //Metod för att en agent ska kunna ändra sitt lösenord
+        if (Validering.textFaltVarde(txtAnvändarnamn) && Validering.textFaltVarde(txtBefintligaLösenordet)
                 && Validering.textFaltVarde(txtNyaLösenordet)) {
-        
-      
-        if(Validering.LösenordLängd(txtNyaLösenordet)){
-            
-        
-        try{
-            String agent = txtAnvändarnamn.getText();
-            String befintligtLösenord = txtBefintligaLösenordet.getText();
-            String nyttLösenord = txtNyaLösenordet.getText();
-            
-            String fråga1 = "SELECT losenord FROM mibdb.Agent where namn = '"+agent+"'";
-            String fråga2 = "SELECT mibdb.Agent.Namn FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+agent+"'";
-            
-            String svar1 = idb.fetchSingle(fråga1);
-            String svar2 = idb.fetchSingle(fråga2);
-            
-        
-            if(agent.equalsIgnoreCase(svar2)){
-                if(svar1.equals(befintligtLösenord)){
-                
-                
-                String ändra = "UPDATE mibdb.Agent SET losenord = '"+nyttLösenord+"' WHERE Namn = '"+agent+"'";
-                idb.update(ändra);         
-                JOptionPane.showMessageDialog(null, "Lösenordet har har ändrats!");
-            }
-                else {
-                JOptionPane.showMessageDialog(null, "Du har angett fel lösenord");  
+
+            if (Validering.LösenordLängd(txtNyaLösenordet)) {
+
+                try {
+                    //Hämtar fältens värden
+                    String agent = txtAnvändarnamn.getText();
+                    String befintligtLösenord = txtBefintligaLösenordet.getText();
+                    String nyttLösenord = txtNyaLösenordet.getText();
+
+                    String fråga1 = "SELECT losenord FROM mibdb.Agent where namn = '" + agent + "'";
+                    String fråga2 = "SELECT mibdb.Agent.Namn FROM mibdb.Agent WHERE mibdb.Agent.Namn = '" + agent + "'";
+
+                    String svar1 = idb.fetchSingle(fråga1);
+                    String svar2 = idb.fetchSingle(fråga2);
+
+                    //Kontroll för att se att agenten finns
+                    if (agent.equalsIgnoreCase(svar2)) {
+
+                        //Kontroll för att se att användaren anger korrekt nuvarande lösenord
+                        if (svar1.equals(befintligtLösenord)) {
+
+                            String ändra = "UPDATE mibdb.Agent SET losenord = '" + nyttLösenord + "' WHERE Namn = '" + agent + "'";
+
+                            idb.update(ändra); //Ändra lösenordet!
+
+                            JOptionPane.showMessageDialog(null, "Lösenordet har har ändrats!");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Du har angett fel lösenord");
+                        }
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Du har angett fel Användarnamn");
+                    }
+
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
                 }
-                
-            } else {
-                JOptionPane.showMessageDialog(null, "Du har angett fel Användarnamn");
             }
-            
-            
-        
-        } catch (Exception e) {
-           System.out.println(e.getMessage());
-        }
-        }
         }
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
-        // TODO add your handling code here:
         new AgentMenu(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
@@ -201,7 +200,7 @@ public class BytAgentlösen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }

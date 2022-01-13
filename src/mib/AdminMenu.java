@@ -253,38 +253,34 @@ public class AdminMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Metoderna nedan motsvarar knapptrycken som instansierar nya objektet från den klassen som står efter nyckelordet new
+    //Genom att ange metoden dispose stängs det nuvarande fönstret
     private void btnNyalienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyalienActionPerformed
-        // TODO add your handling code here:
         new NyregistreraAliens(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnNyalienActionPerformed
 
     private void btnÄndraalienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraalienActionPerformed
-        // TODO add your handling code here:
         new ÄndraAlien(idb).setVisible(true);
          dispose();
     }//GEN-LAST:event_btnÄndraalienActionPerformed
 
     private void btnNyagentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyagentActionPerformed
-        // TODO add your handling code here:
         new NyregistreraAgent(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnNyagentActionPerformed
 
     private void btnTabortalienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortalienActionPerformed
-        // TODO add your handling code here:
-         new RaderaAlien(idb).setVisible(true);
+        new RaderaAlien(idb).setVisible(true);
          dispose();
     }//GEN-LAST:event_btnTabortalienActionPerformed
 
     private void btnTabortutrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortutrustningActionPerformed
-        // TODO add your handling code here:
         new RaderaUtrustning(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTabortutrustningActionPerformed
 
     private void btnSökagentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökagentActionPerformed
-        // TODO add your handling code here:
         new SökPåAgent(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSökagentActionPerformed
@@ -296,33 +292,27 @@ public class AdminMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdminstatusActionPerformed
 
     private void btnTabortagentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortagentActionPerformed
-        // TODO add your handling code here:
         new RaderaAgent(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTabortagentActionPerformed
 
     private void btnÄndraochefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraochefActionPerformed
-        // TODO add your handling code here:
         new ÄndraOmrådeschef(idb).setVisible(true);
         dispose();
         
     }//GEN-LAST:event_btnÄndraochefActionPerformed
 
     private void btnÄndraagentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraagentActionPerformed
-        // TODO add your handling code here:
         new ÄndraAgent(idb).setVisible(true);
         dispose();
-        
     }//GEN-LAST:event_btnÄndraagentActionPerformed
 
     private void btnÄndrakchefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndrakchefActionPerformed
-        // TODO add your handling code here:
         new ÄndraKontorschef(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnÄndrakchefActionPerformed
 
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
-        // TODO add your handling code here:
         new Inloggtvå(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
