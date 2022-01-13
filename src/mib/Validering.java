@@ -56,8 +56,22 @@ public class Validering extends javax.swing.JFrame {
         
         if (ruta.getText().matches("[a-z A-Z]+")){
             JOptionPane.showMessageDialog(null, "Det får endast vara bokstäver i textrutan");
+            
         }
         
+        return resultat;
+    }
+    
+    public static boolean LösenordLängd (JTextField ruta) {
+
+        boolean resultat = true;
+
+        if(ruta.getText().length() > 7) {
+         JOptionPane.showMessageDialog(null, "Det nya lösenordet måste vara kortare än eller lika med 6 tecken!");
+         
+
+        }
+
         return resultat;
     }
   

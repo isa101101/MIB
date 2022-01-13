@@ -177,12 +177,14 @@ public class ÄndraAgentTelefon extends javax.swing.JFrame {
         
         String namn = txtNamn.getText();
         String NyttNummer = txtNyttnummer.getText();
-        String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Telefon = '"+NyttNummer+"' where mibdb.Agent.Namn = '"+namn+"'";
+       
         
          if (Validering.textFaltVarde(txtNyttnummer)) {
-             
+         }
             if (Validering.textFaltNummer(txtNyttnummer)){
+            
              try {
+                 String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Telefon = '"+NyttNummer+"' where mibdb.Agent.Namn = '"+namn+"'";
                  idb.update(ändra);
                  JOptionPane.showMessageDialog(null, "Numret har ändrats");
                  
@@ -190,7 +192,7 @@ public class ÄndraAgentTelefon extends javax.swing.JFrame {
                 System.out.println(e.getMessage());
              }
             }
-         }
+         
   
     }//GEN-LAST:event_btnÄndraActionPerformed
 

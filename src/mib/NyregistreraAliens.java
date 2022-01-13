@@ -312,6 +312,9 @@ public class NyregistreraAliens extends javax.swing.JFrame {
 
         if (Validering.textFaltVarde(txtlösenord) && Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtTelefon) 
                 && Validering.textFaltVarde(txtPlats) && Validering.textFaltVarde(txtAnsvarigagent)) {
+            
+            if (Validering.LösenordLängd(txtlösenord)){
+                if(Validering.textFaltNummer(txtTelefon)) {
 
             try {
                 String ID = lblID.getText();
@@ -407,17 +410,20 @@ public class NyregistreraAliens extends javax.swing.JFrame {
 
                     idb.insert(nyPlats);
 
-                    JOptionPane.showMessageDialog(null, "Platsen du angav fanns inte sen tidigare och har nu registreras, tryck registrera igen för att lägga till alien!");
+                            JOptionPane.showMessageDialog(null, "Platsen du angav fanns inte sen tidigare och har nu registreras, tryck registrera igen för att lägga till alien!");
+                        }
+
+                    } catch (Exception e) {
+
+                        System.out.println(e.getMessage());
+                    }
                 }
 
-
-            } catch (Exception e) {
-
-                System.out.println(e.getMessage());
             }
+        }
 
     }//GEN-LAST:event_btnRegistreraActionPerformed
-    }
+    
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
         // TODO add your handling code here:

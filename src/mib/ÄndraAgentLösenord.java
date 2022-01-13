@@ -171,7 +171,7 @@ public class ÄndraAgentLösenord extends javax.swing.JFrame {
         
         String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Losenord = '"+ nyttLösenord +"' WHERE mibdb.Agent.Namn = '"+ namn +"' ";
         
-        if (nyttLösenord.length() < 6){
+        if (Validering.LösenordLängd(txtNyttLösenord)){
             
             try {
                  idb.update(ändra);
@@ -182,9 +182,7 @@ public class ÄndraAgentLösenord extends javax.swing.JFrame {
              }
  
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Det nya lösenordet måste vara kortare i 6 tecken!");
-        }
+       
         }
         
     }//GEN-LAST:event_btnÄndraActionPerformed
