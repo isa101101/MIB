@@ -136,21 +136,27 @@ public class ÄndraAliensNamn extends javax.swing.JFrame {
 
     private void btnÄndraNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraNamnActionPerformed
         // TODO add your handling code here:
-        
-        if(Validering.textFaltVarde(txtNyttNamn)) {
-        try{
-        String ID = txtID.getText();
-        String NyttNamn = txtNyttNamn.getText();
-        String ändra = "UPDATE mibdb.Alien SET Namn = '"+NyttNamn+"' WHERE mibdb.Alien.Alien_ID = '"+ID+"'";
-                   
-        idb.update(ändra);
-        JOptionPane.showMessageDialog(null, "Namnet har ändrats");
-                   
-                  
 
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
-        }
+        if (Validering.textFaltVarde(txtNyttNamn)) {
+            try {
+                String ID = txtID.getText();
+                String NyttNamn = txtNyttNamn.getText();
+                //Kontrollerar att alien finns.
+                String fråga = "SELECT mibdb.Alien.Namn from mibdb.Alien where mibdb.Alien.Alien_ID = '" + ID + "'";
+                String svar = idb.fetchSingle(fråga);
+                //Om alien finns uppdateras Alien tabellen med det nya namnet.
+                if (svar !=null) {
+                String ändra = "UPDATE mibdb.Alien SET Namn = '" + NyttNamn + "' WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
+                idb.update(ändra);
+                JOptionPane.showMessageDialog(null, "Namnet har ändrats");
+                
+                } else {
+                     JOptionPane.showMessageDialog(null, "Alien finns inte");
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }//GEN-LAST:event_btnÄndraNamnActionPerformed
 

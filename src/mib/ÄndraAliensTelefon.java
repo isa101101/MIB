@@ -161,50 +161,43 @@ public class ÄndraAliensTelefon extends javax.swing.JFrame {
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
         
-        if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtNyttTelefon) && Validering.textFaltVarde(txtBefintligtTelefon))
-        {
-        
-        String nyTelefon = txtNyttTelefon.getText();
-        String ID = txtID.getText();
-        
-        try{
-        
-        
-            String ändra = "UPDATE mibdb.Alien SET Telefon = '"+nyTelefon+"' WHERE mibdb.Alien.Alien_ID = '"+ID+"'";
-            
-            idb.update(ändra);
-        
-            JOptionPane.showMessageDialog(null, "Aliens telefonnummer har ändras!");
-            
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
-        }
+        if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtNyttTelefon) && Validering.textFaltVarde(txtBefintligtTelefon)) {
+
+            //Nya variabler
+            String nyTelefon = txtNyttTelefon.getText();
+            String ID = txtID.getText();
+
+            try {
+                
+                String ändra = "UPDATE mibdb.Alien SET Telefon = '" + nyTelefon + "' WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
+                idb.update(ändra); // Uppdaterar Alien tabellen
+
+                JOptionPane.showMessageDialog(null, "Aliens telefonnummer har ändras!");
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     private void btnHämtaTelnrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaTelnrActionPerformed
         // TODO add your handling code here:
         String ID = txtID.getText();
-        
-        try{
-            
-            String fråga = "SELECT mibdb.Alien.Telefon FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '"+ID+"'";
-            
+
+        try {
+            //Hämtar nuvarande telefonnummer från databasen.
+            String fråga = "SELECT mibdb.Alien.Telefon FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
             String svar = idb.fetchSingle(fråga);
             
-            if(svar != null)
-            {
-              txtBefintligtTelefon.setText(svar);  
-            }
-            
-            else{
+            //Om ett telfonnummer hittas skrivs det ut i textfältet.
+            if (svar != null) {
+                txtBefintligtTelefon.setText(svar);
+            } else {
                 JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet!");
             }
-            
-            
-            
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_btnHämtaTelnrActionPerformed
 

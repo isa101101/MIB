@@ -153,65 +153,62 @@ public class ÄndraAliensPlats extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHämtaPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaPlatsActionPerformed
-        // TODO add your handling code here:
-        if(Validering.textFaltVarde(txtNamn)){
-        String ID = txtID.getText();
-        
-        try{
-            
-            
-            String fråga = "SELECT mibdb.Plats.Benamning FROM mibdb.Plats "
-                    + "JOIN mibdb.Alien ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats "
-                    + "WHERE mibdb.Alien.Alien_ID = '"+ID+"'";
-            
-            String svar = idb.fetchSingle(fråga);
-            
-            if(svar != null){
-            
-                txtBefintligPlats.setText(svar);
-            
+        // Hämtar plats för angiven alien.
+        if (Validering.textFaltVarde(txtNamn)) {
+            String ID = txtID.getText();
+
+            try {
+                // Hämtar nuvarande plats för angiven alien.
+                String fråga = "SELECT mibdb.Plats.Benamning FROM mibdb.Plats "
+                        + "JOIN mibdb.Alien ON mibdb.Plats.Plats_ID = mibdb.Alien.Plats "
+                        + "WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
+
+                String svar = idb.fetchSingle(fråga);
+
+                if (svar != null) {
+
+                    txtBefintligPlats.setText(svar);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet");
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-            else{
-                JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet");
-            }
-            
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
-        }
         }
         
     }//GEN-LAST:event_btnHämtaPlatsActionPerformed
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
-        // TODO add your handling code here:
-        
-        if(Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtNyPlats) && Validering.textFaltVarde(txtBefintligPlats)){
-            
-        String ID = txtID.getText();
-        String nyPlats = txtNyPlats.getText();
-        
-        try{
-  
-            String frågaPlatsID = "SELECT mibdb.Plats.Plats_ID FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '"+nyPlats+"'";
-            String svarPlatsID = idb.fetchSingle(frågaPlatsID);
+        // Metoden ändrar plats för angiven alien.
 
-            if(svarPlatsID != null){
-                
-                int ResultatPlatsID = Integer.parseInt(svarPlatsID); 
-                
-                String ändra = "UPDATE mibdb.Alien SET Plats = '"+ResultatPlatsID+"' WHERE mibdb.Alien.Alien_ID = '"+ID+"'";
-                idb.update(ändra);
-            
-                JOptionPane.showMessageDialog(null, "Aliens plats är ändrat!");
+        if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtNyPlats) && Validering.textFaltVarde(txtBefintligPlats)) {
 
+            String ID = txtID.getText();
+            String nyPlats = txtNyPlats.getText();
+
+            try {
+                //Kontroller att den nya angivna platsen finns i databasen.
+                String frågaPlatsID = "SELECT mibdb.Plats.Plats_ID FROM mibdb.Plats WHERE mibdb.Plats.Benamning = '" + nyPlats + "'";
+                String svarPlatsID = idb.fetchSingle(frågaPlatsID);
+
+                if (svarPlatsID != null) {
+
+                    int ResultatPlatsID = Integer.parseInt(svarPlatsID); // Omtypning av den lokala variablen för platsID så att den passar databasen.
+
+                    String ändra = "UPDATE mibdb.Alien SET Plats = '" + ResultatPlatsID + "' WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
+                    idb.update(ändra);
+
+                    JOptionPane.showMessageDialog(null, "Aliens plats är ändrat!");
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Angiven plats finns inte, vänligen ange en annan plats!");
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-            else{
-                JOptionPane.showMessageDialog(null, "Angiven plats finns inte, vänligen ange en annan plats!");   
-            }     
-            
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
-        }
         }
     }//GEN-LAST:event_btnÄndraActionPerformed
 

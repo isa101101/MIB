@@ -123,36 +123,38 @@ public class BytAlienLösenord extends javax.swing.JFrame {
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
-        
+   
         if (Validering.textFaltVarde(txtAnvändarnamn)) {
-            
-        try{
-            String alien = txtAnvändarnamn.getText();
-            String befintligtLösenord = txtBefintligaLösenordet.getText();
-            String nyttLösenord = txtNyaLösenordet.getText();
 
-            String fråga1 = "SELECT Losenord FROM mibdb.Alien where Namn = '"+alien+"'";
-            String fråga2 = "SELECT Namn FROM mibdb.Alien where Namn = '"+alien+"'";
+            try {
+                //Deklarera nya variabler
+                String alien = txtAnvändarnamn.getText();
+                String befintligtLösenord = txtBefintligaLösenordet.getText();
+                String nyttLösenord = txtNyaLösenordet.getText();
 
-            String svar1 = idb.fetchSingle(fråga1);
-            String svar2 = idb.fetchSingle(fråga2);
-            
-            
-            if(alien.equals(svar2)){
-                if(svar1.equals(befintligtLösenord)){
-                    
-                String ändra = "UPDATE mibdb.Alien SET Losenord = '"+nyttLösenord+"' WHERE Namn = '"+alien+"'";
-                idb.update(ändra);
-                JOptionPane.showMessageDialog(null, "Lösenordet har ändrats");
-            }  
+                //Hämtar namn och lösenord från alien klassen
+                String fråga1 = "SELECT Losenord FROM mibdb.Alien where Namn = '" + alien + "'";
+                String fråga2 = "SELECT Namn FROM mibdb.Alien where Namn = '" + alien + "'";
 
-            } else {
-                JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenord");
+                String svar1 = idb.fetchSingle(fråga1);
+                String svar2 = idb.fetchSingle(fråga2);
+
+                //Villkoret kontrollerar att den angivna alien finns och att det angivna lösenordet är korrekt.
+                if (alien.equals(svar2)) {
+                    if (svar1.equals(befintligtLösenord)) {
+
+                        String ändra = "UPDATE mibdb.Alien SET Losenord = '" + nyttLösenord + "' WHERE Namn = '" + alien + "'";
+                        idb.update(ändra); //Metoden uppdaterar tabellen
+                        JOptionPane.showMessageDialog(null, "Lösenordet har ändrats");
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenord");
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
         }
     }//GEN-LAST:event_btnÄndraActionPerformed
 

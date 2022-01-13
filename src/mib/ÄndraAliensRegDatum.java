@@ -168,23 +168,22 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
 
     private void btnHämtaRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaRegDatumActionPerformed
         // TODO add your handling code here:
-        
-        if(Validering.textFaltVarde(txtHämtatnamn)){
-        String namn = txtHämtatnamn.getText();
-        String ID = txtHämtatID.getText();
-        
-   
-        try {
-            
-            String fråga = "SELECT mibdb.Alien.Registreringsdatum FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '"+ID+"'";
-            
-            String svar = idb.fetchSingle(fråga);
-            
-            txtBefintligtRegDatum.setText(svar);
-            
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
-        }
+
+        if (Validering.textFaltVarde(txtHämtatnamn)) {
+
+            try {
+                String namn = txtHämtatnamn.getText();
+                String ID = txtHämtatID.getText();
+                
+                //Hämtar registreringsdatum för den angivna alien.
+                String fråga = "SELECT mibdb.Alien.Registreringsdatum FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
+                String svar = idb.fetchSingle(fråga);
+
+                txtBefintligtRegDatum.setText(svar); //Skriver ut datumet i textfältet.
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }//GEN-LAST:event_btnHämtaRegDatumActionPerformed
 
@@ -196,32 +195,33 @@ public class ÄndraAliensRegDatum extends javax.swing.JFrame {
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
-        
-        if(Validering.textFaltVarde(txtHämtatnamn) && Validering.textFaltVarde(txtHämtatID)){
-      
-            String namn = txtHämtatnamn.getText();
-            String ID = txtHämtatID.getText();
 
-            Date nyttDatum = Datum.getDate();
-            SimpleDateFormat formatet = new SimpleDateFormat("YYYY/MM/D");
-            String form = formatet.format(nyttDatum.getTime());
-            String Datumet = form;
-        
-        try{
-            String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '"+ID+"'";
-            
-            String svar = idb.fetchSingle(fråga);
-            
-            String ändra = "UPDATE mibdb.Alien SET Registreringsdatum = '"+Datumet+"' WHERE mibdb.Alien.Alien_ID = '"+svar+"'";
-            
-            idb.update(ändra);
-            
-           
-            JOptionPane.showMessageDialog(null, "Registreringsdatumet är ändrat!");
-            
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
-        }
+        if (Validering.textFaltVarde(txtHämtatnamn) && Validering.textFaltVarde(txtHämtatID)) {
+
+            try {
+                //Deklarer lokala variabler.
+                String namn = txtHämtatnamn.getText();
+                String ID = txtHämtatID.getText();
+                
+                // Skapar en lokal variabel av datatypen Date, och konverterar datumformatet så att det passar databasen.
+                Date nyttDatum = Datum.getDate();
+                SimpleDateFormat formatet = new SimpleDateFormat("YYYY/MM/D");
+                String form = formatet.format(nyttDatum.getTime());
+                String Datumet = form;
+                
+                //Hämtar alienID
+                String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
+                String svar = idb.fetchSingle(fråga);
+                
+                //Upddaterar alien tabellen med det nya angivna registreringsdatumet.
+                String ändra = "UPDATE mibdb.Alien SET Registreringsdatum = '" + Datumet + "' WHERE mibdb.Alien.Alien_ID = '" + svar + "'";
+                idb.update(ändra);
+
+                JOptionPane.showMessageDialog(null, "Registreringsdatumet är ändrat!");
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }//GEN-LAST:event_btnÄndraActionPerformed
 

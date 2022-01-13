@@ -158,52 +158,56 @@ public class ÄndraKontorschef extends javax.swing.JFrame {
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
-        
+
         String AgentNamn = txtNamn.getText();
         String kontor = txtKontor.getText();
-        
+
         if (Validering.textFaltVarde(txtNamn)) {
 
-            try{
-            String frågaAID = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+AgentNamn+"' ";
-            
-            String svarAID = idb.fetchSingle(frågaAID);
-            
-            if(svarAID != null)
-            {
-                int AID = Integer.parseInt(svarAID);
-                
-            String fråga = "SELECT mibdb.Kontorschef.Agent_ID FROM mibdb.Kontorschef WHERE mibdb.Kontorschef.Agent_ID = '"+AID+"'";
-        
-            String svar = idb.fetchSingle(fråga);
-            
-            if(svar == null){
-            
-            String ändra = "UPDATE mibdb.Kontorschef SET Agent_ID = '"+AID+"' "
-                    + "WHERE mibdb.Kontorschef.Kontorsbeteckning = '"+kontor+"'";
-            
-            idb.update(ändra);
-            
-            JOptionPane.showMessageDialog(null, "Det angivna kontoret har nu fått en ny kontorschef");
-            
-            }
-            else
-            {
-             JOptionPane.showMessageDialog(null, "Agenten är redan kontorschef för ett annat kontor!");
-            }
-            
-            }
-            else {
-                JOptionPane.showMessageDialog(null, "Den angivna agenten finns inte!");
-            }
-        
-        
-        
-        }catch (Exception e) {
+            try {
+
+                String frågaKontor = "SELECT mibdb.Kontorschef.Kontorsbeteckning from mibdb.Kontorschef WHERE mibdb.Kontorschef.Kontorsbeteckning = '" + kontor + "'";
+                String svarKontor = idb.fetchSingle(frågaKontor);
+
+                if (svarKontor != null) {
+                    // Hämtar AgentID 
+                    String frågaAID = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '" + AgentNamn + "' ";
+                    String svarAID = idb.fetchSingle(frågaAID);
+
+                    //Villkoret kontrollerar att agenten finns.
+                    if (svarAID != null) {
+                        int AID = Integer.parseInt(svarAID); //Omtypning till int.
+
+                        //Kontrollerar att agenten inte redan är kontorschef
+                        String fråga = "SELECT mibdb.Kontorschef.Agent_ID FROM mibdb.Kontorschef WHERE mibdb.Kontorschef.Agent_ID = '" + AID + "'";
+                        String svar = idb.fetchSingle(fråga);
+
+                        //Kontrollerar att den angivna agenten är kontorschef.
+                        if (svar == null) {
+
+                            String ändra = "UPDATE mibdb.Kontorschef SET Agent_ID = '" + AID + "' "
+                                    + "WHERE mibdb.Kontorschef.Kontorsbeteckning = '" + kontor + "'";
+
+                            idb.update(ändra); //uppdaterar tabellen
+
+                            JOptionPane.showMessageDialog(null, "Det angivna kontoret har nu fått en ny kontorschef");
+
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Agenten är redan kontorschef för ett annat kontor!");
+                        }
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Den angivna agenten finns inte!");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Den angivna kontoret finns inte!");
+                }
+
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
+            }
         }
-        }
-    
+
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
@@ -217,31 +221,28 @@ public class ÄndraKontorschef extends javax.swing.JFrame {
     }//GEN-LAST:event_txtKontorActionPerformed
 
     private void btnHämtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaActionPerformed
-        // TODO add your handling code here:
-        
-        if (Validering.textFaltVarde(txtKontor))
-                {
-        String kontor = txtKontor.getText();
-        
-        try{
-            
-            String fråga = "SELECT mibdb.Agent.Namn FROM mibdb.Agent JOIN mibdb.Kontorschef ON mibdb.Agent.Agent_ID = mibdb.Kontorschef.Agent_ID WHERE mibdb.Kontorschef.Kontorsbeteckning = '"+kontor+"' ";
-            
-            String svar = idb.fetchSingle(fråga);
-            
-            if(svar !=null){
-                
-                txtNuvarandeKontorsChef.setText(svar);
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "Det angivna kontoret finns inte, försök igen!");
-            }
-        }catch (Exception e) {
+        // Metod för att hämta nuvarande kontorschef
+      
+        if (Validering.textFaltVarde(txtKontor)) {
+            String kontor = txtKontor.getText(); //Ny variabel
+
+            try {
+                //SQL frågan hämtar kontorschefen från det angivna kontoret.
+                String fråga = "SELECT mibdb.Agent.Namn FROM mibdb.Agent JOIN mibdb.Kontorschef ON mibdb.Agent.Agent_ID = mibdb.Kontorschef.Agent_ID WHERE mibdb.Kontorschef.Kontorsbeteckning = '" + kontor + "' ";
+                String svar = idb.fetchSingle(fråga);
+
+                //Kontrollerar att det finns en chef för det valda kontoret och om så är fallet skrivs namnet på kontorschefen ut i textfältet.
+                if (svar != null) {
+
+                    txtNuvarandeKontorsChef.setText(svar);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Det angivna kontoret finns inte, försök igen!");
+                }
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
-              
-           }
-    }
+
+            }
+        }
     }//GEN-LAST:event_btnHämtaActionPerformed
 
     /**

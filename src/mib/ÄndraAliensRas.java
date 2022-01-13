@@ -20,7 +20,8 @@ public class ÄndraAliensRas extends javax.swing.JFrame {
     public ÄndraAliensRas(InfDB idb) {
         this.idb = idb;
         initComponents();
- 
+        
+        //I konstruktorn görs dessa textrutor och labels osynliga så att dom kan göras synliga i specifika fall.
         txtAntalArmar.setVisible(false);
         txtAntaBoogies.setVisible(false);
         lblAntaBoogies.setVisible(false);
@@ -208,7 +209,9 @@ public class ÄndraAliensRas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
     private void cmbRasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbRasItemStateChanged
-        // TODO add your handling code here:
+        // Metoden gör ytterliggare textrutor synliga beroende på vad som anges i comboBoxen.
+
+        //Skapar en lokal variabel för det valda alternativet i comboBoxen.
         String vald = cmbRas.getSelectedItem().toString();
 
         txtAntalArmar.setVisible(false);
@@ -216,137 +219,133 @@ public class ÄndraAliensRas extends javax.swing.JFrame {
         lblAntaBoogies.setVisible(false);
         lblAngeArmar.setVisible(false);
 
-        if(vald.equals("Squid")) {
-            
+        if (vald.equals("Squid")) {
             try {
+                //För en alien av rasen Squid behöver antal armar anges, metoden gör en textruta och en label synlig- 
+                // för detta om alternativet Squid väljs i comboBoxen.
                 txtAntalArmar.setVisible(true);
                 lblAngeArmar.setVisible(true);
-     
-                
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
-        }
-     
-        if(vald.equals("Boglodite")) {
-            
+
+        if (vald.equals("Boglodite")) {
             try {
+                //För en alien av rasen Boglodite behöver antal boogies anges, metoden gör en textruta och en label synlig- 
+                // för detta om alternativet Boglodite väljs i comboBoxen.
                 txtAntaBoogies.setVisible(true);
                 lblAntaBoogies.setVisible(true);
-     
-                
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }//GEN-LAST:event_cmbRasItemStateChanged
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
-        // TODO add your handling code here:
-        
+        // Metoden Ändrar ras på en angiven alien.
+        // Eftersom att varje ras är en egen tabell i databasen skickas frågor till varje tabell.
+
         String ID = txtID.getText();
         String Ras = cmbRas.getSelectedItem().toString();
-        
-        try{
-        
-        String frågaAlienID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '"+ID+"'"; 
-        String svarAlienID = idb.fetchSingle(frågaAlienID);
-        
-        if(svarAlienID != null){
-            
-            int resultatAlienID = Integer.parseInt(svarAlienID);
-            
-            String raderaRas1 = "DELETE FROM mibdb.Worm where Alien_ID = '"+ resultatAlienID +"'";
-            String raderaRas2 = "DELETE FROM mibdb.Squid where Alien_ID = '"+resultatAlienID +"'";
-            String raderaRas3 = "DELETE FROM mibdb.Boglodite where Alien_ID = '"+ resultatAlienID +"'";
-            
-            idb.delete(raderaRas1);
-            idb.delete(raderaRas2);
-            idb.delete(raderaRas3);
-            
+
+        try {
+            //Kontrollerar att angiven alien finns.
+            String frågaAlienID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '" + ID + "'";
+            String svarAlienID = idb.fetchSingle(frågaAlienID);
+
+            if (svarAlienID != null) {
+
+                int resultatAlienID = Integer.parseInt(svarAlienID); //Omtypning av alienID från datatypen String till int.
+                
+                //För att en alien inte ska bli kvar i tabellen för dess gamla rasen raderas den ur samtliga innan den läggs in i den nya.
+                String raderaRas1 = "DELETE FROM mibdb.Worm where Alien_ID = '" + resultatAlienID + "'";
+                String raderaRas2 = "DELETE FROM mibdb.Squid where Alien_ID = '" + resultatAlienID + "'";
+                String raderaRas3 = "DELETE FROM mibdb.Boglodite where Alien_ID = '" + resultatAlienID + "'";
+
+                idb.delete(raderaRas1);
+                idb.delete(raderaRas2);
+                idb.delete(raderaRas3);
+                
+                //lokala variabler
                 String worm = "Worm";
                 String squid = "Squid";
                 String boglodite = "Boglodite";
                 String välj = "-Välj-";
                 String antalArmar = txtAntalArmar.getText();
                 String antalBoogies = txtAntaBoogies.getText();
-                
 
+                //Om ny önskad ras är worm för angiven alien adderas den i tabellen Worm.
                 if (cmbRas.getSelectedItem().equals(worm)) {
                     String ras1 = "INSERT INTO mibdb.Worm (Alien_ID) VALUES ('" + resultatAlienID + "')";
                     idb.insert(ras1);
                 }
 
+                 //Om ny önskad ras är Squid för angiven alien adderas den i tabellen Squid.
                 if (cmbRas.getSelectedItem().equals(squid)) {
                     int antalArmarSquid = Integer.parseInt(antalArmar);
                     String ras2 = "INSERT INTO mibdb.Squid (Alien_ID, Antal_Armar) VALUES ('" + resultatAlienID + "', '" + antalArmarSquid + "')";
                     idb.insert(ras2);
                 }
 
+                 //Om ny önskad ras är Boglodite för angiven alien adderas den i tabellen Boglodite.
                 if (cmbRas.getSelectedItem().equals(boglodite)) {
                     int antalBoogiesBoglodite = Integer.parseInt(antalBoogies);
                     String ras3 = "INSERT INTO mibdb.Boglodite (Alien_ID, Antal_Boogies) VALUES ('" + resultatAlienID + "', '" + antalBoogiesBoglodite + "')";
                     idb.insert(ras3);
                 }
-                
-                if (cmbRas.getSelectedItem().equals(välj))
-                {
+
+                if (cmbRas.getSelectedItem().equals(välj)) {
                     JOptionPane.showMessageDialog(null, "Du måste välja en ras! Välj en ras och tryck ändra igen!");
                 }
-                
-            JOptionPane.showMessageDialog(null, "Aliens ras har ändrats!");
-            
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet");
-        }
-        
-        }catch (Exception e) {
+
+                JOptionPane.showMessageDialog(null, "Aliens ras har ändrats!");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Det finns ingen alien med det angivna namnet");
+            }
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     private void btnHämtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaActionPerformed
-        // TODO add your handling code here:
-        
-        String ID = txtID.getText();
-        
+        // Metoden kollar vilken av ras angiven alien är.
+        //Eftersom varje ras är en egen tabell i databasen skickas 3 separata frågor.
+
+        String ID = txtID.getText(); //Lokal Variabel för ID på angiven Alien.
+
         try {
-        
-        String fråga8 = "SELECT mibdb.Worm.Alien_ID from mibdb.Worm WHERE Alien_ID = '"+ID+"'";
-                    
-                    String svar8 = idb.fetchSingle(fråga8);
-                    
-                    if(svar8 == null)
-                    {
-                        String fråga9 = "SELECT mibdb.Squid.Alien_ID from mibdb.Squid WHERE Alien_ID = '"+ID+"'";
-                        
-                        String svar9 = idb.fetchSingle(fråga9);
-                        
-                        if (svar9 == null)
-                        {
-                            String fråga10 = "SELECT mibdb.Boglodite.Alien_ID from mibdb.Boglodite WHERE Alien_ID = '"+ID+"'";
-                            
-                            String svar10 = idb.fetchSingle(fråga10);
-                            
-                            if (svar10 == null)
-                            {
-                                txtRas.setText("Ingen ras");
-                            }
-                            
-                            else {
-                                txtRas.setText("Boglodite");
-                            }
-                        }
-                        else {
-                            txtRas.setText("Squid");
-                        }
+            //Frågar om angiven alien är av rasen Worm.
+            String fråga8 = "SELECT mibdb.Worm.Alien_ID from mibdb.Worm WHERE Alien_ID = '" + ID + "'";
+            String svar8 = idb.fetchSingle(fråga8);
+
+            //Om svaret på frågan ovan är null, frågar metoden om angiven alien är av rasen Squid.
+            if (svar8 == null) {
+                String fråga9 = "SELECT mibdb.Squid.Alien_ID from mibdb.Squid WHERE Alien_ID = '" + ID + "'";
+                String svar9 = idb.fetchSingle(fråga9);
+
+                //Om svaret på frågan ovan är null frågar metoden om angiven alien är av rasen Boglodite.
+                if (svar9 == null) {
+                    String fråga10 = "SELECT mibdb.Boglodite.Alien_ID from mibdb.Boglodite WHERE Alien_ID = '" + ID + "'";
+                    String svar10 = idb.fetchSingle(fråga10);
+
+                    if (svar10 == null) {
+                        txtRas.setText("Ingen ras");
+                    } else {
+                        txtRas.setText("Boglodite");
                     }
-                    else{
-                        txtRas.setText("Worm");
-                    }
-                    
-                    }catch (Exception e) {
+                } else {
+                    txtRas.setText("Squid");
+                }
+            } else {
+                txtRas.setText("Worm");
+            }
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_btnHämtaActionPerformed
