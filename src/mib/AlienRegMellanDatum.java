@@ -3,9 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import oru.inf.InfDB;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,14 +38,14 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
         lblRubrikListaMellanDatum = new javax.swing.JLabel();
         lblStartdatum = new javax.swing.JLabel();
         lblSlutdatum = new javax.swing.JLabel();
-        txtStart = new javax.swing.JTextField();
-        txtSlut = new javax.swing.JTextField();
         btnSök = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         taListaResultat = new javax.swing.JTextArea();
         jScrollBar1 = new javax.swing.JScrollBar();
         lblResultat = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        Datum1 = new com.toedter.calendar.JDateChooser();
+        Datum2 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,10 +55,6 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
         lblStartdatum.setText("Startdatum:");
 
         lblSlutdatum.setText("Slutdatum:");
-
-        txtStart.setColumns(8);
-
-        txtSlut.setColumns(8);
 
         btnSök.setText("Sök");
         btnSök.addActionListener(new java.awt.event.ActionListener() {
@@ -78,31 +77,38 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
             }
         });
 
+        Datum1.setDateFormatString("yyyy-MM-dd");
+
+        Datum2.setDateFormatString("yyyy-MM-dd");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSök)
-                    .addComponent(lblRubrikListaMellanDatum)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSök)
+                            .addComponent(lblRubrikListaMellanDatum)
+                            .addComponent(lblResultat)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton1)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
                         .addComponent(lblStartdatum)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Datum1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
                         .addComponent(lblSlutdatum)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSlut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblResultat)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(291, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Datum2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(60, 252, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,15 +116,21 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(lblRubrikListaMellanDatum)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblStartdatum)
-                    .addComponent(lblSlutdatum)
-                    .addComponent(txtStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSlut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnSök)
-                .addGap(9, 9, 9)
-                .addComponent(lblResultat)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Datum1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Datum2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblStartdatum)
+                        .addGap(10, 10, 10))
+                    .addComponent(lblSlutdatum, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSök)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(lblResultat)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,7 +139,7 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
                         .addGap(46, 46, 46)))
                 .addGap(54, 54, 54)
                 .addComponent(jButton1)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
@@ -137,28 +149,41 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
         // TODO add your handling code here:
          
         taListaResultat.setText("");
-        if(Validering.textFaltVarde(txtStart) &&  Validering.textFaltVarde(txtSlut)) {
-           
-             
-             try {
-             
-             String start = txtStart.getText();
-             String slut = txtSlut.getText();
-             
-             String fråga = "SELECT Namn FROM mibdb.Alien WHERE Registreringsdatum BETWEEN '"+start+"' AND '"+slut+"'";
+        try {
 
-                 ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
-                 
-                 for(HashMap<String, String> Namn : svar) {
-                     
-                      taListaResultat.append(Namn.get("Namn")+"\n");
-                 }
+            Date start = Datum1.getDate();
+            Date slut = Datum2.getDate();
+         
+            if (start != null && slut != null) {
 
-             }catch (Exception e) {
-           System.out.println(e.getMessage());
+            SimpleDateFormat formatet = new SimpleDateFormat("YYYY/MM/D");
+            String format1 = formatet.format(start.getTime());
+            String format2 = formatet.format(slut.getTime());
+
+            
+                String Dat1 = format1;
+                String Dat2 = format2;
+
+                String fråga = "SELECT Namn FROM mibdb.Alien WHERE Registreringsdatum BETWEEN '" + Dat1 + "' AND '" + Dat2 + "'";
+
+                ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
+
+                for (HashMap<String, String> Namn : svar) {
+
+                    taListaResultat.append(Namn.get("Namn") + "\n");
+                }
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Ett eller flera fält saknar värde");
+
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-             
-         }
+
+         
         
     }//GEN-LAST:event_btnSökActionPerformed
 
@@ -204,6 +229,8 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser Datum1;
+    private com.toedter.calendar.JDateChooser Datum2;
     private javax.swing.JButton btnSök;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollBar jScrollBar1;
@@ -213,7 +240,5 @@ public class AlienRegMellanDatum extends javax.swing.JFrame {
     private javax.swing.JLabel lblSlutdatum;
     private javax.swing.JLabel lblStartdatum;
     private javax.swing.JTextArea taListaResultat;
-    private javax.swing.JTextField txtSlut;
-    private javax.swing.JTextField txtStart;
     // End of variables declaration//GEN-END:variables
 }
