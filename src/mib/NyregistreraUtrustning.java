@@ -236,7 +236,6 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
         String kategori = cbValdKategori.getSelectedItem().toString();
         String HID = lblHämtadID.getText();
-        String ID = lblHämtadID.getText();
         String Benämning = txtUtrustningBenämning.getText();
         String överföring = txtKommunikation.getText();
         String kaliber1 = txtVapen.getText();
@@ -259,10 +258,11 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
             try {
 
-                if (kategori.equals(kommunikation)) {
+                if (kategori.equals("Kommunikation")) {
                     if (överföring.isBlank()) {
                         JOptionPane.showMessageDialog(null, "Välj överföringsteknik");
                     } else {
+                        int ID = Integer.parseInt(HID);
                         String kom = "INSERT INTO mibdb.Kommunikation (Utrustnings_ID, overforingsteknik) VALUES ('" + ID + "', '" + överföring + "')";
                         idb.insert(kom);
                         String NyUtrustning1 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
@@ -279,8 +279,8 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Välj kaliber");
 
                     } else {
-
-                        String vap = "INSERT INTO mibdb.Vapen (Utrustnings_ID, kaliber) VALUES ('" + ID + "', '" + kaliber2 + "')";
+                        int ID = Integer.parseInt(HID);
+                  String vap = "INSERT INTO mibdb.Vapen (Utrustnings_ID, kaliber) VALUES ('" + ID + "', '" + kaliber2 + "')";
                         idb.insert(vap);
                         String NyUtrustning2 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
                         idb.insert(NyUtrustning2);
@@ -295,6 +295,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                     if (kraft.isBlank()) {
                         JOptionPane.showMessageDialog(null, "Välj kraftkälla");
                     } else {
+                        int ID = Integer.parseInt(HID);
                         String tek = "INSERT INTO mibdb.Teknik (Utrustnings_ID, Kraftkalla) VALUES ('" + ID + "', '" + kraft + "')";
                         idb.insert(tek);
                         String NyUtrustning3 = "INSERT INTO mibdb.Utrustning (Utrustnings_ID, Benamning) VALUES ('" + ID + "', '" + Benämning + "')";
@@ -304,8 +305,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                 }
 
             
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Ange korrekta siffror");
+            
                 } catch (InfException e) {
                 System.out.println(e.getMessage());
             }
