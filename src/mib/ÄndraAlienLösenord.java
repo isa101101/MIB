@@ -194,36 +194,35 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
         String namn = txtNamn.getText();
         String nyttLösenord = txtNyttLösenord.getText();
         String gamaltLösen = txtBefintligtLösenord.getText();
-        String AID =ÄndraAlien.txtValdID.getText();
-        
+        String AID = ÄndraAlien.txtValdID.getText();
+
         if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtAID) && Validering.textFaltVarde(txtBefintligtLösenord) && Validering.textFaltVarde(txtNyttLösenord)) {
             if (Validering.LösenordLängd(txtNyttLösenord)) {
-        
-            if(Validering.LösenordLängd(txtNyttLösenord)){
-            
-            try{
-            
-           
-            String Lösen = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '"+AID+"'";
+
+                if (Validering.LösenordLängd(txtNyttLösenord)) {
+
+                    try {
+
+                        String Lösen = "SELECT mibdb.Alien.Losenord FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '" + AID + "'";
+
+                        String AlienID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '" + namn + "'";
+
+                        String svarID = idb.fetchSingle(AlienID);
+
+                        String ändra = "UPDATE mibdb.Alien SET Losenord = '" + nyttLösenord + "' WHERE mibdb.Alien.Alien_ID = '" + svarID + "'";
+
+                        idb.update(ändra);
+
+                        JOptionPane.showMessageDialog(null, "Aliens lösenord är ändrat!");
+
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+
+                    }
+                }
+            }
+        }
     
-            String AlienID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
-            
-            String svarID = idb.fetchSingle(AlienID);
-            
-            String ändra = "UPDATE mibdb.Alien SET Losenord = '"+nyttLösenord+"' WHERE mibdb.Alien.Alien_ID = '"+svarID+"'";
-            
-            idb.update(ändra);
-            
-            JOptionPane.showMessageDialog(null, "Aliens lösenord är ändrat!");
-            
-            
-        
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
- 
-        }
-        }
-        }
     
     
     }//GEN-LAST:event_btnÄndraActionPerformed
