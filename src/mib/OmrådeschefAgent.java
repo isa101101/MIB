@@ -6,6 +6,7 @@ package mib;
 
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
  * @author isabellefredriksson
@@ -13,7 +14,7 @@ import oru.inf.InfException;
 public class OmrådeschefAgent extends javax.swing.JFrame {
 
     private InfDB idb;
-    
+
     /**
      * Creates new form OmrådeschefAgent
      */
@@ -21,7 +22,7 @@ public class OmrådeschefAgent extends javax.swing.JFrame {
         this.idb = idb;
         initComponents();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,29 +115,31 @@ public class OmrådeschefAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
-        // TODO add your handling code here:
-        
+        //Metod för att söka fram vem som är områdeschef för ett område
+
+        //Hämtar värdet på ComboBoxen
         String område = cmbOmråde.getSelectedItem().toString();
-        
-        try{
+
+        try {
+
+            //Hämtar i databasen vilken agent som är ansvarig för området
             String fråga = "SELECT mibdb.Agent.Namn FROM mibdb.Agent "
                     + "JOIN mibdb.Omrade ON mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade "
-                    + "WHERE mibdb.Omrade.Benamning = '"+område+"'";
-            
+                    + "WHERE mibdb.Omrade.Benamning = '" + område + "'";
+
             String svar = idb.fetchSingle(fråga);
-            
+
+            //Skriver ut den ansvariga agentens namn
             lblChef.setText(svar);
-            
-        } catch (Exception e){
-            
-           System.out.println(e.getMessage());
-        } 
-        
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+        }
+
     }//GEN-LAST:event_btnSökActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
         new AgentMenu(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -171,7 +174,7 @@ public class OmrådeschefAgent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-           
+
             }
         });
     }
@@ -186,6 +189,3 @@ public class OmrådeschefAgent extends javax.swing.JFrame {
     private javax.swing.JLabel lblRubrikOmrådeschef;
     // End of variables declaration//GEN-END:variables
 }
-
-
-

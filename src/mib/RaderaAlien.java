@@ -16,13 +16,13 @@ import java.util.HashMap;
  */
 public class RaderaAlien extends javax.swing.JFrame {
 
-    
     private InfDB idb;
+
     /**
      * Creates new form RaderaAlien
      */
     public RaderaAlien(InfDB idb) {
-         this.idb = idb;
+        this.idb = idb;
         initComponents();
     }
 
@@ -147,14 +147,16 @@ public class RaderaAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamnActionPerformed
-        // TODO add your handling code here:
+        // Går inte att få bort denna!!
     }//GEN-LAST:event_txtNamnActionPerformed
 
     private void btnRaderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaderaActionPerformed
-        // TODO add your handling code here:
-        
+        // Metod för att radera en alien
+
         if (Validering.textFaltVarde(txtNamn)) {
+
             try {
+                //Hämtar värdet från rutorna och lagrar i lokala varibaler
                 String Namn = txtNamn.getText();
                 String ID = txtID.getText();
 
@@ -165,17 +167,21 @@ public class RaderaAlien extends javax.swing.JFrame {
                 String Resultat1 = svar1;
 
                 if (ID.equals(Resultat1)) {
-                    String radera = "DELETE FROM mibdb.Alien where Alien_ID = '" + ID + "'";
-                    JOptionPane.showMessageDialog(null, "Alien med ID '" + ID + "' borttagen");
 
-                    String raderaRas1 = "DELETE FROM mibdb.Worm where Alien_ID = '"+ ID +"'";
-                    String raderaRas2 = "DELETE FROM mibdb.Squid where Alien_ID = '"+ ID +"'";
-                    String raderaRas3 = "DELETE FROM mibdb.Boglodite where Alien_ID = '"+ ID +"'";
-                    
+                    //På grund av att det finns olika raser så raderas ID från alla
+                    //Finns ingen referensnyckel i ras-tabellerna vilket är anledning till att de behövs raderas i alla
+                    String radera = "DELETE FROM mibdb.Alien where Alien_ID = '" + ID + "'";
+                    String raderaRas1 = "DELETE FROM mibdb.Worm where Alien_ID = '" + ID + "'";
+                    String raderaRas2 = "DELETE FROM mibdb.Squid where Alien_ID = '" + ID + "'";
+                    String raderaRas3 = "DELETE FROM mibdb.Boglodite where Alien_ID = '" + ID + "'";
+
+                    //Raderar alien
                     idb.delete(radera);
                     idb.delete(raderaRas1);
                     idb.delete(raderaRas2);
                     idb.delete(raderaRas3);
+
+                    JOptionPane.showMessageDialog(null, "Alien med ID '" + ID + "' borttagen");
 
                 } else {
                     JOptionPane.showMessageDialog(null, "En Alien med ID '" + ID + "' finns inte");
@@ -183,14 +189,15 @@ public class RaderaAlien extends javax.swing.JFrame {
 
             } catch (InfException e) {
                 System.out.println(e.getMessage());
-        
-        }
+
+            }
         }
     }//GEN-LAST:event_btnRaderaActionPerformed
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
-        // TODO add your handling code here:
-        
+        //Metod för att söka fram ID på de alien som har samma namn, så rätt alien raderas
+
+        //Tömmer text-arean mellan varje sökning
         txtVisaResultat.setText("");
 
         String namn = txtNamn.getText();
@@ -200,25 +207,22 @@ public class RaderaAlien extends javax.swing.JFrame {
             try {
                 String fråga = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '" + namn + "'";
 
+                //Skapas en lista med alla aliens ID med det namnet man sökt på
                 ArrayList<String> svar = idb.fetchColumn(fråga);
 
-                //ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
-                // int abc = Integer.toString(svar);
                 for (String ID : svar) {
 
                     txtVisaResultat.append(ID + "\n");
-
                 }
 
             } catch (InfException e) {
                 System.out.println(e.getMessage());
 
             }
-         }
+        }
     }//GEN-LAST:event_btnSökActionPerformed
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
-        // TODO add your handling code here:
         new AdminMenu(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
@@ -253,7 +257,7 @@ public class RaderaAlien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               
+
             }
         });
     }

@@ -9,21 +9,19 @@ import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
-        
-
 /**
  *
  * @author jackmacbook
  */
 public class RaderaUtrustning extends javax.swing.JFrame {
-    
+
     private InfDB idb;
 
     /**
      * Creates new form RaderaUtrustning
      */
     public RaderaUtrustning(InfDB idb) {
-         this.idb = idb;
+        this.idb = idb;
         initComponents();
     }
 
@@ -151,57 +149,60 @@ public class RaderaUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRaderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaderaActionPerformed
-        // TODO add your handling code here:
-       
-         if (Validering.textFaltVarde(txtNamn)) {
-        try{
-        
-            String ID = txtID.getText();
-            String Namn = txtNamn.getText();
+        //Metod för att radera utrustning
 
-            String fråga1 = "SELECT Utrustnings_ID from mibdb.Utrustning where Utrustnings_ID = '"+ID+"'";
-            
-            String svar1 = idb.fetchSingle(fråga1);
-            
-            String Resultat1 = svar1;
-            
-            if(ID.equals(Resultat1)){
-           
-            String radera = "DELETE FROM mibdb.Utrustning where Utrustnings_ID = '"+ID +"' and Benamning = '"+Namn+"'";
-            String radera2 = "DELETE FROM mibdb.Vapen WHERE Utrustnings_ID = '"+ID+"'";
-            String radera3 = "DELETE FROM mibdb.Teknik WHERE Utrustnings_ID = '"+ID+"'";
-            String radera4 = "DELETE FROM mibdb.Kommunikation WHERE Utrustnings_ID = '"+ID+"'";
- 
-            idb.delete(radera);
-            idb.delete(radera2);
-            idb.delete(radera3);
-            idb.delete(radera4);
-            
-             JOptionPane.showMessageDialog(null, "'"+Namn+"' har raderats"); 
-             
-            }else {
-               JOptionPane.showMessageDialog(null, "Utrustningen finns inte"); 
+        if (Validering.textFaltVarde(txtNamn)) {
+
+            try {
+
+                //Hämtar värden från fälten och lagrar de i lokala variabler
+                String ID = txtID.getText();
+                String Namn = txtNamn.getText();
+
+                String fråga1 = "SELECT Utrustnings_ID from mibdb.Utrustning where Utrustnings_ID = '" + ID + "'";
+
+                String svar1 = idb.fetchSingle(fråga1);
+
+                String Resultat1 = svar1;
+
+                if (ID.equals(Resultat1)) {
+
+                    //På grund av att det finns olika kategorier så raderas ID från alla
+                    //Finns ingen referensnyckel i kategori-tabellerna vilket är anledning till att de behövs raderas i alla
+                    String radera = "DELETE FROM mibdb.Utrustning where Utrustnings_ID = '" + ID + "' and Benamning = '" + Namn + "'";
+                    String radera2 = "DELETE FROM mibdb.Vapen WHERE Utrustnings_ID = '" + ID + "'";
+                    String radera3 = "DELETE FROM mibdb.Teknik WHERE Utrustnings_ID = '" + ID + "'";
+                    String radera4 = "DELETE FROM mibdb.Kommunikation WHERE Utrustnings_ID = '" + ID + "'";
+
+                    //raderar utrustningen
+                    idb.delete(radera);
+                    idb.delete(radera2);
+                    idb.delete(radera3);
+                    idb.delete(radera4);
+
+                    JOptionPane.showMessageDialog(null, "'" + Namn + "' har raderats");
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Utrustningen finns inte");
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
 
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
         }
-        
 
-    }
-
-        
-        
     }//GEN-LAST:event_btnRaderaActionPerformed
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
-        // TODO add your handling code here:
         new AdminMenu(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
-        // TODO add your handling code here:
+        //Metod för att söka fram vilken utrustning med ett visst namn som finns, så rätt tas bort
+
+        //Tömmer text-arean mellan varje sökning
         txtVisaResultat.setText("");
 
         String namn = txtNamn.getText();
@@ -211,10 +212,9 @@ public class RaderaUtrustning extends javax.swing.JFrame {
             try {
                 String fråga = "SELECT mibdb.Utrustning.Utrustnings_ID FROM mibdb.Utrustning WHERE mibdb.Utrustning.Benamning = '" + namn + "'";
 
+                //Skapas en lista med all utrustning med det namnet man sökt på
                 ArrayList<String> svar = idb.fetchColumn(fråga);
 
-                //ArrayList<HashMap<String, String>> svar = idb.fetchRows(fråga);
-                // int abc = Integer.toString(svar);
                 for (String ID : svar) {
 
                     txtVisaResultat.append(ID + "\n");
@@ -225,8 +225,8 @@ public class RaderaUtrustning extends javax.swing.JFrame {
                 System.out.println(e.getMessage());
 
             }
-         }
-        
+        }
+
     }//GEN-LAST:event_btnSökActionPerformed
 
     /**
@@ -259,7 +259,7 @@ public class RaderaUtrustning extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }

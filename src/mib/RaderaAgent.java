@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
+
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -12,14 +13,14 @@ import oru.inf.InfException;
  * @author jackmacbook
  */
 public class RaderaAgent extends javax.swing.JFrame {
-    
+
     private InfDB idb;
 
     /**
      * Creates new form RaderaAgent
      */
     public RaderaAgent(InfDB idb) {
-        this.idb=idb;
+        this.idb = idb;
         initComponents();
     }
 
@@ -125,60 +126,59 @@ public class RaderaAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamnActionPerformed
-        // TODO add your handling code here:
+        //Går inte att ta bort! Igonera denna!
     }//GEN-LAST:event_txtNamnActionPerformed
 
     private void btnRaderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaderaActionPerformed
-        // TODO add your handling code here:
-        
+        //Metod för att radera agent
+
+        //Deklarerar två lokala variabler för att använda i equals-metoden nedan
         String Nej = "Nej";
         String Ja = "Ja";
 
-        
-        
-        
         if (Validering.textFaltVarde(txtNamn)) {
-            
+
             try {
+
+                //Kontroll med att användaren måste ange ja innan man raderar agenten
                 if (cmbJa.getSelectedItem().equals(Nej)) {
-                JOptionPane.showMessageDialog(null, "Ingen Agent har raderats");
-                }else {
-                
-                String Namn = txtNamn.getText();
-             
 
-                String fråga1 = "SELECT mibdb.Agent.Namn FROM mibdb.Agent WHERE Namn = '" + Namn+ "'";
-
-                String svar1 = idb.fetchSingle(fråga1);
-
-                String Resultat1 = svar1;
-              
-              
-
-                if (Namn.equals(Resultat1) && (cmbJa.getSelectedItem().equals(Ja)) ) {
-                    String radera = "DELETE FROM mibdb.Agent where Namn = '" +Namn+ "'";
-                    JOptionPane.showMessageDialog(null, "Agent '"+ Namn + "' borttagen");
-
-                    idb.delete(radera);
-                    
-                
+                    JOptionPane.showMessageDialog(null, "Ingen Agent har raderats");
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "Agent '"+ Namn +"' finns inte");
-                }
+
+                    String Namn = txtNamn.getText();
+
+                    String fråga1 = "SELECT mibdb.Agent.Namn FROM mibdb.Agent WHERE Namn = '" + Namn + "'";
+
+                    String svar1 = idb.fetchSingle(fråga1);
+
+                    String Resultat1 = svar1;
+
+                    //Kontroll på om användaren anger ja måste även namnet motsvara ett namn som finns på en agent
+                    if (Namn.equals(Resultat1) && (cmbJa.getSelectedItem().equals(Ja))) {
+
+                        String radera = "DELETE FROM mibdb.Agent where Namn = '" + Namn + "'";
+
+                        JOptionPane.showMessageDialog(null, "Agent '" + Namn + "' borttagen");
+
+                        idb.delete(radera); //raderar agenten!
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Agent '" + Namn + "' finns inte");
+                    }
                 }
 
             } catch (InfException e) {
                 System.out.println(e.getMessage());
-        
+
+            }
         }
-        }
-        
-        
+
+
     }//GEN-LAST:event_btnRaderaActionPerformed
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
-        // TODO add your handling code here:
         new AdminMenu(idb).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
@@ -213,7 +213,7 @@ public class RaderaAgent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }
