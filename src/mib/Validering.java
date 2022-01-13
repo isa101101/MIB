@@ -25,7 +25,7 @@ public class Validering extends javax.swing.JFrame {
     }
     
     
-
+    // Validering för att fälten inte ska vara tomma
     public static boolean textFaltVarde(JTextField ruta) {
 
         boolean resultat = true;
@@ -39,6 +39,7 @@ public class Validering extends javax.swing.JFrame {
     }
     
 
+    //Validering för att telefonnummer ska anges med enbart siffror
     public static boolean textFaltNummer (JTextField ruta) {
         
         boolean resultat = true;
@@ -49,28 +50,14 @@ public class Validering extends javax.swing.JFrame {
         catch(NumberFormatException e )
         {
             resultat = false;
-            JOptionPane.showMessageDialog(null, "Det får endast vara siffror i textrutan för telefon nummer");
+            JOptionPane.showMessageDialog(null, "Det får endast vara siffror i textrutan för telefonnummer");
         }
  
         return resultat;
     }
     
-    public static boolean textIntPåKaliber (JTextField ruta) {
-        
-        boolean resultat = true;
-        
-        try{
-            Integer.parseInt(ruta.getText());
-        }
-        catch(NumberFormatException e )
-        {
-            resultat = false;
-            JOptionPane.showMessageDialog(null, "Du måste ange kaliber med siffror, inga bokstäver är tillåtna!");
-        }
- 
-        return resultat;
-    }
     
+    //Validering för att lösenord inte får vara längre än 6 tecken
     public static boolean LösenordLängd (JTextField ruta) {
 
         boolean resultat = true;

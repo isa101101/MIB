@@ -198,6 +198,8 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
         
         if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtAID) && Validering.textFaltVarde(txtBefintligtLösenord) && Validering.textFaltVarde(txtNyttLösenord)) {
         
+            if(Validering.LösenordLängd(txtNyttLösenord)){
+            
             try{
             
            
@@ -218,6 +220,7 @@ public class ÄndraAlienLösenord extends javax.swing.JFrame {
         }catch (Exception e) {
             System.out.println(e.getMessage());
  
+        }
         }
         }
     

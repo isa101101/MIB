@@ -144,14 +144,10 @@ public class SökAlienPlats extends javax.swing.JFrame {
             
             
             for (HashMap<String, String> Namn : svar) {
-                
+
                 txtResultat.append(Namn.get("Namn") + "\n");
-            
-                if(svar.isEmpty())
-                {
-                    txtResultat.setText("Finns ingen alien på denna plats just nu!");
-                }
-            }         
+            }
+
         }
 
         }catch (Exception e) {
