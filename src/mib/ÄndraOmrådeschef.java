@@ -120,53 +120,54 @@ public class ÄndraOmrådeschef extends javax.swing.JFrame {
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
 
-        
         if (Validering.textFaltVarde(txtNamn)) {
-            
-           try {
-               String Namn = txtNamn.getText();
-               String Område = cmbOmråde.getSelectedItem().toString();
-               
-               String hämtaAID = "SELECT mibdb.Agent.Agent_ID from mibdb.Agent WHERE mibdb.Agent.Namn = '"+Namn+"'";
-               String hämtaOID ="SELECT mibdb.Omrade.Omrades_ID from mibdb.Omrade where mibdb.Omrade.Benamning = '"+Område+"'";
-               
-               String AID = idb.fetchSingle(hämtaAID);
-               String OID = idb.fetchSingle(hämtaOID);
-               
-               if(AID != null){
- 
-               int SvarOID = Integer.parseInt(OID);
-               int SvarAID = Integer.parseInt(AID);
-               
-               String fråga = "SELECT mibdb.Omradeschef.Agent_ID FROM mibdb.Omradeschef WHERE mibdb.Omradeschef.Agent_ID = '"+AID+"'";
-               
-               String svar = idb.fetchSingle(fråga);
-               
-               if(svar == null)
-               {
-               String ändra = "UPDATE mibdb.Omradeschef SET Agent_ID = '"+SvarAID+"'WHERE mibdb.Omradeschef.Omrade = '"+SvarOID+"'";
-               
-               idb.update(ändra);
-               
-               JOptionPane.showMessageDialog(null, "Områdeschefen är ändrad!");
-               }
-               else {
-                   JOptionPane.showMessageDialog(null,"Den angivna agenten är redan chef över ett annat område!");
-               }
-               }
-               else{
-                   JOptionPane.showMessageDialog(null, "Den angivna agenten finns ej, ange någon annan agent eller registrera agenten först!");
-               }
-                        
-               
-           } catch (Exception e) {
+
+            try {
+                String Namn = txtNamn.getText();
+                String Område = cmbOmråde.getSelectedItem().toString();
+
+                //Metoden hämtar AgentID och OmrådesID.
+                String hämtaAID = "SELECT mibdb.Agent.Agent_ID from mibdb.Agent WHERE mibdb.Agent.Namn = '" + Namn + "'";
+                String hämtaOID = "SELECT mibdb.Omrade.Omrades_ID from mibdb.Omrade where mibdb.Omrade.Benamning = '" + Område + "'";
+
+                String AID = idb.fetchSingle(hämtaAID);
+                String OID = idb.fetchSingle(hämtaOID);
+
+                // Villkoret kontrrollerar att agenten finns.
+                if (AID != null) {
+
+                    //Deklarer två nya varibler och gör "omtypning" från String till int.
+                    int SvarOID = Integer.parseInt(OID);
+                    int SvarAID = Integer.parseInt(AID);
+
+                    //Hämtar AgentID
+                    String fråga = "SELECT mibdb.Omradeschef.Agent_ID FROM mibdb.Omradeschef WHERE mibdb.Omradeschef.Agent_ID = '" + AID + "'";
+                    String svar = idb.fetchSingle(fråga);
+
+                    //Villkoret kontrollerar att en Agent inte redan är chef.
+                    if (svar == null) {
+                        String ändra = "UPDATE mibdb.Omradeschef SET Agent_ID = '" + SvarAID + "'WHERE mibdb.Omradeschef.Omrade = '" + SvarOID + "'";
+
+                        idb.update(ändra);
+                        JOptionPane.showMessageDialog(null, "Områdeschefen är ändrad!");
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Den angivna agenten är redan chef över ett annat område!");
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Den angivna agenten finns ej, ange någon annan agent eller registrera agenten först!");
+                }
+
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
-              
-           }
-}
-        
+
+            }
+        }
+
     }//GEN-LAST:event_btnÄndraActionPerformed
 
+    
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
         // TODO add your handling code here:
         new AdminMenu(idb).setVisible(true);
