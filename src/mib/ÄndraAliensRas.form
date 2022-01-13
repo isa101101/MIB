@@ -44,13 +44,15 @@
                                   <Component id="txtAntaBoogies" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtNamn" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="txtNuvarandeRas" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtRas" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtID" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnHämta" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="351" max="32767" attributes="0"/>
+                      <EmptySpace pref="248" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
@@ -99,9 +101,10 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNuvarandeRas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtRas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnHämta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblNyRas" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cmbRas" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -219,10 +222,18 @@
         <Property name="text" type="java.lang.String" value="Nuvarande ras"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNuvarandeRas">
+    <Component class="javax.swing.JTextField" name="txtRas">
       <Properties>
         <Property name="columns" type="int" value="10"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnH&#xe4;mta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="H&#xe4;mta"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnH&#xe4;mtaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -56,7 +56,8 @@ public class ÄndraAliensRas extends javax.swing.JFrame {
         txtID = new javax.swing.JTextField();
         txtNamn = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtNuvarandeRas = new javax.swing.JTextField();
+        txtRas = new javax.swing.JTextField();
+        btnHämta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,7 +105,14 @@ public class ÄndraAliensRas extends javax.swing.JFrame {
 
         jLabel3.setText("Nuvarande ras");
 
-        txtNuvarandeRas.setColumns(10);
+        txtRas.setColumns(10);
+
+        btnHämta.setText("Hämta");
+        btnHämta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHämtaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,9 +137,11 @@ public class ÄndraAliensRas extends javax.swing.JFrame {
                                     .addComponent(txtAntaBoogies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtNuvarandeRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(351, Short.MAX_VALUE))
+                                        .addComponent(txtRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnHämta)))
+                        .addContainerGap(248, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,8 +177,9 @@ public class ÄndraAliensRas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtNuvarandeRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHämta))
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNyRas)
                     .addComponent(cmbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -233,13 +244,12 @@ public class ÄndraAliensRas extends javax.swing.JFrame {
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
         
-        String namn = txtNamn.getText();
+        String ID = txtID.getText();
         String Ras = cmbRas.getSelectedItem().toString();
         
         try{
         
-        String frågaAlienID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
-           
+        String frågaAlienID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Alien_ID = '"+ID+"'"; 
         String svarAlienID = idb.fetchSingle(frågaAlienID);
         
         if(svarAlienID != null){
@@ -296,6 +306,51 @@ public class ÄndraAliensRas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnÄndraActionPerformed
 
+    private void btnHämtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHämtaActionPerformed
+        // TODO add your handling code here:
+        
+        String ID = txtID.getText();
+        
+        try {
+        
+        String fråga8 = "SELECT mibdb.Worm.Alien_ID from mibdb.Worm WHERE Alien_ID = '"+ID+"'";
+                    
+                    String svar8 = idb.fetchSingle(fråga8);
+                    
+                    if(svar8 == null)
+                    {
+                        String fråga9 = "SELECT mibdb.Squid.Alien_ID from mibdb.Squid WHERE Alien_ID = '"+ID+"'";
+                        
+                        String svar9 = idb.fetchSingle(fråga9);
+                        
+                        if (svar9 == null)
+                        {
+                            String fråga10 = "SELECT mibdb.Boglodite.Alien_ID from mibdb.Boglodite WHERE Alien_ID = '"+ID+"'";
+                            
+                            String svar10 = idb.fetchSingle(fråga10);
+                            
+                            if (svar10 == null)
+                            {
+                                txtRas.setText("Ingen ras");
+                            }
+                            
+                            else {
+                                txtRas.setText("Boglodite");
+                            }
+                        }
+                        else {
+                            txtRas.setText("Squid");
+                        }
+                    }
+                    else{
+                        txtRas.setText("Worm");
+                    }
+                    
+                    }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnHämtaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -332,6 +387,7 @@ public class ÄndraAliensRas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHämta;
     private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnÄndra;
     private javax.swing.JComboBox<String> cmbRas;
@@ -346,6 +402,6 @@ public class ÄndraAliensRas extends javax.swing.JFrame {
     private javax.swing.JTextField txtAntalArmar;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNamn;
-    private javax.swing.JTextField txtNuvarandeRas;
+    private javax.swing.JTextField txtRas;
     // End of variables declaration//GEN-END:variables
 }
