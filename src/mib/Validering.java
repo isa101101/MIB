@@ -38,18 +38,24 @@ public class Validering extends javax.swing.JFrame {
         return resultat;
     }
     
+
     public static boolean textFaltNummer (JTextField ruta) {
         
         boolean resultat = true;
         
-        if (ruta.getText().matches("[0-9]")) {
-           JOptionPane.showMessageDialog(null, "Det får endast vara siffror i textrutan");
-           resultat = false;
+        try{
+            Integer.parseInt(ruta.getText());
         }
-        
+        catch(NumberFormatException e )
+        {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Det får endast vara siffror i textrutan");
+        }
+ 
         return resultat;
     }
     
+  
     public static boolean textFaltBokstaver (JTextField ruta) {
         
         boolean resultat = true;
