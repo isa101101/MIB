@@ -197,23 +197,17 @@ public class ÄndraAliensAsvarigaAgent extends javax.swing.JFrame {
 
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
-        String namn = txtNamn.getText();
+        String ID = txtID.getText();
         String nyAgent = txtNyAgent.getText();
         
-        try{
-            String frågaAlienID = "SELECT mibdb.Alien.Alien_ID FROM mibdb.Alien WHERE mibdb.Alien.Namn = '"+namn+"'";
-           
-            String svarAlienID = idb.fetchSingle(frågaAlienID);
-            
+        try{  
             String frågaAgentID = "SELECT mibdb.Agent.Agent_ID FROM mibdb.Agent WHERE mibdb.Agent.Namn = '"+nyAgent+"'";
-            
             String svarAgentID = idb.fetchSingle(frågaAgentID);
             
             if(svarAgentID != null)
             {
             
-            int resultatAlienID = Integer.parseInt(svarAlienID);
-            
+            int resultatAlienID = Integer.parseInt(ID); 
             int resultatAgentID = Integer.parseInt(svarAgentID);
              
             String ändra = "UPDATE mibdb.Alien SET Ansvarig_Agent = '"+resultatAgentID+"' WHERE mibdb.Alien.Alien_ID = '"+resultatAlienID+"'";
