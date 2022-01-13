@@ -3,8 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
+import java.util.Date;
 
 /**
  *
@@ -37,10 +39,10 @@ public class ÄndraAgentAnstDatum extends javax.swing.JFrame {
         txtNamn = new javax.swing.JTextField();
         txtDatum = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtNyttDatum = new javax.swing.JTextField();
         btnHämta = new javax.swing.JButton();
         btnÄndra = new javax.swing.JButton();
         btnTillbaka = new javax.swing.JButton();
+        Datum = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,8 +58,6 @@ public class ÄndraAgentAnstDatum extends javax.swing.JFrame {
         txtDatum.setColumns(10);
 
         jLabel4.setText("Nytt anställningsdatum");
-
-        txtNyttDatum.setColumns(10);
 
         btnHämta.setText("Hämta");
         btnHämta.addActionListener(new java.awt.event.ActionListener() {
@@ -80,6 +80,8 @@ public class ÄndraAgentAnstDatum extends javax.swing.JFrame {
             }
         });
 
+        Datum.setDateFormatString("yyyy-MM-dd");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,12 +100,13 @@ public class ÄndraAgentAnstDatum extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(btnHämta))
                                 .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnÄndra)
-                                    .addComponent(txtNyttDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(49, 49, 49)
-                                    .addComponent(btnTillbaka)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(Datum, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(49, 49, 49)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnÄndra)
+                                            .addComponent(btnTillbaka)))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
@@ -115,21 +118,22 @@ public class ÄndraAgentAnstDatum extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jLabel1)
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHämta))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtNyttDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnHämta))
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel4))
+                    .addComponent(Datum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
                 .addComponent(btnÄndra)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(btnTillbaka)
@@ -178,20 +182,26 @@ public class ÄndraAgentAnstDatum extends javax.swing.JFrame {
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
         
-         String Namn = txtNamn.getText();
-         String Nyttdatum = txtNyttDatum.getText();
-        String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Anstallningsdatum = '"+Nyttdatum+"' where mibdb.Agent.Namn = '"+Namn+"'";
         
-         if (Validering.textFaltVarde(txtNyttDatum)) {
-             try {
-                 idb.update(ändra);
-                 JOptionPane.showMessageDialog(null, "Anställningsdatum har ändrats");
-                 
-             }catch (Exception e) {
+         String Namn = txtNamn.getText();
+         Date NyttDatum = Datum.getDate();
+ 
+        if (NyttDatum != null) {
+            try {
+
+                SimpleDateFormat formatet = new SimpleDateFormat("YYYY/MM/D");
+                String form = formatet.format(NyttDatum.getTime());
+                String Datumet = form;
+
+                String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Anstallningsdatum = '" +form+ "' where mibdb.Agent.Namn = '" + Namn + "'";
+                idb.update(ändra);
+                JOptionPane.showMessageDialog(null, "Anställningsdatum har ändrats");
+
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
-             }
-         }
-         
+            }
+        }
+
         
     }//GEN-LAST:event_btnÄndraActionPerformed
 
@@ -231,6 +241,7 @@ public class ÄndraAgentAnstDatum extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser Datum;
     private javax.swing.JButton btnHämta;
     private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnÄndra;
@@ -240,6 +251,5 @@ public class ÄndraAgentAnstDatum extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtDatum;
     private javax.swing.JTextField txtNamn;
-    private javax.swing.JTextField txtNyttDatum;
     // End of variables declaration//GEN-END:variables
 }

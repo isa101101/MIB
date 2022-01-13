@@ -295,7 +295,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         }
         
         else {
-           JOptionPane.showMessageDialog(null, "Det finns redan en alien med det namn du önskade, testa något annat!"); 
+           JOptionPane.showMessageDialog(null, "Det finns redan en agent med det namn du önskade, testa något annat!"); 
         }
         
         }catch (Exception e) {

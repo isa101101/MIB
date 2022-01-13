@@ -108,29 +108,39 @@ public class ÄndraAgentNam extends javax.swing.JFrame {
     private void btnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraActionPerformed
         // TODO add your handling code here:
         
-        try {
-            String Namn = txtNamn.getText();
-            String fråga = "SELECT mibdb.Agent.Namn from mibdb.Agent WHERE Namn = '"+Namn+"'";
-            String svar = idb.fetchSingle(fråga);
-            
-            String nyttNamn = txtNyttNamn.getText();
-            String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Namn = '"+nyttNamn+"' WHERE mibdb.Agent.Namn = '"+Namn+"'";
-            
-            
-            
-            if(Namn.equalsIgnoreCase(svar)){
-                idb.update(ändra);
-                JOptionPane.showMessageDialog(null, " Namnet har ändrats");
-                
-            }else{
-                JOptionPane.showMessageDialog(null, " Det finns ingen agent med namnet '"+ Namn+ "'");
-            }
-            
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+          if (Validering.textFaltVarde(txtNamn) && Validering.textFaltVarde(txtNyttNamn)) {
+            try {
 
+                String Namn = txtNamn.getText();
+                String nyttNamn = txtNyttNamn.getText();
+
+                String frågaFinnsRedanNamn = "SELECT mibdb.Agent.Namn FROM mibdb.Agent WHERE mibdb.Agent.Namn = '" + nyttNamn + "'";
+                String SvarFinnsRedanNamn = idb.fetchSingle(frågaFinnsRedanNamn);
+                String fråga = "SELECT mibdb.Agent.Namn from mibdb.Agent WHERE Namn = '" + Namn + "'";
+                String svar = idb.fetchSingle(fråga);
+
+                if (SvarFinnsRedanNamn == null) {
+                    if (Namn.equalsIgnoreCase(svar)) {
+
+                        String ändra = "UPDATE mibdb.Agent SET mibdb.Agent.Namn = '" + nyttNamn + "' WHERE mibdb.Agent.Namn = '" + Namn + "'";
+                        idb.update(ändra);
+                        JOptionPane.showMessageDialog(null, " Namnet har ändrats");
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, " Det finns ingen agent med namnet '" + Namn + "'");
+                    }
+
+                }else {
+                    JOptionPane.showMessageDialog(null, " Det finns redan en agent med namnet '" +nyttNamn+ "'");
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+
+            }
         }
-        
+
+
     }//GEN-LAST:event_btnÄndraActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
