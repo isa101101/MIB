@@ -314,7 +314,8 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                 && Validering.textFaltVarde(txtPlats) && Validering.textFaltVarde(txtAnsvarigagent)) {
             
             if (Validering.LösenordLängd(txtlösenord)){
-                //if(Validering.textFaltNummer(txtTelefon)) {
+                
+                if(Validering.textFaltNummer(txtTelefon)) {
 
             try {
                 String ID = lblID.getText();
@@ -358,23 +359,18 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                             + "('" + ID + "','" + Datumet + "','" + lösenord + "','" + Namn + "', '" + Telefon + "','" + Plats_ID + "','" + Agent_ID + "')";
 
                     idb.insert(Nyalien);
-                    
-                    String worm = "Worm";
-                String squid = "Squid";
-                String boglodite = "Boglodite";
-                    
-
-                if (cmbRas.getSelectedItem().equals("worm")) {
+              
+                if (cmbRas.getSelectedItem().equals("Worm")) {
                     String ras1 = "INSERT INTO mibdb.Worm (Alien_ID) VALUES ('" + ID + "')";
                     idb.insert(ras1);
                 }
 
-                if (cmbRas.getSelectedItem().equals("squid")) {
+                if (cmbRas.getSelectedItem().equals("Squid")) {
                     String ras2 = "INSERT INTO mibdb.Squid (Alien_ID, Antal_Armar) VALUES ('" + ID + "', '" + antalArmar + "')";
                     idb.insert(ras2);
                 }
 
-                if (cmbRas.getSelectedItem().equals("boglodite")) {
+                if (cmbRas.getSelectedItem().equals("Boglodite")) {
                     String ras3 = "INSERT INTO mibdb.Boglodite (Alien_ID, Antal_Boogies) VALUES ('" + ID + "', '" + antalBoogies + "')";
                     idb.insert(ras3);
                 }
@@ -417,7 +413,7 @@ public class NyregistreraAliens extends javax.swing.JFrame {
 
                         System.out.println(e.getMessage());
                     }
-                //}
+                }
 
             }
         }
