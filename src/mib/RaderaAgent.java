@@ -143,10 +143,24 @@ public class RaderaAgent extends javax.swing.JFrame {
             try {
                 String Namn = txtNamn.getText();
                 
+                //Kontroll så inte den agent man vill ta bort är kontorschef
+                String KChef = "SELECT mibdb.Kontorschef.Agent_ID FROM mibdb.Kontorschef JOIN mibdb.Agent ON mibdb.Agent.Agent_ID = mibdb.Kontorschef.Agent_ID WHERE mibdb.Agent.Namn = '" + Namn + "'";
+                String svarKChef = idb.fetchSingle(KChef);
+                
+                if(svarKChef == null){
+
+                //Kontroll så inte den agent man vill ta bort är områdeschef
                 String Chef = "SELECT mibdb.Omradeschef.Agent_ID FROM mibdb.Omradeschef JOIN mibdb.Agent ON mibdb.Agent.Agent_ID = mibdb.Omradeschef.Agent_ID where mibdb.Agent.Namn = '" + Namn + "'";
                 String svarChef = idb.fetchSingle(Chef);
 
                 if (svarChef == null) {
+                
+                //Kontroll så inte agent är ansvarig agent för aliens
+                String AnsvarigAgent = "SELECT mibdb.Alien.Ansvarig_Agent FROM mibdb.Alien JOIN mibdb.Agent ON mibdb.Agent.Agent_ID = mibdb.Alien.Ansvarig_Agent WHERE mibdb.Agent.Namn = '" + Namn + "'";
+                String svarAnsvarigAgent = idb.fetchSingle(AnsvarigAgent);
+                
+                if (svarAnsvarigAgent == null){
+                    
                 //Kontroll med att användaren måste ange ja innan man raderar agenten
                 if (cmbJa.getSelectedItem().equals(Nej)) {
 
@@ -175,8 +189,17 @@ public class RaderaAgent extends javax.swing.JFrame {
                 }
                 
                 } else {
+                    JOptionPane.showMessageDialog(null, "Agent '" + Namn + "' är ansvarig Agent, var god ändra ansvarig agent på aliens innan du tar bort '" + Namn + "'");
+                }
+                
+                } else {
                    JOptionPane.showMessageDialog(null, "Agent '" + Namn + "' är områdeschef, var god ändra områdeschef innan du tar bort '" + Namn + "'"); 
                 }
+                
+                } else {
+                   JOptionPane.showMessageDialog(null, "Agent '" + Namn + "' är kontorschef, var god ändra kontorschef innan du tar bort '" + Namn + "'");
+                }
+                
             } catch (InfException e) {
                 System.out.println(e.getMessage());
 
