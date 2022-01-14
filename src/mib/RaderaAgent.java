@@ -135,19 +135,24 @@ public class RaderaAgent extends javax.swing.JFrame {
         //Deklarerar två lokala variabler för att använda i equals-metoden nedan
         String Nej = "Nej";
         String Ja = "Ja";
+        
+       
 
         if (Validering.textFaltVarde(txtNamn)) {
 
             try {
+                String Namn = txtNamn.getText();
+                
+                String Chef = "SELECT mibdb.Omradeschef.Agent_ID FROM mibdb.Omradeschef JOIN mibdb.Agent ON mibdb.Agent.Agent_ID = mibdb.Omradeschef.Agent_ID where mibdb.Agent.Namn = '" + Namn + "'";
+                String svarChef = idb.fetchSingle(Chef);
 
+                if (svarChef == null) {
                 //Kontroll med att användaren måste ange ja innan man raderar agenten
                 if (cmbJa.getSelectedItem().equals(Nej)) {
 
                     JOptionPane.showMessageDialog(null, "Ingen Agent har raderats");
 
                 } else {
-
-                    String Namn = txtNamn.getText();
 
                     String fråga1 = "SELECT mibdb.Agent.Namn FROM mibdb.Agent WHERE Namn = '" + Namn + "'";
 
@@ -168,7 +173,10 @@ public class RaderaAgent extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Agent '" + Namn + "' finns inte");
                     }
                 }
-
+                
+                } else {
+                   JOptionPane.showMessageDialog(null, "Agent '" + Namn + "' är områdeschef, var god ändra områdeschef innan du tar bort '" + Namn + "'"); 
+                }
             } catch (InfException e) {
                 System.out.println(e.getMessage());
 

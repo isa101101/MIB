@@ -123,9 +123,13 @@ public class OmrådeschefAgent extends javax.swing.JFrame {
         try {
 
             //Hämtar i databasen vilken agent som är ansvarig för området
-            String fråga = "SELECT mibdb.Agent.Namn FROM mibdb.Agent "
-                    + "JOIN mibdb.Omrade ON mibdb.Omrade.Omrades_ID = mibdb.Agent.Omrade "
+            String fråga1 = "SELECT mibdb.Agent.Namn FROM mibdb.Agent "
+                    + "JOIN mibdb.Omradeschef ON mibdb.Omradeschef.Omrade = mibdb.Agent.Omrade "
+                    + "JOIN mibdb.Omrade ON mibdb.Omrade.Omrades_ID = mibdb.Omradeschef.Omrade"
                     + "WHERE mibdb.Omrade.Benamning = '" + område + "'";
+            
+            String fråga = "SELECT mibdb.Agent.Namn FROM mibdb.Agent JOIN mibdb.Omradeschef ON mibdb.Omradeschef.Agent_ID = mibdb.Agent.Agent_ID "
+                    + "JOIN mibdb.Omrade ON mibdb.Omrade.Omrades_ID = mibdb.Omradeschef.Omrade WHERE mibdb.Omrade.Benamning = '" + område + "'";
 
             String svar = idb.fetchSingle(fråga);
 
