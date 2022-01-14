@@ -125,6 +125,8 @@ public class BytAlienLösenord extends javax.swing.JFrame {
         // TODO add your handling code here:
    
         if (Validering.textFaltVarde(txtAnvändarnamn)) {
+            
+            if(Validering.LösenordLängd(txtNyaLösenordet)){
 
             try {
                 //Deklarera nya variabler
@@ -147,13 +149,18 @@ public class BytAlienLösenord extends javax.swing.JFrame {
                         idb.update(ändra); //Metoden uppdaterar tabellen
                         JOptionPane.showMessageDialog(null, "Lösenordet har ändrats");
                     }
+                    
+                    else {
+                      JOptionPane.showMessageDialog(null, "Det angivna lösenordet är fel!");  
+                    }
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenord");
+                    JOptionPane.showMessageDialog(null, "Det angivna användarnamnet finns inte!");
                 }
 
             } catch (Exception e) {
                 System.out.println(e.getMessage());
+            }
             }
         }
     }//GEN-LAST:event_btnÄndraActionPerformed
