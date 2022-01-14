@@ -317,7 +317,7 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                 if (Validering.textFaltNummer(txtTelefon)) {
 
                     try {
-                        //Hämta värdet från alla fält
+                        //Hämta värden från alla fält
                         String ID = lblID.getText();
                         Date regDatum = Datum.getDate();
                         String lösenord = txtlösenord.getText();
@@ -356,7 +356,7 @@ public class NyregistreraAliens extends javax.swing.JFrame {
 
                             //Kontroll om Ansvarig agent finns eller inte
                             if (SvarAgent != null) {
-                                //"Omtypning" från String till int med samma anledning som på plarts
+                                //"Omtypning" från String till int med samma anledning som på plats
                                 int Agent_ID = Integer.parseInt(SvarAgent);
 
                                 String Nyalien = "INSERT INTO mibdb.Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES "
@@ -388,7 +388,7 @@ public class NyregistreraAliens extends javax.swing.JFrame {
                         } else {
 
                             //Om inte platsen finns ska den läggas till, vilket koden nedan gör
-                            //Hämtar ID för nya platsen samt de valda område om gör "omtypning"
+                            //Hämtar ID för nya platsen samt de valda område och gör "omtypning"
                             String FrågaNyPlats_ID = "SELECT max(Plats_ID) FROM mibdb.Plats";
 
                             String SvarNyPlats_ID = idb.fetchSingle(FrågaNyPlats_ID);

@@ -8,14 +8,14 @@ import java.awt.event.KeyEvent;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author jackmacbook
  */
 public class Inloggtvå extends javax.swing.JFrame {
-    
+
     private InfDB idb;
-    
 
     /**
      * Creates new form Inloggtvå
@@ -23,7 +23,7 @@ public class Inloggtvå extends javax.swing.JFrame {
     public Inloggtvå(InfDB idb) {
         initComponents();
         this.idb = idb;
-       
+
     }
 
     /**
@@ -122,144 +122,130 @@ public class Inloggtvå extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
     public String getAnvändare() {
-        
-    String Användare = txtAnvändarnamn.getText();
-    Användare.toString();
-    
-    return Användare;
-    
-    }
-    
-    private void btnLoggainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggainActionPerformed
-        // TODO add your handling code here:
-        
-         if(Validering.textFaltVarde(txtAnvändarnamn) && Validering.textFaltVarde(txtLösenord) ) {
-             try {
-        String användarnamn = txtAnvändarnamn.getText();
-        String lösenord = txtLösenord.getText();
-        
-        String fråga1 = "SELECT Namn FROM mibdb.Agent WHERE Namn = '" +användarnamn+ "'";
-        String fråga2 = "SELECT Losenord FROM mibdb.Agent WHERE Losenord = '" +lösenord+ "'";
-        String fråga3 = "SELECT Namn FROM mibdb.Alien WHERE Namn = '" +användarnamn+ "'";
-        String fråga4 = "SELECT Losenord FROM mibdb.Alien WHERE Losenord = '" +lösenord+ "'";
-        String fråga5 = "SELECT Namn FROM mibdb.Agent WHERE administrator = 'j' ";
-               
-        String svar1 = idb.fetchSingle(fråga1);
-        String svar2 = idb.fetchSingle(fråga2);
-        String svar3 = idb.fetchSingle(fråga3);
-        String svar4 = idb.fetchSingle(fråga4);
-        String svar5 = idb.fetchSingle(fråga5);
-        
-        String Resultat1 = svar1;
-        String Resultat2 = svar2;
-        String Resultat3 = svar3;
-        String Resultat4 = svar4;
-        String Resultat5 = svar5;
-        
-        String Agent = "Agent";
-        String Alien = "Alien";
-        String Admin = "Admin";
-        
-       
-        
-       
-        if(cmbBefattning.getSelectedItem().equals(Agent) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat1) && txtLösenord.getText().equals(Resultat2)){
-            new AgentMenu(idb).setVisible(true);
-            dispose();
-        }    
-        else if (cmbBefattning.getSelectedItem().equals(Alien) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat3) && txtLösenord.getText().equals(Resultat4)) {
-            new AlienMenu(idb).setVisible(true);
-            dispose();   
-         }
-        else if (cmbBefattning.getSelectedItem().equals(Admin) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat1) && txtLösenord.getText().equals(Resultat2) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat5)) {
-            new AdminMenu(idb).setVisible(true);
-            dispose(); 
-        } 
-        
-        else if (cmbBefattning.getSelectedItem().equals(Admin) && txtAnvändarnamn.getText() != (Resultat5)) {
-            JOptionPane.showMessageDialog(null, "Agenten är ej behörig ");
-            
-        }
-         else {
-            
-        JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenord");
-            
-        }
-    
-     
-            //if (txtMedlem.equals(svar)){
-        }catch (InfException e) {
-           System.out.println(e.getMessage());
-        }
-    }//GEN-LAST:event_btnLoggainActionPerformed
-    }     
-    private void txtLösenordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLösenordKeyPressed
-        // TODO add your handling code here:
-        
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
-        if (Validering.textFaltVarde(txtAnvändarnamn) && Validering.textFaltVarde(txtLösenord)) {   
-            
-        }
-            try {
-        String användarnamn = txtAnvändarnamn.getText();
-        String lösenord = txtLösenord.getText();
-        
-        String fråga1 = "SELECT Namn FROM mibdb.Agent WHERE Namn = '" +användarnamn+ "'";
-        String fråga2 = "SELECT Losenord FROM mibdb.Agent WHERE Losenord = '" +lösenord+ "'";
-        String fråga3 = "SELECT Namn FROM mibdb.Alien WHERE Namn = '" +användarnamn+ "'";
-        String fråga4 = "SELECT Losenord FROM mibdb.Alien WHERE Losenord = '" +lösenord+ "'";
-        String fråga5 = "SELECT Namn FROM mibdb.Agent WHERE administrator = 'j' ";
-        
-        String svar1 = idb.fetchSingle(fråga1);
-        String svar2 = idb.fetchSingle(fråga2);
-        String svar3 = idb.fetchSingle(fråga3);
-        String svar4 = idb.fetchSingle(fråga4);
-        String svar5 = idb.fetchSingle(fråga5);
-        
-        String Resultat1 = svar1;
-        String Resultat2 = svar2;
-        String Resultat3 = svar3;
-        String Resultat4 = svar4;
-        String Resultat5 = svar5;
-         
-        String Agent = "Agent";
-        String Alien = "Alien";
-        String Admin = "Admin";
-        
-        if(cmbBefattning.getSelectedItem().equals(Agent) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat1) && txtLösenord.getText().equals(Resultat2)){
-            new AgentMenu(idb).setVisible(true);
-            dispose();
-        }    
-        else if (cmbBefattning.getSelectedItem().equals(Alien) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat3) && txtLösenord.getText().equals(Resultat4)) {
-            new AlienMenu(idb).setVisible(true);
-            dispose();   
-         }
-        else if (cmbBefattning.getSelectedItem().equals(Admin) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat1) && txtLösenord.getText().equals(Resultat2) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat5)) {
-            new AdminMenu(idb).setVisible(true);
-            dispose(); 
-        } 
-        
-        else if (cmbBefattning.getSelectedItem().equals(Admin) && txtAnvändarnamn.getText() != (Resultat5)) {
-            JOptionPane.showMessageDialog(null, "Agenten är ej behörig ");
-            
-        }
-        
 
-        else {
-            
-        JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenordet ");
-            
-        }
-    
-     
-            //if (txtMedlem.equals(svar)){
-        }catch (Exception e) {
-           System.out.println(e.getMessage());
-        }
+        String Användare = txtAnvändarnamn.getText();
+        Användare.toString();
+
+        return Användare;
+
+    }
+
+    private void btnLoggainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggainActionPerformed
+        //Metod för att logga in i systemet 
+
+        if (Validering.textFaltVarde(txtAnvändarnamn) && Validering.textFaltVarde(txtLösenord)) {
+
+            try {
+                //Hämtar värden i fälten
+                String användarnamn = txtAnvändarnamn.getText();
+                String lösenord = txtLösenord.getText();
+
+                String fråga1 = "SELECT Namn FROM mibdb.Agent WHERE Namn = '" + användarnamn + "'";
+                String fråga2 = "SELECT Losenord FROM mibdb.Agent WHERE Losenord = '" + lösenord + "'";
+                String fråga3 = "SELECT Namn FROM mibdb.Alien WHERE Namn = '" + användarnamn + "'";
+                String fråga4 = "SELECT Losenord FROM mibdb.Alien WHERE Losenord = '" + lösenord + "'";
+                String fråga5 = "SELECT Namn FROM mibdb.Agent WHERE administrator = 'j' ";
+
+                //Hämtar svar på alla ovanstående frågor från databasen
+                String svar1 = idb.fetchSingle(fråga1);
+                String svar2 = idb.fetchSingle(fråga2);
+                String svar3 = idb.fetchSingle(fråga3);
+                String svar4 = idb.fetchSingle(fråga4);
+                String svar5 = idb.fetchSingle(fråga5);
+
+                String Resultat1 = svar1;
+                String Resultat2 = svar2;
+                String Resultat3 = svar3;
+                String Resultat4 = svar4;
+                String Resultat5 = svar5;
+
+                //Lokala varibler för att underlätta vid metoden equals nedan
+                String Agent = "Agent";
+                String Alien = "Alien";
+                String Admin = "Admin";
+
+                //Kontroll att inloggningsuppgifterna stämmer överrens med den valda befattningen
+                if (cmbBefattning.getSelectedItem().equals(Agent) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat1) && txtLösenord.getText().equals(Resultat2)) {
+                    new AgentMenu(idb).setVisible(true);
+                    dispose();
+                } else if (cmbBefattning.getSelectedItem().equals(Alien) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat3) && txtLösenord.getText().equals(Resultat4)) {
+                    new AlienMenu(idb).setVisible(true);
+                    dispose();
+                } else if (cmbBefattning.getSelectedItem().equals(Admin) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat1) && txtLösenord.getText().equals(Resultat2) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat5)) {
+                    new AdminMenu(idb).setVisible(true);
+                    dispose();
+                } else if (cmbBefattning.getSelectedItem().equals(Admin) && txtAnvändarnamn.getText() != (Resultat5)) {
+                    JOptionPane.showMessageDialog(null, "Agenten är ej behörig ");
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenord");
+
+                }
+
+            } catch (InfException e) {
+                System.out.println(e.getMessage());
+            }
+    }//GEN-LAST:event_btnLoggainActionPerformed
+    }
+    private void txtLösenordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLösenordKeyPressed
+        //Denna metod gör exakt samma sak som ovan men genom komandot enter
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (Validering.textFaltVarde(txtAnvändarnamn) && Validering.textFaltVarde(txtLösenord)) {
+
+            }
+            try {
+                String användarnamn = txtAnvändarnamn.getText();
+                String lösenord = txtLösenord.getText();
+
+                String fråga1 = "SELECT Namn FROM mibdb.Agent WHERE Namn = '" + användarnamn + "'";
+                String fråga2 = "SELECT Losenord FROM mibdb.Agent WHERE Losenord = '" + lösenord + "'";
+                String fråga3 = "SELECT Namn FROM mibdb.Alien WHERE Namn = '" + användarnamn + "'";
+                String fråga4 = "SELECT Losenord FROM mibdb.Alien WHERE Losenord = '" + lösenord + "'";
+                String fråga5 = "SELECT Namn FROM mibdb.Agent WHERE administrator = 'j' ";
+
+                String svar1 = idb.fetchSingle(fråga1);
+                String svar2 = idb.fetchSingle(fråga2);
+                String svar3 = idb.fetchSingle(fråga3);
+                String svar4 = idb.fetchSingle(fråga4);
+                String svar5 = idb.fetchSingle(fråga5);
+
+                String Resultat1 = svar1;
+                String Resultat2 = svar2;
+                String Resultat3 = svar3;
+                String Resultat4 = svar4;
+                String Resultat5 = svar5;
+
+                String Agent = "Agent";
+                String Alien = "Alien";
+                String Admin = "Admin";
+
+                if (cmbBefattning.getSelectedItem().equals(Agent) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat1) && txtLösenord.getText().equals(Resultat2)) {
+                    new AgentMenu(idb).setVisible(true);
+                    dispose();
+                } else if (cmbBefattning.getSelectedItem().equals(Alien) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat3) && txtLösenord.getText().equals(Resultat4)) {
+                    new AlienMenu(idb).setVisible(true);
+                    dispose();
+                } else if (cmbBefattning.getSelectedItem().equals(Admin) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat1) && txtLösenord.getText().equals(Resultat2) && txtAnvändarnamn.getText().equalsIgnoreCase(Resultat5)) {
+                    new AdminMenu(idb).setVisible(true);
+                    dispose();
+                } else if (cmbBefattning.getSelectedItem().equals(Admin) && txtAnvändarnamn.getText() != (Resultat5)) {
+                    JOptionPane.showMessageDialog(null, "Agenten är ej behörig ");
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Fel Användarnamn eller Lösenordet ");
+
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
     }//GEN-LAST:event_txtLösenordKeyPressed
     }
+
     /**
      * @param args the command line arguments
      */
@@ -290,7 +276,7 @@ public class Inloggtvå extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }
